@@ -41,4 +41,5 @@ urlpatterns = [
     path('auth/', include('authen.urls')),
     path('settings/', include('settings.urls')),
     path('', include(router.urls)),
+    path('facility/', include('facilities.urls')),
 ]
