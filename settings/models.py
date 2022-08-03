@@ -24,7 +24,7 @@ class CountryConfig(models.Model):
     class Meta:
         db_table = 'CountryConfig'
 
-class Levelconfig(models.Model):
+class LevelConfig(models.Model):
     country=models.ForeignKey(CountryConfig,on_delete=models.CASCADE,blank=True,null=True)
     maxpop = models.DecimalField(max_digits=10, decimal_places=0, blank=True, null=True)
     minpop = models.DecimalField(max_digits=10, decimal_places=0, blank=True, null=True)
@@ -43,4 +43,4 @@ class Levelconfig(models.Model):
     dryvolnew = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
     parent=models.ForeignKey('self',on_delete=models.CASCADE,blank=True,null=True)
     class Meta:
-        db_table = 'levelconfig'
+        db_table = 'LevelConfig'
