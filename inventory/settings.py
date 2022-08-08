@@ -64,7 +64,8 @@ SIMPLE_JWT = {
     'SLIDING_TOKEN_LIFETIME': timedelta(minutes=5),
     'SLIDING_TOKEN_REFRESH_LIFETIME': timedelta(days=1),
 }
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*','http://localhost:3000','https://invfrontdev.herokuapp.com'
+]
 
 # Application definition
 INSTALLED_APPS = [
@@ -182,7 +183,7 @@ STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CORS_ALLOWED_ORIGINS = [
-    "https://www.test-cors.org",
+    "https://www.test-cors.org",'http://localhost:3000','https://invfrontdev.herokuapp.com'
 ]
 
 # CSRF_TRUSTED_ORIGINS = [
