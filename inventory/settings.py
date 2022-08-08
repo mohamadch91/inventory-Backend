@@ -79,6 +79,7 @@ INSTALLED_APPS = [
     'django_filters',
     'authen',
     'settings',
+    'userData',
     'reports',
     'facilities',
     'corsheaders',

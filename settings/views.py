@@ -29,11 +29,15 @@ class CountryView(APIView):
     # permission_classes = (IsAuthenticated,)
 
     def post(self, request):
-        serializer =   countrySerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        query_set=CountryConfig.objects.all()
+        if(len(query_set)>1):
+            return Response("Country exist",status=status.HTTP_400_BAD_REQUEST)
+        else:    
+            serializer =   countrySerializer(data=request.data)
+            if serializer.is_valid():
+                serializer.save()
+                return Response(serializer.data, status=status.HTTP_201_CREATED)
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     def get(self, request):
         country = CountryConfig.objects.all()
@@ -41,7 +45,6 @@ class CountryView(APIView):
         return Response(serializer.data)
 
     def put(self, request, ):
-        print(request)
         id=request.data["id"]
         country = get_object_or_404(CountryConfig, id=id)
         serializer =  countrySerializer(country, data=request.data)
@@ -59,11 +62,22 @@ class LevelView(APIView):
     # permission_classes = (IsAuthenticated,)
 
     def post(self, request):
-        serializer =   levelSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        level=0
+        country=CountryConfig.objects.all()
+        #check country levels
+        for i in country:
+            x=countrySerializer(i,many=False)
+            level=x.data["level"]
+
+        if(request.data["number"]>level):
+            return Response("Level is greater than country level",status=status.HTTP_400_BAD_REQUEST)
+
+        else:
+            serializer =   levelSerializer(data=request.data)
+            if serializer.is_valid():
+                serializer.save()
+                return Response(serializer.data, status=status.HTTP_201_CREATED)
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     def get(self, request):
         level = LevelConfig.objects.all()
@@ -84,3 +98,4 @@ class LevelView(APIView):
         level = get_object_or_404(LevelConfig, id=id)
         level.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)        
+        

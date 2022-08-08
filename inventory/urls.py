@@ -42,4 +42,5 @@ urlpatterns = [
     path('settings/', include('settings.urls')),
     path('', include(router.urls)),
     path('facility/', include('facilities.urls')),
+    path('user-data/', include('userData.urls')),
 ]

@@ -28,12 +28,11 @@ class CountryConfig(models.Model):
 
 class LevelConfig(models.Model):
     country=models.ForeignKey(CountryConfig,on_delete=models.CASCADE,blank=True,null=True)
+    number=models.IntegerField(blank=True,null=True)
     maxpop = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
     minpop = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
     uppervol = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
     undervol = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
-    maxpopu1 = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
-    minpopu1 = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
     m25vol = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
     m70vol = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
     m25volnew = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)

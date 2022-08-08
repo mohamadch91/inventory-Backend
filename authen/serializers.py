@@ -14,7 +14,7 @@ import json
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['pk','password','name','facilityid','username','idnumber','position','phone','facadmin','itemadmin','reportadmin','useradmin','created_at','updated_at']
+        fields = ['pk','password','is_superuser','name','facilityid','username','idnumber','position','phone','facadmin','itemadmin','reportadmin','useradmin','created_at','updated_at']
         extra_kwargs = {'password': {'write_only': True}}
 
 # Register Serializer
@@ -22,7 +22,7 @@ class RegisterSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = User
-        fields = ['pk','password','name','facilityid','username','idnumber','position','phone','facadmin','itemadmin','reportadmin','useradmin','created_at','updated_at']
+        fields = ['pk','password','is_superuser','name','facilityid','username','idnumber','position','phone','facadmin','itemadmin','reportadmin','useradmin','created_at','updated_at']
         extra_kwargs = {'password': {'write_only': True}}
     def create(self, validated_data):
         user = User.objects.create_user(**validated_data)
@@ -32,7 +32,7 @@ class RegisterSerializer(serializers.ModelSerializer):
 class UpdateUserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['pk','password','name','facilityid','username','idnumber','position','phone','facadmin','itemadmin','reportadmin','useradmin','created_at','updated_at']
+        fields = ['pk','password','is_superuser','name','facilityid','username','idnumber','position','phone','facadmin','itemadmin','reportadmin','useradmin','created_at','updated_at']
         extra_kwargs = {
             'first_name': {'required': True},
             'last_name': {'required': True},
