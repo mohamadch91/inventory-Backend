@@ -30,7 +30,8 @@ class CountryView(APIView):
 
     def post(self, request):
         query_set=CountryConfig.objects.all()
-        if(len(query_set)>1):
+        print(len(query_set))
+        if(len(query_set)>0):
             return Response("Country exist",status=status.HTTP_400_BAD_REQUEST)
         else:    
             serializer =   countrySerializer(data=request.data)
