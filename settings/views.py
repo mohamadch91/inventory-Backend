@@ -68,10 +68,9 @@ class LevelView(APIView):
         #check country levels
         for i in country:
             x=countrySerializer(i,many=False)
-            print(x)
             level=x.data["levels"]
-        print(level)
-        if(request.data["id"]>level):
+        count=len(LevelConfig.objects.all())
+        if(count==level):
             return Response("Level is greater than country level",status=status.HTTP_400_BAD_REQUEST)
 
         else:
