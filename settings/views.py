@@ -71,7 +71,7 @@ class LevelView(APIView):
             print(x)
             level=x.data["levels"]
         print(level)
-        if(request.data["number"]>level):
+        if(request.data["id"]>level):
             return Response("Level is greater than country level",status=status.HTTP_400_BAD_REQUEST)
 
         else:
