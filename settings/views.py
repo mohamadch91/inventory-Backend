@@ -86,13 +86,19 @@ class LevelView(APIView):
         return Response(serializer.data)
 
     def put(self, request, *args, **kwargs):
-        id=request.data["id"]
-        level = get_object_or_404(LevelConfig, id=id)
-        serializer =  levelSerializer(level, data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        # rows=request.data["rows"]
+        # print(rows)
+        res=[]
+        for x in request.data:      
+            # print(x)  
+            level = get_object_or_404(LevelConfig, id=x["id"])
+            serializer =  levelSerializer(level, data=x)
+            if serializer.is_valid():
+                serializer.save()
+                res.append(serializer.data)
+            else:    
+                return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        return Response(res,status=status.HTTP_200_OK)    
 
     def delete(self, request, *args, **kwargs):
         id=request.data["id"]
