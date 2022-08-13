@@ -44,4 +44,5 @@ urlpatterns = [
     path('user-data/', include('userData.urls')),
     path('items/', include('items.urls')),
     path('related/', include('related.urls')),
+    path('help/', include('help.urls')),
 ]
