@@ -6,3 +6,4 @@ from .models import *
 
 admin.site.register(ItemClass)
 admin.site.register(ItemType)
+admin.site.register(Itemtypelevel)
