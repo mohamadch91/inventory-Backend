@@ -82,6 +82,7 @@ INSTALLED_APPS = [
     'settings',
     'userData',
     'reports',
+    'items',
     'facilities',
     'corsheaders',
     'rest_framework_simplejwt.token_blacklist',

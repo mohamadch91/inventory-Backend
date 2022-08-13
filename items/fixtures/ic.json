@@ -1,0 +1,102 @@
+[
+  {
+    "model": "items.ItemClass",
+    "pk": 1,
+    "fields": {
+      "id": 1,
+      "title": "Cold chain",
+      "code": "AB",
+      "active": true,
+      "created_at": "2014-10-01T00:00:00",
+      "updated_at": "2014-10-01T00:00:00"
+    }
+  },
+  {
+    "model": "items.ItemClass",
+    "pk": 2,
+    "fields": {
+      "title": "Temperature monitoring",
+      "code": "AC",
+      "active": true,
+      "created_at": "2014-10-01T00:00:00",
+      "updated_at": "2014-10-01T00:00:00"
+    }
+  },
+  {
+    "model": "items.ItemClass",
+    "pk": 3,
+    "fields": {
+      "title": "Electrical",
+      "code": "AD",
+      "active": true,
+      "created_at": "2014-10-01T00:00:00",
+      "updated_at": "2014-10-01T00:00:00"
+    }
+  },
+  {
+    "model": "items.ItemClass",
+    "pk": 4,
+    "fields": {
+      "title": "Transport",
+      "code": "AE",
+      "active": true,
+         "created_at": "2014-10-01T00:00:00",
+      "updated_at": "2014-10-01T00:00:00"
+    }
+  },
+  {
+    "model": "items.ItemClass",
+    "pk": 5,
+    "fields": {
+      "title": "Auxiliary",
+      "code": "AF",
+      "active": true,
+         "created_at": "2014-10-01T00:00:00",
+      "updated_at": "2014-10-01T00:00:00"
+    }
+  },
+  {
+    "model": "items.ItemClass",
+    "pk": 6,
+    "fields": {
+      "title": "Other Class 1",
+      "code": "AG",
+      "active": true,
+         "created_at": "2014-10-01T00:00:00",
+      "updated_at": "2014-10-01T00:00:00"
+    }
+  },
+  {
+    "model": "items.ItemClass",
+    "pk": 7,
+    "fields": {
+      "title": "Other Class 2",
+      "code": "AH",
+      "active": true,
+         "created_at": "2014-10-01T00:00:00",
+      "updated_at": "2014-10-01T00:00:00"
+    }
+  },
+  {
+    "model": "items.ItemClass",
+    "pk": 9,
+    "fields": {
+      "title": "Other Class 3",
+      "code": "AJ",
+      "active": true,
+         "created_at": "2014-10-01T00:00:00",
+      "updated_at": "2014-10-01T00:00:00"
+    }
+  },
+    {
+      "model": "items.ItemClass",
+      "pk": 8,
+      "fields": {
+        "title": "Other Class 4",
+        "code": "AK",
+        "active": true,
+           "created_at": "2014-10-01T00:00:00",
+      "updated_at": "2014-10-01T00:00:00"
+      }
+    }
+]
