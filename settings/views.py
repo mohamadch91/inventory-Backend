@@ -26,7 +26,7 @@ from django.shortcuts import get_object_or_404
 
 
 class CountryView(APIView):
-    # permission_classes = (IsAuthenticated,)
+    permission_classes = (IsAuthenticated,)
 
     def post(self, request):
         query_set=CountryConfig.objects.all()
@@ -60,7 +60,7 @@ class CountryView(APIView):
         country.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 class LevelView(APIView):
-    # permission_classes = (IsAuthenticated,)
+    permission_classes = (IsAuthenticated,)
 
     def post(self, request):
         level=0

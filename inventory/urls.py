@@ -43,4 +43,5 @@ urlpatterns = [
     path('', include(router.urls)),
     path('user-data/', include('userData.urls')),
     path('items/', include('items.urls')),
+    path('related/', include('related.urls')),
 ]

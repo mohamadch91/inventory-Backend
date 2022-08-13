@@ -28,4 +28,3 @@ class Itemtypelevel(models.Model):
     active=models.BooleanField(default=True)
     level = models.ForeignKey(LevelConfig,blank=True, null=True, on_delete=models.CASCADE)
    
-

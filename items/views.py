@@ -31,7 +31,7 @@ from django.shortcuts import get_object_or_404
 
 
 class itemclassView(APIView):
-    # permission_classes = (IsAuthenticated,)
+    permission_classes = (IsAuthenticated,)
 
     def post(self, request):
  
@@ -61,7 +61,7 @@ class itemclassView(APIView):
         country.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 class itemtypeView(APIView):
-    # permission_classes = (IsAuthenticated,)
+    permission_classes = (IsAuthenticated,)
 
     def post(self, request):
 
@@ -92,13 +92,18 @@ class itemtypeView(APIView):
 class itemtypeByclass(generics.ListAPIView):
     serializer_class = itemtypeSerializer
     queryset = ItemType.objects.all()
-    # permission_classes = (IsAuthenticated,)
+    permission_classes = (IsAuthenticated,)
     def get(self, request):
         id=request.query_params.get('id', None)
-        item_class=get_object_or_404(ItemClass, id=id)
-        item_type=ItemType.objects.filter(itemclass=item_class,active=True)
-        serializer =  itemtypeSerializer(item_type, many=True)
-        return Response(serializer.data,status=status.HTTP_200_OK)        
+        if(id==None):
+            item_type=ItemType.objects.filter(active=True)
+            serializer =  itemtypeSerializer(item_type, many=True)
+            return Response(serializer.data,status=status.HTTP_200_OK)      
+        else:
+            item_class=get_object_or_404(ItemClass, id=id)
+            item_type=ItemType.objects.filter(itemclass=item_class,active=True)
+            serializer =  itemtypeSerializer(item_type, many=True)
+            return Response(serializer.data,status=status.HTTP_200_OK)        
 
 class itemTypeinLevels(APIView):
 
