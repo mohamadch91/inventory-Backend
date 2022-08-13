@@ -14,9 +14,21 @@ class relatedFacility(models.Model):
     disabled=models.BooleanField(default=False)
  
 class Field(models.Model):
+    class topics(models.TextChoices):
+        other = 'Type'
+        Physical  = 'Physical fields '
+        Condition='Condition fields'
+        cold = 'Fields specific to cold chain equipment'
+        Electrical ='Electrical fields'
+        Financial='Financial fields'
+        Different='Different codes'
+        PQS='PQS/PIS fields'
+        Dry='Dry store fields'
+        Add='Other additional and optional fields'
+
     id=models.AutoField(primary_key=True)
     name=models.CharField(max_length=20)
-    topic=models.CharField(max_length=20)
+    topic=models.CharField(max_length=20,choices=topics.choices)
     type=models.CharField(max_length=20)
 
 class relatedItemType(models.Model):

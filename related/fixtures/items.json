@@ -1,0 +1,11 @@
+[
+  {
+    "model": "related.Field",
+    "pk": 1,
+    "fields": {
+      "name": "Facility code",
+      "type": "uniqe",
+      "topic":"add"
+    }
+  },
+]
