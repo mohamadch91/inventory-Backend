@@ -4,8 +4,8 @@
     "pk": 1,
     "fields": {
       "id": 1,
-      "title": "Cold chain",
-      "code": "AB",
+      "title": "Cold chain – Active equipment",
+      "code": "ACC",
       "active": true,
       "created_at": "2014-10-01T00:00:00",
       "updated_at": "2014-10-01T00:00:00"
@@ -15,8 +15,8 @@
     "model": "items.ItemClass",
     "pk": 2,
     "fields": {
-      "title": "Temperature monitoring",
-      "code": "AC",
+      "title": "Cold chain – Passive equipment",
+      "code": "PCC",
       "active": true,
       "created_at": "2014-10-01T00:00:00",
       "updated_at": "2014-10-01T00:00:00"
@@ -26,8 +26,8 @@
     "model": "items.ItemClass",
     "pk": 3,
     "fields": {
-      "title": "Electrical",
-      "code": "AD",
+      "title": "Temperature monitoring devices ",
+      "code": "TEM",
       "active": true,
       "created_at": "2014-10-01T00:00:00",
       "updated_at": "2014-10-01T00:00:00"
@@ -37,10 +37,10 @@
     "model": "items.ItemClass",
     "pk": 4,
     "fields": {
-      "title": "Transport",
-      "code": "AE",
+      "title": "Electrical equipment",
+      "code": "ELC",
       "active": true,
-         "created_at": "2014-10-01T00:00:00",
+      "created_at": "2014-10-01T00:00:00",
       "updated_at": "2014-10-01T00:00:00"
     }
   },
@@ -48,10 +48,10 @@
     "model": "items.ItemClass",
     "pk": 5,
     "fields": {
-      "title": "Auxiliary",
-      "code": "AF",
+      "title": "Electronic devices",
+      "code": "ELT",
       "active": true,
-         "created_at": "2014-10-01T00:00:00",
+      "created_at": "2014-10-01T00:00:00",
       "updated_at": "2014-10-01T00:00:00"
     }
   },
@@ -59,10 +59,10 @@
     "model": "items.ItemClass",
     "pk": 6,
     "fields": {
-      "title": "Other Class 1",
-      "code": "AG",
+      "title": "Transport means",
+      "code": "TRN",
       "active": true,
-         "created_at": "2014-10-01T00:00:00",
+      "created_at": "2014-10-01T00:00:00",
       "updated_at": "2014-10-01T00:00:00"
     }
   },
@@ -70,10 +70,21 @@
     "model": "items.ItemClass",
     "pk": 7,
     "fields": {
-      "title": "Other Class 2",
-      "code": "AH",
+      "title": "Other Class 1",
+      "code": "IC1",
       "active": true,
-         "created_at": "2014-10-01T00:00:00",
+      "created_at": "2014-10-01T00:00:00",
+      "updated_at": "2014-10-01T00:00:00"
+    }
+  },
+  {
+    "model": "items.ItemClass",
+    "pk": 8,
+    "fields": {
+      "title": "Other Class 2",
+      "code": "IC2",
+      "active": true,
+      "created_at": "2014-10-01T00:00:00",
       "updated_at": "2014-10-01T00:00:00"
     }
   },
@@ -82,21 +93,21 @@
     "pk": 9,
     "fields": {
       "title": "Other Class 3",
-      "code": "AJ",
+      "code": "IC3",
       "active": true,
-         "created_at": "2014-10-01T00:00:00",
+      "created_at": "2014-10-01T00:00:00",
       "updated_at": "2014-10-01T00:00:00"
     }
   },
-    {
-      "model": "items.ItemClass",
-      "pk": 8,
-      "fields": {
-        "title": "Other Class 4",
-        "code": "AK",
-        "active": true,
-           "created_at": "2014-10-01T00:00:00",
+  {
+    "model": "items.ItemClass",
+    "pk": 10,
+    "fields": {
+      "title": "Other Class 4",
+      "code": "IC4",
+      "active": true,
+      "created_at": "2014-10-01T00:00:00",
       "updated_at": "2014-10-01T00:00:00"
-      }
     }
+  }
 ]
