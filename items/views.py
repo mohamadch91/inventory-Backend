@@ -48,7 +48,7 @@ class itemclassView(APIView):
 
     def put(self, request, ):
         id=request.data["id"]
-        country = get_object_or_404(itemclassSerializer, id=id)
+        country = get_object_or_404(ItemClass, id=id)
         serializer =  itemclassSerializer(country, data=request.data)
         if serializer.is_valid():
             serializer.save()
