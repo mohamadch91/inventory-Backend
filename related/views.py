@@ -76,8 +76,6 @@ class relatedItemTypeView(APIView):
             ans=serializer.data
         final_ans=[]    
         for x in ans:
-            x['field']=x['field']['id']
-            x['itemtype']=x['itemtype']['id']
             field=get_object_or_404(Field, id=x['field'])
             itemtype=get_object_or_404(ItemType, id=x['itemtype'])
             field_serilize=fieldSerializer(field)
@@ -88,40 +86,46 @@ class relatedItemTypeView(APIView):
         return Response(final_ans,status=status.HTTP_200_OK)    
 
     def put(self,request):
+        ans=[]
         for x in request.data:
             enable=x['enable']
             if(enable):
                 field=get_object_or_404(Field, id=x['fieldid'])
                 itemtype=get_object_or_404(ItemType, id=x['itemtypeid'])
-                obj=relatedItemType.objects.filter(field=field, itemtype=itemtype)
+                obj=relatedItemType.objects.filter(field=x['fieldid'], itemtype=x['itemtypeid'])
                 if(len(obj)==0):
                     data={
-                        'field':field,
-                        'itemtype':itemtype ,
+                        'field':field.id,
+                        'itemtype':itemtype.id ,
                         'required':x['required']
                     }
                     serializer = relatedItemTypeSerilizer(data=data)
                     if serializer.is_valid():
                         serializer.save()
-                        return Response(serializer.data,status=status.HTTP_200_OK)
+                        ans.append(serializer.data)
                     else:
                         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
                 else:
-                    obj=relatedItemType.objects.get(field=field, itemtype=itemtype)
-                    ser=relatedItemTypeSerilizer(obj, data=x['required'])
-                    if ser.is_valid():
-                        ser.save()
-                        return Response(ser.data,status=status.HTTP_200_OK)
-                    else:
-                        return Response(ser.errors, status=status.HTTP_400_BAD_REQUEST)
+                    obj=relatedItemType.objects.filter(field=x['fieldid'], itemtype=x['itemtypeid'])
+                    obj.update(required=x['required'])
+                    # data={
+                    #     "required":x['required'],
+                    #     "itemtype":itemtype.id,
+                    #     "field":field.id
+                    # }
+                    # ser=relatedItemTypeSerilizer(obj, data=data)
+                    # if ser.is_valid():
+                    #     ser.save()
+                    #     ans.append(ser.data)
+                    # else:
+                    #     return Response(ser.errors, status=status.HTTP_400_BAD_REQUEST)
+                        
             else:
-                field=get_object_or_404(Field, id=x['fieldid'])
-                itemtype=get_object_or_404(ItemType, id=x['itemtypeid'])
-                obj=relatedItemType.objects.filter(field=field, itemtype=itemtype)
+
+                obj=relatedItemType.objects.filter(field=x['fieldid'], itemtype=x['itemtypeid'])
                 if(len(obj)==1):
                     obj.delete()
-                return Response(status=status.HTTP_200_OK)
-
+        return Response(ans,status=status.HTTP_200_OK)
 
 
 
