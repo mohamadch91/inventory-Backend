@@ -112,41 +112,49 @@ class itemtypeByclass(generics.ListAPIView):
 class itemTypeinLevels(APIView):
 
     def put(self,request):
-        #if not exist add to data base
-        if('id' not in request.data):
-            serializer =  itemtypelevelSerializer(data=request.data)
-            if serializer.is_valid():
-                serializer.save()
-                return Response(serializer.data, status=status.HTTP_201_CREATED)
-            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-          
-        else:
-            item_type=get_object_or_404(Itemtypelevel, id=request.data["id"])
-            serializer =  itemtypelevelSerializer(item_type, data=request.data)
-            if serializer.is_valid():
-                serializer.save()
-                return Response(serializer.data)
-            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)      
+        ans=[]
+        for x in request.data:
+            if('id' not in x):
+                serializer =  itemtypelevelSerializer(data=x)
+                if serializer.is_valid():
+                    serializer.save()
+                    ans.append(serializer.data)
+                else:    
+                    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+            
+            else:
+                item_type=get_object_or_404(Itemtypelevel, id=x["id"])
+                serializer =  itemtypelevelSerializer(item_type, data=x)
+                if serializer.is_valid():
+                    serializer.save()
+                    ans.append(serializer.data)
+                else:    
+                    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)  
+        return Response(ans,status=status.HTTP_200_OK)                
+        
     def get(self,request):
         level=request.query_params.get('level', None)
         res=[]
         if(level==None): 
             level = Itemtypelevel.objects.all()
-            for x in level:
-                serializer =  itemtypelevelSerializer(x)
-                print(serializer.data['itemtypeid'])
-                itemtype=ItemType.objects.get(id=serializer.data['itemtypeid'])
-                itemtype=itemtypeSerializer(itemtype,many=False)
-                lev=LevelConfig.objects.get(id=serializer.data['level'])
-                lev=levelSerializer(lev,many=False)
-                data={
-                    "id":serializer.data["id"],
-                    "active":serializer.data["active"],
-                    "itemtype":itemtype.data,
-                    "level":lev.data,
-                }
-                res.append(data)
-            return Response(res)
+            print(len(level))
+            
+            if(level!=None):
+                for x in level:
+                    serializer =  itemtypelevelSerializer(x)
+                    print(serializer.data)
+                    itemtype=ItemType.objects.get(id=serializer.data['itemtypeid'])
+                    itemtype=itemtypeSerializer(itemtype,many=False)
+                    lev=LevelConfig.objects.get(id=serializer.data['level'])
+                    lev=levelSerializer(lev,many=False)
+                    data={
+                        "id":serializer.data["id"],
+                        "active":serializer.data["active"],
+                        "itemtype":itemtype.data,
+                        "level":lev.data,
+                    }
+                    res.append(data)
+                return Response(res)
         else:
             level = Itemtypelevel.objects.filter(level=level)
             for x in level:
