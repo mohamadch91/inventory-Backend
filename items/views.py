@@ -92,18 +92,22 @@ class itemtypeView(APIView):
 class itemtypeByclass(generics.ListAPIView):
     serializer_class = itemtypeSerializer
     queryset = ItemType.objects.all()
-    permission_classes = (IsAuthenticated,)
+    # permission_classes = (IsAuthenticated,)
     def get(self, request):
-        id=request.query_params.get('id', None)
-        if(id==None):
-            item_type=ItemType.objects.filter(active=True)
-            serializer =  itemtypeSerializer(item_type, many=True)
-            return Response(serializer.data,status=status.HTTP_200_OK)      
-        else:
-            item_class=get_object_or_404(ItemClass, id=id)
-            item_type=ItemType.objects.filter(itemclass=item_class,active=True)
-            serializer =  itemtypeSerializer(item_type, many=True)
-            return Response(serializer.data,status=status.HTTP_200_OK)        
+            ans=[]
+            item_class=ItemClass.objects.all()
+            for x in item_class:
+                cser=itemclassSerializer(x)
+                item_type=ItemType.objects.filter(itemclass=x.id,active=True)
+
+                serializer =  itemtypeSerializer(item_type, many=True)
+                data={
+                    "item_class":cser.data,
+                    "item_type":serializer.data
+                }
+                print(data)
+                ans.append(data)
+            return Response(ans,status=status.HTTP_200_OK)        
 
 class itemTypeinLevels(APIView):
 
