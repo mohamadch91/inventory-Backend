@@ -6,17 +6,26 @@ from items.models import ItemType
 # Create your models here.
 
 class relatedFacility(models.Model):
+    class topics(models.TextChoices):
+        gen = 'Facility genera information'
+        ser  = 'Information about services provided'
+        phy='Facility physical conditions'
+        HR = 'Human resource information'
+        other ='Other optional fields'
+        other1='Other'
+
     id=models.AutoField(primary_key=True)
     name=models.CharField(max_length=20)
     active=models.BooleanField(default=True)
     required=models.BooleanField(default=False)
+    topic=models.CharField(max_length=20,choices=topics.choices,null=True,default=topics.gen)
     type=models.CharField(max_length=20)
     disabled=models.BooleanField(default=False)
  
 class Field(models.Model):
     class topics(models.TextChoices):
         other = 'Type'
-        Physical  = 'Physical fields '
+        Physical  = 'Physical fields'
         Condition='Condition fields'
         cold = 'Fields specific to cold chain equipment'
         Electrical ='Electrical fields'

@@ -1,0 +1,761 @@
+[
+   [
+      {
+         "model": "related.relatedFacility",
+         "pk": 1,
+         "fields": {
+            "name": "Facility code",
+            "type": "text",
+            "topic": "top",
+            "disabled": true
+         }
+      }
+   ],
+   [
+      {
+         "model": "related.relatedFacility",
+         "pk": 2,
+         "fields": {
+            "name": "Facility name",
+            "type": "text",
+            "topic": "top",
+            "disabled": true
+         }
+      }
+   ],
+   [
+      {
+         "model": "related.relatedFacility",
+         "pk": 3,
+         "fields": {
+            "name": "Level",
+            "type": "text",
+            "topic": "top",
+            "disabled": true
+         }
+      }
+   ],
+   [
+      {
+         "model": "related.relatedFacility",
+         "pk": 4,
+         "fields": {
+            "name": "Facility types (Parameter)",
+            "type": "text",
+            "topic": "top",
+            "disabled": true
+         }
+      }
+   ],
+   [
+      {
+         "model": "related.relatedFacility",
+         "pk": 5,
+         "fields": {
+            "name": "Number of general populations served by this facility:",
+            "type": "text",
+            "topic": "top",
+            "disabled": true
+         }
+      }
+   ],
+   [
+      {
+         "model": "related.relatedFacility",
+         "pk": 6,
+         "fields": {
+            "name": "Number of under-1 populations served by this facility:",
+            "type": "text",
+            "topic": "top",
+            "disabled": true
+         }
+      }
+   ],
+   [
+      {
+         "model": "related.relatedFacility",
+         "pk": 7,
+         "fields": {
+            "name": "Number of lower-level facilities served by tis facility",
+            "type": "text",
+            "topic": "top",
+            "disabled": true
+         }
+      }
+   ],
+   [
+      {
+         "model": "related.relatedFacility",
+         "pk": 8,
+         "fields": {
+            "name": "Last change on:",
+            "type": "text",
+            "topic": "top",
+            "disabled": true
+         }
+      }
+   ],
+   [
+      {
+         "model": "related.relatedFacility",
+         "pk": 9,
+         "fields": {
+            "name": "Date",
+            "type": "text",
+            "topic": "top",
+            "disabled": true
+         }
+      }
+   ],
+   [
+      {
+         "model": "related.relatedFacility",
+         "pk": 10,
+         "fields": {
+            "name": "Staff name completed the information:",
+            "type": "text",
+            "topic": "top",
+            "disabled": true
+         }
+      }
+   ],
+   [
+      {
+         "model": "related.relatedFacility",
+         "pk": 11,
+         "fields": {
+            "name": "State/ Province",
+            "type": "text",
+            "topic": "top",
+            "disabled": true
+         }
+      }
+   ],
+   [
+      {
+         "model": "related.relatedFacility",
+         "pk": 12,
+         "fields": {
+            "name": "Zone:",
+            "type": "text",
+            "topic": "top"
+         }
+      }
+   ],
+   [
+      {
+         "model": "related.relatedFacility",
+         "pk": 13,
+         "fields": {
+            "name": "District:",
+            "type": "text",
+            "topic": "top"
+         }
+      }
+   ],
+   [
+      {
+         "model": "related.relatedFacility",
+         "pk": 14,
+         "fields": {
+            "name": "City:",
+            "type": "text",
+            "topic": "top"
+         }
+      }
+   ],
+   [
+      {
+         "model": "related.relatedFacility",
+         "pk": 15,
+         "fields": {
+            "name": "Address:",
+            "type": "text",
+            "topic": "top"
+         }
+      }
+   ],
+   [
+      {
+         "model": "related.relatedFacility",
+         "pk": 16,
+         "fields": {
+            "name": "Postal code:",
+            "type": "text",
+            "topic": "top"
+         }
+      }
+   ],
+   [
+      {
+         "model": "related.relatedFacility",
+         "pk": 17,
+         "fields": {
+            "name": "Facility national code:",
+            "type": "text",
+            "topic": "top"
+         }
+      }
+   ],
+   [
+      {
+         "model": "related.relatedFacility",
+         "pk": 18,
+         "fields": {
+            "name": "Email address:",
+            "type": "text",
+            "topic": "top"
+         }
+      }
+   ],
+   [
+      {
+         "model": "related.relatedFacility",
+         "pk": 19,
+         "fields": {
+            "name": "Phone number:",
+            "type": "text",
+            "topic": "top"
+         }
+      }
+   ],
+   [
+      {
+         "model": "related.relatedFacility",
+         "pk": 20,
+         "fields": {
+            "name": "GPS coordinates:",
+            "type": "text",
+            "topic": "top"
+         }
+      }
+   ],
+   [
+      {
+         "model": "related.relatedFacility",
+         "pk": 21,
+         "fields": {
+            "name": "Is there any land-phone?",
+            "type": "text",
+            "topic": "top"
+         }
+      }
+   ],
+   [
+      {
+         "model": "related.relatedFacility",
+         "pk": 22,
+         "fields": {
+            "name": "Is there any internet connection?",
+            "type": "text",
+            "topic": "top"
+         }
+      }
+   ],
+   [
+      {
+         "model": "related.relatedFacility",
+         "pk": 23,
+         "fields": {
+            "name": "Year facility was opened:",
+            "type": "text",
+            "topic": "top"
+         }
+      }
+   ],
+   [
+      {
+         "model": "related.relatedFacility",
+         "pk": 24,
+         "fields": {
+            "name": "Is the facility functioning?",
+            "type": "text",
+            "topic": "top"
+         }
+      }
+   ],
+   [
+      {
+         "model": "related.relatedFacility",
+         "pk": 25,
+         "fields": {
+            "name": "Climate",
+            "type": "text",
+            "topic": "top"
+         }
+      }
+   ],
+   [
+      {
+         "model": "related.relatedFacility",
+         "pk": 26,
+         "fields": {
+            "name": "Facility ownership:",
+            "type": "text",
+            "topic": "top"
+         }
+      }
+   ],
+   [
+      {
+         "model": "related.relatedFacility",
+         "pk": 27,
+         "fields": {
+            "name": "Type of road from the higher level to this facility:",
+            "type": "text",
+            "topic": "top"
+         }
+      }
+   ],
+   [
+      {
+         "model": "related.relatedFacility",
+         "pk": 28,
+         "fields": {
+            "name": "Distance from higher level to this facility (km)",
+            "type": "text",
+            "topic": "top"
+         }
+      }
+   ],
+   [
+      {
+         "model": "related.relatedFacility",
+         "pk": 29,
+         "fields": {
+            "name": "Distance from higher level to this facility in time (hh:mm)",
+            "type": "text",
+            "topic": "top"
+         }
+      }
+   ],
+   [
+      {
+         "model": "related.relatedFacility",
+         "pk": 30,
+         "fields": {
+            "name": "Number of days facility is open per XX",
+            "type": "text",
+            "topic": "top"
+         }
+      }
+   ],
+   [
+      {
+         "model": "related.relatedFacility",
+         "pk": 31,
+         "fields": {
+            "name": "Facility working hours from: (hh:mm)",
+            "type": "text",
+            "topic": "top"
+         }
+      }
+   ],
+   [
+      {
+         "model": "related.relatedFacility",
+         "pk": 32,
+         "fields": {
+            "name": "Facility working hours to: (hh:mm)",
+            "type": "text",
+            "topic": "top"
+         }
+      }
+   ],
+   [
+      {
+         "model": "related.relatedFacility",
+         "pk": 33,
+         "fields": {
+            "name": "Mode of receiving supplies:",
+            "type": "text",
+            "topic": "top"
+         }
+      }
+   ],
+   [
+      {
+         "model": "related.relatedFacility",
+         "pk": 34,
+         "fields": {
+            "name": "Mode of transportation:",
+            "type": "text",
+            "topic": "top"
+         }
+      }
+   ],
+   [
+      {
+         "model": "related.relatedFacility",
+         "pk": 35,
+         "fields": {
+            "name": "Does facility provide immunization services?",
+            "type": "text",
+            "topic": "top"
+         }
+      }
+   ],
+   [
+      {
+         "model": "related.relatedFacility",
+         "pk": 36,
+         "fields": {
+            "name": "Number of immunization sessions per xx",
+            "type": "text",
+            "topic": "top"
+         }
+      }
+   ],
+   [
+      {
+         "model": "related.relatedFacility",
+         "pk": 37,
+         "fields": {
+            "name": "Type of immunization services:",
+            "type": "text",
+            "topic": "top"
+         }
+      }
+   ],
+   [
+      {
+         "model": "related.relatedFacility",
+         "pk": 38,
+         "fields": {
+            "name": "Does facility provide vaccination against COVID-19?",
+            "type": "text",
+            "topic": "top"
+         }
+      }
+   ],
+   [
+      {
+         "model": "related.relatedFacility",
+         "pk": 39,
+         "fields": {
+            "name": "Vaccination coverage of X1 in YY period (%)",
+            "type": "text",
+            "topic": "top"
+         }
+      }
+   ],
+   [
+      {
+         "model": "related.relatedFacility",
+         "pk": 40,
+         "fields": {
+            "name": "Vaccination coverage of X2 in YY period (%)",
+            "type": "text",
+            "topic": "top"
+         }
+      }
+   ],
+   [
+      {
+         "model": "related.relatedFacility",
+         "pk": 41,
+         "fields": {
+            "name": "Vaccination coverage of X3 in YY period (%)",
+            "type": "text",
+            "topic": "top"
+         }
+      }
+   ],
+   [
+      {
+         "model": "related.relatedFacility",
+         "pk": 42,
+         "fields": {
+            "name": "Vaccination coverage of X4 in YY period (%)",
+            "type": "text",
+            "topic": "top"
+         }
+      }
+   ],
+   [
+      {
+         "model": "related.relatedFacility",
+         "pk": 43,
+         "fields": {
+            "name": "Number of individuals vaccinated against X1 during YY period",
+            "type": "text",
+            "topic": "top"
+         }
+      }
+   ],
+   [
+      {
+         "model": "related.relatedFacility",
+         "pk": 44,
+         "fields": {
+            "name": "Number of individuals vaccinated against X2 during YY period",
+            "type": "text",
+            "topic": "top"
+         }
+      }
+   ],
+   [
+      {
+         "model": "related.relatedFacility",
+         "pk": 45,
+         "fields": {
+            "name": "Number of vaccinations against X3 during YY period",
+            "type": "text",
+            "topic": "top"
+         }
+      }
+   ],
+   [
+      {
+         "model": "related.relatedFacility",
+         "pk": 46,
+         "fields": {
+            "name": "Number of vaccinations against X4 during YY period",
+            "type": "text",
+            "topic": "top"
+         }
+      }
+   ],
+   [
+      {
+         "model": "related.relatedFacility",
+         "pk": 47,
+         "fields": {
+            "name": "Number of existing icepacks:",
+            "type": "text",
+            "topic": "top"
+         }
+      }
+   ],
+   [
+      {
+         "model": "related.relatedFacility",
+         "pk": 48,
+         "fields": {
+            "name": "Does the facility provide other services",
+            "type": "text",
+            "topic": "top"
+         }
+      }
+   ],
+   [
+      {
+         "model": "related.relatedFacility",
+         "pk": 49,
+         "fields": {
+            "name": "Other services:",
+            "type": "text",
+            "topic": "top"
+         }
+      }
+   ],
+   [
+      {
+         "model": "related.relatedFacility",
+         "pk": 50,
+         "fields": {
+            "name": "Is building condition suitable?",
+            "type": "text",
+            "topic": "top"
+         }
+      }
+   ],
+   [
+      {
+         "model": "related.relatedFacility",
+         "pk": 51,
+         "fields": {
+            "name": "Reason for building condition not suitable:",
+            "type": "text",
+            "topic": "top"
+         }
+      }
+   ],
+   [
+      {
+         "model": "related.relatedFacility",
+         "pk": 52,
+         "fields": {
+            "name": "Does the facility have stand-by generator?",
+            "type": "text",
+            "topic": "top"
+         }
+      }
+   ],
+   [
+      {
+         "model": "related.relatedFacility",
+         "pk": 53,
+         "fields": {
+            "name": "Facility power source:",
+            "type": "text",
+            "topic": "top"
+         }
+      }
+   ],
+   [
+      {
+         "model": "related.relatedFacility",
+         "pk": 54,
+         "fields": {
+            "name": "Facilities maintenance system (describe):",
+            "type": "text",
+            "topic": "top"
+         }
+      }
+   ],
+   [
+      {
+         "model": "related.relatedFacility",
+         "pk": 55,
+         "fields": {
+            "name": "Total number of staff:",
+            "type": "text",
+            "topic": "top"
+         }
+      }
+   ],
+   [
+      {
+         "model": "related.relatedFacility",
+         "pk": 56,
+         "fields": {
+            "name": "Number of vaccinators:",
+            "type": "text",
+            "topic": "top"
+         }
+      }
+   ],
+   [
+      {
+         "model": "related.relatedFacility",
+         "pk": 57,
+         "fields": {
+            "name": "Number of professional staff:",
+            "type": "text",
+            "topic": "top"
+         }
+      }
+   ],
+   [
+      {
+         "model": "related.relatedFacility",
+         "pk": 58,
+         "fields": {
+            "name": "Number of nurses:",
+            "type": "text",
+            "topic": "top"
+         }
+      }
+   ],
+   [
+      {
+         "model": "related.relatedFacility",
+         "pk": 59,
+         "fields": {
+            "name": "Number of drivers:",
+            "type": "text",
+            "topic": "top"
+         }
+      }
+   ],
+   [
+      {
+         "model": "related.relatedFacility",
+         "pk": 60,
+         "fields": {
+            "name": "Number of other staff:",
+            "type": "text",
+            "topic": "top"
+         }
+      }
+   ],
+   [
+      {
+         "model": "related.relatedFacility",
+         "pk": 61,
+         "fields": {
+            "name": "Other 1 (digit only)",
+            "type": "text",
+            "topic": "top"
+         }
+      }
+   ],
+   [
+      {
+         "model": "related.relatedFacility",
+         "pk": 62,
+         "fields": {
+            "name": "Other 2 (digit only)",
+            "type": "text",
+            "topic": "top"
+         }
+      }
+   ],
+   [
+      {
+         "model": "related.relatedFacility",
+         "pk": 63,
+         "fields": {
+            "name": "Other 3 (Yes/No)",
+            "type": "text",
+            "topic": "top"
+         }
+      }
+   ],
+   [
+      {
+         "model": "related.relatedFacility",
+         "pk": 64,
+         "fields": {
+            "name": "Other 4 (Yes/No)",
+            "type": "text",
+            "topic": "top"
+         }
+      }
+   ],
+   [
+      {
+         "model": "related.relatedFacility",
+         "pk": 65,
+         "fields": {
+            "name": "Other 5 (descriptive)",
+            "type": "text",
+            "topic": "top"
+         }
+      }
+   ],
+   [
+      {
+         "model": "related.relatedFacility",
+         "pk": 66,
+         "fields": {
+            "name": "Other 6 (descriptive)",
+            "type": "text",
+            "topic": "top"
+         }
+      }
+   ],
+   [
+      {
+         "model": "related.relatedFacility",
+         "pk": 67,
+         "fields": {
+            "name": "Remarks",
+            "type": "text",
+            "topic": "top"
+         }
+      }
+   ],
+   [
+      {
+         "model": "related.relatedFacility",
+         "pk": 68,
+         "fields": {
+            "name": "Position of staff completed this form",
+            "type": "text",
+            "topic": "top"
+         }
+      }
+   ]
+]

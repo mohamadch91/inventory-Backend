@@ -49,7 +49,15 @@ class fieldView(APIView):
     def get(self,request):
         query_set=Field.objects.all()
         serializer = fieldSerializer(query_set, many=True)
-        return Response(serializer.data)
+        return Response(serializer.data)    
+    def put(self,request):
+        id=request.data["id"]
+        country = get_object_or_404(Field, id=id)
+        serializer = fieldSerializer(country, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 class relatedItemTypeView(APIView):
