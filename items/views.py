@@ -34,7 +34,7 @@ class itemclassView(APIView):
     permission_classes = (IsAuthenticated,)
 
     def post(self, request):
- 
+
             serializer =   itemclassSerializer(data=request.data)
             if serializer.is_valid():
                 serializer.save()
@@ -61,11 +61,53 @@ class itemclassView(APIView):
         country.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 class itemtypeView(APIView):
-    permission_classes = (IsAuthenticated,)
-
+    # permission_classes = (IsAuthenticated,)
     def post(self, request):
+            active=True
+            title=None
+            havePQs=False
+            item_class=None
+            if('active' in request.data):
+                active=request.data["active"]
+            if('title' in request.data):
+                title=request.data["title"]
+            if('havePQS' in request.data):
+                havePQs=request.data["havePQs"]
+            if('itemclass' in request.data):
+                item_class=request.data["itemclass"]
 
-            serializer =   itemtypeSerializer(data=request.data)
+            obj={
+                "title":title,
+                "active":active,
+                "havePQS":havePQs,
+                "itemclass":item_class
+            }
+            item_class=ItemClass.objects.get(id=obj["itemclass"])
+            num=item_class.itemtype_set.count()
+            print(num)
+            #set code for alll item classes
+            if(item_class.id==1):
+                obj["code"]="AC"+str(num-7+1)
+            elif item_class.id==2 :
+                obj["code"]="PC"+str(num-3+1)
+            elif item_class.id==3 :
+                obj["code"]="TM"+str(num-4+1)
+            elif item_class.id==4 :
+                obj["code"]="EL"+str(num-2+1)
+            elif item_class.id==5 :
+                obj["code"]="ET"+str(num-5+1)
+            elif item_class.id==6 :
+                obj["code"]="TR"+str(num-10+1)
+            elif item_class.id==7 :
+                obj["code"]="CA"+str(num+1)
+            elif item_class.id==8 :
+                obj["code"]="CB"+str(num+1)
+            elif item_class.id==9 :
+                obj["code"]="CC"+str(num+1)
+            elif item_class.id==10 :
+                obj["code"]="CD"+str(num+1)
+                
+            serializer =  itemtypeSerializer(data=obj)
             if serializer.is_valid():
                 serializer.save()
                 return Response(serializer.data, status=status.HTTP_201_CREATED)

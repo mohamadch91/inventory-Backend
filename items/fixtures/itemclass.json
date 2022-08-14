@@ -71,7 +71,7 @@
     "pk": 7,
     "fields": {
       "title": "Other Class 1",
-      "code": "IC1",
+      "code": "ICA",
       "active": true,
       "created_at": "2014-10-01T00:00:00",
       "updated_at": "2014-10-01T00:00:00"
@@ -82,7 +82,7 @@
     "pk": 8,
     "fields": {
       "title": "Other Class 2",
-      "code": "IC2",
+      "code": "ICB",
       "active": true,
       "created_at": "2014-10-01T00:00:00",
       "updated_at": "2014-10-01T00:00:00"
@@ -93,7 +93,7 @@
     "pk": 9,
     "fields": {
       "title": "Other Class 3",
-      "code": "IC3",
+      "code": "ICC",
       "active": true,
       "created_at": "2014-10-01T00:00:00",
       "updated_at": "2014-10-01T00:00:00"
@@ -104,7 +104,7 @@
     "pk": 10,
     "fields": {
       "title": "Other Class 4",
-      "code": "IC4",
+      "code": "ICD",
       "active": true,
       "created_at": "2014-10-01T00:00:00",
       "updated_at": "2014-10-01T00:00:00"

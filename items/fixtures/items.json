@@ -1,0 +1,267 @@
+[
+  {
+    "model": "items.ItemType",
+    "pk": 1,
+    "fields": {
+      "title": "Cold room",
+      "code": "WCR",
+      "itemclass": 1
+    }
+  },
+  {
+    "model": "items.ItemType",
+    "pk": 2,
+    "fields": {
+      "title": "Freezer room",
+      "code": "WFR",
+      "itemclass": 1
+    }
+  },
+  {
+    "model": "items.ItemType",
+    "pk": 3,
+    "fields": {
+      "title": "Refrigerator",
+      "code": "REF",
+      "itemclass": 1
+    }
+  },
+  {
+    "model": "items.ItemType",
+    "pk": 4,
+    "fields": {
+      "title": "Freezer",
+      "code": "FRZ",
+      "itemclass": 1
+    }
+  },
+  {
+    "model": "items.ItemType",
+    "pk": 5,
+    "fields": {
+      "title": "Combined refrigerator and freezer",
+      "code": "CFR",
+      "itemclass": 1
+    }
+  },
+  {
+    "model": "items.ItemType",
+    "pk": 6,
+    "fields": {
+      "title": "Ultra cold freezer (-70 C)",
+      "code": "UFR",
+      "itemclass": 1
+    }
+  },
+  {
+    "model": "items.ItemType",
+    "pk": 7,
+    "fields": {
+      "title": "Icepack freezer",
+      "code": "IFR",
+      "itemclass": 1
+    }
+  },
+  {
+    "model": "items.ItemType",
+    "pk": 8,
+    "fields": {
+      "title": "Cold boc",
+      "code": "CBX",
+      "itemclass": 2
+    }
+  },
+  {
+    "model": "items.ItemType",
+    "pk": 9,
+    "fields": {
+      "title": "Vaccine carrier",
+      "code": "VCX",
+      "itemclass": 2
+    }
+  },
+  {
+    "model": "items.ItemType",
+    "pk": 10,
+    "fields": {
+      "title": "Thermos",
+      "code": "TRM",
+      "itemclass": 2
+    }
+  },
+  {
+    "model": "items.ItemType",
+    "pk": 11,
+    "fields": {
+      "title": "Thermometer",
+      "code": "THR",
+      "itemclass": 3
+    }
+  },
+  {
+    "model": "items.ItemType",
+    "pk": 12,
+    "fields": {
+      "title": "Dial thermometer",
+      "code": "DTH",
+      "itemclass": 3
+    }
+  },
+  {
+    "model": "items.ItemType",
+    "pk": 13,
+    "fields": {
+      "title": "Remote temperature monitoring device",
+      "code": "RTM",
+      "itemclass": 3
+    }
+  },
+  {
+    "model": "items.ItemType",
+    "pk": 14,
+    "fields": {
+      "title": "Electronic temperature monitoring device",
+      "code": "ETM",
+      "itemclass": 3
+    }
+  },
+  {
+    "model": "items.ItemType",
+    "pk": 15,
+    "fields": {
+      "title": "Generator",
+      "code": "GEN",
+      "itemclass": 4
+    }
+  } ,{
+    "model": "items.ItemType",
+    "pk": 16,
+    "fields": {
+      "title": "Voltage regulator",
+      "code": "VLR",
+      "itemclass": 4
+    }
+  },
+    {
+      "model": "items.ItemType",
+      "pk": 17,
+      "fields": {
+        "title": "Computer",
+        "code": "COP",
+        "itemclass": 5
+      }
+    }
+    ,  {
+      "model": "items.ItemType",
+      "pk": 18,
+      "fields": {
+        "title": "Laptop",
+        "code": "PCS",
+        "itemclass": 5
+      }
+    },  {
+      "model": "items.ItemType",
+      "pk": 19,
+      "fields": {
+        "title": "Printer",
+        "code": "PRT",
+        "itemclass": 5
+      }
+    },  {
+      "model": "items.ItemType",
+      "pk": 20,
+      "fields": {
+        "title": "UPS",
+        "code": "UPS",
+        "itemclass": 5
+      }
+    },  {
+      "model": "items.ItemType",
+      "pk": 21,
+      "fields": {
+        "title": "Mouse",
+        "code": "MOS",
+        "itemclass": 5
+      }
+    },  {
+      "model": "items.ItemType",
+      "pk": 22,
+      "fields": {
+        "title": "Car",
+        "code": "CAR",
+        "itemclass": 6
+      }
+    },  {
+      "model": "items.ItemType",
+      "pk": 23,
+      "fields": {
+        "title": "Van",
+        "code": "VAN",
+        "itemclass": 6
+      }
+    },  {
+      "model": "items.ItemType",
+      "pk": 24,
+      "fields": {
+        "title": "Truck",
+        "code": "TRC",
+        "itemclass": 6
+      }
+    },    {
+      "model": "items.ItemType",
+      "pk": 25,
+      "fields": {
+        "title": "Animal",
+        "code": "ANI",
+        "itemclass": 6
+      }
+    },  {
+      "model": "items.ItemType",
+      "pk": 26,
+      "fields": {
+        "title": "Refrigerated vehicle",
+        "code": "RVE",
+        "itemclass": 6
+      }
+    },  {
+      "model": "items.ItemType",
+      "pk": 27,
+      "fields": {
+        "title": "Boat",
+        "code": "BOT",
+        "itemclass": 6
+      }
+    },  {
+      "model": "items.ItemType",
+      "pk": 28,
+      "fields": {
+        "title": "Airplane",
+        "code": "AIR",
+        "itemclass": 6
+      }
+    },  {
+      "model": "items.ItemType",
+      "pk": 29,
+      "fields": {
+        "title": "Dron",
+        "code": "DRN",
+        "itemclass": 6
+      }
+    },  {
+      "model": "items.ItemType",
+      "pk": 30,
+      "fields": {
+        "title": "Motorcycle",
+        "code": "MOC",
+        "itemclass": 6
+      }
+    },  {
+      "model": "items.ItemType",
+      "pk": 31,
+      "fields": {
+        "title": "Bicycle",
+        "code": "BIC",
+        "itemclass": 6
+      }
+    }
+]
