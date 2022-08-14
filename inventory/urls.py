@@ -45,4 +45,5 @@ urlpatterns = [
     path('items/', include('items.urls')),
     path('related/', include('related.urls')),
     path('help/', include('help.urls')),
+    path('pqs/',include('PQS.urls')),
 ]

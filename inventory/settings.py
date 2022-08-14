@@ -85,6 +85,7 @@ INSTALLED_APPS = [
     'items',
     'related',
     'help',
+    'PQS',
     'facilities',
     'corsheaders',
     'rest_framework_simplejwt.token_blacklist',

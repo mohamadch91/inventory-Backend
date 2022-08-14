@@ -45,7 +45,7 @@ class relatedfacilityView(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class fieldView(APIView):
-    # permission_classes = (IsAuthenticated,)
+    permission_classes = (IsAuthenticated,)
     def get(self,request):
         query_set=Field.objects.all()
         serializer = fieldSerializer(query_set, many=True)
@@ -61,7 +61,7 @@ class fieldView(APIView):
 
 
 class relatedItemTypeView(APIView):
-    # permission_classes = (IsAuthenticated,)
+    permission_classes = (IsAuthenticated,)
     def get(self,request):
         id=request.query_params.get('id', None)
         ans=None
