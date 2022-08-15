@@ -132,41 +132,56 @@ class relatedItemTypeView(APIView):
 class paramView(APIView):
     # permission_classes = (IsAuthenticated,)
     def get(self,request):
-        facility=[]
-        item=[]
-        facility_param=facilityParam.objects.all()
-        item_param=itemParam.objects.all()
-        for x in facility_param:
-            field=get_object_or_404(relatedFacility, id=x.fieldid.id)
-            field_ser=relatedfacilitySerilizer(field)
-            name=field_ser.data['name']
-            description=facilityParamDescription.objects.filter(paramid=x.id)
-            description_ser=facilityParamDescriptionSerilizer(description, many=True)
-            ans={
-                "id":x.id,
-                "name":name,
-                "order":x.order,
-                "description":description_ser.data
+        id=request.query_params.get('id', None)
+        type=request.query_params.get('type', None)
+        if(id==None):
+            facility=[]
+            item=[]
+            facility_param=facilityParam.objects.all()
+            item_param=itemParam.objects.all()
+            for x in facility_param:
+                field=get_object_or_404(relatedFacility, id=x.fieldid.id)
+                field_ser=relatedfacilitySerilizer(field)
+                name=field_ser.data['name']
+                description=facilityParamDescription.objects.filter(paramid=x.id)
+                description_ser=facilityParamDescriptionSerilizer(description, many=True)
+                ans={
+                    "id":x.id,
+                    "name":name,
+                    "order":x.order,
+                    "description":len(description_ser.data)
+                }
+                facility.append(ans)
+            for x in item_param:
+                field=get_object_or_404(Field, id=x.fieldid.id)
+                field_ser=fieldSerializer(field)
+                name=field_ser.data['name']
+                description=itemParamDescription.objects.filter(paramid=x.id)
+                description_ser=itemParamDescriptionSerilizer(description, many=True)
+                ans={
+                    "id":x.id,
+                    "name":name,
+                    "order":x.order,
+                    "description":len(description_ser.data)
+                }
+                item.append(ans)    
+            final_ans={
+                "facility":facility,
+                "item":item
             }
-            facility.append(ans)
-        for x in item_param:
-            field=get_object_or_404(Field, id=x.fieldid.id)
-            field_ser=fieldSerializer(field)
-            name=field_ser.data['name']
-            description=itemParamDescription.objects.filter(paramid=x.id)
-            description_ser=itemParamDescriptionSerilizer(description, many=True)
-            ans={
-                "id":x.id,
-                "name":name,
-                "order":x.order,
-                "description":description_ser.data
-            }
-            item.append(ans)    
-        final_ans={
-            "facility":facility,
-            "item":item
-        }
-        return Response(final_ans,status=status.HTTP_200_OK)
+            return Response(final_ans,status=status.HTTP_200_OK)
+        else:
+            if(type=='facility'):
+                description=facilityParamDescription.objects.filter(paramid=id)
+                description_ser=facilityParamDescriptionSerilizer(description, many=True)
+                return Response(description_ser.data,status=status.HTTP_200_OK)
+            else:
+                description=itemParamDescription.objects.filter(paramid=id)
+                description_ser=itemParamDescriptionSerilizer(description, many=True)
+                return Response(description_ser.data,status=status.HTTP_200_OK)    
+
+            
+
     def put(self,request):
         if( 'id' not in request.data):
                 type=request.data['type']
