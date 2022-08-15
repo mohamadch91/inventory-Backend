@@ -1,2 +1,2 @@
 # inventory-Backend
- Backedn with Djnago for inventory project
+ Backend with Djnago for inventory project
