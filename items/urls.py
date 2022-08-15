@@ -8,6 +8,7 @@ urlpatterns = [
     path('itemType', itemtypeView.as_view(), name='Itemtype'),
     path('itembyclass', itemtypeByclass.as_view(), name='Itembyclass'),
     path('itemTinLevels', itemTypeinLevels.as_view(), name='ItemtypeInLevels'),
+    path('manufacturer', manufacturerView.as_view(), name='Manufacturer'),
   
     
 ]

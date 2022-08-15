@@ -61,7 +61,7 @@ class itemclassView(APIView):
         country.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 class itemtypeView(APIView):
-    # permission_classes = (IsAuthenticated,)
+    permission_classes = (IsAuthenticated,)
     def post(self, request):
             active=True
             title=None
@@ -134,7 +134,7 @@ class itemtypeView(APIView):
 class itemtypeByclass(generics.ListAPIView):
     serializer_class = itemtypeSerializer
     queryset = ItemType.objects.all()
-    # permission_classes = (IsAuthenticated,)
+    permission_classes = (IsAuthenticated,)
     def get(self, request):
             ans=[]
             item_class=ItemClass.objects.filter(active=True)
@@ -152,7 +152,7 @@ class itemtypeByclass(generics.ListAPIView):
             return Response(ans,status=status.HTTP_200_OK)        
 
 class itemTypeinLevels(APIView):
-
+    permission_classes = (IsAuthenticated,)
     def put(self,request):
         ans=[]
         for x in request.data:
@@ -214,3 +214,33 @@ class itemTypeinLevels(APIView):
                 }
                 res.append(data)
             return Response(res)    
+
+class manufacturerView(APIView):
+        
+    def get(self,request):
+        item_class=ItemClass.objects.filter(active=True)
+        ans=[]
+        for x in item_class:
+            ser=itemclassSerializer(x)
+            manufacturer=Manufacturer.objects.filter(itemclass=x.id)
+            serializer =  ManufacturerSerializer(manufacturer, many=True)
+            data={
+                "item_class":ser.data,
+                "manufacturer":serializer.data
+            }
+            ans.append(data)
+        return Response(ans,status=status.HTTP_200_OK) 
+    def post(self,request):
+        ser=ManufacturerSerializer(data=request.data)
+        if ser.is_valid():
+            ser.save()
+            return Response(ser.data, status=status.HTTP_201_CREATED)
+        return Response(ser.errors, status=status.HTTP_400_BAD_REQUEST)
+    def put(self,request):
+        id=request.data["id"]
+        manufacturer = get_object_or_404(Manufacturer, id=id)
+        serializer =  ManufacturerSerializer(manufacturer, data=request.data)
+        if serializer.is_valid():
+            serializer.save()   
+            return Response(serializer.data,status=status.HTTP_200_OK)    
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)        

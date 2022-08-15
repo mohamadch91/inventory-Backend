@@ -1,3 +1,4 @@
+from pydoc import describe
 from pyexpat import model
 from django.db import models
 from settings.models import *
@@ -28,3 +29,9 @@ class Itemtypelevel(models.Model):
     active=models.BooleanField(default=True)
     level = models.ForeignKey(LevelConfig,blank=True, null=True, on_delete=models.CASCADE)
    
+class Manufacturer(models.Model):
+    id=models.AutoField(primary_key=True)
+    describe=models.CharField(max_length=100)
+    active=models.BooleanField(default=True)
+    order=models.IntegerField(default=1)
+    itemclass=models.ForeignKey(ItemClass, on_delete=models.CASCADE)

@@ -29,3 +29,12 @@ class itemtypelevelSerializer(serializers.ModelSerializer):
         #     'created_at': {'read_only': True},
         #     'updated_at': {'read_only': True},
         # }        
+class ManufacturerSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Manufacturer
+        fields = '__all__'
+        # fields = ('id', 'describe', 'active', 'order', 'itemclass', 'created_at', 'updated_at')
+        # extra_kwargs = {
+        #     'created_at': {'read_only': True},
+        #     'updated_at': {'read_only': True},
+        # }        
