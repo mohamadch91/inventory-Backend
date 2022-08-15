@@ -6,7 +6,7 @@
       "fields": {
         "name": "Facility code",
         "type": "text",
-        "topic": "Facility genera information",
+        "topic": "Facility general information",
         "disabled": true
       }
     }
@@ -18,7 +18,7 @@
       "fields": {
         "name": "Facility name",
         "type": "text",
-        "topic": "Facility genera information",
+        "topic": "Facility general information",
         "disabled": true
       }
     }
@@ -30,7 +30,7 @@
       "fields": {
         "name": "Level",
         "type": "select",
-        "topic": "Facility genera information",
+        "topic": "Facility general information",
         "disabled": true
       }
     }
@@ -42,7 +42,7 @@
       "fields": {
         "name": "Facility types (Parameter)",
         "type": "text",
-        "topic": "Facility genera information",
+        "topic": "Facility general information",
         "disabled": true
       }
     }
@@ -54,7 +54,7 @@
       "fields": {
         "name": "Number of general populations served by this facility:",
         "type": "number",
-        "topic": "Facility genera information",
+        "topic": "Facility general information",
         "disabled": true
       }
     }
@@ -66,7 +66,7 @@
       "fields": {
         "name": "Number of under-1 populations served by this facility:",
         "type": "number",
-        "topic": "Facility genera information",
+        "topic": "Facility general information",
         "disabled": true
       }
     }
@@ -78,7 +78,7 @@
       "fields": {
         "name": "Number of lower-level facilities served by tis facility",
         "type": "number",
-        "topic": "Facility genera information",
+        "topic": "Facility general information",
         "disabled": true
       }
     }
@@ -90,7 +90,7 @@
       "fields": {
         "name": "Last change on:",
         "type": "date",
-        "topic": "Facility genera information",
+        "topic": "Facility general information",
         "disabled": true
       }
     }
@@ -102,7 +102,7 @@
       "fields": {
         "name": "Date",
         "type": "date",
-        "topic": "Facility genera information",
+        "topic": "Facility general information",
         "disabled": true
       }
     }
@@ -114,7 +114,7 @@
       "fields": {
         "name": "Staff name completed the information:",
         "type": "text",
-        "topic": "Facility genera information",
+        "topic": "Facility general information",
         "disabled": true
       }
     }
@@ -126,7 +126,7 @@
       "fields": {
         "name": "State/ Province",
         "type": "select",
-        "topic": "Facility genera information",
+        "topic": "Facility general information",
         "disabled": true
       }
     }
@@ -138,7 +138,7 @@
       "fields": {
         "name": "Zone:",
         "type": "text",
-         "topic": "Facility genera information"
+         "topic": "Facility general information"
       }
     }
    ,
@@ -149,7 +149,7 @@
       "fields": {
         "name": "District:",
         "type": "text",
-         "topic": "Facility genera information"
+         "topic": "Facility general information"
       }
     }
    ,
@@ -160,7 +160,7 @@
       "fields": {
         "name": "City:",
         "type": "text",
-         "topic": "Facility genera information"
+         "topic": "Facility general information"
       }
     }
    ,
@@ -171,7 +171,7 @@
       "fields": {
         "name": "Address:",
         "type": "text",
-         "topic": "Facility genera information"
+         "topic": "Facility general information"
       }
     }
    ,
@@ -182,7 +182,7 @@
       "fields": {
         "name": "Postal code:",
         "type": "text",
-         "topic": "Facility genera information"
+         "topic": "Facility general information"
       }
     }
    ,
@@ -193,7 +193,7 @@
       "fields": {
         "name": "Facility national code:",
         "type": "text",
-         "topic": "Facility genera information"
+         "topic": "Facility general information"
       }
     }
    ,
@@ -204,7 +204,7 @@
       "fields": {
         "name": "Email address:",
         "type": "text",
-         "topic": "Facility genera information"
+         "topic": "Facility general information"
       }
     }
    ,
@@ -215,7 +215,7 @@
       "fields": {
         "name": "Phone number:",
         "type": "text",
-         "topic": "Facility genera information"
+         "topic": "Facility general information"
       }
     }
    ,
@@ -226,7 +226,7 @@
       "fields": {
         "name": "GPS coordinates:",
         "type": "text",
-         "topic": "Facility genera information"
+         "topic": "Facility general information"
       }
     }
    ,
@@ -237,7 +237,7 @@
       "fields": {
         "name": "Is there any land-phone?",
         "type": "bool",
-         "topic": "Facility genera information"
+         "topic": "Facility general information"
       }
     }
    ,
@@ -248,7 +248,7 @@
       "fields": {
         "name": "Is there any internet connection?",
         "type": "bool",
-         "topic": "Facility genera information"
+         "topic": "Facility general information"
       }
     }
    ,
@@ -259,7 +259,7 @@
       "fields": {
         "name": "Year facility was opened:",
         "type": "number",
-         "topic": "Facility genera information"
+         "topic": "Facility general information"
       }
     }
    ,
@@ -270,7 +270,7 @@
       "fields": {
         "name": "Is the facility functioning?",
         "type": "bool",
-         "topic": "Facility genera information"
+         "topic": "Facility general information"
       }
     }
    ,
@@ -281,7 +281,7 @@
       "fields": {
         "name": "Climate",
         "type": "select",
-         "topic": "Facility genera information"
+         "topic": "Facility general information"
       }
     }
    ,
@@ -292,7 +292,7 @@
       "fields": {
         "name": "Facility ownership:",
         "type": "select",
-         "topic": "Facility genera information"
+         "topic": "Facility general information"
       }
     }
    ,
@@ -303,7 +303,7 @@
       "fields": {
         "name": "Type of road from the higher level to this facility:",
         "type": "select",
-         "topic": "Facility genera information"
+         "topic": "Facility general information"
       }
     }
    ,
@@ -314,7 +314,7 @@
       "fields": {
         "name": "Distance from higher level to this facility (km)",
         "type": "number",
-         "topic": "Facility genera information"
+         "topic": "Facility general information"
       }
     }
    ,
@@ -325,7 +325,7 @@
       "fields": {
         "name": "Distance from higher level to this facility in time (hh:mm)",
         "type": "number",
-         "topic": "Facility genera information"
+         "topic": "Facility general information"
       }
     }
    ,
@@ -336,7 +336,7 @@
       "fields": {
         "name": "Number of days facility is open per XX",
         "type": "number",
-         "topic": "Facility genera information"
+         "topic": "Facility general information"
       }
     }
    ,
@@ -347,7 +347,7 @@
       "fields": {
         "name": "Facility working hours from: (hh:mm)",
         "type": "number",
-         "topic": "Facility genera information"
+         "topic": "Facility general information"
       }
     }
    ,
@@ -358,7 +358,7 @@
       "fields": {
         "name": "Facility working hours to: (hh:mm)",
         "type": "number",
-         "topic": "Facility genera information"
+         "topic": "Facility general information"
       }
     }
    ,
@@ -369,7 +369,7 @@
       "fields": {
         "name": "Mode of receiving supplies:",
         "type": "select",
-         "topic": "Facility genera information"
+         "topic": "Facility general information"
       }
     }
    ,
@@ -380,7 +380,7 @@
       "fields": {
         "name": "Mode of transportation:",
         "type": "select",
-         "topic": "Facility genera information"
+         "topic": "Facility general information"
       }
     }
    ,

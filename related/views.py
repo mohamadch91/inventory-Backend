@@ -129,4 +129,83 @@ class relatedItemTypeView(APIView):
 
 
 
+class paramView(APIView):
+    # permission_classes = (IsAuthenticated,)
+    def get(self,request):
+        facility=[]
+        item=[]
+        facility_param=facilityParam.objects.all()
+        item_param=itemParam.objects.all()
+        for x in facility_param:
+            field=get_object_or_404(relatedFacility, id=x.fieldid.id)
+            field_ser=relatedfacilitySerilizer(field)
+            name=field_ser.data['name']
+            description=facilityParamDescription.objects.filter(paramid=x.id)
+            description_ser=facilityParamDescriptionSerilizer(description, many=True)
+            ans={
+                "id":x.id,
+                "name":name,
+                "order":x.order,
+                "description":description_ser.data
+            }
+            facility.append(ans)
+        for x in item_param:
+            field=get_object_or_404(Field, id=x.fieldid.id)
+            field_ser=fieldSerializer(field)
+            name=field_ser.data['name']
+            description=itemParamDescription.objects.filter(paramid=x.id)
+            description_ser=itemParamDescriptionSerilizer(description, many=True)
+            ans={
+                "id":x.id,
+                "name":name,
+                "order":x.order,
+                "description":description_ser.data
+            }
+            item.append(ans)    
+        final_ans={
+            "facility":facility,
+            "item":item
+        }
+        return Response(final_ans,status=status.HTTP_200_OK)
+    def put(self,request):
+        if( 'id' not in request.data):
+                type=request.data['type']
+                ans=[]
+                if(type=='facility'):
+                    ser=facilityParamDescriptionSerilizer(data=request.data)
+                    if ser.is_valid():
+                        ser.save()
+                        ans.append(ser.data)
+                    else:
+                        return Response(ser.errors, status=status.HTTP_400_BAD_REQUEST)
+                elif(type=='item'):
+                    ser=itemParamDescriptionSerilizer(data=request.data)
+                    if ser.is_valid():
+                        ser.save()
+                        ans.append(ser.data)
+                    else:
+                        return Response(ser.errors, status=status.HTTP_400_BAD_REQUEST)
+                return Response(ans,status=status.HTTP_200_OK)
+        else:
+            id=request.data['id']
+            type=request.data['type']
+            ans=[]
+            if(type=='facility'):
+                obj=get_object_or_404(facilityParamDescription, id=id)
+                ser=facilityParamDescriptionSerilizer(obj, data=request.data)
+                if ser.is_valid():
+                    ser.save()
+                    ans.append(ser.data)
+                else:
+                    return Response(ser.errors, status=status.HTTP_400_BAD_REQUEST)
+            elif(type=='item'):
+                obj=get_object_or_404(itemParamDescription, id=id)
+                ser=itemParamDescriptionSerilizer(obj, data=request.data)
+                if ser.is_valid():
+                    ser.save()
+                    ans.append(ser.data)
+                else:
+                    return Response(ser.errors, status=status.HTTP_400_BAD_REQUEST)
+            return Response(ans,status=status.HTTP_200_OK)                        
+                        
 

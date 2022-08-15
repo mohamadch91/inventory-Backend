@@ -1,3 +1,4 @@
+from cgitb import enable
 from faulthandler import disable
 from pyexpat import model
 from unicodedata import name
@@ -47,3 +48,37 @@ class relatedItemType(models.Model):
     field=models.ForeignKey(Field, on_delete=models.CASCADE)
     def __str__(self):
         return self.name
+class facilityParam(models.Model):
+    id=models.AutoField(primary_key=True)
+    fieldid=models.ForeignKey(relatedFacility, on_delete=models.CASCADE)
+    order=models.IntegerField(default=1)
+    
+
+
+class facilityParamDescription(models.Model):
+    id=models.AutoField(primary_key=True)
+    name=models.CharField(max_length=100)
+    order=models.IntegerField(default=1)
+    enabled=models.BooleanField(default=True)
+    paramid=models.ForeignKey(facilityParam, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.name
+
+class itemParam(models.Model):
+    id=models.AutoField(primary_key=True)
+    fieldid=models.ForeignKey(Field, on_delete=models.CASCADE)
+    order=models.IntegerField(default=1)
+    
+
+     
+class itemParamDescription(models.Model):
+    id=models.AutoField(primary_key=True)
+    name=models.CharField(max_length=100)
+    order=models.IntegerField(default=1)
+    enabled=models.BooleanField(default=True)
+    paramid=models.ForeignKey(itemParam, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.name
+

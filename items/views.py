@@ -137,7 +137,7 @@ class itemtypeByclass(generics.ListAPIView):
     # permission_classes = (IsAuthenticated,)
     def get(self, request):
             ans=[]
-            item_class=ItemClass.objects.all()
+            item_class=ItemClass.objects.filter(active=True)
             for x in item_class:
                 cser=itemclassSerializer(x)
                 item_type=ItemType.objects.filter(itemclass=x.id,active=True)
