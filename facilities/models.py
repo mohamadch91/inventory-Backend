@@ -1,7 +1,8 @@
 import django
 from django.db import models
-from settings.models import CountryConfig, LevelConfig
 from django.conf import settings
+from settings.models import CountryConfig, LevelConfig
+
 # Create your models here.
 
 class Facility(models.Model):
