@@ -147,7 +147,7 @@ class itemtypeByclass(generics.ListAPIView):
                     "item_class":cser.data,
                     "item_type":serializer.data
                 }
-                print(data)
+                # print(data)
                 ans.append(data)
             return Response(ans,status=status.HTTP_200_OK)        
 
@@ -179,12 +179,12 @@ class itemTypeinLevels(APIView):
         res=[]
         if(level==None): 
             level = Itemtypelevel.objects.all()
-            print(len(level))
+            # print(len(level))
             
             if(level!=None):
                 for x in level:
                     serializer =  itemtypelevelSerializer(x)
-                    print(serializer.data)
+                    # print(serializer.data)
                     itemtype=ItemType.objects.get(id=serializer.data['itemtypeid'])
                     itemtype=itemtypeSerializer(itemtype,many=False)
                     lev=LevelConfig.objects.get(id=serializer.data['level'])
@@ -201,7 +201,7 @@ class itemTypeinLevels(APIView):
             level = Itemtypelevel.objects.filter(level=level)
             for x in level:
                 serializer =  itemtypelevelSerializer(x)
-                print(serializer.data['itemtypeid'])
+                # print(serializer.data['itemtypeid'])
                 itemtype=ItemType.objects.get(id=serializer.data['itemtypeid'])
                 itemtype=itemtypeSerializer(itemtype,many=False)
                 lev=LevelConfig.objects.get(id=serializer.data['level'])
