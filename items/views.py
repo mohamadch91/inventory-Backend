@@ -72,7 +72,7 @@ class itemtypeView(APIView):
             if('title' in request.data):
                 title=request.data["title"]
             if('havePQS' in request.data):
-                havePQs=request.data["havePQs"]
+                havePQs=request.data["havePQS"]
             if('itemclass' in request.data):
                 item_class=request.data["itemclass"]
 
