@@ -18,6 +18,8 @@ from os import stat
 from urllib import response
 from django.shortcuts import render
 
+from ..facilities.serializers import facilitySerializer
+
 # Create your views here.
 from .serializers import *
 from rest_framework.permissions import IsAuthenticated
@@ -32,7 +34,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from django.shortcuts import get_object_or_404
-
+from facilities.models import *
 
 class HRView(APIView):
 
@@ -63,3 +65,16 @@ class HRView(APIView):
         country.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)            
 
+class HRhelperView(APIView):
+    
+    def get(self,request):
+        facility=Facility.objects.all()
+        ans=[]
+        for x in facility:
+            ser=facilitySerializer(x)
+            data={
+                "id":x.id,
+                "name":x.name
+            }
+            ans.append(data)
+        return Response(ans)    
