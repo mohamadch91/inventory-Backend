@@ -11,8 +11,8 @@
     "model": "related.facilityParam",
     "pk": 2,
     "fields": {
-      "fieldid": 4,
-      "order": 1
+      "fieldid": 27,
+      "order": 12
     }
   },
 
@@ -21,7 +21,7 @@
     "pk": 3,
     "fields": {
       "fieldid": 11,
-      "order": 1
+      "order": 2
     }
   },
   {
@@ -29,7 +29,7 @@
     "pk": 4,
     "fields": {
       "fieldid": 25,
-      "order": 1
+      "order": 3
     }
   },
   {
@@ -37,7 +37,7 @@
     "pk": 5,
     "fields": {
       "fieldid": 26,
-      "order": 1
+      "order": 4
     }
   },
   {
@@ -45,7 +45,7 @@
     "pk": 6,
     "fields": {
       "fieldid": 27,
-      "order": 1
+      "order": 5
     }
   },
   {
@@ -53,7 +53,7 @@
     "pk": 7,
     "fields": {
       "fieldid": 33,
-      "order": 1
+      "order": 6
     }
   },
   {
@@ -61,7 +61,7 @@
     "pk": 8,
     "fields": {
       "fieldid": 34,
-      "order": 1
+      "order": 7
     }
   },
   {
@@ -69,7 +69,7 @@
     "pk": 9,
     "fields": {
       "fieldid": 49,
-      "order": 12
+      "order": 9
     }
   },
   {
@@ -77,7 +77,7 @@
     "pk": 10,
     "fields": {
       "fieldid": 53,
-      "order": 13
+      "order": 10
     }
   },
   {
@@ -85,7 +85,7 @@
     "pk": 11,
     "fields": {
       "fieldid": 37,
-      "order": 14
+      "order": 8
     }
   },
   {
@@ -182,7 +182,7 @@
     "pk": 12,
     "fields": {
       "fieldid": 33,
-      "order": 12
+      "order": 13
     }
   },
   {
@@ -190,7 +190,7 @@
     "pk": 13,
     "fields": {
       "fieldid": 49,
-      "order": 13
+      "order": 14
     }
   },
   {
@@ -198,7 +198,7 @@
     "pk": 14,
     "fields": {
       "fieldid": 53,
-      "order": 14
+      "order": 15
     }
   },
   {
@@ -206,15 +206,6 @@
     "pk": 15,
     "fields": {
       "fieldid": 80,
-      "order": 15
-    }
-  }
-  ,
-  {
-    "model": "related.itemParam",
-    "pk": 16,
-    "fields": {
-      "fieldid": 27,
       "order": 16
     }
   }

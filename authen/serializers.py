@@ -16,6 +16,7 @@ class UserSerializer(serializers.ModelSerializer):
         model = User
         fields = ['pk','password','is_superuser','name','facilityid','username','idnumber','position','phone','facadmin','itemadmin','reportadmin','useradmin','created_at','updated_at']
         extra_kwargs = {'password': {'write_only': True}}
+        read_only_fields = ['created_at','updated_at']
 
 # Register Serializer
 class RegisterSerializer(serializers.ModelSerializer):

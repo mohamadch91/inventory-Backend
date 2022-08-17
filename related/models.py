@@ -48,6 +48,7 @@ class relatedItemType(models.Model):
     field=models.ForeignKey(Field, on_delete=models.CASCADE)
     def __str__(self):
         return self.name
+        
 class facilityParam(models.Model):
     id=models.AutoField(primary_key=True)
     fieldid=models.ForeignKey(relatedFacility, on_delete=models.CASCADE)

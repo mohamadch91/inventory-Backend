@@ -76,7 +76,7 @@
       "model": "related.relatedFacility",
       "pk": 7,
       "fields": {
-        "name": "Number of lower-level facilities served by tis facility",
+        "name": "Number of lower-level facilities served by this facility",
         "type": "number",
         "topic": "Facility general information",
         "disabled": true
