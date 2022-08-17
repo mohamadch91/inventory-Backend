@@ -18,7 +18,7 @@ from os import stat
 from urllib import response
 from django.shortcuts import render
 
-from ..facilities.serializers import facilitySerializer
+from facilities.serializers import facilitySerializer
 
 # Create your views here.
 from .serializers import *

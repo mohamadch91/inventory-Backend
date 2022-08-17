@@ -47,4 +47,5 @@ urlpatterns = [
     path('help/', include('help.urls')),
     path('pqs/',include('PQS.urls')),
     path('facilities/',include('facilities.urls')),
+    path('hr/',include('HR.urls')),
 ]

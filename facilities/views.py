@@ -32,7 +32,7 @@ from settings.models import *
 from settings.serializers import *
 import copy
 class FacilityView(APIView):
-       # permission_classes = (IsAuthenticated,)
+    permission_classes = (IsAuthenticated,)
 
     def post(self, request):
         new_data=copy.deepcopy(request.data)
@@ -76,7 +76,7 @@ class FacilityView(APIView):
         return Response(status=status.HTTP_204_NO_CONTENT)
 
 class facilityFieldView(APIView):
-    # permission_classes = (IsAuthenticated,)
+    permission_classes = (IsAuthenticated,)
     def get(self, request):
         
         user=request.user
