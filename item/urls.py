@@ -2,11 +2,13 @@ from django.urls import path
 from .views import *
 
 
+
 urlpatterns = [
 
-    # path('', HRView.as_view(), name='HR manage'),
-    # path('hr-helper/', HRhelperView.as_view(), name='HR helper'),
+      path('item-field', itemFieldView.as_view(), name='item-field'),
+     path('', itemView.as_view(), name='item'),
 
+  
   
     
 ]
