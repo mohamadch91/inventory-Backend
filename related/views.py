@@ -36,14 +36,17 @@ class relatedfacilityView(APIView):
         serializer = relatedfacilitySerilizer(query_set, many=True)
         return Response(serializer.data)
     def put(self, request):
-        id=request.data["id"]
-        country = get_object_or_404(relatedFacility, id=id)
-        serializer = relatedfacilitySerilizer(country, data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
+        ans=[]
+        for x in request.data:
+            id=x["id"]
+            country = get_object_or_404(relatedFacility, id=id)
+            serializer = relatedfacilitySerilizer(country, data=x)
+            if serializer.is_valid():
+                serializer.save()
+                ans.append(serializer.data)
+            else:
+                return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        return Response(ans)    
 class fieldView(APIView):
     permission_classes = (IsAuthenticated,)
     def get(self,request):

@@ -16,7 +16,7 @@ class relatedFacility(models.Model):
         other1='Other'
 
     id=models.AutoField(primary_key=True)
-    name=models.CharField(max_length=20)
+    name=models.CharField(max_length=80)
     active=models.BooleanField(default=True)
     required=models.BooleanField(default=False)
     topic=models.CharField(max_length=50,choices=topics.choices,null=True,default=topics.gen)
