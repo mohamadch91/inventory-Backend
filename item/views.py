@@ -79,5 +79,54 @@ class itemFieldView(APIView):
     permission_classes = (IsAuthenticated,)
     def get(self, request):
         user=request.user
-        
+        class_id=request.query_params.get('class_id', None)
+        type_id=request.query_params.get('type_id', None)
+        if class_id is None and type_id is None:
+            facility=user.facilityid
+            facility=get_object_or_404(Facility, id=facility.id)
+            level=facility.level.id
+            item_type_id=[]
+            itemTypeinlevels=Itemtypelevel.objects.filter(level=level,active=True)
+            for x in itemTypeinlevels:
+                item_type_id.append(x.itemtypeid.id)
+            item_class=ItemClass.objects.filter(active=True)
+            first_data=[]
+            for x in item_class:
+                x_ser=itemclassSerializer(x)
+                item_type=ItemType.objects.filter(itemclassid=x.id,active=True,id__in=item_type_id)
+                ser=itemtypeSerializer(item_type,many=True)
+                data={
+                    "item_class":x_ser.data,
+                    "item_type":ser.data,
+                }
+                first_data.append(data)
+            return Response(first_data)
+        else:
+            item_class=get_object_or_404(ItemClass,id=class_id)
+            item_type=get_object_or_404(ItemType,id=type_id)
+            ans={}
+            Manufacturers=Manufacturer.objects.filter(active=True,itemclass=item_class.id)
+            man_Ser=ManufacturerSerializer(Manufacturers,many=True)    
+            related=relatedItemType.objects.filter(itemtype=item_type.id)
+            fields=[]
+            for x in related:
+                data={}
+                field=Field.objects.filter(id=x.field.id)
+                field_ser=fieldSerializer(field,many=True)
+                data["field"]=field_ser.data
+                if(field.id==2):
+                   
+                    data["params"]=man_Ser.data
+                else:
+                   param=itemParam.objects.filter(fieldid=field.id)
+                   describe=itemParamDescription.object.filter(paramid=param.id,enabled=True)
+                   des_ser=itemParamDescriptionSerilizer(describe,many=True) 
+                   data["params"]=des_ser.data
+                fields.append(data)
+            return Response(fields)       
+
+
+
+
+
         
