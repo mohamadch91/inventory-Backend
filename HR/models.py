@@ -4,7 +4,7 @@ from facilities.models import Facility
 
 class HR (models.Model):
     id=models.AutoField(primary_key=True)
-    facility=models.ForeignKey(Facility, on_delete=models.CASCADE)
+    facility=models.ForeignKey(Facility, on_delete=models.CASCADE, blank=True, null=True)
     full_name=models.CharField(max_length=100,blank=True,null=True)
     position_level=models.CharField(max_length=100,blank=True,null=True)
     educatioin_level=models.CharField(max_length=100,blank=True,null=True)
