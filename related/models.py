@@ -21,7 +21,7 @@ class relatedFacility(models.Model):
     required=models.BooleanField(default=False)
     topic=models.CharField(max_length=50,choices=topics.choices,null=True,default=topics.gen)
     type=models.CharField(max_length=20)
-    state=models.CharField(max_length=20)
+    state=models.CharField(max_length=20,null=True)
     disabled=models.BooleanField(default=False)
  
 class Field(models.Model):
