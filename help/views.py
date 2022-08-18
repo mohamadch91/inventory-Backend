@@ -43,13 +43,19 @@ class HelpView(APIView):
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     def get(self, request):
+        page=request.query_params.get('page',None)
+        lang=request.query_params.get('lang',None)
+        if(page is not None and lang is not None):
+            help=Help.objects.filter(page=page,lang=lang)
+            serializer = helpSerializer(help, many=True)
+            return Response(serializer.data)
         country = Help.objects.all()
         serializer =  helpSerializer(country, many=True)
         return Response(serializer.data)
 
     def put(self, request, ):
         id=request.data["id"]
-        country = get_object_or_404(helpSerializer, id=id)
+        country = get_object_or_404(Help, id=id)
         serializer =  helpSerializer(country, data=request.data)
         if serializer.is_valid():
             serializer.save()
@@ -58,6 +64,6 @@ class HelpView(APIView):
 
     def delete(self, request, *args, **kwargs):
         id=request.data["id"]
-        country = get_object_or_404(helpSerializer, id=id)
+        country = get_object_or_404(Help, id=id)
         country.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
