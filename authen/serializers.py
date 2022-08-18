@@ -5,6 +5,7 @@ from authen.models import User
 
 from rest_framework.validators import UniqueValidator
 from django.contrib.auth.password_validation import validate_password
+from django.contrib.auth.hashers import make_password
 
 import json
 
@@ -39,7 +40,15 @@ class UpdateUserSerializer(serializers.ModelSerializer):
             'last_name': {'required': True},
         }
 
+    def validate_password(self, value: str) -> str:
+        """
+        Hash value passed by user.
 
+        :param value: password of a user
+        :return: a hashed version of the password
+        """
+        return make_password(value)    
+                
         
     
     def update(self, instance, validated_data):
