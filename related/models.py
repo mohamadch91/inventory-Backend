@@ -8,7 +8,7 @@ from items.models import ItemType
 
 class relatedFacility(models.Model):
     class topics(models.TextChoices):
-        gen = 'Facility genera information'
+        gen = 'Facility general information'
         ser  = 'Information about services provided'
         phy='Facility physical conditions'
         HR = 'Human resource information'
