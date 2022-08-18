@@ -48,14 +48,15 @@ import copy
 
 class messageView(APIView):
     def get(self,request):
-        id=request.query_params.get('id',None)
-        if id is not None:
-            message = message.objects.filter(id=id)
-            serializer =  messageSerializer(message, many=True)
-            return Response(serializer.data)
-        message = message.objects.all()
-        serializer =  messageSerializer(message, many=True)
-        return Response(serializer.data)
+        type=request.query_params.get('type',None)
+        user=request.user
+        facility=Facility.objects.filter(id=user.facilityid)[0]
+        if (type=="sender"):
+            messages=messageSerializer(message.objects.filter(sender=facility.id),many=True)
+            return Response(messages.data)
+        else:
+            messages=messageSerializer(message.objects.filter(reciever=facility.id),many=True)
+            return Response(messages.data)    
     def post(self, request):
         new_data=copy.deepcopy(request.data)
         user=request.data["user"]
