@@ -1,0 +1,44 @@
+[
+  {
+    "model": "languages.languages",
+    "pk": 1,
+    "fields": {
+      "name": "en"
+    }
+  },
+  {
+    "model": "languages.languages",
+    "pk": 2,
+    "fields": {
+      "name": "ar"
+    }
+  },
+  {
+    "model": "languages.languages",
+    "pk": 3,
+    "fields": {
+      "name": "fr"
+    }
+  },
+  {
+    "model": "languages.languages",
+    "pk": 4,
+    "fields": {
+      "name": "es"
+    }
+  },
+  {
+    "model": "languages.languages",
+    "pk": 5,
+    "fields": {
+      "name": "pe"
+    }
+  },
+  {
+    "model": "languages.languages",
+    "pk": 6,
+    "fields": {
+      "name": "ru"
+    }
+  }
+]

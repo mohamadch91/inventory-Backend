@@ -40,15 +40,15 @@ from rest_framework.response import Response
 from rest_framework import status
 from django.shortcuts import get_object_or_404
 from facilities.models import *
-
+import copy
 
 class languageView(APIView):
     def get(self,request):
         name=request.query_params.get('name',None)
         if name is not None:
-            lang = languages.objects.filter(name=name)
-            words=words.objects.filter(language=lang.id)
-            serializer =  languageWordSerializer(lang, many=True)
+            lang = languages.objects.filter(name=name)[0]
+            words=languages_words.objects.filter(language=lang.id)
+            serializer =  languageWordSerializer(words, many=True)
             ans={
                 "language":lang.name,
                 "words":serializer.data,
@@ -58,8 +58,8 @@ class languageView(APIView):
             lang=languages.objects.all()
             ans=[]
             for x in lang:
-                words=words.objects.filter(language=x.id)
-                serializer =  languageWordSerializer(x, many=True)
+                words=languages_words.objects.filter(language=x.id)
+                serializer =  languageWordSerializer(words, many=True)
                 ans.append({
                     "language":x.name,
                     "words":serializer.data,
@@ -77,7 +77,7 @@ class languageView(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     def put(self, request):
         id=request.data["id"]
-        lang = get_object_or_404(languageWordSerializer, id=id)
+        lang = get_object_or_404(languages_words, id=id)
         serializer =  languageWordSerializer(lang, data=request.data)
         if serializer.is_valid():
             serializer.save()
