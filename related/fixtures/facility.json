@@ -7,7 +7,9 @@
         "name": "Facility code",
         "type": "text",
         "topic": "Facility general information",
-        "disabled": true
+        "disabled": true,
+        "state": "code"
+
       }
     }
    ,
@@ -19,7 +21,8 @@
         "name": "Facility name",
         "type": "text",
         "topic": "Facility general information",
-        "disabled": true
+        "disabled": true,
+        "state": "name"
       }
     }
    ,
@@ -31,7 +34,8 @@
         "name": "Level",
         "type": "select",
         "topic": "Facility general information",
-        "disabled": true
+        "disabled": true,
+        "state": "level"
       }
     }
    ,
@@ -43,7 +47,8 @@
         "name": "Facility types (Parameter)",
         "type": "text",
         "topic": "Facility general information",
-        "disabled": true
+        "disabled": true,
+        "state": "type"
       }
     }
    ,
@@ -55,7 +60,8 @@
         "name": "Number of general populations served by this facility:",
         "type": "number",
         "topic": "Facility general information",
-        "disabled": true
+        "disabled": true,
+        "state": "populationnumber"
       }
     }
    ,
@@ -67,7 +73,8 @@
         "name": "Number of under-1 populations served by this facility:",
         "type": "number",
         "topic": "Facility general information",
-        "disabled": true
+        "disabled": true,
+        "state": "childrennumber"
       }
     }
    ,
@@ -79,7 +86,8 @@
         "name": "Number of lower-level facilities served by this facility",
         "type": "number",
         "topic": "Facility general information",
-        "disabled": true
+        "disabled": true,
+        "state": "loverlevelfac"
       }
     }
    ,
@@ -91,7 +99,9 @@
         "name": "Last change on:",
         "type": "date",
         "topic": "Facility general information",
-        "disabled": true
+        "disabled": true,
+        "state": "updated_at"
+
       }
     }
    ,
@@ -103,7 +113,8 @@
         "name": "Date",
         "type": "date",
         "topic": "Facility general information",
-        "disabled": true
+        "disabled": true,
+        "state": "created_at"
       }
     }
    ,
@@ -115,7 +126,8 @@
         "name": "Staff name completed the information:",
         "type": "text",
         "topic": "Facility general information",
-        "disabled": true
+        "disabled": true,
+        "state": "completerstaffname"
       }
     }
    ,
@@ -127,7 +139,8 @@
         "name": "State/ Province",
         "type": "select",
         "topic": "Facility general information",
-        "disabled": true
+        "disabled": true,
+        "state": "province"
       }
     }
    ,
@@ -138,7 +151,8 @@
       "fields": {
         "name": "Zone:",
         "type": "text",
-         "topic": "Facility general information"
+         "topic": "Facility general information",
+         "state": "zone"
       }
     }
    ,
@@ -149,7 +163,8 @@
       "fields": {
         "name": "District:",
         "type": "text",
-         "topic": "Facility general information"
+         "topic": "Facility general information",
+          "state": "district"
       }
     }
    ,
@@ -160,7 +175,8 @@
       "fields": {
         "name": "City:",
         "type": "text",
-         "topic": "Facility general information"
+         "topic": "Facility general information",
+          "state": "city"
       }
     }
    ,
@@ -171,7 +187,8 @@
       "fields": {
         "name": "Address:",
         "type": "text",
-         "topic": "Facility general information"
+         "topic": "Facility general information",
+          "state": "address"
       }
     }
    ,
@@ -182,7 +199,8 @@
       "fields": {
         "name": "Postal code:",
         "type": "text",
-         "topic": "Facility general information"
+         "topic": "Facility general information",
+          "state": "postalcode"
       }
     }
    ,
@@ -193,7 +211,8 @@
       "fields": {
         "name": "Facility national code:",
         "type": "text",
-         "topic": "Facility general information"
+         "topic": "Facility general information",
+          "state": "national_code"
       }
     }
    ,
@@ -204,7 +223,8 @@
       "fields": {
         "name": "Email address:",
         "type": "text",
-         "topic": "Facility general information"
+         "topic": "Facility general information",
+          "state": "email"
       }
     }
    ,
@@ -215,7 +235,8 @@
       "fields": {
         "name": "Phone number:",
         "type": "text",
-         "topic": "Facility general information"
+         "topic": "Facility general information",
+          "state": "phone"
       }
     }
    ,
@@ -226,7 +247,8 @@
       "fields": {
         "name": "GPS coordinates:",
         "type": "text",
-         "topic": "Facility general information"
+         "topic": "Facility general information",
+          "state": "gpsCordinate"
       }
     }
    ,
@@ -237,7 +259,8 @@
       "fields": {
         "name": "Is there any land-phone?",
         "type": "bool",
-         "topic": "Facility general information"
+         "topic": "Facility general information",
+          "state": "land_phone"
       }
     }
    ,
@@ -248,7 +271,8 @@
       "fields": {
         "name": "Is there any internet connection?",
         "type": "bool",
-         "topic": "Facility general information"
+         "topic": "Facility general information",
+          "state": "haveinternet"
       }
     }
    ,
@@ -259,7 +283,8 @@
       "fields": {
         "name": "Year facility was opened:",
         "type": "number",
-         "topic": "Facility general information"
+         "topic": "Facility general information",
+          "state": "year"
       }
     }
    ,
@@ -270,7 +295,8 @@
       "fields": {
         "name": "Is the facility functioning?",
         "type": "bool",
-         "topic": "Facility general information"
+         "topic": "Facility general information",
+          "state": "is_functioning"
       }
     }
    ,
@@ -281,7 +307,8 @@
       "fields": {
         "name": "Climate",
         "type": "select",
-         "topic": "Facility general information"
+         "topic": "Facility general information",
+          "state": "climate"
       }
     }
    ,
@@ -292,7 +319,8 @@
       "fields": {
         "name": "Facility ownership:",
         "type": "select",
-         "topic": "Facility general information"
+         "topic": "Facility general information",
+          "state": "ownership"
       }
     }
    ,
@@ -303,7 +331,8 @@
       "fields": {
         "name": "Type of road from the higher level to this facility:",
         "type": "select",
-         "topic": "Facility general information"
+         "topic": "Facility general information",
+          "state": "roadtype"
       }
     }
    ,
@@ -314,7 +343,8 @@
       "fields": {
         "name": "Distance from higher level to this facility (km)",
         "type": "number",
-         "topic": "Facility general information"
+         "topic": "Facility general information",
+          "state": "distancefromparent"
       }
     }
    ,
@@ -325,7 +355,8 @@
       "fields": {
         "name": "Distance from higher level to this facility in time (hh:mm)",
         "type": "number",
-         "topic": "Facility general information"
+         "topic": "Facility general information",
+          "state": "timetoparent"
       }
     }
    ,
@@ -336,7 +367,8 @@
       "fields": {
         "name": "Number of days facility is open per XX",
         "type": "number",
-         "topic": "Facility general information"
+         "topic": "Facility general information",
+          "state": "days_open"
       }
     }
    ,
@@ -347,7 +379,8 @@
       "fields": {
         "name": "Facility working hours from: (hh:mm)",
         "type": "number",
-         "topic": "Facility general information"
+         "topic": "Facility general information",
+          "state": "working_from"
       }
     }
    ,
@@ -358,7 +391,8 @@
       "fields": {
         "name": "Facility working hours to: (hh:mm)",
         "type": "number",
-         "topic": "Facility general information"
+         "topic": "Facility general information",
+          "state": "working_to"
       }
     }
    ,
@@ -369,7 +403,8 @@
       "fields": {
         "name": "Mode of receiving supplies:",
         "type": "select",
-         "topic": "Facility general information"
+         "topic": "Facility general information",
+          "state": "recieve_mode"
       }
     }
    ,
@@ -380,7 +415,8 @@
       "fields": {
         "name": "Mode of transportation:",
         "type": "select",
-         "topic": "Facility general information"
+         "topic": "Facility general information",
+          "state": "transport_mode"
       }
     }
    ,
@@ -391,7 +427,8 @@
       "fields": {
         "name": "Does facility provide immunization services?",
         "type": "bool",
-         "topic": "Information about services provided"
+         "topic": "Information about services provided",
+          "state": "haveimmservice"
       }
     }
    ,
@@ -402,7 +439,8 @@
       "fields": {
         "name": "Number of immunization sessions per xx",
         "type": "number",
-         "topic": "Information about services provided"
+         "topic": "Information about services provided",
+          "state": "numimmperweek"
       }
     }
    ,
@@ -413,7 +451,9 @@
       "fields": {
         "name": "Type of immunization services:",
         "type": "select",
-         "topic": "Information about services provided"
+         "topic": "Information about services provided",
+          "state": "typeimmservice"
+
       }
     }
    ,
@@ -424,7 +464,8 @@
       "fields": {
         "name": "Does facility provide vaccination against COVID-19?",
         "type": "bool",
-         "topic": "Information about services provided"
+         "topic": "Information about services provided",
+          "state": "havecovid19service"
       }
     }
    ,
@@ -435,7 +476,8 @@
       "fields": {
         "name": "Vaccination coverage of X1 in YY period (%)",
         "type": "number",
-         "topic": "Information about services provided"
+         "topic": "Information about services provided",
+          "state": "coverageX1"
       }
     }
    ,
@@ -446,7 +488,8 @@
       "fields": {
         "name": "Vaccination coverage of X2 in YY period (%)",
         "type": "number",
-         "topic": "Information about services provided"
+         "topic": "Information about services provided",
+          "state": "coverageX2"
       }
     }
    ,
@@ -457,7 +500,8 @@
       "fields": {
         "name": "Vaccination coverage of X3 in YY period (%)",
         "type": "number",
-         "topic": "Information about services provided"
+         "topic": "Information about services provided",
+          "state": "coverageX3"
       }
     }
    ,
@@ -468,7 +512,8 @@
       "fields": {
         "name": "Vaccination coverage of X4 in YY period (%)",
         "type": "number",
-         "topic": "Information about services provided"
+         "topic": "Information about services provided",
+          "state": "coverageX4"
       }
     }
    ,
@@ -479,7 +524,8 @@
       "fields": {
         "name": "Number of individuals vaccinated against X1 during YY period",
         "type": "number",
-         "topic": "Information about services provided"
+         "topic": "Information about services provided",
+          "state": "individualsX1"
       }
     }
    ,
@@ -490,7 +536,8 @@
       "fields": {
         "name": "Number of individuals vaccinated against X2 during YY period",
         "type": "number",
-         "topic": "Information about services provided"
+         "topic": "Information about services provided",
+          "state": "individualsX2"
       }
     }
    ,
@@ -501,7 +548,8 @@
       "fields": {
         "name": "Number of vaccinations against X3 during YY period",
         "type": "number",
-         "topic": "Information about services provided"
+         "topic": "Information about services provided",
+          "state": "individualsX3"
       }
     }
    ,
@@ -512,7 +560,8 @@
       "fields": {
         "name": "Number of vaccinations against X4 during YY period",
         "type": "number",
-         "topic": "Information about services provided"
+         "topic": "Information about services provided",
+          "state": "individualsX4"
       }
     }
    ,
@@ -523,7 +572,8 @@
       "fields": {
         "name": "Number of existing icepacks:",
         "type": "number",
-         "topic": "Information about services provided"
+         "topic": "Information about services provided",
+          "state": "number_icepack"
       }
     }
    ,
@@ -534,7 +584,8 @@
       "fields": {
         "name": "Does the facility provide other services",
         "type": "bool",
-         "topic": "Information about services provided"
+         "topic": "Information about services provided",
+          "state": "other_service"
       }
     }
    ,
@@ -545,7 +596,9 @@
       "fields": {
         "name": "Other services:",
         "type": "select",
-         "topic": "Information about services provided"
+         "topic": "Information about services provided",
+          "state": "other_services"
+
       }
     }
    ,
@@ -556,7 +609,8 @@
       "fields": {
         "name": "Is building condition suitable?",
         "type": "bool",
-        "topic": "Facility physical conditions"
+        "topic": "Facility physical conditions",
+          "state": "is_suitable"
       }
     }
    ,
@@ -567,7 +621,8 @@
       "fields": {
         "name": "Reason for building condition not suitable:",
         "type": "select",
-        "topic": "Facility physical conditions"
+        "topic": "Facility physical conditions",
+          "state": "is_suitable_reason"
       }
     }
    ,
@@ -578,7 +633,8 @@
       "fields": {
         "name": "Does the facility have stand-by generator?",
         "type": "bool",
-        "topic": "Facility physical conditions"
+        "topic": "Facility physical conditions",
+          "state": "havegen"
       }
     }
    ,
@@ -589,7 +645,8 @@
       "fields": {
         "name": "Facility power source:",
         "type": "select",
-        "topic": "Facility physical conditions"
+        "topic": "Facility physical conditions",
+          "state": "powersource"
       }
     }
    ,
@@ -600,7 +657,8 @@
       "fields": {
         "name": "Facilities maintenance system (describe):",
         "type": "text",
-        "topic": "Facility physical conditions"
+        "topic": "Facility physical conditions",
+          "state": "maintance"
       }
     }
    ,
@@ -611,7 +669,9 @@
       "fields": {
         "name": "Total number of staff:",
         "type": "number",
-        "topic": "Human resource information"
+        "topic": "Human resource information",
+          "state": "total_staff"
+
       }
     }
    ,
@@ -622,7 +682,9 @@
       "fields": {
         "name": "Number of vaccinators:",
         "type": "number",
-        "topic": "Human resource information"
+        "topic": "Human resource information",
+          "state": "vac_num"
+
       }
     }
    ,
@@ -633,7 +695,8 @@
       "fields": {
         "name": "Number of professional staff:",
         "type": "number",
-        "topic": "Human resource information"
+        "topic": "Human resource information",
+          "state": "prof_staff"
       }
     }
    ,
@@ -644,7 +707,8 @@
       "fields": {
         "name": "Number of nurses:",
         "type": "number",
-        "topic": "Human resource information"
+        "topic": "Human resource information",
+          "state": "nurses"
       }
     }
    ,
@@ -655,7 +719,8 @@
       "fields": {
         "name": "Number of drivers:",
         "type": "number",
-        "topic": "Human resource information"
+        "topic": "Human resource information",
+          "state": "drivers"
       }
     }
    ,
@@ -666,7 +731,8 @@
       "fields": {
         "name": "Number of other staff:",
         "type": "number",
-        "topic": "Human resource information"
+        "topic": "Human resource information",
+          "state": "other_staff"
       }
     }
    ,
@@ -677,7 +743,8 @@
       "fields": {
         "name": "Other 1 (digit only)",
         "type": "number",
-        "topic": "Other optional fields"
+        "topic": "Other optional fields",
+          "state": "other1"
       }
     }
    ,
@@ -688,7 +755,8 @@
       "fields": {
         "name": "Other 2 (digit only)",
         "type": "number",
-        "topic": "Other optional fields"
+        "topic": "Other optional fields",
+          "state": "other2"
       }
     }
    ,
@@ -699,7 +767,8 @@
       "fields": {
         "name": "Other 3 (Yes/No)",
         "type": "bool",
-        "topic": "Other optional fields"
+        "topic": "Other optional fields",
+          "state": "other3"
       }
     }
    ,
@@ -710,7 +779,8 @@
       "fields": {
         "name": "Other 4 (Yes/No)",
         "type": "bool",
-        "topic": "Other optional fields"
+        "topic": "Other optional fields",
+          "state": "other4"
       }
     }
    ,
@@ -721,7 +791,8 @@
       "fields": {
         "name": "Other 5 (descriptive)",
         "type": "text",
-        "topic": "Other optional fields"
+        "topic": "Other optional fields",
+          "state": "other5"
       }
     }
    ,
@@ -732,7 +803,8 @@
       "fields": {
         "name": "Other 6 (descriptive)",
         "type": "text",
-        "topic": "Other optional fields"
+        "topic": "Other optional fields",
+          "state": "other6"
       }
     }
    ,
@@ -743,7 +815,8 @@
       "fields": {
         "name": "Remarks",
         "type": "text",
-        "topic": "Other"
+        "topic": "Other",
+          "state": "remarks"
       }
     }
    ,
@@ -754,7 +827,8 @@
       "fields": {
         "name": "Position of staff completed this form",
         "type": "text",
-        "topic": "Other"
+        "topic": "Other",
+          "state": "completerstaffsign"
       }
     }
   ]

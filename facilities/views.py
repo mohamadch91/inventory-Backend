@@ -108,6 +108,7 @@ class facilityFieldView(APIView):
                 "type":x.type,
                 "disabled":x.disabled,
                 "required":x.required,
+                "stateName":x.state,
                 "params":params
             }
             ans.append(data)

@@ -59,11 +59,14 @@ class Facility(models.Model):
     individualsX4=models.IntegerField(db_column='IndividualsX4', blank=True, null=True)  # Field name made lowercase.
     number_icepack=models.IntegerField(db_column='NumberIcepack', blank=True, null=True)  # Field name made lowercase.
     other_service=models.BooleanField(db_column='OtherService', blank=True, null=True)  # Field name made lowercase.
+    other_services=models.CharField(max_length=50,blank=True,null=True)
     is_suitable=models.BooleanField(db_column='IsSuitable', blank=True, null=True)  # Field name made lowercase.
+    
     is_suitable_reason=models.CharField(db_column='IsSuitableReason', max_length=50, blank=True, null=True)  # Field name made lowercase.
     havegen=models.BooleanField(db_column='HaveGen', blank=True, null=True)  # Field name made lowercase.
     powersource=models.CharField(db_column='PowerSource', max_length=50, blank=True, null=True)  # Field name made lowercase.
     maintance=models.CharField(db_column='Maintance', max_length=50, blank=True, null=True)  # Field name made lowercase.
+    vac_num=models.IntegerField(db_column='VacNum', blank=True, null=True)  # Field name made lowercase.
     total_staff=models.IntegerField(db_column='TotalStaff', blank=True, null=True)  # Field name made lowercase.
     prof_staff=models.IntegerField(db_column='ProfStaff', blank=True, null=True)  # Field name made lowercase.
     nurses=models.IntegerField(db_column='Nurses', blank=True, null=True)  # Field name made lowercase.
