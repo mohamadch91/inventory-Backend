@@ -30,6 +30,7 @@ from related.serializers import *
 from related.models import *
 from settings.models import *
 from settings.serializers import *
+from item.models import *
 import copy
 class FacilityView(APIView):
     permission_classes = (IsAuthenticated,)
@@ -72,7 +73,9 @@ class FacilityView(APIView):
         below=Facility.objects.filter(parentid=facility.id)
         if below.count()>0:
             return Response({"message": "Cannot delete facility with children"}, status=status.HTTP_400_BAD_REQUEST)
-
+        item_num=item.objects.filter(facility=facility.id).count()
+        if item_num>0:
+            return Response({"message": "Cannot delete facility with items"}, status=status.HTTP_400_BAD_REQUEST)
         return Response(status=status.HTTP_204_NO_CONTENT)
 
 class facilityFieldView(APIView):
