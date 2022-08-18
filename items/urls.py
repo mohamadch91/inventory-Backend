@@ -9,6 +9,6 @@ urlpatterns = [
     path('itembyclass', itemtypeByclass.as_view(), name='Itembyclass'),
     path('itemTinLevels', itemTypeinLevels.as_view(), name='ItemtypeInLevels'),
     path('manufacturer', manufacturerView.as_view(), name='Manufacturer'),
-  
+    path('class-helper',manhelper.as_view(),name="helper")
     
 ]

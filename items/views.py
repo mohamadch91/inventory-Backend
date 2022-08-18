@@ -218,7 +218,11 @@ class itemTypeinLevels(APIView):
 class manufacturerView(APIView):
         
     def get(self,request):
-        item_class=ItemClass.objects.filter(active=True)
+        id=request.query_params.get('id',None)
+        if(id==None):
+            return Response("need query param",status=status.HTTP_400_BAD_REQUEST)
+
+        item_class=ItemClass.objects.filter(active=True,id=id)
         ans=[]
         for x in item_class:
             ser=itemclassSerializer(x)
@@ -244,3 +248,9 @@ class manufacturerView(APIView):
             serializer.save()   
             return Response(serializer.data,status=status.HTTP_200_OK)    
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)        
+
+class manhelper(APIView):
+    def get(self,request):
+        item_class=ItemClass.objects.filter(active=True)
+        ser=itemclassSerializer(item_class,many=True)
+        return Response(ser.data)
