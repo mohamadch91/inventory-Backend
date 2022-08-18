@@ -6,7 +6,7 @@
       "name": "Type (Parameter)",
       "type": "select",
       "topic": "Type",
-      "state": "TypeP"
+        "state": "TypeP"
     }
   },
   {
@@ -16,7 +16,7 @@
       "name": "Manufacturer (Parameter)",
       "type": "select",
       "topic": "Type",
-      "state": "Manufacturer"
+        "state": "Manufacturer"
     }
   },
   {
@@ -26,7 +26,7 @@
       "name": "Model",
       "type": "select",
       "topic": "Type",
-      "state": "Model"
+        "state": "Model"
     }
   },
   {
@@ -36,7 +36,7 @@
       "name": "Type 1 (Parameter)",
       "type": "select",
       "topic": "Type",
-      "state": "Type1"
+        "state": "Type1"
     }
   },
   {
@@ -46,7 +46,7 @@
       "name": "Type 2 (Parameter)",
       "type": "select",
       "topic": "Type",
-      "state": "Type2"
+        "state": "Type2"
     }
   },
   {
@@ -56,7 +56,7 @@
       "name": "Type 3 (Parameter)",
       "type": "select",
       "topic": "Type",
-      "state": "Type3"
+        "state": "Type3"
     }
   },
   {
@@ -66,7 +66,7 @@
       "name": "Type 4 (Parameter)",
       "type": "select",
       "topic": "Type",
-      "state": "Type4"
+        "state": "Type4"
     }
   },
   {
@@ -76,7 +76,7 @@
       "name": "Type 5 (Parameter)",
       "type": "select",
       "topic": "Type",
-      "state": "Type5"
+        "state": "Type5"
     }
   },
   {
@@ -86,7 +86,7 @@
       "name": "Type 1 (Parameter)",
       "type": "select",
       "topic": "Type",
-      "state": "Type1P"
+        "state": "Type1P"
     }
   },
   {
@@ -96,7 +96,7 @@
       "name": "Height (in XX)",
       "type": "number",
       "topic": "Physical fields",
-      "state": "Height"
+        "state": "Height"
     }
   },
   {
@@ -106,7 +106,7 @@
       "name": "Width (in XX)",
       "type": "number",
       "topic": "Physical fields",
-      "state": "Width"
+        "state": "Width"
     }
   },
   {
@@ -116,7 +116,7 @@
       "name": "Length (in XX)",
       "type": "number",
       "topic": "Physical fields",
-      "state": "Length"
+        "state": "Length"
     }
   },
   {
@@ -126,7 +126,7 @@
       "name": "Gross volume (in XX)",
       "type": "number",
       "topic": "Physical fields",
-      "state": "GrossVolume"
+        "state": "GrossVolume"
     }
   },
   {
@@ -136,7 +136,7 @@
       "name": "Net shipping volume (m3)",
       "type": "number",
       "topic": "Physical fields",
-      "state": "NetShippingVolume"
+        "state": "NetShippingVolume"
     }
   },
   {
@@ -146,7 +146,7 @@
       "name": "Weight (kg)",
       "type": "number",
       "topic": "Physical fields",
-      "state": "Weightkg"
+        "state": "Weightkg"
     }
   },
   {
@@ -156,7 +156,7 @@
       "name": "External size",
       "type": "text",
       "topic": "Physical fields",
-      "state": "ExternalSize"
+        "state": "ExternalSize"
     }
   },
   {
@@ -166,7 +166,7 @@
       "name": "Number of doors",
       "type": "number",
       "topic": "Physical fields",
-      "state": "NumberOfDoors"
+        "state": "NumberOfDoors"
     }
   },
   {
@@ -176,7 +176,7 @@
       "name": "Is there inside door?",
       "type": "bool",
       "topic": "Physical fields",
-      "state": "IsThereInsideDoor"
+        "state": "IsThereInsideDoor"
     }
   },
   {
@@ -186,7 +186,7 @@
       "name": "Does it have an alarm system?",
       "type": "bool",
       "topic": "Physical fields",
-      "state": "DoesItHaveAnAlarmSystem"
+        "state": "DoesItHaveAnAlarmSystem"
     }
   },
   {
@@ -196,7 +196,7 @@
       "name": "Does is have adequate shelves?",
       "type": "bool",
       "topic": "Physical fields",
-      "state": "DoesItHaveAdequateShelves"
+        "state": "DoesItHaveAdequateShelves"
     }
   },
   {
@@ -206,7 +206,7 @@
       "name": "Does it have curtain?",
       "type": "bool",
       "topic": "Physical fields",
-      "state": "DoesItHaveCurtain"
+        "state": "DoesItHaveCurtain"
     }
   },
   {
@@ -216,7 +216,7 @@
       "name": "Physical conditions:",
       "type": "select",
       "topic": "Condition fields",
-      "state": "PhysicalConditions"
+        "state": "PhysicalConditions"
     }
   },
   {
@@ -226,7 +226,7 @@
       "name": "Technical conditions:",
       "type": "select",
       "topic": "Condition fields",
-      "state": "TechnicalConditions"
+        "state": "TechnicalConditions"
     }
   },
   {
@@ -236,7 +236,7 @@
       "name": "Working conditions:",
       "type": "select",
       "topic": "Condition fields",
-      "state": "WorkingConditions"
+        "state": "WorkingConditions"
     }
   },
   {
@@ -246,7 +246,7 @@
       "name": "Is it functioning?",
       "type": "bool",
       "topic": "Condition fields",
-      "state": "IsItFunctioning"
+        "state": "IsItFunctioning"
     }
   },
   {
@@ -256,7 +256,7 @@
       "name": "Not in use since (XX):",
       "type": "number",
       "topic": "Condition fields",
-      "state": "NotInUseSince"
+        "state": "NotInUseSince"
     }
   },
   {
@@ -266,7 +266,7 @@
       "name": "Reasons for not functioning:",
       "type": "select",
       "topic": "Condition fields",
-      "state": "ReasonsForNotFunctioning"
+        "state": "ReasonsForNotFunctioning"
     }
   },
   {
@@ -276,7 +276,7 @@
       "name": "Year installed:",
       "type": "select",
       "topic": "Condition fields",
-      "state": "YearInstalled"
+        "state": "YearInstalled"
     }
   },
   {
@@ -286,7 +286,7 @@
       "name": "Running time (hours)",
       "type": "number",
       "topic": "Condition fields",
-      "state": "RunningTime"
+        "state": "RunningTime"
     }
   },
   {
@@ -296,7 +296,7 @@
       "name": "Running time (km)",
       "type": "number",
       "topic": "Condition fields",
-      "state": "RunningTimeKm"
+        "state": "RunningTimeKm"
     }
   },
   {
@@ -306,7 +306,7 @@
       "name": "Storage condition (in degree C):",
       "type": "select",
       "topic": "Fields specific to cold chain equipment",
-      "state": "StorageCondition"
+        "state": "StorageCondition"
     }
   },
   {
@@ -316,7 +316,7 @@
       "name": "Net vaccine storage capacity (lit.):",
       "type": "number",
       "topic": "Fields specific to cold chain equipment",
-      "state": "NetVaccineStorageCapacity"
+        "state": "NetVaccineStorageCapacity"
     }
   },
   {
@@ -326,7 +326,7 @@
       "name": "Energy source for cold chain equipment:",
       "type": "select",
       "topic": "Fields specific to cold chain equipment",
-      "state": "EnergySource"
+        "state": "EnergySource"
     }
   },
   {
@@ -336,7 +336,7 @@
       "name": "Freezer net capacity (lit.)",
       "type": "number",
       "topic": "Fields specific to cold chain equipment",
-      "state": "FreezerNetCapacity"
+        "state": "FreezerNetCapacity"
     }
   },
   {
@@ -346,7 +346,7 @@
       "name": "Ice making capacity (Kg/24 hours)",
       "type": "number",
       "topic": "Fields specific to cold chain equipment",
-      "state": "IceMakingCapacity"
+        "state": "IceMakingCapacity"
     }
   },
   {
@@ -356,7 +356,7 @@
       "name": "Cool water production capacity (Kg/24 hours)",
       "type": "number",
       "topic": "Fields specific to cold chain equipment",
-      "state": "CoolWaterProductionCapacity"
+        "state": "CoolWaterProductionCapacity"
     }
   },
   {
@@ -366,7 +366,7 @@
       "name": "Number of cooling units:",
       "type": "number",
       "topic": "Fields specific to cold chain equipment",
-      "state": "NumberOfCoolingUnits"
+        "state": "NumberOfCoolingUnits"
     }
   },
   {
@@ -376,7 +376,7 @@
       "name": "Working temperature range:",
       "type": "text",
       "topic": "Fields specific to cold chain equipment",
-      "state": "WorkingTemperatureRange"
+        "state": "WorkingTemperatureRange"
     }
   },
   {
@@ -386,7 +386,7 @@
       "name": "Refrigerant gas:",
       "type": "text",
       "topic": "Fields specific to cold chain equipment",
-      "state": "RefrigerantGas"
+        "state": "RefrigerantGas"
     }
   },
   {
@@ -396,7 +396,7 @@
       "name": "Is the refrigerant gas CFC-free?",
       "type": "bool",
       "topic": "Fields specific to cold chain equipment",
-      "state": "IsTheRefrigerantGasCFCFree"
+        "state": "IsTheRefrigerantGasCFCFree"
     }
   },
   {
@@ -406,7 +406,7 @@
       "name": "Does it have freezing compartment?",
       "type": "bool",
       "topic": "TypFields specific to cold chain equipmente",
-      "state": "DoesItHaveFreezingCompartment"
+        "state": "DoesItHaveFreezingCompartment"
     }
   },
   {
@@ -416,7 +416,7 @@
       "name": "Does it have continuous temperature monitoring device? ",
       "type": "bool",
       "topic": "Fields specific to cold chain equipment",
-      "state": "DoesItHaveContinuousTemperatureMonitoringDevice"
+        "state": "DoesItHaveContinuousTemperatureMonitoringDevice"
     }
   },
   {
@@ -426,7 +426,7 @@
       "name": "Does it have built-in thermometer?",
       "type": "bool",
       "topic": "Fields specific to cold chain equipment",
-      "state": "DoesItHaveBuiltInThermometer"
+        "state": "DoesItHaveBuiltInThermometer"
     }
   },
   {
@@ -436,7 +436,7 @@
       "name": "Number of coolant packs required: ",
       "type": "number",
       "topic": "Fields specific to cold chain equipment",
-      "state": "NumberOfCoolantPacksRequired"
+        "state": "NumberOfCoolantPacksRequired"
     }
   },
   {
@@ -446,7 +446,7 @@
       "name": "Coolant pack nominal capacity (lit.):",
       "type": "number",
       "topic": "Fields specific to cold chain equipment",
-      "state": "CoolantPackNominalCapacity"
+        "state": "CoolantPackNominalCapacity"
     }
   },
   {
@@ -456,7 +456,7 @@
       "name": "Voltage:",
       "type": "number",
       "topic": "Electrical fields",
-      "state": "Voltage"
+        "state": "Voltage"
     }
   },
   {
@@ -466,7 +466,7 @@
       "name": "Phase",
       "type": "number",
       "topic": "Electrical fields",
-      "state": "Phase"
+        "state": "Phase"
     }
   },
   {
@@ -476,7 +476,7 @@
       "name": "Net generated power (kWatt/hour):",
       "type": "number",
       "topic": "Electrical fields",
-      "state": "NetGeneratedPower"
+        "state": "NetGeneratedPower"
     }
   },
   {
@@ -486,7 +486,7 @@
       "name": "Energy source for generators:",
       "type": "select",
       "topic": "Electrical fields",
-      "state": "EnergySource"
+        "state": "EnergySource"
     }
   },
   {
@@ -496,7 +496,7 @@
       "name": "Does it have an extra fuel tank?",
       "type": "bool",
       "topic": "Electrical fields",
-      "state": "DoesItHaveAnExtraFuelTank"
+        "state": "DoesItHaveAnExtraFuelTank"
     }
   },
   {
@@ -506,7 +506,7 @@
       "name": "Power or fuel consumption: ",
       "type": "number",
       "topic": "Electrical fields",
-      "state": "PowerOrFuelConsumption"
+        "state": "PowerOrFuelConsumption"
     }
   },
   {
@@ -516,7 +516,7 @@
       "name": "Is there an automatic start-up system?  ",
       "type": "bool",
       "topic": "Electrical fields",
-      "state": "IsThereAnAutomaticStartUpSystem"
+        "state": "IsThereAnAutomaticStartUpSystem"
     }
   },
   {
@@ -526,7 +526,7 @@
       "name": "Financial source:",
       "type": "number",
       "topic": "Financial fields",
-      "state": "FinancialSource"
+        "state": "FinancialSource"
     }
   },
   {
@@ -536,7 +536,7 @@
       "name": "Unit cost when installed (XXX)",
       "type": "number",
       "topic": "Financial fields",
-      "state": "UnitCostWhenInstalled"
+        "state": "UnitCostWhenInstalled"
     }
   },
   {
@@ -546,7 +546,7 @@
       "name": "Unit cost at present (XXX)",
       "type": "number",
       "topic": "Financial fields",
-      "state": "UnitCostAtPresent"
+        "state": "UnitCostAtPresent"
     }
   },
   {
@@ -556,7 +556,7 @@
       "name": "Original cost (XXX)",
       "type": "number",
       "topic": "Financial fields",
-      "state": "OriginalCost"
+        "state": "OriginalCost"
     }
   },
   {
@@ -566,7 +566,7 @@
       "name": "wVSSM code",
       "type": "text",
       "topic": "Different codes",
-      "state": "wVSSMCode"
+        "state": "wVSSMCode"
     }
   },
   {
@@ -576,7 +576,7 @@
       "name": "UNICEF Catalogue codes",
       "type": "text",
       "topic": "Different codes",
-      "state": "UNICEFCatalogueCodes"
+        "state": "UNICEFCatalogueCodes"
     }
   },
   {
@@ -586,7 +586,7 @@
       "name": "Other code",
       "type": "text",
       "topic": "Different codes",
-      "state": "OtherCode"
+        "state": "OtherCode"
     }
   },
   {
@@ -596,7 +596,7 @@
       "name": "PQS/PIS code:",
       "type": "text",
       "topic": "PQS/PIS fields",
-      "state": "PQSPISCode"
+        "state": "PQSPISCode"
     }
   },
   {
@@ -606,7 +606,7 @@
       "name": "PQS/PIS Type:",
       "type": "text",
       "topic": "PQS/PIS fields",
-      "state": "PQSPISType"
+        "state": "PQSPISType"
     }
   },
   {
@@ -616,7 +616,7 @@
       "name": "PQS/PIS manufacturer:",
       "type": "text",
       "topic": "PQS/PIS fields",
-      "state": "PQSPISManufacturer"
+        "state": "PQSPISManufacturer"
     }
   },
   {
@@ -626,7 +626,7 @@
       "name": "PQS/PIS refrigerant gas:",
       "type": "text",
       "topic": "PQS/PIS fields",
-      "state": "PQSPISRefrigerantGas"
+        "state": "PQSPISRefrigerantGas"
     }
   },
   {
@@ -636,7 +636,7 @@
       "name": "PQS/PIS temperature working zone",
       "type": "text",
       "topic": "PQS/PIS fields",
-      "state": "PQSPISTemperatureWorkingZone"
+        "state": "PQSPISTemperatureWorkingZone"
     }
   },
   {
@@ -646,7 +646,7 @@
       "name": "Does the dry store have adequate lighting?",
       "type": "bool",
       "topic": "Dry store fields",
-      "state": "DoesTheDryStoreHaveAdequateLighting"
+        "state": "DoesTheDryStoreHaveAdequateLighting"
     }
   },
   {
@@ -656,7 +656,7 @@
       "name": "Does the dry store have heating?",
       "type": "bool",
       "topic": "Dry store fields",
-      "state": "DoesTheDryStoreHaveHeating"
+        "state": "DoesTheDryStoreHaveHeating"
     }
   },
   {
@@ -666,7 +666,7 @@
       "name": "Does the dry store have air-conditioning?",
       "type": "bool",
       "topic": "Dry store fields",
-      "state": "DoesTheDryStoreHaveAirConditioning"
+        "state": "DoesTheDryStoreHaveAirConditioning"
     }
   },
   {
@@ -676,7 +676,7 @@
       "name": " Is the dry storage area protected from direct sunlight?",
       "type": "bool",
       "topic": "Dry store fields",
-      "state": "IsTheDryStorageAreaProtectedFromDirectSunlight"
+        "state": "IsTheDryStorageAreaProtectedFromDirectSunlight"
     }
   },
   {
@@ -686,7 +686,7 @@
       "name": "Is the dry storage area equipped with pallets/shelves/racks in a good physical condition?",
       "type": "bool",
       "topic": "Dry store fields",
-      "state": "IsTheDryStorageArea"
+        "state": "IsTheDryStorageArea"
     }
   },
   {
@@ -696,7 +696,7 @@
       "name": "Is the dry storage area clean, free from accumulated waste and vermin?",
       "type": "bool",
       "topic": "Dry store fields",
-      "state": "IsTheDryStorageAreaClean"
+        "state": "IsTheDryStorageAreaClean"
     }
   },
   {
@@ -706,7 +706,7 @@
       "name": "Is the dry storage area dry, well-ventilated and protected from moisture?",
       "type": "bool",
       "topic": "Dry store fields",
-      "state": "IsTheDryStorageAreaDry"
+        "state": "IsTheDryStorageAreaDry"
     }
   },
   {
@@ -716,7 +716,7 @@
       "name": "Is the dry storage area equipped with mechanical moving machines?",
       "type": "bool",
       "topic": "Dry store fields",
-      "state": "IsTheDryStorageAreaEquippedWithMechanical"
+        "state": "IsTheDryStorageAreaEquippedWithMechanical"
     }
   },
   {
@@ -726,7 +726,7 @@
       "name": "Surface area (length x width) (m2)",
       "type": "number",
       "topic": "Dry store fields",
-      "state": "SurfaceArea"
+        "state": "SurfaceArea"
     }
   },
   {
@@ -736,7 +736,7 @@
       "name": "Accessible height (m)",
       "type": "number",
       "topic": "Dry store fields",
-      "state": "AccessibleHeight"
+        "state": "AccessibleHeight"
     }
   },
   {
@@ -746,7 +746,7 @@
       "name": "Serial number:",
       "type": "text",
       "topic": "Other additional and optional fields",
-      "state": "SerialNumber"
+        "state": "SerialNumber"
     }
   },
   {
@@ -756,7 +756,7 @@
       "name": "Repair and maintenance history:",
       "type": "text",
       "topic": "Other additional and optional fields",
-      "state": "RepairAndMaintenanceHistory"
+        "state": "RepairAndMaintenanceHistory"
     }
   },
   {
@@ -766,7 +766,7 @@
       "name": "Maintenance group",
       "type": "text",
       "topic": "Other additional and optional fields",
-      "state": "MaintenanceGroup"
+        "state": "MaintenanceGroup"
     }
   },
   {
@@ -776,7 +776,7 @@
       "name": "Other fields Item 1",
       "type": "text",
       "topic": "Other additional and optional fields",
-      "state": "OtherFieldsItem1"
+        "state": "OtherFieldsItem1"
     }
   },
   {
@@ -786,7 +786,7 @@
       "name": "Other fields Item 2",
       "type": "bool",
       "topic": "Other additional and optional fields",
-      "state": "OtherFieldsItem2"
+        "state": "OtherFieldsItem2"
     }
   },
   {
@@ -796,7 +796,7 @@
       "name": "Other fields Item 3",
       "type": "text",
       "topic": "Other additional and optional fields",
-      "state": "OtherFieldsItem3"
+        "state": "OtherFieldsItem3"
     }
   },
   {
@@ -806,7 +806,7 @@
       "name": "Other fields Item Parameter 4",
       "type": "select",
       "topic": "Other additional and optional fields",
-      "state": "OtherFieldsItemParameter4"
+        "state": "OtherFieldsItemParameter4"
     }
   }
 ]
