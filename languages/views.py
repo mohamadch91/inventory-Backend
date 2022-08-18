@@ -1,3 +1,4 @@
+from copy import copy
 from django.shortcuts import render
 
 # Create your views here.
@@ -64,3 +65,26 @@ class languageView(APIView):
                     "words":serializer.data,
                 })
             return Response(ans)    
+    def post(self,request):
+        new_data=copy.deepcopy(request.data)
+        lang=request.data["language"]
+        lang=languages.objects.get(name=lang)
+        new_data["language"]=lang.id
+        serializer =  languageWordSerializer(data=new_data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    def put(self, request):
+        id=request.data["id"]
+        lang = get_object_or_404(languageWordSerializer, id=id)
+        serializer =  languageWordSerializer(lang, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    def delete(self, request):
+        id=request.data["id"]
+        lang = get_object_or_404(languageWordSerializer, id=id)
+        lang.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)    
