@@ -50,4 +50,5 @@ urlpatterns = [
     path('hr/',include('HR.urls')),
     path('languages/',include('languages.urls')),
     path('message/',include('message.urls')),
+    path('item/',include('item.urls')),
 ]

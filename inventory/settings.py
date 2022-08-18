@@ -90,6 +90,7 @@ INSTALLED_APPS = [
     'languages',
     'message',
     'facilities',
+    'item',
     'corsheaders',
     'rest_framework_simplejwt.token_blacklist',
     
