@@ -50,7 +50,7 @@ class messageView(APIView):
     def get(self,request):
         type=request.query_params.get('type',None)
         user=request.user
-        facility=Facility.objects.filter(id=user.facilityid)[0]
+        facility=Facility.objects.filter(id=user.facilityid.id)[0]
         if (type=="sender"):
             messages=messageSerializer(message.objects.filter(sender=facility.id),many=True)
             return Response(messages.data)
@@ -59,10 +59,11 @@ class messageView(APIView):
             return Response(messages.data)    
     def post(self, request):
         new_data=copy.deepcopy(request.data)
-        user=request.data["user"]
-        facility=Facility.objects.filter(id=user.facilityid)[0]
+        user=request.user
+        facility=Facility.objects.filter(id=user.facilityid.id)[0]
         new_data["sender"]=facility.id
         recievers=request.data["reciever"]
+        ans=[]
         for x in recievers:
             new_data["reciever"]=x
             serializer =  messageSerializer(data=new_data)
@@ -70,8 +71,8 @@ class messageView(APIView):
                 serializer.save()
             else:
                 return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response("messages sent succesfuly",status=status.HTTP_200_OK)
+            ans.append(serializer.data)
+        return Response(ans,status=status.HTTP_200_OK)
     def put(self, request):
         id=request.data["id"]
         message = get_object_or_404(messageSerializer, id=id)

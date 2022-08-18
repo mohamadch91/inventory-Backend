@@ -4,7 +4,7 @@ from .views import *
 
 urlpatterns = [
 
-    # path('', languageView.as_view(), name='language'),
+    path('', messageView.as_view(), name='message'),
 
   
     
