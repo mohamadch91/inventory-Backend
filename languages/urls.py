@@ -4,8 +4,7 @@ from .views import *
 
 urlpatterns = [
 
-    path('', HRView.as_view(), name='HR manage'),
-    path('hr-helper/', HRhelperView.as_view(), name='HR-helper'),
+    path('', languageView.as_view(), name='language'),
 
   
     
