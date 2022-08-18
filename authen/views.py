@@ -68,11 +68,16 @@ class UserView(APIView):
         user = request.user
         serializer = UserSerializer(user)
         return Response(data=serializer.data,status=status.HTTP_200_OK)
-class UserPersonal(APIView):
+class Userdata(APIView):
     permission_classes = (IsAuthenticated,)
 
     def get(self, request):
-        user = request.user
-        serializer = UserSerializer(user)
+        id=request.query_params.get('id',None)
+        if(id):
+            user = User.objects.get(facility=id)
+            serializer = UserSerializer(user)
+            return Response(data=serializer.data,status=status.HTTP_200_OK)
+        user = User.objects.all()
+        serializer = UserSerializer(user, many=True)
 
         return Response(data=serializer.data,status=status.HTTP_200_OK)

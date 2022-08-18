@@ -10,7 +10,7 @@ class User(AbstractUser):
     name = models.CharField(max_length=200, blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    idnumber = models.IntegerField(max_length=50, blank=True, null=True)
+    idnumber = models.IntegerField(blank=True, null=True)
     position = models.CharField(max_length=50, blank=True, null=True)
     phone = models.CharField(max_length=50, blank=True, null=True)
     facadmin = models.BooleanField(blank=True, null=True)
