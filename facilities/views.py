@@ -53,6 +53,11 @@ class FacilityView(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     def get(self, request):
+        id=request.query_params.get("id",None)
+        if id is not None:
+            facility = get_object_or_404(Facility, id=id)
+            serializer = facilitySerializer(facility)
+            return Response(serializer.data)
         country = Facility.objects.all()
         serializer =  facilitySerializer(country, many=True)
         return Response(serializer.data)
@@ -97,23 +102,38 @@ class facilityFieldView(APIView):
         rel=relatedFacility.objects.filter(active=True)
         ans=[]
         for x in rel:
-            params=[]
+            if(x.id==1 or x.id ==3):
+                continue
             x_ser=relatedfacilitySerilizer(x)
             param=facilityParam.objects.filter(fieldid=x.id).order_by('order')
+            desc_ser=[]
+            
             for y in param:
                 desc=facilityParamDescription.objects.filter(id=y.id).order_by('order')
                 desc_ser=facilityParamDescriptionSerilizer(desc,many=True)
-                params.append(desc_ser.data)
-            data={
+            data={}    
+            if(desc_ser==[]):
+                     data={
                 "id":x.id,
                 "name":x.name,
                 "topic":x.topic,
                 "type":x.type,
-                "disabled":x.disabled,
+                "active":x.active,
                 "required":x.required,
                 "stateName":x.state,
-                "params":params
-            }
+                "params":[]
+                     }
+            else:         
+                data={
+                    "id":x.id,
+                    "name":x.name,
+                    "topic":x.topic,
+                    "type":x.type,
+                    "active":x.active,
+                    "required":x.required,
+                    "stateName":x.state,
+                    "params":desc_ser.data
+                }
             ans.append(data)
         data={
             "levels":levels_Ser.data,
