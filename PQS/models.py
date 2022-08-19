@@ -18,14 +18,9 @@ class pqs3(models.Model):
     model = models.CharField(db_column='Model', max_length=100, blank=True, null=True)  # Field name made lowercase.
     pqscode = models.CharField(db_column='PQScode', max_length=50, blank=True, null=True)  # Field name made lowercase.
     refrigerant = models.CharField(db_column='Refrigerant', max_length=50, blank=True, null=True)  # Field name made lowercase.
-    tempzone = models.CharField(db_column='Tempzone', max_length=50, blank=True, null=True)  # Field name made lowercase.
     refrigeratorcapacity = models.FloatField(db_column='RefrigeratorCapacity', blank=True, null=True)  # Field name made lowercase.
     freezercapacity = models.FloatField(db_column='FreezerCapacity', blank=True, null=True)  # Field name made lowercase.
     kg_24_hrs = models.FloatField(blank=True, null=True)
-    waterpackstoragecapacity = models.FloatField(db_column='WaterpackStorageCapacity', blank=True, null=True)  # Field name made lowercase.
-    price = models.FloatField(db_column='Price', blank=True, null=True)  # Field name made lowercase.
     h = models.FloatField(db_column='H', blank=True, null=True)  # Field name made lowercase.
     w = models.FloatField(db_column='W', blank=True, null=True)  # Field name made lowercase.
     l = models.FloatField(db_column='L', blank=True, null=True)  # Field name made lowercase.
-    volume = models.FloatField(db_column='Volume', blank=True, null=True)  # Field name made lowercase.
-    weight = models.FloatField(db_column='Weight', blank=True, null=True)  # Field name made lowercase.
