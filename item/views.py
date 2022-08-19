@@ -133,15 +133,16 @@ class itemFieldView(APIView):
                 data={}
                 field=Field.objects.filter(id=x.field.id)[0]
                 field_ser=fieldSerializer(field,many=False)
-                data["field"]=field_ser.data
+                copys=copy.deepcopy(field_ser.data)
+                data["field"]=copys
                 if(field.id==2):
                    
-                    data["params"]=man_Ser.data
+                    data["field"]["params"]=man_Ser.data
                 else:
                    param=itemParam.objects.filter(fieldid=field.id)[0]
                    describe=itemParamDescription.objects.filter(paramid=param.id,enabled=True)
                    des_ser=itemParamDescriptionSerilizer(describe,many=True) 
-                   data["params"]=des_ser.data
+                   data["field"]["params"]=des_ser.data
                 fields.append(data)
             return Response(fields)       
 
