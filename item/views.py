@@ -41,6 +41,7 @@ class itemView(APIView):
     permission_classes = (IsAuthenticated,)
 
     def post(self, request):
+        
         new_data=copy.deepcopy(request.data)
         facility=new_data["facility"]
         facility=get_object_or_404(Facility, id=facility)
@@ -57,6 +58,13 @@ class itemView(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     def get(self, request):
+        id=request.query_params.get('id',None)
+        if(id is not None):
+                
+            country = item.objects.filter(id=id)
+            serializer =  itemSerializer(country, many=True)
+            return Response(serializer.data)
+
         country = item.objects.all()
         serializer =  itemSerializer(country, many=True)
         return Response(serializer.data)
@@ -100,12 +108,14 @@ class itemFieldView(APIView):
                     new_data={
                         "id":k.id,
                         "title":k.title,
+                        "havepqs":k.havePQS,
                     }
                     second_data.append(new_data)
                 data={
                     "item_class":{
                         "id":x.id,
                         "title":x.title,
+
                     },
                     "item_type":second_data,
                 }
