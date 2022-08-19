@@ -109,14 +109,14 @@ class messageView(APIView):
         return Response(ans,status=status.HTTP_200_OK)
     def put(self, request):
         id=request.data["id"]
-        message = get_object_or_404(messageSerializer, id=id)
-        serializer =  messageSerializer(message, data=request.data)
+        messages = get_object_or_404(message, id=id)
+        serializer =  messageSerializer(messages, data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     def delete(self, request):
         id=request.data["id"]
-        message = get_object_or_404(messageSerializer, id=id)
-        message.delete()
+        messages = get_object_or_404(message, id=id)
+        messages.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
