@@ -75,7 +75,7 @@ class Userdata(APIView):
         id=request.query_params.get('id',None)
         if(id):
             user = User.objects.filter(facilityid=id)
-            serializer = UserSerializer(user,mant=True)
+            serializer = UserSerializer(user,many=True)
             return Response(data=serializer.data,status=status.HTTP_200_OK)
         user = User.objects.all()
         serializer = UserSerializer(user, many=True)
