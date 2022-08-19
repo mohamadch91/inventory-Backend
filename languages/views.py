@@ -70,7 +70,10 @@ class languageView(APIView):
             lang=languages.objects.all()
             ans=[]
             for x in lang:
+
                 words=languages_words.objects.filter(language=x.id)
+                if(search is not None):
+                     words=languages_words.objects.filter(language=x.id,word__contains=search) or languages_words.objects.filter(language=x.id,translate__contains=search)
                 z=words.count()
 
                 ans.append({
