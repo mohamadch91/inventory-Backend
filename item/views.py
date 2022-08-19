@@ -45,6 +45,7 @@ class itemView(APIView):
         facility=new_data["facility"]
         facility=get_object_or_404(Facility, id=facility)
         item_class=new_data["item_class"]
+        item_type=new_data["item_type"]
         item_class=get_object_or_404(ItemClass, id=item_class)
         item_type=get_object_or_404(ItemType, id=item_type)   
         item_code=f"{item.objects.count()+1:03d}"    
@@ -93,11 +94,20 @@ class itemFieldView(APIView):
             first_data=[]
             for x in item_class:
                 x_ser=itemclassSerializer(x)
-                item_type=ItemType.objects.filter(itemclassid=x.id,active=True,id__in=item_type_id)
-                ser=itemtypeSerializer(item_type,many=True)
+                item_type=ItemType.objects.filter(itemclass=x.id,active=True,id__in=item_type_id)
+                second_data=[]
+                for k in item_type:
+                    new_data={
+                        "id":k.id,
+                        "title":k.title,
+                    }
+                    second_data.append(new_data)
                 data={
-                    "item_class":x_ser.data,
-                    "item_type":ser.data,
+                    "item_class":{
+                        "id":x.id,
+                        "title":x.title,
+                    },
+                    "item_type":second_data,
                 }
                 first_data.append(data)
             return Response(first_data)
@@ -111,15 +121,15 @@ class itemFieldView(APIView):
             fields=[]
             for x in related:
                 data={}
-                field=Field.objects.filter(id=x.field.id)
-                field_ser=fieldSerializer(field,many=True)
+                field=Field.objects.filter(id=x.field.id)[0]
+                field_ser=fieldSerializer(field,many=False)
                 data["field"]=field_ser.data
                 if(field.id==2):
                    
                     data["params"]=man_Ser.data
                 else:
-                   param=itemParam.objects.filter(fieldid=field.id)
-                   describe=itemParamDescription.object.filter(paramid=param.id,enabled=True)
+                   param=itemParam.objects.filter(fieldid=field.id)[0]
+                   describe=itemParamDescription.objects.filter(paramid=param.id,enabled=True)
                    des_ser=itemParamDescriptionSerilizer(describe,many=True) 
                    data["params"]=des_ser.data
                 fields.append(data)
