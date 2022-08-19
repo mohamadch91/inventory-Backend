@@ -53,10 +53,44 @@ class messageView(APIView):
         facility=Facility.objects.filter(id=user.facilityid.id)[0]
         if (type=="sender"):
             messages=messageSerializer(message.objects.filter(sender=facility.id),many=True)
-            return Response(messages.data)
+            final_ans=[]
+            print(messages.data)
+            for x in messages.data:
+                ans=copy.deepcopy(x)
+                send_fac=get_object_or_404(Facility,id=x["sender"])
+                sender={
+                    "id":send_fac.id,
+                    "name":send_fac.name
+                }
+                recv_fac=get_object_or_404(Facility,id=x["reciever"])
+                reciev={
+                    "id":recv_fac.id,
+                    "name":recv_fac.name
+                }
+                ans["sender"]=sender
+                ans["reciever"]=reciev
+                final_ans.append(ans)
+            return Response(final_ans)
         else:
             messages=messageSerializer(message.objects.filter(reciever=facility.id),many=True)
-            return Response(messages.data)    
+            final_ans=[]
+            print(messages.data)
+            for x in messages.data:
+                ans=copy.deepcopy(x)
+                send_fac=get_object_or_404(Facility,id=x["sender"])
+                sender={
+                    "id":send_fac.id,
+                    "name":send_fac.name
+                }
+                recv_fac=get_object_or_404(Facility,id=x["reciever"])
+                reciev={
+                    "id":recv_fac.id,
+                    "name":recv_fac.name
+                }
+                ans["sender"]=sender
+                ans["reciever"]=reciev
+                final_ans.append(ans)
+            return Response(final_ans)
     def post(self, request):
         new_data=copy.deepcopy(request.data)
         user=request.user
