@@ -133,6 +133,12 @@ class facilityFieldView(APIView):
                     "stateName":x.state,
                     "params":desc_ser.data
                 }
+            val=Facilityvalidation.objects.filter(fieldid=x.id)
+            val_ser=FacilityvalidationSerilizer(val,many=True)
+            if(val.count()>0):
+                data["validation"]=val_ser.data
+            else:
+                data["validation"]=[]    
             ans.append(data)
         data={
             "levels":levels_Ser.data,
