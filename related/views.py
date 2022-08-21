@@ -269,10 +269,24 @@ class paramView(APIView):
             if(type=='facility'):
                 description=facilityParamDescription.objects.filter(paramid=id)
                 description_ser=facilityParamDescriptionSerilizer(description, many=True)
-                return Response(description_ser.data,status=status.HTTP_200_OK)
+                facility_param=facilityParam.objects.filter(id=id)[0]
+                facility_param_ser=facilityParamSerilizer(facility_param)
+                new_data={
+                    "name":facility_param_ser.data['name'],
+                    "description":description_ser.data
+
+                }
+                return Response(new_data,status=status.HTTP_200_OK)
             else:
                 description=itemParamDescription.objects.filter(paramid=id)
                 description_ser=itemParamDescriptionSerilizer(description, many=True)
+                facility_param=itemParam.objects.filter(id=id)[0]
+                facility_param_ser=itemParamSerilizer(facility_param)
+                new_data={
+                    "name":facility_param_ser.data['name'],
+                    "description":description_ser.data
+
+                }
                 return Response(description_ser.data,status=status.HTTP_200_OK)    
 
             
