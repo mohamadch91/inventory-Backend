@@ -143,6 +143,12 @@ class itemFieldView(APIView):
                    describe=itemParamDescription.objects.filter(paramid=param.id,enabled=True)
                    des_ser=itemParamDescriptionSerilizer(describe,many=True) 
                    data["field"]["params"]=des_ser.data
+                val=Itemvalidation.objects.filter(fieldid=x.id)
+                val_ser=ItemvalidationSerilizer(val,many=True)
+                if(val.count()>0):
+                    data["field"]["validation"]=val_ser.data
+                else:
+                    data["field"]["validation"]=[]     
                 fields.append(data)
             return Response(fields)       
 
