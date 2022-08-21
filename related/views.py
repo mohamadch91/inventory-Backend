@@ -39,6 +39,7 @@ class relatedfacilityView(APIView):
         ans=[]
         for x in request.data:
             id=x["id"]
+            print(type(id))
             if(id==35):
                 for i in range(2):
                     data={
@@ -52,48 +53,66 @@ class relatedfacilityView(APIView):
                     if serializer.is_valid():
                         serializer.save()
                         ans.append(serializer.data)
+                    else:
+                        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
             if(id==38):
+                print("mamaaamad")
                 for i in range(9):
+                    
+                    country = get_object_or_404(relatedFacility, id=id+i+1)
                     data={
                         "id":i+1,
                         "active":x["active"],
-                        "required":x["required"]
+                        "required":x["required"],
+                        "name":country.name,
+                        "type":country.type
 
                     }
-                    country = get_object_or_404(relatedFacility, id=id+i+1)
                     serializer = relatedfacilitySerilizer(country, data=data)
                     if serializer.is_valid():
                         serializer.save()
                         ans.append(serializer.data)
+                    else:
+                        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
             if(id==48):
                 for i in range(1):
+                   
+                    country = get_object_or_404(relatedFacility, id=id+i+1)
                     data={
                         "id":i+1,
                         "active":x["active"],
-                        "required":x["required"]
+                        "required":x["required"],
+                        "name":country.name,
+                        "type":country.type
 
                     }
-                    country = get_object_or_404(relatedFacility, id=id+i+1)
                     serializer = relatedfacilitySerilizer(country, data=data)
                     if serializer.is_valid():
                         serializer.save()
                         ans.append(serializer.data)    
+                    else:
+                        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
             if(id==50):
                 for i in range(1):
+
+                    country = get_object_or_404(relatedFacility, id=id+i+1)
                     data={
                         "id":i+1,
                         "active":x["active"],
-                        "required":x["required"]
+                        "required":x["required"],
+                        "name":country.name,
+                        "type":country.type
 
                     }
-                    country = get_object_or_404(relatedFacility, id=id+i+1)
                     serializer = relatedfacilitySerilizer(country, data=data)
                     if serializer.is_valid():
                         serializer.save()
                         ans.append(serializer.data)    
-
+                    else:
+                        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
                 
             country = get_object_or_404(relatedFacility, id=id)
