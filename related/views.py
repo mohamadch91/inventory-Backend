@@ -270,9 +270,10 @@ class paramView(APIView):
                 description=facilityParamDescription.objects.filter(paramid=id)
                 description_ser=facilityParamDescriptionSerilizer(description, many=True)
                 facility_param=facilityParam.objects.filter(id=id)[0]
-                facility_param_ser=facilityParamSerilizer(facility_param)
+                field=get_object_or_404(relatedFacility, id=facility_param.fieldid.id)
+                field_ser=relatedfacilitySerilizer(field)
                 new_data={
-                    "name":facility_param_ser.data['name'],
+                    "name":field_ser.data['name'],
                     "description":description_ser.data
 
                 }
@@ -281,9 +282,10 @@ class paramView(APIView):
                 description=itemParamDescription.objects.filter(paramid=id)
                 description_ser=itemParamDescriptionSerilizer(description, many=True)
                 facility_param=itemParam.objects.filter(id=id)[0]
-                facility_param_ser=itemParamSerilizer(facility_param)
+                field=get_object_or_404(Field, id=facility_param.fieldid.id)
+                field_ser=fieldSerializer(field)
                 new_data={
-                    "name":facility_param_ser.data['name'],
+                    "name":field_ser.data['name'],
                     "description":description_ser.data
 
                 }
