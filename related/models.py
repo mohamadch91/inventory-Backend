@@ -84,7 +84,7 @@ class itemParamDescription(models.Model):
     def __str__(self):
         return self.name
 
-class Facilityvalidation:
+class Facilityvalidation(models.Model):
     id=models.AutoField(primary_key=True)
     fieldid=models.ForeignKey(relatedFacility, on_delete=models.CASCADE)
     digits=models.IntegerField(default=0)
@@ -93,7 +93,7 @@ class Facilityvalidation:
     float=models.BooleanField(default=False)
     floating=models.IntegerField(default=0)
 
-class Itemvalidation:
+class Itemvalidation(models.Model):
     id=models.AutoField(primary_key=True)
     fieldid=models.ForeignKey(Field, on_delete=models.CASCADE)
     digits=models.IntegerField(default=0)
