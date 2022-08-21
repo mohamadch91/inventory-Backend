@@ -39,6 +39,63 @@ class relatedfacilityView(APIView):
         ans=[]
         for x in request.data:
             id=x["id"]
+            if(id==35):
+                for i in range(2):
+                    data={
+                        "id":i+1,
+                        "active":x["active"],
+                        "required":x["required"]
+
+                    }
+                    country = get_object_or_404(relatedFacility, id=id+i+1)
+                    serializer = relatedfacilitySerilizer(country, data=data)
+                    if serializer.is_valid():
+                        serializer.save()
+                        ans.append(serializer.data)
+
+            if(id==38):
+                for i in range(9):
+                    data={
+                        "id":i+1,
+                        "active":x["active"],
+                        "required":x["required"]
+
+                    }
+                    country = get_object_or_404(relatedFacility, id=id+i+1)
+                    serializer = relatedfacilitySerilizer(country, data=data)
+                    if serializer.is_valid():
+                        serializer.save()
+                        ans.append(serializer.data)
+
+            if(id==48):
+                for i in range(1):
+                    data={
+                        "id":i+1,
+                        "active":x["active"],
+                        "required":x["required"]
+
+                    }
+                    country = get_object_or_404(relatedFacility, id=id+i+1)
+                    serializer = relatedfacilitySerilizer(country, data=data)
+                    if serializer.is_valid():
+                        serializer.save()
+                        ans.append(serializer.data)    
+            if(id==50):
+                for i in range(1):
+                    data={
+                        "id":i+1,
+                        "active":x["active"],
+                        "required":x["required"]
+
+                    }
+                    country = get_object_or_404(relatedFacility, id=id+i+1)
+                    serializer = relatedfacilitySerilizer(country, data=data)
+                    if serializer.is_valid():
+                        serializer.save()
+                        ans.append(serializer.data)    
+
+
+                
             country = get_object_or_404(relatedFacility, id=id)
             serializer = relatedfacilitySerilizer(country, data=x)
             if serializer.is_valid():
@@ -97,6 +154,17 @@ class relatedItemTypeView(APIView):
                 itemtype=get_object_or_404(ItemType, id=x['itemtypeid'])
                 obj=relatedItemType.objects.filter(field=x['fieldid'], itemtype=x['itemtypeid'])
                 if(len(obj)==0):
+                    if(field.id==25):
+                        for i in range(1,3):
+                            data={
+                                "field":field.id+i,
+                                "itemtype":itemtype.id,
+                                "required":x['required']
+                            }
+                            serializer = relatedItemTypeSerilizer(data=data)
+                            if serializer.is_valid():
+                                serializer.save()
+                                ans.append(serializer.data)
                     data={
                         'field':field.id,
                         'itemtype':itemtype.id ,
@@ -124,7 +192,12 @@ class relatedItemTypeView(APIView):
                     #     return Response(ser.errors, status=status.HTTP_400_BAD_REQUEST)
                         
             else:
-
+                if(x['fieldid']==25):
+                    obj=relatedItemType.objects.filter(field=x['fieldid']+1, itemtype=x['itemtypeid'])
+                    obj.delete()
+                    obj=relatedItemType.objects.filter(field=x['fieldid']+2, itemtype=x['itemtypeid'])
+                    obj.delete()
+                
                 obj=relatedItemType.objects.filter(field=x['fieldid'], itemtype=x['itemtypeid'])
                 if(len(obj)==1):
                     obj.delete()
