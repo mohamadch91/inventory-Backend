@@ -34,3 +34,13 @@ class itemParamDescriptionSerilizer(serializers.ModelSerializer):
     class Meta:
         model = itemParamDescription
         fields = '__all__'           
+
+class FacilityvalidationSerilizer(serializers.ModelSerializer):
+    class Meta:
+        model = Facilityvalidation
+        fields = '__all__'
+
+class ItemvalidationSerilizer(serializers.ModelSerializer):
+    class Meta:
+        model = Itemvalidation
+        fields = '__all__'

@@ -1,0 +1,352 @@
+ [
+   
+    {
+      "model": "related.Itemvalidation",
+      "pk": 1,
+      "fields": {
+        "fieldid": 10,
+        "digits": 4,
+        "min": 0,
+        "max": 9999,
+        "float": true,
+        "floating": 2
+      }
+    }
+   ,
+   
+    {
+      "model": "related.Itemvalidation",
+      "pk": 2,
+      "fields": {
+        "fieldid": 11,
+        "digits": 4,
+        "min": 0,
+        "max": 9999,
+        "float": true,
+        "floating": 2
+      }
+    }
+   ,
+   
+    {
+      "model": "related.Itemvalidation",
+      "pk": 3,
+      "fields": {
+        "fieldid": 12,
+        "digits": 4,
+        "min": 0,
+        "max": 9999,
+        "float": true,
+        "floating": 2
+      }
+    }
+   ,
+   
+    {
+      "model": "related.Itemvalidation",
+      "pk": 4,
+      "fields": {
+        "fieldid": 13,
+        "digits": 4,
+        "min": 0,
+        "max": 9999,
+        "float": true,
+        "floating": 2
+      }
+    }
+   ,
+   
+    {
+      "model": "related.Itemvalidation",
+      "pk": 5,
+      "fields": {
+        "fieldid": 14,
+        "digits": 4,
+        "min": 0,
+        "max": 9999,
+        "float": true,
+        "floating": 2
+      }
+    }
+   ,
+   
+    {
+      "model": "related.Itemvalidation",
+      "pk": 6,
+      "fields": {
+        "fieldid": 15,
+        "digits": 4,
+        "min": 0,
+        "max": 9999,
+        "float": true,
+        "floating": 2
+      }
+    }
+   ,
+   
+    {
+      "model": "related.Itemvalidation",
+      "pk": 7,
+      "fields": {
+        "fieldid": 17,
+        "digits": 2,
+        "min": 0,
+        "max": 10,
+        "float": false,
+        "floating": -1
+      }
+    }
+   ,
+   
+    {
+      "model": "related.Itemvalidation",
+      "pk": 8,
+      "fields": {
+        "fieldid": 26,
+        "digits": 3,
+        "min": 0,
+        "max": 365,
+        "float": false,
+        "floating": -1
+      }
+    }
+   ,
+   
+    {
+      "model": "related.Itemvalidation",
+      "pk": 9,
+      "fields": {
+        "fieldid": 28,
+        "digits": 4,
+        "min": 1990,
+        "max": 2022,
+        "float": false,
+        "floating": -1
+      }
+    }
+   ,
+   
+    {
+      "model": "related.Itemvalidation",
+      "pk": 10,
+      "fields": {
+        "fieldid": 29,
+        "digits": -1,
+        "min": 0,
+        "max": -1,
+        "float": false,
+        "floating": -1
+      }
+    }
+   ,
+   
+    {
+      "model": "related.Itemvalidation",
+      "pk": 11,
+      "fields": {
+        "fieldid": 30,
+        "digits": -1,
+        "min": 0,
+        "max": -1,
+        "float": false,
+        "floating": -1
+      }
+    }
+   ,
+   
+    {
+      "model": "related.Itemvalidation",
+      "pk": 12,
+      "fields": {
+        "fieldid": 32,
+        "digits": -1,
+        "min": 0,
+        "max": -1,
+        "float": true,
+        "floating": 2
+      }
+    }
+   ,
+   
+    {
+      "model": "related.Itemvalidation",
+      "pk": 13,
+      "fields": {
+        "fieldid": 34,
+        "digits": -1,
+        "min": 0,
+        "max": -1,
+        "float": true,
+        "floating": 2
+      }
+    }
+   ,
+   
+    {
+      "model": "related.Itemvalidation",
+      "pk": 14,
+      "fields": {
+        "fieldid": 35,
+        "digits": -1,
+        "min": 0,
+        "max": -1,
+        "float": true,
+        "floating": 2
+      }
+    }
+   ,
+   
+    {
+      "model": "related.Itemvalidation",
+      "pk": 15,
+      "fields": {
+        "fieldid": 36,
+        "digits": -1,
+        "min": 0,
+        "max": -1,
+        "float": true,
+        "floating": 2
+      }
+    }
+   ,
+   
+    {
+      "model": "related.Itemvalidation",
+      "pk": 16,
+      "fields": {
+        "fieldid": 37,
+        "digits": 2,
+        "min": 1,
+        "max": 10,
+        "float": false,
+        "floating": -1
+      }
+    }
+   ,
+   
+    {
+      "model": "related.Itemvalidation",
+      "pk": 17,
+      "fields": {
+        "fieldid": 44,
+        "digits": -1,
+        "min": 0,
+        "max": -1,
+        "float": false,
+        "floating": -1
+      }
+    }
+   ,
+   
+    {
+      "model": "related.Itemvalidation",
+      "pk": 18,
+      "fields": {
+        "fieldid": 45,
+        "digits": -1,
+        "min": 0,
+        "max": -1,
+        "float": true,
+        "floating": 2
+      }
+    }
+   ,
+   
+    {
+      "model": "related.Itemvalidation",
+      "pk": 19,
+      "fields": {
+        "fieldid": 46,
+        "digits": 3,
+        "min": 110,
+        "max": 380,
+        "float": false,
+        "floating": -1
+      }
+    }
+   ,
+   
+    {
+      "model": "related.Itemvalidation",
+      "pk": 20,
+      "fields": {
+        "fieldid": 51,
+        "digits": -1,
+        "min": 0,
+        "max": -1,
+        "float": false,
+        "floating": -1
+      }
+    }
+   ,
+   
+    {
+      "model": "related.Itemvalidation",
+      "pk": 21,
+      "fields": {
+        "fieldid": 81,
+        "digits": -1,
+        "min": 0,
+        "max": -1,
+        "float": false,
+        "floating": -1
+      }
+    }
+   ,
+   
+    {
+      "model": "related.Itemvalidation",
+      "pk": 22,
+      "fields": {
+        "fieldid": 54,
+        "digits": -1,
+        "min": 0,
+        "max": -1,
+        "float": false,
+        "floating": -1
+      }
+    }
+   ,
+   
+    {
+      "model": "related.Itemvalidation",
+      "pk": 23,
+      "fields": {
+        "fieldid": 55,
+        "digits": -1,
+        "min": 0,
+        "max": -1,
+        "float": false,
+        "floating": -1
+      }
+    }
+   ,
+   
+    {
+      "model": "related.Itemvalidation",
+      "pk": 24,
+      "fields": {
+        "fieldid": 72,
+        "digits": -1,
+        "min": 0,
+        "max": -1,
+        "float": true,
+        "floating": 2
+      }
+    }
+   ,
+   
+    {
+      "model": "related.Itemvalidation",
+      "pk": 25,
+      "fields": {
+        "fieldid": 73,
+        "digits": -1,
+        "min": 0,
+        "max": -1,
+        "float": true,
+        "floating": 2
+      }
+    }
+  
+]

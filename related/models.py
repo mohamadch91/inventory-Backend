@@ -1,7 +1,7 @@
 from cgitb import enable
 from faulthandler import disable
 from pyexpat import model
-from unicodedata import name
+from unicodedata import digit, name
 from django.db import models
 from items.models import ItemType
 # Create your models here.
@@ -84,3 +84,20 @@ class itemParamDescription(models.Model):
     def __str__(self):
         return self.name
 
+class Facilityvalidation:
+    id=models.AutoField(primary_key=True)
+    fieldid=models.ForeignKey(relatedFacility, on_delete=models.CASCADE)
+    digits=models.IntegerField(default=0)
+    min=models.IntegerField(default=0)
+    max=models.IntegerField(default=0)
+    float=models.BooleanField(default=False)
+    floating=models.IntegerField(default=0)
+
+class Itemvalidation:
+    id=models.AutoField(primary_key=True)
+    fieldid=models.ForeignKey(Field, on_delete=models.CASCADE)
+    digits=models.IntegerField(default=0)
+    min=models.IntegerField(default=0)
+    max=models.IntegerField(default=0)
+    float=models.BooleanField(default=False)
+    floating=models.IntegerField(default=0)    

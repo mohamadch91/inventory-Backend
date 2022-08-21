@@ -1,0 +1,278 @@
+[
+  {
+    "model": "related.Facilityvalidation",
+    "pk": 1,
+    "fields": {
+      "fieldid": 7,
+      "digits": -1,
+      "min": -1,
+      "max": -1,
+      "float": false,
+      "floating": -1
+    }
+  },
+  {
+    "model": "related.Facilityvalidation",
+    "pk": 2,
+    "fields": {
+      "fieldid": 23,
+      "digits": 4,
+      "min": 1990,
+      "max": 2022,
+      "float": false,
+      "floating": -1
+    }
+  },
+  {
+    "model": "related.Facilityvalidation",
+    "pk": 3,
+    "fields": {
+      "fieldid": 28,
+      "digits": -1,
+      "min": 0,
+      "max": -1,
+      "float": true,
+      "floating": 1
+    }
+  },
+  {
+    "model": "related.Facilityvalidation",
+    "pk": 4,
+    "fields": {
+      "fieldid": 30,
+      "digits": -1,
+      "min": 0,
+      "max": -1,
+      "float": false,
+      "floating": -1
+    }
+  },
+  {
+    "model": "related.Facilityvalidation",
+    "pk": 5,
+    "fields": {
+      "fieldid": 36,
+      "digits": 2,
+      "min": 0,
+      "max": 31,
+      "float": false,
+      "floating": -1
+    }
+  },
+  {
+    "model": "related.Facilityvalidation",
+    "pk": 6,
+    "fields": {
+      "fieldid": 27,
+      "digits": 4,
+      "min": 1990,
+      "max": 2022,
+      "float": false,
+      "floating": -1
+    }
+  },
+  {
+    "model": "related.Facilityvalidation",
+    "pk": 7,
+    "fields": {
+      "fieldid": 39,
+      "digits": 3,
+      "min": 0,
+      "max": 100,
+      "float": false,
+      "floating": -1
+    }
+  },
+  {
+    "model": "related.Facilityvalidation",
+    "pk": 8,
+    "fields": {
+      "fieldid": 40,
+      "digits": 3,
+      "min": 0,
+      "max": 100,
+      "float": false,
+      "floating": -1
+    }
+  },
+  {
+    "model": "related.Facilityvalidation",
+    "pk": 9,
+    "fields": {
+      "fieldid": 41,
+      "digits": 3,
+      "min": 0,
+      "max": 100,
+      "float": false,
+      "floating": -1
+    }
+  },
+  {
+    "model": "related.Facilityvalidation",
+    "pk": 10,
+    "fields": {
+      "fieldid": 42,
+      "digits": 3,
+      "min": 0,
+      "max": 100,
+      "float": false,
+      "floating": -1
+    }
+  },
+  {
+    "model": "related.Facilityvalidation",
+    "pk": 11,
+    "fields": {
+      "fieldid": 43,
+      "digits": -1,
+      "min": 0,
+      "max": -1,
+      "float": false,
+      "floating": -1
+    }
+  },
+  {
+    "model": "related.Facilityvalidation",
+    "pk": 12,
+    "fields": {
+      "fieldid": 44,
+      "digits": -1,
+      "min": 0,
+      "max": -1,
+      "float": false,
+      "floating": -1
+    }
+  },
+  {
+    "model": "related.Facilityvalidation",
+    "pk": 13,
+    "fields": {
+      "fieldid": 45,
+      "digits": -1,
+      "min": 0,
+      "max": -1,
+      "float": false,
+      "floating": -1
+    }
+  },
+  {
+    "model": "related.Facilityvalidation",
+    "pk": 14,
+    "fields": {
+      "fieldid": 46,
+      "digits": -1,
+      "min": 0,
+      "max": -1,
+      "float": false,
+      "floating": -1
+    }
+  },
+  {
+    "model": "related.Facilityvalidation",
+    "pk": 15,
+    "fields": {
+      "fieldid": 47,
+      "digits": -1,
+      "min": 0,
+      "max": -1,
+      "float": false,
+      "floating": -1
+    }
+  },
+  {
+    "model": "related.Facilityvalidation",
+    "pk": 16,
+    "fields": {
+      "fieldid": 55,
+      "digits": 3,
+      "min": 0,
+      "max": 300,
+      "float": false,
+      "floating": -1
+    }
+  },
+  {
+    "model": "related.Facilityvalidation",
+    "pk": 17,
+    "fields": {
+      "fieldid": 56,
+      "digits": 3,
+      "min": 0,
+      "max": 50,
+      "float": false,
+      "floating": -1
+    }
+  },
+  {
+    "model": "related.Facilityvalidation",
+    "pk": 18,
+    "fields": {
+      "fieldid": 57,
+      "digits": 3,
+      "min": 0,
+      "max": 50,
+      "float": false,
+      "floating": -1
+    }
+  },
+  {
+    "model": "related.Facilityvalidation",
+    "pk": 19,
+    "fields": {
+      "fieldid": 58,
+      "digits": 3,
+      "min": 0,
+      "max": 50,
+      "float": false,
+      "floating": -1
+    }
+  },
+  {
+    "model": "related.Facilityvalidation",
+    "pk": 20,
+    "fields": {
+      "fieldid": 59,
+      "digits": 3,
+      "min": 0,
+      "max": 50,
+      "float": false,
+      "floating": -1
+    }
+  },
+  {
+    "model": "related.Facilityvalidation",
+    "pk": 21,
+    "fields": {
+      "fieldid": 60,
+      "digits": 3,
+      "min": 0,
+      "max": 50,
+      "float": false,
+      "floating": -1
+    }
+  },
+  {
+    "model": "related.Facilityvalidation",
+    "pk": 22,
+    "fields": {
+      "fieldid": 61,
+      "digits": -1,
+      "min": 0,
+      "max": -1,
+      "float": true,
+      "floating": 2
+    }
+  },
+  {
+    "model": "related.Facilityvalidation",
+    "pk": 23,
+    "fields": {
+      "fieldid": 62,
+      "digits": -1,
+      "min": 0,
+      "max": -1,
+      "float": true,
+      "floating": 2
+    }
+  }
+]
