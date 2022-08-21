@@ -66,7 +66,6 @@ class languageView(APIView):
             }
             return Response(ans)
         else:
-            print("salam")
             lang=languages.objects.all()
             ans=[]
             for x in lang:

@@ -104,12 +104,11 @@ class facilityFieldView(APIView):
         for x in rel:
             if(x.id==1 or x.id ==3):
                 continue
-            x_ser=relatedfacilitySerilizer(x)
             param=facilityParam.objects.filter(fieldid=x.id).order_by('order')
             desc_ser=[]
             
             for y in param:
-                desc=facilityParamDescription.objects.filter(id=y.id).order_by('order')
+                desc=facilityParamDescription.objects.filter(paramid=y.id).order_by('order')
                 desc_ser=facilityParamDescriptionSerilizer(desc,many=True)
             data={}    
             if(desc_ser==[]):
