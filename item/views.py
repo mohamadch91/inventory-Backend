@@ -131,7 +131,7 @@ class itemFieldView(APIView):
             fields=[]
             for x in related:
                 data={}
-                field=Field.objects.filter(id=x.field.id)[0]
+                field=Field.objects.get(id=x.field.id)
                 field_ser=fieldSerializer(field,many=False)
                 copys=copy.deepcopy(field_ser.data)
                 data["field"]=copys
@@ -139,10 +139,17 @@ class itemFieldView(APIView):
                    
                     data["field"]["params"]=man_Ser.data
                 else:
-                   param=itemParam.objects.filter(fieldid=field.id)[0]
-                   describe=itemParamDescription.objects.filter(paramid=param.id,enabled=True)
-                   des_ser=itemParamDescriptionSerilizer(describe,many=True) 
-                   data["field"]["params"]=des_ser.data
+                    print(field.id)
+                    try:
+                        param=itemParam.objects.get(fieldid=field.id)
+            #    if(param.count()>0):
+                        params=itemParamSerilizer(param,many=False)                        
+                        describe=itemParamDescription.objects.filter(paramid=params.data["id"],enabled=True)
+                        des_ser=itemParamDescriptionSerilizer(describe,many=True) 
+                        data["field"]["params"]=des_ser.data
+            #    else:
+                    except:
+                        data["field"]["params"]=[]    
                 val=Itemvalidation.objects.filter(fieldid=x.id)
                 val_ser=ItemvalidationSerilizer(val,many=True)
                 if(val.count()>0):

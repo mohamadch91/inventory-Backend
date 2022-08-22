@@ -46,13 +46,13 @@ class Field(models.Model):
 class relatedItemType(models.Model):
     id=models.AutoField(primary_key=True)
     required=models.BooleanField(default=False)
-    itemtype=models.ForeignKey(ItemType, on_delete=models.CASCADE)
-    field=models.ForeignKey(Field, on_delete=models.CASCADE)
+    itemtype=models.ForeignKey(ItemType, on_delete=models.CASCADE,related_name='related_itemtype')
+    field=models.ForeignKey(Field, on_delete=models.CASCADE,related_name='related_field')
 
         
 class facilityParam(models.Model):
     id=models.AutoField(primary_key=True)
-    fieldid=models.ForeignKey(relatedFacility, on_delete=models.CASCADE)
+    fieldid=models.ForeignKey(relatedFacility, on_delete=models.CASCADE,related_name='facfieldid')
     order=models.IntegerField(default=1)
     
 
@@ -62,14 +62,14 @@ class facilityParamDescription(models.Model):
     name=models.CharField(max_length=100)
     order=models.IntegerField(default=1)
     enabled=models.BooleanField(default=True)
-    paramid=models.ForeignKey(facilityParam, on_delete=models.CASCADE)
+    paramid=models.ForeignKey(facilityParam, on_delete=models.CASCADE,related_name='facparamid')
 
     def __str__(self):
         return self.name
 
 class itemParam(models.Model):
     id=models.AutoField(primary_key=True)
-    fieldid=models.ForeignKey(Field, on_delete=models.CASCADE)
+    fieldid=models.ForeignKey(Field, on_delete=models.CASCADE,related_name="paramfieldid")
     order=models.IntegerField(default=1)
     
 
@@ -79,14 +79,14 @@ class itemParamDescription(models.Model):
     name=models.CharField(max_length=100)
     order=models.IntegerField(default=1)
     enabled=models.BooleanField(default=True)
-    paramid=models.ForeignKey(itemParam, on_delete=models.CASCADE)
+    paramid=models.ForeignKey(itemParam, on_delete=models.CASCADE,related_name='itemparamid')
 
     def __str__(self):
         return self.name
 
 class Facilityvalidation(models.Model):
     id=models.AutoField(primary_key=True)
-    fieldid=models.ForeignKey(relatedFacility, on_delete=models.CASCADE)
+    fieldid=models.ForeignKey(relatedFacility, on_delete=models.CASCADE,related_name='facvalfieldid')
     digits=models.IntegerField(default=0)
     min=models.IntegerField(default=0)
     max=models.IntegerField(default=0)
@@ -95,7 +95,7 @@ class Facilityvalidation(models.Model):
 
 class Itemvalidation(models.Model):
     id=models.AutoField(primary_key=True)
-    fieldid=models.ForeignKey(Field, on_delete=models.CASCADE)
+    fieldid=models.ForeignKey(Field, on_delete=models.CASCADE,related_name='itemvalfieldid')
     digits=models.IntegerField(default=0)
     min=models.IntegerField(default=0)
     max=models.IntegerField(default=0)
