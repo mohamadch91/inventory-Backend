@@ -90,23 +90,25 @@ class languageView(APIView):
             serializer.save()
             lang=languages.objects.all()
             final_ans=[]
+            ids=[]
             for x in lang:
                 lang_words=languages_words.objects.filter(language=x.id)
                 dict={}
                 if(lang_words.count()==0):
                     continue
                 else:
+                    ids.append(x.id)
                     for k in lang_words:
                         print(k)
                         dict[k.word]=k.translate
                 
                 final_ans.append(dict)
             counter=1    
-            for i in final_ans:
-                lang=languages.objects.filter(id=counter)[0]
+            for i in range(len(ids)):
+                lang=languages.objects.filter(id=ids[i])[0]
                
-                json_obj=json.dumps(i,indent=4)
-                
+                json_obj=json.dumps(final_ans[i],indent=4)
+                print(lang.name)
                 counter+=1
                 with open('./media/'+lang.name+'/translation.json', "w") as outfile:
                     outfile.write(json_obj)      
@@ -120,22 +122,25 @@ class languageView(APIView):
             serializer.save()
             lang=languages.objects.all()
             final_ans=[]
+            ids=[]
             for x in lang:
                 lang_words=languages_words.objects.filter(language=x.id)
                 dict={}
                 if(lang_words.count()==0):
                     continue
                 else:
+                    ids.append(x.id)
                     for k in lang_words:
                         print(k)
                         dict[k.word]=k.translate
                  
                 final_ans.append(dict)
             counter=1    
-            for i in final_ans:
-                json_obj=json.dumps(i,indent=4)
-                lang=languages.objects.filter(id=counter)[0]
+            for i in range(len(ids)):
+                json_obj=json.dumps(final_ans[i],indent=4)
+                lang=languages.objects.filter(id=ids[i])[0]
                 counter+=1
+                print(lang.name)
                 with open('./media/'+lang.name+'/translation.json', "w") as outfile:
                     outfile.write(json_obj)
             return Response(serializer.data, status=status.HTTP_201_CREATED)
