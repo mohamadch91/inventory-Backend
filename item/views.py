@@ -34,7 +34,8 @@ from facilities.models import *
 from facilities.serializers import *
 from items.models import *
 from items.serializers import *
-
+from PQS.models import *
+from PQS.serializers import *
 import copy
 
 class itemView(APIView):
@@ -161,6 +162,53 @@ class itemFieldView(APIView):
 
 
 
+class itemPQSView(APIView):
 
+    def get(self,request):
+        id=request.query_params.get('id',None)
+        if(id is not None):
+
+            item_type=get_object_or_404(ItemType,id=id)
+            item_class=get_object_or_404(ItemClass,id=item_type.itemclass.id)
+
+            if(item_class.code=='ACC'):
+                tcode=item_type.code
+                if(tcode=='REF' or tcode=='FRZ' or tcode=='CRF' or tcode=='UFR' or tcode=='IFR' ):
+                    pqs=pqs3.objects.all()
+                    ser=pqs3Serializer(pqs,many=True)
+                    return Response(ser.data,status=status.HTTP_200_OK)
+                else:
+                    pqss=pqs3.objects.all()
+                    ser=pqs3Serializer(pqss,many=True)
+                    pqs44=pqs4.objects.all()
+                    ser4=pqs4Serializer(pqs44,many=True)
+                    ans=ser4.data +ser.data 
+                    return Response(ans,status=status.HTTP_200_OK)       
+
+            if(item_class.code=='PCC'):
+                tcode=item_type.code
+                if(tcode=='CBX' or tcode=='VBX'  ):
+                    pqs44=pqs4.objects.all()
+                    ser4=pqs4Serializer(pqs44,many=True)
+                    return Response(ser4.data,status=status.HTTP_200_OK)
+                else:
+                    pqss=pqs3.objects.all()
+                    ser=pqs3Serializer(pqss,many=True)
+                    pqs44=pqs4.objects.all()
+                    ser4=pqs4Serializer(pqs44,many=True)
+                    ans=ser4.data +ser.data 
+                    return Response(ans,status=status.HTTP_200_OK)       
+            else:
+                pqss=pqs3.objects.all()
+                ser=pqs3Serializer(pqss,many=True)
+                pqs44=pqs4.objects.all()
+                ser4=pqs4Serializer(pqs44,many=True)
+                ans=ser4.data +ser.data 
+                return Response(ans,status=status.HTTP_200_OK)   
+        else:
+                    
+            return Response("need query param",status=status.HTTP_200_OK)
+
+            
 
         
