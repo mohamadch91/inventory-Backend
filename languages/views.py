@@ -109,7 +109,7 @@ class languageView(APIView):
                 json_obj=json.dumps(i,indent=4)
                 lang=languages.objects.filter(id=counter)[0]
                 counter+=1
-                with open('./media/'+lang.name+'.json', "w") as outfile:
+                with open('./media/'+lang.name+'/translation.json', "w") as outfile:
                     outfile.write(json_obj)      
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
@@ -140,7 +140,7 @@ class languageView(APIView):
                 json_obj=json.dumps(i,indent=4)
                 lang=languages.objects.filter(id=counter)[0]
                 counter+=1
-                with open('./media/'+lang.name+'.json', "w") as outfile:
+                with open('./media/'+lang.name+'/translation.json', "w") as outfile:
                     outfile.write(json_obj)
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

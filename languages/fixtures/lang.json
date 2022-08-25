@@ -31,7 +31,7 @@
     "model": "languages.languages",
     "pk": 5,
     "fields": {
-      "name": "pe"
+      "name": "fa"
     }
   },
   {
