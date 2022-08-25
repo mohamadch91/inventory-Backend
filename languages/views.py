@@ -88,6 +88,29 @@ class languageView(APIView):
         serializer =  languageWordSerializer(data=new_data)
         if serializer.is_valid():
             serializer.save()
+            lang=languages.objects.all()
+            final_ans=[]
+            for x in lang:
+                lang_words=languages_words.objects.filter(language=x.id)
+                dict={}
+                if(lang_words.count()==0):
+                    continue
+                else:
+                    for k in lang_words:
+                        print(k)
+                        dict[k.word]=k.translate
+                    data={
+                        x.name:dict
+                    }
+                final_ans.append(data)
+            counter=1    
+            for i in final_ans:
+                print(i)
+                json_obj=json.dumps(i,indent=4)
+                lang=languages.objects.filter(id=counter)[0]
+                counter+=1
+                with open('./media/'+lang.name+'.json', "w") as outfile:
+                    outfile.write(json_obj)      
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     def put(self, request):
@@ -96,6 +119,29 @@ class languageView(APIView):
         serializer =  languageWordSerializer(lang, data=request.data)
         if serializer.is_valid():
             serializer.save()
+            lang=languages.objects.all()
+            final_ans=[]
+            for x in lang:
+                lang_words=languages_words.objects.filter(language=x.id)
+                dict={}
+                if(lang_words.count()==0):
+                    continue
+                else:
+                    for k in lang_words:
+                        print(k)
+                        dict[k.word]=k.translate
+                    data={
+                        x.name:dict
+                    }
+                final_ans.append(data)
+            counter=1    
+            for i in final_ans:
+                print(i)
+                json_obj=json.dumps(i,indent=4)
+                lang=languages.objects.filter(id=counter)[0]
+                counter+=1
+                with open('./media/'+lang.name+'.json', "w") as outfile:
+                    outfile.write(json_obj)
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     def delete(self, request):
