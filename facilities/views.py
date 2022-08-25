@@ -120,6 +120,8 @@ class facilityFieldView(APIView):
                 "active":x.active,
                 "required":x.required,
                 "stateName":x.state,
+                "disabled":x.disabled,
+
                 "params":[]
                      }
             else:         
@@ -131,6 +133,7 @@ class facilityFieldView(APIView):
                     "active":x.active,
                     "required":x.required,
                     "stateName":x.state,
+                    "disabled":x.disabled,
                     "params":desc_ser.data
                 }
             val=Facilityvalidation.objects.filter(fieldid=x.id)
