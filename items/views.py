@@ -57,7 +57,7 @@ class itemclassView(APIView):
 
     def delete(self, request, *args, **kwargs):
         id=request.data["id"]
-        country = get_object_or_404(itemclassSerializer, id=id)
+        country = get_object_or_404(ItemClass, id=id)
         country.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 class itemtypeView(APIView):
