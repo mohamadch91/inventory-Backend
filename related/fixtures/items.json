@@ -405,7 +405,7 @@
     "fields": {
       "name": "Does it have freezing compartment?",
       "type": "bool",
-      "topic": "Fields specific to cold chain equipmente",
+      "topic": "Fields specific to cold chain equipment",
         "state": "DoesItHaveFreezingCompartment"
     }
   },
