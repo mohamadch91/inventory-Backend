@@ -1,4 +1,5 @@
 from email.headerregistry import ParameterizedMIMEHeader
+from importlib.metadata import requires
 from django.db import models
 from items.models import *
 # Create your models here.
@@ -10,5 +11,6 @@ class maintanance(models.Model):
     code=models.CharField(max_length=20,blank=True,null=True)
     name=models.CharField(max_length=100,blank=True,null=True)
     freq=models.IntegerField(blank=True,null=True)
+    requires=models.BooleanField(blank=True,null=True,default=True)
     freq_in_loc=models.IntegerField(blank=True,null=True)
         

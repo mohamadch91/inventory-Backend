@@ -34,30 +34,45 @@ from rest_framework.response import Response
 from rest_framework import status
 from django.shortcuts import get_object_or_404
 from items.serializers import *
-
+import copy 
 class helperView(APIView):
     def get(self,request):
+            item_class=ItemClass.objects.filter(active=True)
+            first_data=[]
+            for x in item_class:
+                x_ser=itemclassSerializer(x)
+                item_type=ItemType.objects.filter(itemclass=x.id,active=True )
+                second_data=[]
+                for k in item_type:
+                    new_data={
+                        "id":k.id,
+                        "title":k.title,
+                        "havepqs":k.havePQS,
+                    }
+                    second_data.append(new_data)
+                data={
+                    "item_class":{
+                        "id":x.id,
+                        "title":x.title,
 
-        item_class=ItemClass.objects.filter(active=True)
-        ans=[]
-        for x in item_class:
-            item_type=ItemType.objects.filter(itemclass=x.id,active=True)
-            type_ser=itemtypeSerializer(item_type,many=True)
-            class_ser=itemclassSerializer(x)
-            data={
-                "item_class":class_ser.data,
-                    "item_type":type_ser.data
-            }
-            ans.append(data)
-        return Response(ans,status=status.HTTP_200_OK)
+                    },
+                    "item_type":second_data,
+                }
+                first_data.append(data)
+            return Response(first_data)
 
 
 class maintananceView(APIView):
     permission_classes = (IsAuthenticated,)
 
     def post(self, request):
+            new_data=copy.deepcopy(request.data)
+            item_class=get_object_or_404(ItemClass,id=new_data['item_class'])
+            item_type=get_object_or_404(ItemType,id=new_data['item_type'])
+            item_code=f"{maintanance.objects.count()+1:03d}"    
+            new_data["code"]=f"{item_class.code}{item_type.code}{item_code}"
 
-            serializer =   maintanSerializer(data=request.data)
+            serializer =   maintanSerializer(data=new_data)
             if serializer.is_valid():
                 serializer.save()
                 return Response(serializer.data, status=status.HTTP_201_CREATED)
