@@ -100,14 +100,17 @@ class languageView(APIView):
                         print(k)
                         dict[k.word]=k.translate
                     data={
-                        x.name:dict
+                        "translation":dict
                     }
                 final_ans.append(data)
             counter=1    
             for i in final_ans:
                 print(i)
-                json_obj=json.dumps(i,indent=4)
                 lang=languages.objects.filter(id=counter)[0]
+                answer={}
+                answer[lang.name]=i
+                json_obj=json.dumps(answer,indent=4)
+                
                 counter+=1
                 with open('./media/'+lang.name+'/translation.json', "w") as outfile:
                     outfile.write(json_obj)      
@@ -131,7 +134,7 @@ class languageView(APIView):
                         print(k)
                         dict[k.word]=k.translate
                     data={
-                        x.name:dict
+                        "translation":dict
                     }
                 final_ans.append(data)
             counter=1    
