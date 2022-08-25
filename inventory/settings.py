@@ -91,6 +91,7 @@ INSTALLED_APPS = [
     'message',
     'facilities',
     'item',
+    'maintanance',
     'corsheaders',
     'rest_framework_simplejwt.token_blacklist',
     
