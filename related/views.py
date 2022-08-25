@@ -127,6 +127,14 @@ class fieldView(APIView):
     permission_classes = (IsAuthenticated,)
     def get(self,request):
         query_set=Field.objects.all()
+        query_set=query_set.exclude(id=59)
+        query_set=query_set.exclude(id=60)
+
+        query_set=query_set.exclude(id=61)
+
+        query_set=query_set.exclude(id=62)
+        query_set=query_set.exclude(id=63)
+
         serializer = fieldSerializer(query_set, many=True)
         return Response(serializer.data)    
     def put(self,request):
