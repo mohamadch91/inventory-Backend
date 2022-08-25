@@ -89,6 +89,7 @@ class facilityFieldView(APIView):
         
         user=request.user
         this_facility=Facility.objects.filter(id=user.facilityid.id)[0]
+        country=get_object_or_404(CountryConfig,id=this_facility.country.id)
         parent_num=Facility.objects.filter(parentid=this_facility.id)
         parent_num=parent_num.count()
         if(parent_num>= this_facility.loverlevelfac):
@@ -104,6 +105,62 @@ class facilityFieldView(APIView):
         for x in rel:
             if(x.id==1 or x.id ==3):
                 continue
+            if((x.id==6 or x.id==5) and country.poptarget=='General population'):
+                if(x.id==6):
+                    continue
+                if(x.id==5):
+                    data={
+                "id":x.id,
+                "name":x.name,
+                "topic":x.topic,
+                "type":x.type,
+                "active":x.active,
+                "required":x.required,
+                "stateName":x.state,
+                "disabled":x.disabled,
+
+                "params":[],
+                     
+                "validation":{
+                    "fieldid": 5,
+                    "digits": -1,
+                    "min": level.minpop,
+                    "max": level.maxpop,
+                    "float": False,
+                    "floating": -1
+                     }
+
+                    }
+                ans.append(data)
+                continue
+            elif((x.id==6 or x.id==5) and country.poptarget=='Under-1 Population'):
+                if(x.id==5):
+                    continue
+                if(x.id==6):
+                    data={
+                "id":x.id,
+                "name":x.name,
+                "topic":x.topic,
+                "type":x.type,
+                "active":x.active,
+                "required":x.required,
+                "stateName":x.state,
+                "disabled":x.disabled,
+
+                "params":[],
+                     
+                "validation":{
+                    "fieldid": 5,
+                    "digits": -1,
+                    "min": level.minpop,
+                    "max": level.maxpop,
+                    "float": False,
+                    "floating": -1
+                     }
+
+                    }
+                ans.append(data)
+                continue   
             param=facilityParam.objects.filter(fieldid=x.id).order_by('order')
             desc_ser=[]
             
@@ -142,6 +199,7 @@ class facilityFieldView(APIView):
                 data["validation"]=val_ser.data
             else:
                 data["validation"]=[]    
+
             ans.append(data)
         data={
             "levels":levels_Ser.data,
