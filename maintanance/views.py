@@ -1,3 +1,4 @@
+from cgitb import enable
 from django.shortcuts import render
 
 # Create your views here.
@@ -107,4 +108,49 @@ class maintananceView(APIView):
         return Response(status=status.HTTP_204_NO_CONTENT)
 
 
+
+
+class activemainView(APIView):
+    def get (self,request):
+        item_class=request.query_params.get('item_class',None)
+        item_type=request.query_params.get('item_type',None)
+        power_source=request.query_params.get('power',None)
+        main=maintanance.objects.filter(item_class=item_class,item_type=item_type,enable=True)
+        final_ans=[]
+        for x in main:
+            x_ser=maintanSerializer(x,many=False)
+            data={
+                "maintance":x_ser.data
+            }
+            actives=activeMaintance.objects.filter(maintanance=x.id)
+            if(actives.count()>0):
+                data["assigned"]=True
+            else:
+                data["assigned"]=False
+            final_ans.append(data)
+        return Response(final_ans,status=status.HTTP_200_OK)   
+    def post(self,request):
+        ans=[]             
+        for x in request.data:
+            if(x["enable"]):
+                actives=activeMaintance.objects.filter(maintanance=x["id"])
+                if(actives.count()>0):
+                    pass
+                else:
+                    data={
+                        "maintanance":x["id"],
+                        "enable":True
+                    }
+                    ser=activemainSerializers(data=data)
+                    if(ser.is_valid()):
+                        ser.save()
+                        ans.append(ser.data)
+            else:
+                actives=activeMaintance.objects.filter(maintanance=x["id"])
+                if(actives.count()>0):
+                    main=get_object_or_404(activeMaintance,maintanance=x["id"])
+                    main.delete()
+                else:
+                    pass
+        return Response(ans,status=status.HTTP_207_MULTI_STATUS)            
                 

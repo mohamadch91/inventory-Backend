@@ -9,3 +9,7 @@ class maintanSerializer(serializers.ModelSerializer):
             fields = '__all__'
      
      
+class activemainSerializers(serializers.ModelSerializer):
+    class Meta:
+        model=activeMaintance
+        fields='__all__'     
