@@ -45,7 +45,7 @@
       "pk": 4,
       "fields": {
         "name": "Facility types (Parameter)",
-        "type": "text",
+        "type": "select",
         "topic": "Facility general information",
         "disabled": true,
         "state": "type"

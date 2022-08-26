@@ -214,8 +214,7 @@ class facilityPArentView(APIView):
     def get(self,request):
         id=request.query_params.get('id',None)
         if(id is not None):
-            fac=Facility.objects.filter(parentid__gte=id)
-            print(fac)
+            fac=Facility.objects.filter(parentid__gt=id)
             fac_Ser=facilitySerializer(fac,many=True)
             return Response(fac_Ser.data,status=status.HTTP_200_OK)
         return Response("need query param",status=status.HTTP_400_BAD_REQUEST)    
