@@ -8,6 +8,7 @@
         "type": "text",
         "topic": "Facility general information",
         "disabled": true,
+        "required":true,
         "state": "code"
 
       }
@@ -22,6 +23,7 @@
         "type": "text",
         "topic": "Facility general information",
         "disabled": true,
+        "required": true,
         "state": "name"
       }
     }
@@ -35,6 +37,7 @@
         "type": "select",
         "topic": "Facility general information",
         "disabled": true,
+        "required": true,
         "state": "level"
       }
     }
@@ -48,6 +51,7 @@
         "type": "select",
         "topic": "Facility general information",
         "disabled": true,
+        "required": true,
         "state": "type"
       }
     }
@@ -87,6 +91,8 @@
         "type": "number",
         "topic": "Facility general information",
         "disabled": true,
+        "required": true,
+
         "state": "loverlevelfac"
       }
     }
@@ -100,8 +106,9 @@
         "type": "date",
         "topic": "Facility general information",
         "disabled": true,
-        "state": "updated_at"
+        "required": true,
 
+        "state": "updated_at"
       }
     }
    ,
@@ -114,6 +121,8 @@
         "type": "date",
         "topic": "Facility general information",
         "disabled": true,
+        "required": true,
+
         "state": "created_at"
       }
     }
@@ -127,6 +136,8 @@
         "type": "text",
         "topic": "Facility general information",
         "disabled": true,
+        "required": true,
+
         "state": "completerstaffname"
       }
     }
@@ -140,6 +151,8 @@
         "type": "select",
         "topic": "Facility general information",
         "disabled": true,
+        "required": true,
+
         "state": "province"
       }
     }
