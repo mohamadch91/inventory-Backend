@@ -48,7 +48,6 @@
         "type": "select",
         "topic": "Facility general information",
         "disabled": true,
-        "required": true,
         "state": "type"
       }
     }
