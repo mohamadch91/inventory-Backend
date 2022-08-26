@@ -136,11 +136,11 @@ class itemFieldView(APIView):
                 field_ser=fieldSerializer(field,many=False)
                 copys=copy.deepcopy(field_ser.data)
                 data["field"]=copys
+                data["field"]["required"]=x.required
                 if(field.id==2):
                    
                     data["field"]["params"]=man_Ser.data
                 else:
-                    print(field.id)
                     try:
                         param=itemParam.objects.get(fieldid=field.id)
             #    if(param.count()>0):
