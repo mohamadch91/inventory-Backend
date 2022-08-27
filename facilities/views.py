@@ -117,7 +117,7 @@ class facilityFieldView(APIView):
                 "topic":x.topic,
                 "type":x.type,
                 "active":x.active,
-                "required":x.required,
+                "required":True,
                 "stateName":x.state,
                 "disabled":x.disabled,
 
@@ -145,7 +145,7 @@ class facilityFieldView(APIView):
                 "topic":x.topic,
                 "type":x.type,
                 "active":x.active,
-                "required":x.required,
+                "required":True,
                 "stateName":x.state,
                 "disabled":x.disabled,
 
