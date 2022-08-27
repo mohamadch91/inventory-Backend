@@ -99,15 +99,19 @@ class facilityFieldView(APIView):
         for x in range(len(parents.data)):
             counter=0
             for y in range(x,len(parents.data)):
-                print(x,y)    
+                # print(x,y)    
                 if(parents.data[x]["parentid"] is not None):
                     if(parents.data[y]["parentid"] is not None):
                         if(parents.data[y]["parentid"]>=parents.data[x]["id"]):
-                            print("counter"+str(counter))
+                            # print("counter"+str(counter))
                             counter+=1
             if(parents.data[x]["loverlevelfac"] is not None):                
                 if(counter>= parents.data[x]["loverlevelfac"]):
-                    print("check")
+                    if(this_facility.id<parents.data[x]["id"]):
+                        break
+                    print(this_facility.id)        
+                    print(parents.data[x]["id"])
+                    print(parents.data[x]["loverlevelfac"])
                     print(counter)
                     return Response("You have reached the maximum number of facilities you can add",status=status.HTTP_403_FORBIDDEN)
 
