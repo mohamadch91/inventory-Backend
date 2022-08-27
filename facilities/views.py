@@ -14,7 +14,7 @@ from urllib import response
 from django.shortcuts import render
 
 # Create your views here.
-
+from authen.serializers import *
 from rest_framework.permissions import IsAuthenticated
 
 from authen.models import User
@@ -88,7 +88,9 @@ class facilityFieldView(APIView):
     def get(self, request):
         
         user=request.user
+        user_ser=UserSerializer(user,many=False)
         this_facility=Facility.objects.filter(id=user.facilityid.id)[0]
+        fac_ser=facilitySerializer(this_facility,many=False)
         country=get_object_or_404(CountryConfig,id=this_facility.country.id)
         parent_num=Facility.objects.filter(parentid=this_facility.id)
         parent_num=parent_num.count()
@@ -202,6 +204,8 @@ class facilityFieldView(APIView):
 
             ans.append(data)
         data={
+            "facility":fac_ser.data,
+            "user":user_ser.data,
             "levels":levels_Ser.data,
             "related":ans
         }

@@ -40,9 +40,9 @@
     "pk": 4,
     "fields": {
       "fieldid": 30,
-      "digits": -1,
+      "digits": 2,
       "min": 0,
-      "max": -1,
+      "max": 31,
       "float": false,
       "floating": -1
     }
@@ -63,12 +63,12 @@
     "model": "related.Facilityvalidation",
     "pk": 6,
     "fields": {
-      "fieldid": 27,
-      "digits": 4,
-      "min": 1990,
-      "max": 2022,
-      "float": false,
-      "floating": -1
+      "fieldid": 62,
+      "digits": -1,
+      "min": 0,
+      "max": -1,
+      "float": true,
+      "floating": 2
     }
   },
   {
@@ -256,18 +256,6 @@
     "pk": 22,
     "fields": {
       "fieldid": 61,
-      "digits": -1,
-      "min": 0,
-      "max": -1,
-      "float": true,
-      "floating": 2
-    }
-  },
-  {
-    "model": "related.Facilityvalidation",
-    "pk": 23,
-    "fields": {
-      "fieldid": 62,
       "digits": -1,
       "min": 0,
       "max": -1,
