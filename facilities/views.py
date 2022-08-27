@@ -203,9 +203,17 @@ class facilityFieldView(APIView):
                 data["validation"]=[]    
 
             ans.append(data)
+        fac_data={
+            "id":fac_ser.data["id"],
+            "name":fac_ser.data["name"]
+        }
+        user_data={
+            "id":user_ser.data["pk"],
+            "username":user_ser.data["name"]
+        }    
         data={
-            "facility":fac_ser.data,
-            "user":user_ser.data,
+            "facility":fac_data,
+            "user":user_data,
             "levels":levels_Ser.data,
             "related":ans
         }
