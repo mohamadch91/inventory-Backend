@@ -107,7 +107,6 @@
         "topic": "Facility general information",
         "disabled": true,
         "required": true,
-
         "state": "updated_at"
       }
     }

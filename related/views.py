@@ -57,7 +57,6 @@ class relatedfacilityView(APIView):
                         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
             if(id==38):
-                print("mamaaamad")
                 for i in range(9):
                     
                     country = get_object_or_404(relatedFacility, id=id+i+1)
