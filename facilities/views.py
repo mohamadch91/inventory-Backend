@@ -92,9 +92,15 @@ class facilityFieldView(APIView):
         this_facility=Facility.objects.filter(id=user.facilityid.id)[0]
         fac_ser=facilitySerializer(this_facility,many=False)
         country=get_object_or_404(CountryConfig,id=this_facility.country.id)
-        parent_num=Facility.objects.filter(parentid=this_facility.id)
-        parent_num=parent_num.count()
-        if(parent_num>= this_facility.loverlevelfac):
+        parent_num=Facility.objects.all()
+        parents=facilitySerializer(parent_num,many=True)
+        counter=0
+        for x in parents.data:
+            if(x["parentid"] is not None):
+                if(x["parentid"]>=this_facility.id):
+                    counter+=1
+        print(counter)        
+        if(counter>= this_facility.loverlevelfac):
             return Response("You have reached the maximum number of facilities you can add",status=status.HTTP_403_FORBIDDEN)
 
         level=this_facility.level
@@ -232,7 +238,7 @@ class facilityPArentView(APIView):
             final_ans=[]
             for x in fac_Ser.data:
                 if(x["parentid"] is not None):
-                    if(x["parentid"]>=id):
+                    if(x["parentid"]==id):
                         final_ans.append(x)
             return Response(final_ans,status=status.HTTP_200_OK)
         return Response("need query param",status=status.HTTP_400_BAD_REQUEST)    
