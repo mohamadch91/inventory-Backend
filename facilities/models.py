@@ -84,3 +84,6 @@ class Facility(models.Model):
 
     class Meta:
         db_table = 'Facility'
+
+    def __str__(self) -> str:
+        return self.name
