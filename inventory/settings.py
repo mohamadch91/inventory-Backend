@@ -92,6 +92,7 @@ INSTALLED_APPS = [
     'facilities',
     'item',
     'maintanance',
+    'dashboard',
     'corsheaders',
     'rest_framework_simplejwt.token_blacklist',
     
