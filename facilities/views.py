@@ -128,8 +128,6 @@ class facilityFieldView(APIView):
             if(x.id==1 or x.id ==3 or x.id==8 or x.id == 9):
                 continue
             if((x.id==6 or x.id==5) and country.poptarget=='General population'):
-                if(x.id==6):
-                    continue
                 if(x.id==5):
                     data={
                 "id":x.id,
@@ -153,11 +151,33 @@ class facilityFieldView(APIView):
                      }
 
                     }
+                else:
+                      data={
+                "id":x.id,
+                "name":x.name,
+                "topic":x.topic,
+                "type":x.type,
+                "active":x.active,
+                "required":False,
+                "stateName":x.state,
+                "disabled":x.disabled,
+
+                "params":[],
+                     
+                "validation":{
+                    "fieldid": 5,
+                    "digits": -1,
+                    "min": level.minpop,
+                    "max": level.maxpop,
+                    "float": False,
+                    "floating": -1
+                     }
+
+                    }
+
                 ans.append(data)
                 continue
             elif((x.id==6 or x.id==5) and country.poptarget=='Under-1 Population'):
-                if(x.id==5):
-                    continue
                 if(x.id==6):
                     data={
                 "id":x.id,
@@ -181,6 +201,29 @@ class facilityFieldView(APIView):
                      }
 
                     }
+                else:
+                      data={
+                "id":x.id,
+                "name":x.name,
+                "topic":x.topic,
+                "type":x.type,
+                "active":x.active,
+                "required":False,
+                "stateName":x.state,
+                "disabled":x.disabled,
+
+                "params":[],
+                     
+                "validation":{
+                    "fieldid": 5,
+                    "digits": -1,
+                    "min": level.minpop,
+                    "max": level.maxpop,
+                    "float": False,
+                    "floating": -1
+                     }
+
+                    }    
                 ans.append(data)
                 continue   
             param=facilityParam.objects.filter(fieldid=x.id).order_by('order')
