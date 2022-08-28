@@ -124,8 +124,12 @@ class itemFieldView(APIView):
                     "item_type":second_data,
                 }
                 first_data.append(data)
+            fac_data={
+            "id":fac_ser.data["id"],
+            "name":fac_ser.data["name"]
+        }    
             ans={
-                "facility":fac_ser.data,
+                "facility":fac_data,
                 "data":first_data
             }    
             return Response(ans)
