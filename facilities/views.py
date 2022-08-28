@@ -296,7 +296,7 @@ class facilityPArentView(APIView):
             final_ans=[]
             for x in fac_Ser.data:
                 if(x["parentid"] is not None):
-                    if(x["parentid"]==id):
+                    if(x["parentid"]>=id):
                         final_ans.append(x)
             return Response(final_ans,status=status.HTTP_200_OK)
         return Response("need query param",status=status.HTTP_400_BAD_REQUEST)    
