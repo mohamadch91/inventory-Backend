@@ -46,6 +46,7 @@ class FacilityView(APIView):
         facility_num=f"{facility_num:05d}"
         new_data["code"]=f"{country_code}{level_code}{facility_num}"
         new_data["country"]=country.id
+        new_data["completerstaffname"]=request.user.id
         serializer =   facilitySerializer(data=new_data)
         if serializer.is_valid():
             serializer.save()
@@ -125,7 +126,7 @@ class facilityFieldView(APIView):
         rel=relatedFacility.objects.filter(active=True)
         ans=[]
         for x in rel:
-            if(x.id==1 or x.id ==3 or x.id==8 or x.id == 9):
+            if(x.id==1 or x.id ==3 or x.id==8 or x.id == 9 or x.id==10):
                 continue
             if((x.id==6 or x.id==5) and country.poptarget=='General population'):
                 if(x.id==5):
