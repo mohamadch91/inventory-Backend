@@ -296,7 +296,7 @@ class paramView(APIView):
                     "description":description_ser.data
 
                 }
-                return Response(description_ser.data,status=status.HTTP_200_OK)    
+                return Response(new_data,status=status.HTTP_200_OK)    
 
             
 
