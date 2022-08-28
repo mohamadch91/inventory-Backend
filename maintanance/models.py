@@ -16,9 +16,11 @@ class maintanance(models.Model):
     freq=models.IntegerField(blank=True,null=True)
     requires=models.BooleanField(blank=True,null=True,default=True)
     freq_in_loc=models.IntegerField(blank=True,null=True)
+    
 
 class activeMaintance(models.Model):
     id=models.AutoField(primary_key=True)
     maintanance=models.ForeignKey(maintanance,models.CASCADE,blank=True,null=True)
     enable=models.BooleanField(default=True,blank=True,null=True)            
-
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)

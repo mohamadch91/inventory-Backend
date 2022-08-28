@@ -37,7 +37,7 @@ from item.models import *
 from items.serializers import *
 
 class dashboarditemView(APIView):
-
+    permission_classes=(IsAuthenticated,)
     def get (self,request):
         user=request.user
         facility=user.facilityid
@@ -58,18 +58,62 @@ class dashboarditemView(APIView):
             for k in item_type:
                 items=item.objects.filter(item_class=x.id,item_type=k.id)
                 fil=items.filter(IsItFunctioning=True)
+                working=0
+                if(fil.count()==0):
+                    working=0
+                else:
+                    working=    items.count()/fil.count()
                 data={
-                    "item_type":k.name,
+                    "item_type":k.title,
                     "total_items":items.count(),
-                    "working":items.count()/fil.count(),
+                    "working":working,
 
                 }
                 second_data.append(data)
-            new_data={
-                "item_class":x_ser.data["title"],
-                "items":second_data
-            }
-            first_data.append(new_data)    
+            if(len(second_data)==0):
+                continue
+            else:    
+                new_data={
+                    "item_class":x_ser.data["title"],
+                    "items":second_data
+                }
+                first_data.append(new_data)    
 
         return Response(first_data,status=status.HTTP_200_OK)
     
+class dashboardFacilityView(APIView):
+        permission_classes=(IsAuthenticated,)
+        def get(self,request):
+            user=request.user
+            facility=user.facilityid
+            facility=get_object_or_404(Facility, id=facility.id)
+            fac_ser=facilitySerializer(facility,many=False)
+            level=facility.level.id
+            levels_Ser=levelSerializer(level,many=True)
+            all_fac=Facility.objects.all()
+            ans=[]
+            for x in all_fac:
+                new_data={}
+                if(x.id>=facility.id):
+                    count=0
+                    for y in all_fac:
+                        if(y.id>x.id):
+                            count+=1
+                    defined=0        
+                    lower=0
+                    if(x.loverlevelfac!=None):
+                        defined=count/x.loverlevelfac
+                        lower=x.loverlevelfac
+                    new_data={
+                        "name":x.name,
+                        "sub_fac":count,
+                        "defined":"%.2f"%defined,
+                        "lower":lower
+
+                    }
+                    ans.append(new_data)
+            return Response(ans,status=status.HTTP_200_OK)            
+
+
+
+

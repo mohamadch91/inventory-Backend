@@ -5,8 +5,10 @@ from .views import *
 
 urlpatterns = [
 
-    path('', FacilityView.as_view(), name='facility'),
-    
+    path('item', dashboarditemView.as_view(), name='item'),
+    path('facility', dashboardFacilityView.as_view(), name='facility'),
+
+
 
   
     
