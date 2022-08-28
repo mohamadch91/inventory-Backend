@@ -1,3 +1,4 @@
+from typing import final
 from django.shortcuts import render
 
 # Create your views here.
@@ -94,7 +95,9 @@ class itemFieldView(APIView):
         if class_id is None and type_id is None:
             facility=user.facilityid
             facility=get_object_or_404(Facility, id=facility.id)
+            fac_ser=facilitySerializer(facility,many=False)
             level=facility.level.id
+            levels_Ser=levelSerializer(level,many=True)
             item_type_id=[]
             itemTypeinlevels=Itemtypelevel.objects.filter(level=level,active=True)
             for x in itemTypeinlevels:
@@ -121,7 +124,11 @@ class itemFieldView(APIView):
                     "item_type":second_data,
                 }
                 first_data.append(data)
-            return Response(first_data)
+            ans={
+                "facility":fac_ser.data,
+                "data":first_data
+            }    
+            return Response(ans)
         else:
             item_class=get_object_or_404(ItemClass,id=class_id)
             item_type=get_object_or_404(ItemType,id=type_id)

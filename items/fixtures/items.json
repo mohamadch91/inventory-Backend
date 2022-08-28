@@ -66,7 +66,7 @@
     "model": "items.ItemType",
     "pk": 8,
     "fields": {
-      "title": "Cold boc",
+      "title": "Cold box",
       "code": "CBX",
       "itemclass": 2
     }
