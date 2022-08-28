@@ -1,4 +1,5 @@
 
+from dataclasses import fields
 from rest_framework import serializers
 from .models import *
 
@@ -13,3 +14,9 @@ class activemainSerializers(serializers.ModelSerializer):
     class Meta:
         model=activeMaintance
         fields='__all__'     
+
+class maintancegpSerializers(serializers.ModelSerializer):
+    class Meta:
+        model=activeMaintance
+        fields='__all__'
+        

@@ -45,10 +45,13 @@ class helperView(APIView):
                 item_type=ItemType.objects.filter(itemclass=x.id,active=True )
                 second_data=[]
                 for k in item_type:
+                    mgp=maintancegp.objects().filter(item_class=x.id,item_type=k.id,enable=True)
+                    mgp_Ser=maintancegpSerializers(mgp,many=True)
                     new_data={
                         "id":k.id,
                         "title":k.title,
                         "havepqs":k.havePQS,
+                        "maintancegp":mgp_Ser.data
                     }
                     second_data.append(new_data)
                 data={
@@ -107,6 +110,48 @@ class maintananceView(APIView):
         country.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
+
+class maintancegp(APIView):
+    permission_classes = (IsAuthenticated,)
+
+    def post(self, request):
+            new_data=copy.deepcopy(request.data)
+            item_class=get_object_or_404(ItemClass,id=new_data['item_class'])
+            item_type=get_object_or_404(ItemType,id=new_data['item_type'])
+           
+            serializer =   maintancegpSerializers(data=new_data)
+            if serializer.is_valid():
+                serializer.save()
+                return Response(serializer.data, status=status.HTTP_201_CREATED)
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def get(self, request):
+        item_class=request.query_params.get('item_class',None)
+        item_type=request.query_params.get('item_type',None)
+        if(item_class!=None and item_type!=None):
+            item_class=get_object_or_404(ItemClass,id=item_class)
+            item_type=get_object_or_404(ItemType,id=item_type)
+            main=maintancegp.objects.filter(item_class=item_class.id,item_type=item_type.id)
+            ser=maintanSerializer(main,many=True)
+            return Response(ser.data,status=status.HTTP_200_OK)
+        country = maintancegp.objects.all()
+        serializer =  maintancegpSerializers(country, many=True)
+        return Response(serializer.data)
+
+    def put(self, request, ):
+        id=request.data["id"]
+        country = get_object_or_404(maintancegp, id=id)
+        serializer =  maintancegpSerializers(country, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def delete(self, request, *args, **kwargs):
+        id=request.data["id"]
+        country = get_object_or_404(maintancegp, id=id)
+        country.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
 
 
 

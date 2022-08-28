@@ -29,7 +29,7 @@ class maintancegp(models.Model):
 class activeMaintance(models.Model):
     id=models.AutoField(primary_key=True)
     maintanance=models.ForeignKey(maintanance,models.CASCADE,blank=True,null=True)
-    maintanncegp=models.ForeignKey(maintanance,models.CASCADE,blank=True,null=True)
+    maintanncegp=models.ForeignKey(maintancegp,models.CASCADE,blank=True,null=True)
     enable=models.BooleanField(default=True,blank=True,null=True)            
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
