@@ -142,14 +142,14 @@ class facilityFieldView(APIView):
 
                 "params":[],
                      
-                "validation":{
+                "validation":[{
                     "fieldid": 5,
                     "digits": -1,
                     "min": level.minpop,
                     "max": level.maxpop,
                     "float": False,
                     "floating": -1
-                     }
+                     }]
 
                     }
                 else:
@@ -165,14 +165,14 @@ class facilityFieldView(APIView):
 
                 "params":[],
                      
-                "validation":{
-                    "fieldid": 5,
+                "validation":[{
+                    "fieldid": 6,
                     "digits": -1,
                     "min": level.minpop,
                     "max": level.maxpop,
                     "float": False,
                     "floating": -1
-                     }
+                     }]
 
                     }
 
@@ -192,14 +192,14 @@ class facilityFieldView(APIView):
 
                 "params":[],
                      
-                "validation":{
-                    "fieldid": 5,
+                "validation":[{
+                    "fieldid": 6,
                     "digits": -1,
                     "min": level.minpop,
                     "max": level.maxpop,
                     "float": False,
                     "floating": -1
-                     }
+                     }]
 
                     }
                 else:
@@ -215,14 +215,14 @@ class facilityFieldView(APIView):
 
                 "params":[],
                      
-                "validation":{
+                "validation":[{
                     "fieldid": 5,
                     "digits": -1,
                     "min": level.minpop,
                     "max": level.maxpop,
                     "float": False,
                     "floating": -1
-                     }
+                     }]
 
                     }    
                 ans.append(data)
