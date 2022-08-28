@@ -113,6 +113,69 @@ class dashboardFacilityView(APIView):
                     }
                     ans.append(new_data)
             return Response(ans,status=status.HTTP_200_OK)            
+class dahboardlevelView(APIView):
+    permission_classes=(IsAuthenticated,)
+    def get(self,request):
+        user=request.user
+        facility=user.facilityid
+        facility=get_object_or_404(Facility, id=facility.id)
+        fac_ser=facilitySerializer(facility,many=False)
+        level=facility.level.id
+        levels_Ser=levelSerializer(level,many=True)
+        levels=LevelConfig.objects.all()
+        first_ans=[]
+        second_ans=[]
+        for x in levels:
+            if(x.id>=level):
+                fac=Facility.objects.filter(level=x.id)
+                fac_count=fac.count()
+                count=0
+                allow_count=0
+                for y in fac:
+                    new_data={}
+                    if(y.id>=facility.id):
+                        count=0
+                        for z in fac:
+                            if(z.id>y.id):
+                                count+=1
+                        defined=0        
+                        lower=0
+                        if(y.loverlevelfac!=None):
+                            defined=count/y.loverlevelfac
+                            lower=y.loverlevelfac
+                        new_data={
+                            "id":y.id,
+                            "name":y.name,
+                            "sub_fac":count,
+                            "defined":"%.2f"%defined,
+                            "lower":lower,
+                            "update":y.updated_at,
+                            "level_id":x.id,
+                        "level_name":x.name,
+                        }
+                        second_ans.append(new_data)
+                    if(y.loverlevelfac!=None):
+                        allow_count+=y.loverlevelfac
+                    subs=Facility.objects.filter(parentid=y.id)
+                    count+=subs.count()
+                data={
+                    "level_id":x.id,
+                    "level_name":x.name,
+                    "total":fac_count,
+                    "sub":allow_count,
+                    "def":count
+                }
+                first_ans.append(data)
+        final_data={
+            "level_table":first_ans,
+            "facility_table":second_ans
+        }
+        return Response(final_data,status=status.HTTP_200_OK)
+        
+
+
+
+
 
 
 
