@@ -311,7 +311,7 @@ class paramView(APIView):
                         ans.append(ser.data)
                     else:
                         return Response(ser.errors, status=status.HTTP_400_BAD_REQUEST)
-                elif(type=='item'):
+                else:
                     ser=itemParamDescriptionSerilizer(data=request.data)
                     if ser.is_valid():
                         ser.save()
@@ -331,7 +331,7 @@ class paramView(APIView):
                     ans.append(ser.data)
                 else:
                     return Response(ser.errors, status=status.HTTP_400_BAD_REQUEST)
-            elif(type=='item'):
+            else:
                 obj=get_object_or_404(itemParamDescription, id=id)
                 ser=itemParamDescriptionSerilizer(obj, data=request.data)
                 if ser.is_valid():
