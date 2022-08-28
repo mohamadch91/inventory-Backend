@@ -162,6 +162,52 @@ class itemFieldView(APIView):
             #    else:
                     except:
                         data["field"]["params"]=[]    
+                    if(field.id==31):
+                        ans=[
+
+    {
+                    "id": 1,
+                    "describe": "+25C",
+                    "active": True,
+                    "order": 1,
+                    "itemclass": 1
+                },
+                {
+                    "id": 2,
+                    "describe": "+2 - +8 C",
+                    "active": True,
+                    "order": 1,
+                    "itemclass": 1
+                },
+                      {
+                    "id": 3,
+                    "describe": "-20 C",
+                    "active": True,
+                    "order": 1,
+                    "itemclass": 1
+                },
+                      {
+                    "id": 4,
+                    "describe": "-70 C",
+                    "active": True,
+                    "order": 1,
+                    "itemclass": 1
+                },
+                      {
+                    "id": 5,
+                    "describe": "Dry store",
+                    "active": True,
+                    "order": 1,
+                    "itemclass": 1
+                },
+
+
+
+                        ]
+                        data["field"]["params"]=ans
+
+
+                         
                 val=Itemvalidation.objects.filter(fieldid=x.id)
                 val_ser=ItemvalidationSerilizer(val,many=True)
                 if(val.count()>0):
