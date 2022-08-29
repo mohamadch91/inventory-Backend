@@ -6,7 +6,8 @@ from .views import *
 urlpatterns = [
 
     path('helper', QRhelperview.as_view(), name='helper'),
-    path('list', QRhelperview.as_view(), name='list'),
+    path('list', generateQrView.as_view(), name='list'),
+    path('get-datail'),
 
 
 

@@ -54,7 +54,7 @@ urlpatterns = [
     path('maintanance/',include('maintanance.urls')),
     path('reports/',include('reports.urls')),
     path('dashboard/',include('dashboard.urls')),
-    path('qr/',include('qr.urls'))
+    path('/item/qr/',include('qr.urls'))
 
 
 

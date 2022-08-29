@@ -104,6 +104,15 @@ class generateQrView(APIView):
     permission_classes=(IsAuthenticated,)
     def get (self,request):
         facility=request.query_params.get('facility',None)
+        item_class=request.query_params.get('item_class',None)
+        item_type=request.query_params.get('item_type',None)
+        physical=request.query_params.get('physical',None)
+        working=request.query_params.get('working',None)
+        user=request.query_params.get('user',None)
+        year_from=request.query_params.get('year_from',None)
+        year_to=request.query_params.get('year_to',None)
+        code=request.query_params.get('code',None)
+        func=request.query_params.get('func',None)
         
 
         
