@@ -155,7 +155,7 @@ class getqrView(APIView):
         code=request.query_params.get('code',None)
         if(code is None):
             return Response('need query param',status=status.HTTP_400_BAD_REQUEST)
-        x=item.objects.filter(code=code)
+        x=item.objects.filter(code=code)[0]
         data={
                 "id":x.id,
                 "item_class":x.item_class.title,
@@ -166,7 +166,7 @@ class getqrView(APIView):
 
             }
         return Response(data,status=status.HTTP_200_OK)
-        
+
 
 
 
