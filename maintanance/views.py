@@ -116,9 +116,6 @@ class maintancegp(APIView):
 
     def post(self, request):
             new_data=copy.deepcopy(request.data)
-            item_class=get_object_or_404(ItemClass,id=new_data['item_class'])
-            item_type=get_object_or_404(ItemType,id=new_data['item_type'])
-           
             serializer =   maintancegpSerializers(data=new_data)
             if serializer.is_valid():
                 serializer.save()
@@ -159,7 +156,6 @@ class activemainView(APIView):
     def get (self,request):
         item_class=request.query_params.get('item_class',None)
         item_type=request.query_params.get('item_type',None)
-        power_source=request.query_params.get('power',None)
         main=maintanance.objects.filter(item_class=item_class,item_type=item_type,enable=True)
         final_ans=[]
         for x in main:
@@ -178,22 +174,23 @@ class activemainView(APIView):
         ans=[]             
         for x in request.data:
             if(x["enable"]):
-                actives=activeMaintance.objects.filter(maintanance=x["id"])
+                actives=activeMaintance.objects.filter(maintanance=x["id"],maintanncegp=x["gp"])
                 if(actives.count()>0):
                     pass
                 else:
                     data={
                         "maintanance":x["id"],
-                        "enable":True
+                        "enable":True,
+                        "gp":x["gp"]
                     }
                     ser=activemainSerializers(data=data)
                     if(ser.is_valid()):
                         ser.save()
                         ans.append(ser.data)
             else:
-                actives=activeMaintance.objects.filter(maintanance=x["id"])
+                actives=activeMaintance.objects.filter(maintanance=x["id"],maintanncegp=x["gp"])
                 if(actives.count()>0):
-                    main=get_object_or_404(activeMaintance,maintanance=x["id"])
+                    main=get_object_or_404(activeMaintance,maintanance=x["id"],maintanncegp=x["gp"])
                     main.delete()
                 else:
                     pass
