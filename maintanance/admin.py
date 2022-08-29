@@ -4,3 +4,4 @@ from django.contrib import admin
 from .models import *
 admin.site.register(maintanance)
 admin.site.register(activeMaintance)
+admin.site.register(maintancegp)

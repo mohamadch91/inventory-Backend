@@ -76,9 +76,9 @@ class QRhelperview(APIView):
                 "item_type":second_data,
             }
             first_data.append(data)     
-        working=itemParamDescription.objects.filter(paramid=11)
+        working=itemParamDescription.objects.filter(paramid=11,enabled=True)
         working_ser=itemParamDescriptionSerilizer(working,many=True)
-        phy=itemParamDescription.objects.filter(paramid=11)
+        phy=itemParamDescription.objects.filter(paramid=9,enabled=True)
         phy_ser=itemParamDescriptionSerilizer(phy,many=True)
         users=User.objects.all()
         user_Data=[]

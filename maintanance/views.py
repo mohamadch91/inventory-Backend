@@ -25,7 +25,6 @@ from .serializers import *
 from rest_framework.permissions import IsAuthenticated
 
 from authen.models import User
-from .models import *
 from .serializers import *
 from settings.serializers import *
 from rest_framework import generics
@@ -35,6 +34,7 @@ from rest_framework.response import Response
 from rest_framework import status
 from django.shortcuts import get_object_or_404
 from items.serializers import *
+from .models import maintancegp
 import copy 
 class helperView(APIView):
     def get(self,request):
@@ -45,7 +45,7 @@ class helperView(APIView):
                 item_type=ItemType.objects.filter(itemclass=x.id,active=True )
                 second_data=[]
                 for k in item_type:
-                    mgp=maintancegp.objects().filter(item_class=x.id,item_type=k.id,enable=True)
+                    mgp=maintancegp.objects.filter(item_class=x.id,item_type=k.id,enable=True)
                     mgp_Ser=maintancegpSerializers(mgp,many=True)
                     new_data={
                         "id":k.id,
@@ -111,7 +111,7 @@ class maintananceView(APIView):
         return Response(status=status.HTTP_204_NO_CONTENT)
 
 
-class maintancegp(APIView):
+class maintancegpView(APIView):
     permission_classes = (IsAuthenticated,)
 
     def post(self, request):
