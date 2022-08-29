@@ -113,7 +113,6 @@ class maintananceView(APIView):
 
 class maintancegpView(APIView):
     permission_classes = (IsAuthenticated,)
-
     def post(self, request):
             new_data=copy.deepcopy(request.data)
             serializer =   maintancegpSerializers(data=new_data)
@@ -181,7 +180,7 @@ class activemainView(APIView):
                     data={
                         "maintanance":x["id"],
                         "enable":True,
-                        "gp":x["gp"]
+                        "maintanncegp":x["gp"]
                     }
                     ser=activemainSerializers(data=data)
                     if(ser.is_valid()):

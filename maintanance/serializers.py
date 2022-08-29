@@ -17,6 +17,6 @@ class activemainSerializers(serializers.ModelSerializer):
 
 class maintancegpSerializers(serializers.ModelSerializer):
     class Meta:
-        model=activeMaintance
+        model=maintancegp
         fields='__all__'
         
