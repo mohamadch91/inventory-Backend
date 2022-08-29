@@ -21,6 +21,8 @@ from rest_framework.permissions import IsAuthenticated
 
 from authen.models import User
 from facilities.models import Facility
+from related.models import Facilityvalidation, facilityParamDescription
+from settings.serializers import levelSerializer
 from .models import *
 
 from items.serializers import *
@@ -33,6 +35,7 @@ from items.models import ItemType
 from django.shortcuts import get_object_or_404
 from facilities.serializers import *
 from item.serializers import *
+from authen.serializers import UserSerializer
 import copy
 import json
 import pandas as pd
@@ -80,3 +83,106 @@ class exportExcel(APIView):
             "item":'/media/exported_item_json_data.xlsx'
         }
         return Response(data,status=status.HTTP_200_OK)
+
+
+class facilitysegView(APIView):
+    permission_classes=(IsAuthenticated,)
+
+    def get(self,request):
+
+        help=request.query_params.get('help',None)
+
+        if (help is None):
+            return Response('need query param',status=status.HTTP_400_BAD_REQUEST)
+
+        if(help==True):
+            user=request.user
+            user_ser=UserSerializer(user,many=False)
+            this_facility=Facility.objects.filter(id=user.facilityid.id)[0]
+            fac_ser=facilitySerializer(this_facility,many=False)
+            level=this_facility.level
+            allow_levels=LevelConfig.objects.filter(id__gt=level.id)
+            levels=levelSerializer(allow_levels,many=True)
+            power=facilityParamDescription.objects.filter(fieldid=53,enabled=True)
+            type=facilityParamDescription.objects.filter(fieldid=4,enabled=True)
+            data={
+                "level":levels.data,
+                "type":type.data,
+                "power":power.data,
+
+            }
+            return Response(data,status=status.HTTP_200_OK)
+        else:
+            name=request.query_params.get('name',None)
+            code=request.query_params.get('code',None)
+            level=request.query_params.get('level',None)
+            type=request.query_params.get('type',None)
+            power=request.query_params.get('power',None)
+            func=request.query_params.get('func',None)
+            general_from=request.query_params.get('gfrom',None)
+            general_to=request.query_params.get('gto',None)
+            under_from=request.query_params.get('underfrom',None)
+            under_to=request.query_params.get('underto',None)
+            all_fac=Facility.objects.all()
+            if(level is not None):
+                all_fac=all_fac.filter(level=level)
+            if(type is not None):
+                all_fac=all_fac.filter(type=type)
+            if(name is not None):
+                all_fac=all_fac.filter(name=name)
+            if(code is not None):
+                all_fac=all_fac.filter(code=code)
+        
+            if(power is not None):
+                all_fac=all_fac.filter(powersource=power)
+            if(func is not None):
+                all_fac=all_fac.filter(is_functioning=func)
+            if(general_from is not None):
+                all_fac=all_fac.filter(populationnumber__gte=name)
+            if(general_to is not None):
+                all_fac=all_fac.filter(populationnumber__lte=name)
+            if(under_from is not None):
+                all_fac=all_fac.filter(childrennumber__gte=name)
+            if(under_to is not None):
+                all_fac=all_fac.filter(childrennumber__lte=name)
+
+            ans=[]
+            for x in all_fac:
+                type_name=""
+                power_name=""
+                owner_name=""
+                if(x.type != None):
+                    type_name=get_object_or_404(facilityParamDescription,id=x.type).name
+                if(x.powersource != None):
+                    power_name=get_object_or_404(facilityParamDescription,id=x.powersource).name
+                if(x.ownership != None):
+                     owner_name=get_object_or_404(facilityParamDescription,id=x.ownership).name
+                func="working"
+               
+                if(x.is_functioning != None):
+                     if(not x.is_functioning):
+                        func="not working"   
+                
+               
+               
+                data={
+                    "name":x.name,
+                    "parent":x.parentid.name,
+                    "level":x.level.id,
+                    "code":x.code,
+                    "type":type_name,
+                    "power":power_name,
+                    "owner":owner_name,
+                    "func":func
+
+                }     
+                ans.append(data)
+            return Response(ans,status=status.HTTP_200_OK)
+                
+                 
+
+                
+
+
+            
+        
