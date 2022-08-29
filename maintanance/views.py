@@ -172,6 +172,7 @@ class activemainView(APIView):
     def post(self,request):
         ans=[]             
         for x in request.data:
+            print(x)
             if(x["enable"]):
                 actives=activeMaintance.objects.filter(maintanance=x["id"],maintanncegp=x["gp"])
                 if(actives.count()>0):

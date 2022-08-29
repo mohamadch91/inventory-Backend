@@ -22,6 +22,7 @@ from rest_framework.permissions import IsAuthenticated
 from authen.models import User
 from facilities.models import Facility
 from related.models import Facilityvalidation, facilityParamDescription
+from related.serializers import facilityParamDescriptionSerilizer
 from settings.serializers import levelSerializer
 from .models import *
 
@@ -95,18 +96,25 @@ class facilitysegView(APIView):
         if (help is None):
             return Response('need query param',status=status.HTTP_400_BAD_REQUEST)
 
-        if(help==True):
+        if(help=="true"):
             user=request.user
-            user_ser=UserSerializer(user,many=False)
             this_facility=Facility.objects.filter(id=user.facilityid.id)[0]
-            fac_ser=facilitySerializer(this_facility,many=False)
             level=this_facility.level
             allow_levels=LevelConfig.objects.filter(id__gt=level.id)
             levels=levelSerializer(allow_levels,many=True)
-            power=facilityParamDescription.objects.filter(fieldid=53,enabled=True)
-            type=facilityParamDescription.objects.filter(fieldid=4,enabled=True)
+            power=facilityParamDescription.objects.filter(paramid=12,enabled=True)
+            power=facilityParamDescriptionSerilizer(power,many=True)
+            type=facilityParamDescription.objects.filter(paramid=10,enabled=True)
+            type=facilityParamDescriptionSerilizer(type,many=True)
+            l_data=[]
+            for x in levels.data:
+                data={
+                    "name":x["name"],
+                    "id":x["id"]
+                }
+                l_data.append(data)
             data={
-                "level":levels.data,
+                "level":l_data,
                 "type":type.data,
                 "power":power.data,
 
@@ -129,14 +137,18 @@ class facilitysegView(APIView):
             if(type is not None):
                 all_fac=all_fac.filter(type=type)
             if(name is not None):
-                all_fac=all_fac.filter(name=name)
+                all_fac=all_fac.filter(name__contains=name)
             if(code is not None):
-                all_fac=all_fac.filter(code=code)
+                all_fac=all_fac.filter(code__contains=code)
         
             if(power is not None):
                 all_fac=all_fac.filter(powersource=power)
             if(func is not None):
-                all_fac=all_fac.filter(is_functioning=func)
+                if(func=="true"):
+                    all_fac=all_fac.filter(is_functioning=True)
+                else:
+                    all_fac=all_fac.filter(is_functioning=False)
+
             if(general_from is not None):
                 all_fac=all_fac.filter(populationnumber__gte=name)
             if(general_to is not None):
@@ -163,11 +175,13 @@ class facilitysegView(APIView):
                      if(not x.is_functioning):
                         func="not working"   
                 
-               
+                parent=""
+                if(x.parentid is not None):
+                    parent=x.parentid.name
                
                 data={
                     "name":x.name,
-                    "parent":x.parentid.name,
+                    "parent":parent,
                     "level":x.level.id,
                     "code":x.code,
                     "type":type_name,
@@ -178,7 +192,7 @@ class facilitysegView(APIView):
                 }     
                 ans.append(data)
             return Response(ans,status=status.HTTP_200_OK)
-                
+
                  
 
                 
