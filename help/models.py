@@ -25,4 +25,4 @@ class Help(models.Model):
 
     page = models.CharField(max_length=20, choices=choices.choices ,blank=True, null=True)
     lang = models.CharField(max_length=20, choices=language.choices ,blank=True, null=True)
-    abr = models.TextField(max_length=2000, blank=True, null=True)
+    abr = models.FileField(upload_to="help",null=True)

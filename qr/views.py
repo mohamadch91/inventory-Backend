@@ -103,6 +103,7 @@ class QRhelperview(APIView):
 class generateQrView(APIView):
     permission_classes=(IsAuthenticated,)
     def get (self,request):
+        facility=request.query_params.get('facility',None)
         
 
         
