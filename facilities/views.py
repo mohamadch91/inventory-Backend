@@ -41,7 +41,7 @@ class FacilityView(APIView):
         country_code=country.codecountry
         level_code=new_data["level"]
         level_code =f"{level_code:02d}"
-        facility_num=Facility.objects.filter(level=level_code).count()
+        facility_num=Facility.objects.filter(level=level_code)[len(Facility.objects.filter(level=level_code))-1].id
         facility_num=facility_num+1
         facility_num=f"{facility_num:05d}"
         new_data["code"]=f"{country_code}{level_code}{facility_num}"

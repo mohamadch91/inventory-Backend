@@ -51,7 +51,7 @@ class itemView(APIView):
         item_type=new_data["item_type"]
         item_class=get_object_or_404(ItemClass, id=item_class)
         item_type=get_object_or_404(ItemType, id=item_type)   
-        item_code=f"{item.objects.count()+1:03d}"    
+        item_code=f"{item.objects.all()[item.objects.count()-1].id+1:03d}"    
         new_data["code"]=f"{facility.code}{item_class.code}{item_type.code}{item_code}"
         serializer = itemSerializer(data=new_data)
         if serializer.is_valid():
