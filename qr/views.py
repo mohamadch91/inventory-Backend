@@ -100,7 +100,10 @@ class QRhelperview(APIView):
         }   
         return Response(final_ans,status=status.HTTP_200_OK)     
 
-
+class generateQrView(APIView):
+    permission_classes=(IsAuthenticated,)
+    def get (self,request):
+        
 
         
 
