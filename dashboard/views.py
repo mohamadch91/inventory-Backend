@@ -53,7 +53,7 @@ class dashboarditemView(APIView):
         first_data=[]
         for x in item_class:
             x_ser=itemclassSerializer(x)
-            item_type=ItemType.objects.filter(itemclass=x.id,active=True,id__in=item_type_id)
+            item_type=ItemType.objects.filter(itemclass=x.id,active=True)
             second_data=[]
             for k in item_type:
                 items=item.objects.filter(item_class=x.id,item_type=k.id)

@@ -38,3 +38,72 @@ from settings.models import *
 from settings.serializers import *
 from item.models import *
 from items.serializers import *
+
+class QRhelperview(APIView):
+    permission_classes=(IsAuthenticated,)
+    def get(self,request):
+        user=request.user
+        facility=user.facilityid
+        facility=get_object_or_404(Facility, id=facility.id)
+        all_fac=Facility.objects.all()
+        fac_ans=[]
+        for x in all_fac:
+            if(x.parentid is not None):
+                if(x.parentid.id>=facility.id):
+                    data={
+                        "name":x.name,
+                        "id":x.id,
+                    }
+                    fac_ans.append(data)
+        item_class=ItemClass.objects.filter(active=True)
+        first_data=[]
+        for x in item_class:
+            x_ser=itemclassSerializer(x)
+            item_type=ItemType.objects.filter(itemclass=x.id,active=True )
+            second_data=[]
+            for k in item_type:
+                new_data={
+                    "id":k.id,
+                    "title":k.title,
+                }
+                second_data.append(new_data)
+            data={
+                "item_class":{
+                    "id":x.id,
+                    "title":x.title,
+
+                },
+                "item_type":second_data,
+            }
+            first_data.append(data)     
+        working=itemParamDescription.objects.filter(paramid=11)
+        working_ser=itemParamDescriptionSerilizer(working,many=True)
+        phy=itemParamDescription.objects.filter(paramid=11)
+        phy_ser=itemParamDescriptionSerilizer(phy,many=True)
+        users=User.objects.all()
+        user_Data=[]
+        for i in users:
+            if(i.facilityid.id>=facility.id):
+                data={
+                    "name":i.username,
+                    "id":i.pk
+                }
+                user_Data.append(data)
+
+        final_ans={
+            "facility":fac_ans,
+            "items":first_data,
+            "working":working_ser.data,
+                "physical":phy_ser.data,
+                "users":user_Data
+            
+        }   
+        return Response(final_ans,status=status.HTTP_200_OK)     
+
+
+
+        
+
+
+
+
