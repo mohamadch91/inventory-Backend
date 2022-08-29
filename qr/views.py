@@ -113,6 +113,64 @@ class generateQrView(APIView):
         year_to=request.query_params.get('year_to',None)
         code=request.query_params.get('code',None)
         func=request.query_params.get('func',None)
+        items=item.objects.all()
+        if(facility is not None):
+            items=items.filter(facility=facility)
+        if(item_type is not None):
+            items=items.filter(item_type=item_type)
+        if(item_class is not None):
+            items=items.filter(item_class=item_class)
+        if(physical is not None):
+            items=items.filter(PhysicalConditions=physical)
+        if(working is not None):
+            items=items.filter(WorkingConditions=working)
+
+        if(year_from is not None):
+            items=items.filter(YearInstalled__gte=year_from)
+        if(year_to is not None):
+            items=items.filter(YearInstalled__lte=year_to)
+        if(code is not None):
+            items=items.filter(code=code)
+        if(func is not None):
+            if(func=="true"):
+                items=items.filter(IsItFunctioning=True)
+            else:
+                items=items.filter(IsItFunctioning=False)
+        ans=[]
+        for x in items:
+            data={
+                "id":x.id,
+                "item_class":x.item_class.title,
+                "item_type":x.item_type.title,
+                "pqs_code":x.PQSPISCode,
+                "code":x.code,
+                "qr":x.code,
+
+            }        
+            ans.append(data)
+        return Response(ans,status=status.HTTP_200_OK)
+
+class getqrView(APIView):
+    def get (self,request):
+        code=request.query_params.get('code',None)
+        if(code is None):
+            return Response('need query param',status=status.HTTP_400_BAD_REQUEST)
+        x=item.objects.filter(code=code)
+        data={
+                "id":x.id,
+                "item_class":x.item_class.title,
+                "item_type":x.item_type.title,
+                "pqs_code":x.PQSPISCode,
+                "code":x.code,
+                "qr":x.code,
+
+            }
+        return Response(data,status=status.HTTP_200_OK)
+        
+
+
+
+                
         
 
         
