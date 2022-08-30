@@ -273,7 +273,7 @@ class facilityFieldView(APIView):
         }
         user_data={
             "id":user_ser.data["pk"],
-            "username":user_ser.data["name"]
+            "username":user_ser.data["username"]
         }    
         data={
             "facility":fac_data,
