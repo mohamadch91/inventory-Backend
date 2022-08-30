@@ -58,11 +58,12 @@ class dashboarditemView(APIView):
             for k in item_type:
                 items=item.objects.filter(item_class=x.id,item_type=k.id)
                 fil=items.filter(IsItFunctioning=True)
+                
                 working=0
                 if(fil.count()==0):
                     working=0
                 else:
-                    working=    items.count()/fil.count()
+                    working=fil.count()/items.count()
                 data={
                     "item_type":k.title,
                     "total_items":items.count(),
