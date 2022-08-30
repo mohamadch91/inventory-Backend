@@ -524,7 +524,7 @@
     "pk": 53,
     "fields": {
       "name": "Financial source:",
-      "type": "number",
+      "type": "select",
       "topic": "Financial fields",
         "state": "FinancialSource"
     }

@@ -427,11 +427,25 @@ class itemGroupedReport(APIView):
             if(item_type is not None):
                 item=item.filter(item_type=item_type)
             if(physical is not None):
-                item=item.filter(physical=physical)
+                item=item.filter(PhysicalConditions=physical)
             if(financial is not None):
-                item=item.filter(financial=financial)
+                item=item.filter(FinancialSource=financial)
             if(working is not None):
-                item=item.filter(working=working)
+                item=item.filter(WorkingConditions=working)
+            if(item_power is not None):
+                item=item.filter(power=item_power)
+            if(manufacturer is not None):
+                item=item.filter(manufacturer=manufacturer)
+            if(pqs is not None):
+                item=item.filter(PQSPISCode__contains=pqs)
+            if(year_from is not None):
+                item=item.filter(YearInstalled__gte=year_from)
+            if(year_to is not None):
+                item=item.filter(YearInstalled__lte=year_to)
+            if(capacity_from is not None):
+                item=item.filter(FreezerNetCapacity__gte=capacity_from)
+            if(capacity_to is not None):
+                item=item.filter(FreezerNetCapacity__lte=capacity_to)
 
 
                 
