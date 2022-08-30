@@ -250,7 +250,69 @@ class subfacView(APIView):
 
 
                  
+class facilitymap(APIView):
+    permission_classes=(IsAuthenticated,)
 
+    def get(self,request):
+
+        help=request.query_params.get('help',None)
+
+        if (help is None):
+            return Response('need query param',status=status.HTTP_400_BAD_REQUEST)
+
+        if(help=="true"):
+            user=request.user
+            this_facility=Facility.objects.filter(id=user.facilityid.id)[0]
+            level=this_facility.level
+            allow_levels=LevelConfig.objects.filter(id__gt=level.id)
+            levels=levelSerializer(allow_levels,many=True)
+            power=facilityParamDescription.objects.filter(paramid=12,enabled=True)
+            power=facilityParamDescriptionSerilizer(power,many=True)
+            type=facilityParamDescription.objects.filter(paramid=10,enabled=True)
+            type=facilityParamDescriptionSerilizer(type,many=True)
+            l_data=[]
+            for x in levels.data:
+                data={
+                    "name":x["name"],
+                    "id":x["id"]
+                }
+                l_data.append(data)
+            data={
+                "level":l_data,
+                "type":type.data,
+                "power":power.data,
+
+            }
+            return Response(data,status=status.HTTP_200_OK)
+        else:
+            level=request.query_params.get('level',None)
+            type=request.query_params.get('type',None)
+            power=request.query_params.get('power',None)
+            func=request.query_params.get('func',None)
+            all_fac=Facility.objects.all()
+            if(level is not None):
+                all_fac=all_fac.filter(level=level)
+            if(type is not None):
+                all_fac=all_fac.filter(type=type)
+        
+            if(power is not None):
+                all_fac=all_fac.filter(powersource=power)
+            if(func is not None):
+                if(func=="true"):
+                    all_fac=all_fac.filter(is_functioning=True)
+                else:
+                    all_fac=all_fac.filter(is_functioning=False)
+
+
+            ans=[]
+            for x in all_fac:
+                data={
+                    "cordinates":x.gpsCordinate
+                }
+                ans.append(data)
+            return Response(ans,status=status.HTTP_200_OK)
+
+ 
                 
 
 
