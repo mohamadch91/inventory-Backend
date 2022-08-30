@@ -100,7 +100,7 @@ class facilitysegView(APIView):
             user=request.user
             this_facility=Facility.objects.filter(id=user.facilityid.id)[0]
             level=this_facility.level
-            allow_levels=LevelConfig.objects.filter(id__gt=level.id)
+            allow_levels=LevelConfig.objects.filter(id__gte=level.id)
             levels=levelSerializer(allow_levels,many=True)
             power=facilityParamDescription.objects.filter(paramid=12,enabled=True)
             power=facilityParamDescriptionSerilizer(power,many=True)
@@ -206,7 +206,7 @@ class subfacView(APIView):
             user=request.user
             this_facility=Facility.objects.filter(id=user.facilityid.id)[0]
             level=this_facility.level
-            allow_levels=LevelConfig.objects.filter(id__gt=level.id)
+            allow_levels=LevelConfig.objects.filter(id__gte=level.id)
             levels=levelSerializer(allow_levels,many=True)
             l_data=[]
             for x in levels.data:
@@ -264,7 +264,7 @@ class facilitymap(APIView):
             user=request.user
             this_facility=Facility.objects.filter(id=user.facilityid.id)[0]
             level=this_facility.level
-            allow_levels=LevelConfig.objects.filter(id__gt=level.id)
+            allow_levels=LevelConfig.objects.filter(id__gte=level.id)
             levels=levelSerializer(allow_levels,many=True)
             power=facilityParamDescription.objects.filter(paramid=12,enabled=True)
             power=facilityParamDescriptionSerilizer(power,many=True)
