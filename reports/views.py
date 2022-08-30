@@ -240,7 +240,7 @@ class subfacView(APIView):
                     "level":x.level.id,
                     "code":x.code,
                     "type":type_name,
-                    "genera;population":x.populationnumber,
+                    "generalpopulation":x.populationnumber,
                     "underage":x.childrennumber,
 
                 }     
