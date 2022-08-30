@@ -383,17 +383,56 @@ class itemGroupedReport(APIView):
             datas={
                 "level":l_data,
                 "type":typess.data,
-                "fac_power":powerss.data,
+                "power":powerss.data,
                 "item":items,
                 "physical":physcal.data,
                 "financial":financial.data,
                 "working":working.data,
-                "power":powers.data,
+                "item_power":powers.data,
             }
             print(datas)
             return Response(datas,status=status.HTTP_200_OK)
         else:
-            pass    
+            name=request.query_params.get('name',None)
+            level=request.query_params.get('level',None)
+            type=request.query_params.get('type',None)
+            power=request.query_params.get('power',None)
+            code=request.query_params.get('code',None)
+            item_class=request.query_params.get('item_class',None)
+            item_type=request.query_params.get('item_type',None)
+            physical=request.query_params.get('physical',None)
+            financial=request.query_params.get('financial',None)
+            working=request.query_params.get('working',None)
+            item_power=request.query_params.get('item_power',None)
+            manufacturer=request.query_params.get('manufacturer',None)
+            pqs=request.query_params.get('pqs',None)
+            year_from=request.query_params.get('year_from',None)
+            year_to=request.query_params.get('year_to',None)
+            capacity_from=request.query_params.get('capacity_from',None)
+            capacity_to=request.query_params.get('capacity_to',None)
+            item=item.objects.all()
+            facility=Facility.objects.all()
+            if(name is not None):
+                facility_name=Facility.objects.filter(name__contain=name)
+            if(level is not None):
+                facility=facility.filter(level=level)
+            if(type is not None):
+                facility=facility.filter(type=type)
+            if(power is not None):
+                facility=facility.filter(powersource=power)
+            if(code is not None):
+                facility=facility.filter(code__contain=code)
+            if(item_class is not None):
+                item=item.filter(item_class=item_class)
+            if(item_type is not None):
+                item=item.filter(item_type=item_type)
+            if(physical is not None):
+                item=item.filter(physical=physical)
+            if(financial is not None):
+                item=item.filter(financial=financial)
+            if(working is not None):
+                item=item.filter(working=working)
+
 
                 
 
