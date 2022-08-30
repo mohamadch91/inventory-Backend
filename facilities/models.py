@@ -40,8 +40,8 @@ class Facility(models.Model):
     distancefromparent = models.IntegerField(db_column='distanceFromParent', blank=True, null=True)  # Field name made lowercase.
     timetoparent = models.CharField(db_column='timeToParent', max_length=50, blank=True, null=True)  # Field name made lowercase.
     days_open =models.IntegerField(db_column='daysOpen', blank=True, null=True)  # Field name made lowercase.
-    working_from=models.TimeField(db_column='workingFrom', blank=True, null=True)  # Field name made lowercase.
-    working_to=models.TimeField(db_column='workingTo', blank=True, null=True)  # Field name made lowercase.
+    working_from=models.CharField(max_length=50,db_column='workingFrom', blank=True, null=True)  # Field name made lowercase.
+    working_to=models.CharField(max_length=50,db_column='workingTo', blank=True, null=True)  # Field name made lowercase.
     recieve_mode=models.CharField(max_length=50,blank=True,null=True)
     transport_mode=models.CharField(max_length=50,blank=True,null=True)
     haveimmservice = models.BooleanField(db_column='HaveImmService', blank=True, null=True)  # Field name made lowercase.
