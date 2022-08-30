@@ -217,6 +217,35 @@ class subfacView(APIView):
                 l_data.append(data)
 
             return Response(l_data,status=status.HTTP_200_OK)
+        else:
+            #filter level
+            level=request.query_params.get('level',None)
+            all_fac=Facility.objects.all()
+            if(level is not None):
+                all_fac=Facility.objects.filter(level=level)
+            #return facilityname parentname level code type power population children
+            final_ans=[]
+            for x in all_fac:
+                parent="-"
+                if(x.parentid is not None):
+                    parent=x.parentid.name
+                type_name=""
+                power_name=""
+                owner_name=""
+                if(x.type != None):
+                    type_name=get_object_or_404(facilityParamDescription,id=x.type).name
+                data={
+                    "name":x.name,
+                    "parent":parent,
+                    "level":x.level.id,
+                    "code":x.code,
+                    "type":type_name,
+                    "genera;population":x.populationnumber,
+                    "underage":x.childrennumber,
+
+                }     
+                final_ans.append(data)
+            return Response(final_ans,status=status.HTTP_200_OK)    
 
 
 
