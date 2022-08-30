@@ -36,6 +36,9 @@ class FacilityView(APIView):
     permission_classes = (IsAuthenticated,)
 
     def post(self, request):
+        user=request.user
+        user_ser=UserSerializer(user,many=False)
+        this_facility=Facility.objects.filter(id=user.facilityid.id)[0]
         new_data=copy.deepcopy(request.data)
         country=CountryConfig.objects.all()[0]
         country_code=country.codecountry
@@ -46,6 +49,7 @@ class FacilityView(APIView):
         facility_num=f"{facility_num:05d}"
         new_data["code"]=f"{country_code}{level_code}{facility_num}"
         new_data["country"]=country.id
+        new_data["parentid"]=this_facility.id
         new_data["completerstaffname"]=request.user.id
         serializer =   facilitySerializer(data=new_data)
         if serializer.is_valid():
