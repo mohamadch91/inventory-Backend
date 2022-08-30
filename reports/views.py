@@ -312,7 +312,7 @@ class facilitymap(APIView):
                     data={
                         "cordinates": [lat,lang]
                     }
-                ans.append(data)
+                    ans.append(data)
             return Response(ans,status=status.HTTP_200_OK)
 
  
