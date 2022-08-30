@@ -155,6 +155,7 @@ class activemainView(APIView):
     def get (self,request):
         item_class=request.query_params.get('item_class',None)
         item_type=request.query_params.get('item_type',None)
+        gp=request.query_params.get('gp',None)
         main=maintanance.objects.filter(item_class=item_class,item_type=item_type,enable=True)
         final_ans=[]
         for x in main:
@@ -162,7 +163,7 @@ class activemainView(APIView):
             data={
                 "maintance":x_ser.data
             }
-            actives=activeMaintance.objects.filter(maintanance=x.id)
+            actives=activeMaintance.objects.filter(maintanance=x.id,maintanncegp=gp)
             if(actives.count()>0):
                 data["assigned"]=True
             else:
