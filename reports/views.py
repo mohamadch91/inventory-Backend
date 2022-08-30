@@ -446,6 +446,46 @@ class itemGroupedReport(APIView):
                 item=item.filter(FreezerNetCapacity__gte=capacity_from)
             if(capacity_to is not None):
                 item=item.filter(FreezerNetCapacity__lte=capacity_to)
+            fac_id=[]
+            for x in facility:
+                fac_id.append(x.id)    
+            #all facilitys contain same item
+            item=item.filter(facilityid__in=fac_id)
+            same_type=[]
+            same_pqs=[]
+            same_manufacturer=[]
+            same_model=[]
+            for x in item:
+                if x.item_type not in same_type:
+                    same_type.append(x.item_type)
+                if x.PQSPISCode not in same_pqs:
+                    same_pqs.append(x.PQSPISCode)
+                if x.Manufacturer not in same_manufacturer:
+                    same_manufacturer.append(x.Manufacturer)
+                if x.Model not in same_model:
+                    same_model.append(x.Model)
+            final_answer=[]
+            for x in same_type:
+                new_items=item.filter(item_type=x)
+                for y in same_model:
+                    new_items=new_items.filter(Model=y)
+                    for z in same_manufacturer:
+                        new_items=new_items.filter(Manufacturer=z)
+                        for w in same_pqs:
+                            new_items=new_items.filter(PQSPISCode=w) 
+                            fac_list=[]
+                            for a in new_items:
+                                facility=get_object_or_404(Facility,id=a.facilityid.id)
+                                data={
+                                    "name":facility.name,
+                                    "id":facility.id,
+                                }
+                                fac_list.append(data)
+                            final_answer.append({"item_type":x,"model":y,"manufacturer":z,"pqs":w,"facility":fac_list})
+            return Response(final_answer,status=status.HTTP_200_OK)                    
+
+
+                
 
 
                 

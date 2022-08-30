@@ -24,7 +24,7 @@
     "pk": 3,
     "fields": {
       "name": "Model",
-      "type": "select",
+      "type": "text",
       "topic": "Type",
         "state": "Model"
     }

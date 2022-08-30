@@ -142,7 +142,7 @@ class generateQrView(APIView):
                 "id":x.id,
                 "item_class":x.item_class.title,
                 "item_type":x.item_type.title,
-                "pqs_code":x.PQSPISCode,
+                "pqs_code":x.Model,
                 "code":x.code,
                 "qr":x.code,
 
@@ -160,7 +160,7 @@ class getqrView(APIView):
                 "id":x.id,
                 "item_class":x.item_class.title,
                 "item_type":x.item_type.title,
-                "pqs_code":x.PQSPISCode,
+                "pqs_code":x.Model,
                 "code":x.code,
                 "qr":x.code,
 
