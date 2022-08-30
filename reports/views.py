@@ -36,6 +36,7 @@ from items.models import ItemType
 from django.shortcuts import get_object_or_404
 from facilities.serializers import *
 from item.serializers import *
+from item.models import item
 from authen.serializers import UserSerializer
 import copy
 import json
@@ -378,7 +379,6 @@ class itemGroupedReport(APIView):
             financial=itemParamDescriptionSerilizer(financial,many=True)
             powers=itemParamDescription.objects.filter(paramid=12,enabled=True)
             powers=itemParamDescriptionSerilizer(powers,many=True)   
-            print("salam")
 
             datas={
                 "level":l_data,
@@ -390,7 +390,6 @@ class itemGroupedReport(APIView):
                 "working":working.data,
                 "item_power":powers.data,
             }
-            print(datas)
             return Response(datas,status=status.HTTP_200_OK)
         else:
             name=request.query_params.get('name',None)
@@ -410,7 +409,7 @@ class itemGroupedReport(APIView):
             year_to=request.query_params.get('year_to',None)
             capacity_from=request.query_params.get('capacity_from',None)
             capacity_to=request.query_params.get('capacity_to',None)
-            item=item.objects.all()
+            items=item.objects.all()
             facility=Facility.objects.all()
             if(name is not None):
                 facility_name=Facility.objects.filter(name__contain=name)
@@ -423,39 +422,40 @@ class itemGroupedReport(APIView):
             if(code is not None):
                 facility=facility.filter(code__contain=code)
             if(item_class is not None):
-                item=item.filter(item_class=item_class)
+                items=items.filter(item_class=item_class)
             if(item_type is not None):
-                item=item.filter(item_type=item_type)
+                items=items.filter(item_type=item_type)
             if(physical is not None):
-                item=item.filter(PhysicalConditions=physical)
+                items=items.filter(PhysicalConditions=physical)
             if(financial is not None):
-                item=item.filter(FinancialSource=financial)
+                items=items.filter(FinancialSource=financial)
             if(working is not None):
-                item=item.filter(WorkingConditions=working)
+                items=items.filter(WorkingConditions=working)
             if(item_power is not None):
-                item=item.filter(power=item_power)
+                items=items.filter(power=item_power)
             if(manufacturer is not None):
-                item=item.filter(manufacturer=manufacturer)
+                items=items.filter(manufacturer=manufacturer)
             if(pqs is not None):
-                item=item.filter(PQSPISCode__contains=pqs)
+                items=items.filter(PQSPISCode__contains=pqs)
             if(year_from is not None):
-                item=item.filter(YearInstalled__gte=year_from)
+                items=items.filter(YearInstalled__gte=year_from)
             if(year_to is not None):
-                item=item.filter(YearInstalled__lte=year_to)
+                items=items.filter(YearInstalled__lte=year_to)
             if(capacity_from is not None):
-                item=item.filter(FreezerNetCapacity__gte=capacity_from)
+                items=items.filter(FreezerNetCapacity__gte=capacity_from)
             if(capacity_to is not None):
-                item=item.filter(FreezerNetCapacity__lte=capacity_to)
+                items=items.filter(FreezerNetCapacity__lte=capacity_to)
             fac_id=[]
             for x in facility:
                 fac_id.append(x.id)    
             #all facilitys contain same item
-            item=item.filter(facilityid__in=fac_id)
+            items=items.filter(facility__in=fac_id)
+            print(items.count())
             same_type=[]
             same_pqs=[]
             same_manufacturer=[]
             same_model=[]
-            for x in item:
+            for x in items:
                 if x.item_type not in same_type:
                     same_type.append(x.item_type)
                 if x.PQSPISCode not in same_pqs:
@@ -465,8 +465,9 @@ class itemGroupedReport(APIView):
                 if x.Model not in same_model:
                     same_model.append(x.Model)
             final_answer=[]
+            print(same_type,same_pqs,same_manufacturer,same_model)
             for x in same_type:
-                new_items=item.filter(item_type=x)
+                new_items=items.filter(item_type=x)
                 for y in same_model:
                     new_items=new_items.filter(Model=y)
                     for z in same_manufacturer:
@@ -474,14 +475,24 @@ class itemGroupedReport(APIView):
                         for w in same_pqs:
                             new_items=new_items.filter(PQSPISCode=w) 
                             fac_list=[]
+                            added_fac=[]
                             for a in new_items:
-                                facility=get_object_or_404(Facility,id=a.facilityid.id)
+                                facility=get_object_or_404(Facility,id=a.facility.id)
                                 data={
                                     "name":facility.name,
                                     "id":facility.id,
                                 }
-                                fac_list.append(data)
-                            final_answer.append({"item_type":x,"model":y,"manufacturer":z,"pqs":w,"facility":fac_list})
+                                if(facility.id not in added_fac):
+                                    added_fac.append(facility.id)
+                                    fac_list.append(data)
+                            manufac=""
+                            count=new_items.count()        
+                            if(z is not None):
+                                manufac=Manufacturer.objects.filter(id=z.id)
+                                if(manufac.count()>0):
+                                    manufac=manufac[0].describe
+       
+                            final_answer.append({"item_type":x.title,"model":y,"manufacturer":manufac,"pqs":w,"facility":fac_list,"count":count})
             return Response(final_answer,status=status.HTTP_200_OK)                    
 
 
