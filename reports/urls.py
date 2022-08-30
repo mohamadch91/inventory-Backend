@@ -9,6 +9,8 @@ urlpatterns = [
       path('facseg', facilitysegView.as_view(), name='facility segmentation'),
       path('subfacpop', subfacView.as_view(), name='Sub Facility population data'),
       path('facmap', facilitymap.as_view(), name='facility map'),
+      path('item-gp', itemGroupedReport.as_view(), name='item group'),
+
 
 
 

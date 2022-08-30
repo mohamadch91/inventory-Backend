@@ -331,10 +331,11 @@ class itemGroupedReport(APIView):
             allow_levels=LevelConfig.objects.filter(id__gte=level.id)
             levels=levelSerializer(allow_levels,many=True)
             power=facilityParamDescription.objects.filter(paramid=12,enabled=True)
-            power=facilityParamDescriptionSerilizer(power,many=True)
+            powerss=facilityParamDescriptionSerilizer(power,many=True)
             type=facilityParamDescription.objects.filter(paramid=10,enabled=True)
-            type=facilityParamDescriptionSerilizer(type,many=True)
+            typess=facilityParamDescriptionSerilizer(type,many=True)
             l_data=[]
+
             for x in levels.data:
                 data={
                     "name":x["name"],
@@ -377,17 +378,22 @@ class itemGroupedReport(APIView):
             financial=itemParamDescriptionSerilizer(financial,many=True)
             powers=itemParamDescription.objects.filter(paramid=12,enabled=True)
             powers=itemParamDescriptionSerilizer(powers,many=True)   
-            data={
+            print("salam")
+
+            datas={
                 "level":l_data,
-                "type":type,
-                "fac_power":power,
+                "type":typess.data,
+                "fac_power":powerss.data,
                 "item":items,
                 "physical":physcal.data,
                 "financial":financial.data,
                 "working":working.data,
                 "power":powers.data,
             }
-            return Response(data,status=status.HTTP_200_OK)
+            print(datas)
+            return Response(datas,status=status.HTTP_200_OK)
+        else:
+            pass    
 
                 
 
