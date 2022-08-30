@@ -21,8 +21,8 @@ from rest_framework.permissions import IsAuthenticated
 
 from authen.models import User
 from facilities.models import Facility
-from related.models import Facilityvalidation, facilityParamDescription
-from related.serializers import facilityParamDescriptionSerilizer
+from related.models import Facilityvalidation, facilityParamDescription, itemParamDescription
+from related.serializers import facilityParamDescriptionSerilizer,itemParamDescriptionSerilizer
 from settings.serializers import levelSerializer
 from .models import *
 
@@ -315,7 +315,80 @@ class facilitymap(APIView):
                     ans.append(data)
             return Response(ans,status=status.HTTP_200_OK)
 
- 
+#item grouped report
+# have facility filter and item options
+class itemGroupedReport(APIView):
+    permission_classes=(IsAuthenticated,)
+    def get(self,request):
+        help=request.query_params.get('help',None)
+        if(help is None):
+            return Response('need query param',status=status.HTTP_400_BAD_REQUEST)
+
+        if(help=="true"):
+            user=request.user
+            this_facility=Facility.objects.filter(id=user.facilityid.id)[0]
+            level=this_facility.level
+            allow_levels=LevelConfig.objects.filter(id__gte=level.id)
+            levels=levelSerializer(allow_levels,many=True)
+            power=facilityParamDescription.objects.filter(paramid=12,enabled=True)
+            power=facilityParamDescriptionSerilizer(power,many=True)
+            type=facilityParamDescription.objects.filter(paramid=10,enabled=True)
+            type=facilityParamDescriptionSerilizer(type,many=True)
+            l_data=[]
+            for x in levels.data:
+                data={
+                    "name":x["name"],
+                    "id":x["id"]
+                }
+                l_data.append(data)
+            #filter item class and item type by active
+            # item class
+            item_class=ItemClass.objects.filter(active=True)
+            items=[]
+            for x in item_class:
+                item_type=ItemType.objects.filter(itemclass=x.id,active=True)
+                types=[]
+                for y in item_type:
+                    data_item={
+                        "name":y.title,
+                        "id":y.id
+                    }
+                    types.append(data_item)
+                manufac=Manufacturer.objects.filter(itemclass=x.id,active=True)    
+                manufacturers=[]
+                for y in manufac:
+                    data_item={
+                        "name":y.describe,
+                        "id":y.id
+                    }
+                    manufacturers.append(data_item)
+                data={
+                    "item_class_name":x.title,
+                    "item_class_id":x.id,
+                    "item_type":types,
+                    "manufacturer":manufacturers
+                }
+                items.append(data)
+            physcal=itemParamDescription.objects.filter(paramid=9,enabled=True)
+            physcal=itemParamDescriptionSerilizer(physcal,many=True) 
+            working=itemParamDescription.objects.filter(paramid=11,enabled=True)
+            working=itemParamDescriptionSerilizer(working,many=True)
+            financial=itemParamDescription.objects.filter(paramid=14,enabled=True)
+            financial=itemParamDescriptionSerilizer(financial,many=True)
+            powers=itemParamDescription.objects.filter(paramid=12,enabled=True)
+            powers=itemParamDescriptionSerilizer(powers,many=True)   
+            data={
+                "level":l_data,
+                "type":type,
+                "fac_power":power,
+                "item":items,
+                "physical":physcal.data,
+                "financial":financial.data,
+                "working":working.data,
+                "power":powers.data,
+            }
+            return Response(data,status=status.HTTP_200_OK)
+
                 
 
 
