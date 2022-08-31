@@ -164,7 +164,7 @@ class itemFieldView(APIView):
                     except:
                         data["field"]["params"]=[]    
                     if(field.id==76):
-                        maint=maintancegp.objects.filter(active=True,item_class=item_class.id,item_type=item_type.id)
+                        maint=maintancegp.objects.filter(enable=True,item_class=item_class.id,item_type=item_type.id)
                         maint_ser=maintancegpSerializers(maint,many=True)
                         data["field"]["params"]=maint_ser.data 
                     if(field.id==31):
