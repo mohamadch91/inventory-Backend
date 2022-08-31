@@ -101,8 +101,9 @@ class dashboardFacilityView(APIView):
                 if(x.id>=facility.id):
                     count=0
                     for y in all_fac:
-                        if(y.id>x.id):
-                            count+=1
+                        if(y.parentid is not None):
+                            if(y.parentid.id>=x.id):
+                                count+=1
                     defined=0        
                     lower=0
                     if(x.loverlevelfac!=None):

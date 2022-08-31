@@ -101,17 +101,18 @@ class facilityFieldView(APIView):
         parent_num=Facility.objects.all()
         parents=facilitySerializer(parent_num,many=True)
         counter=0
+        sum=0
         for x in range(len(parents.data)):
             counter=0
             for y in range(x,len(parents.data)):
-                # print(x,y)    
                 if(parents.data[x]["parentid"] is not None):
                     if(parents.data[y]["parentid"] is not None):
                         if(parents.data[y]["parentid"]>=parents.data[x]["id"]):
-                            # print("counter"+str(counter))
+                            print("counter"+str(counter))
                             counter+=1
+            sum+=counter                
             if(parents.data[x]["loverlevelfac"] is not None):                
-                if(counter>= parents.data[x]["loverlevelfac"]):
+                if(sum>= parents.data[x]["loverlevelfac"]):
                     if(this_facility.id<parents.data[x]["id"]):
                         break
                     print(this_facility.id)        
