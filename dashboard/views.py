@@ -256,23 +256,69 @@ class todoMaintances(APIView):
         user=request.user
         facility=user.facilityid
         facility=get_object_or_404(Facility, id=facility.id)
-        todo=toDoMaintance.objects.filter(item__facility=facility.id)
+        todo=toDoMaintance.objects.filter(item__facility=facility.id,done=False)
         ans=[]
-        for x in todo:
-            if(day=="3"):
-                deadline=x.created_at+datetime.timedelta(days=3)
-            else:
-                deadline=x.created_at+datetime.timedelta(days=7)    
-            data={
-                "id":x.id,
-                "code":x.item.code,
-                "interval":x.maintanance.freq,
-                "deadline":str(deadline).split(" ")[0],
-                "name":x.maintanance.name,
-                
-            }
-            ans.append(data)
+        if(day=="3" or day=="7"):
+            for x in todo:
+                dayss=(timezone.now()-x.item.created_at).days
+                dayss=dayss%x.maintanance.freq
+                dayss2=dayss%x.maintanance.freq_in_loc
+                days=x.maintanance.freq-dayss
+                days2=x.maintanance.freq_in_loc-dayss2
+                if(day=="3"):
+                    deadline=x.created_at+datetime.timedelta(days=days)
+                    deadline1=x.created_at+datetime.timedelta(days=days2)
+                elif(day=="7"):
+                    deadline=x.created_at+datetime.timedelta(days=days)
+                    deadline1=x.created_at+datetime.timedelta(days=days2)
+            
+                data={
+                    "id":x.id,
+                    "code":x.item.code,
+                    "interval":x.maintanance.freq,
+                    "loc_interval":x.maintanance.freq_in_loc,
+                    "deadline":str(deadline).split(" ")[0],
+                    "deadline_in_loc":str(deadline1).split(" ")[0],
+                    "name":x.maintanance.name,
+                    
+                }
+                ans.append(data)
+        elif(day=="extended"):
+            for x in todo:
+                if(x.done==False):
+                    days=(timezone.now()-x.created_at).days
+                    if(days>=0):
+                        dayss=(timezone.now()-x.item.created_at).days
+                        dayss=dayss%x.maintanance.freq
+                        dayss2=dayss%x.maintanance.freq_in_loc
+                        days=x.maintanance.freq-dayss
+                        days2=x.maintanance.freq_in_loc-dayss2
+                        data={
+                            "id":x.id,
+                            "code":x.item.code,
+                            "interval":x.maintanance.freq,
+                            "loc_interval":x.maintanance.freq_in_loc,
+                            "deadline":str(x.created_at+datetime.timedelta(days=days)).split(" ")[0],
+                            "deadline_in_loc":str(x.created_at+datetime.timedelta(days=days2)).split(" ")[0],
+                            "extended":(timezone.now()-x.created_at-datetime.timedelta(days=3)).days,
+                            "name":x.maintanance.name,
+                            
+                        }
+                        ans.append(data)                    
+            
         return Response(ans,status=status.HTTP_200_OK)
+    def post(self,request):
+        user=request.user
+        facility=user.facilityid
+        facility=get_object_or_404(Facility, id=facility.id)
+        todo=toDoMaintance.objects.filter(item__facility=facility.id)
+        for x in request.data:
+            if(x["done"]):
+                obj=get_object_or_404(toDoMaintance,id=x["id"])
+                obj.done=True
+                obj.save()
+
+        return Response({"message":"done"},status=status.HTTP_200_OK)    
        
 
 
