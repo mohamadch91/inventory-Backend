@@ -109,7 +109,7 @@
     "model": "related.itemParam",
     "pk": 2,
     "fields": {
-      "fieldid": 2,
+      "fieldid": 80,
       "order": 2
     }
   },
@@ -207,14 +207,6 @@
     "fields": {
       "fieldid": 53,
       "order": 15
-    }
-  },
-  {
-    "model": "related.itemParam",
-    "pk": 15,
-    "fields": {
-      "fieldid": 80,
-      "order": 16
     }
   }
 ]

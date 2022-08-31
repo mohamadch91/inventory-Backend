@@ -16,6 +16,7 @@ from os import stat
 from urllib import response
 from django.shortcuts import render
 import datetime
+
 # Create your views here.
 from authen.serializers import *
 from rest_framework.permissions import IsAuthenticated
@@ -204,14 +205,16 @@ class getitemmaintatnce(APIView):
                             three_days.append(x.id)
                             #add this maintance to the list of maintance to be done
                             data={
-                                "maintance":y.maintanance.id,
+                                "maintanance":y.maintanance.id,
                                 "item":x.id,
                                 "maintanncegp":y.maintanncegp.id,
                             }
-                            ser=toDoMaintanceSerializers(data=data)
-                            if(ser.is_valid()):
-                                ser.save()
-
+                            try:
+                                obj=get_object_or_404(toDoMaintance,maintanance=y.maintanance.id,item=x.id,maintanncegp=y.maintanncegp.id)
+                            except:        
+                                ser=toDoMaintanceSerializers(data=data)
+                                if(ser.is_valid()):
+                                    ser.save()
                         elif(days<=7 or days2<=7):
                             seven_days.append(x.id)
                             #add this maintance to the list of maintance to be done
@@ -220,9 +223,12 @@ class getitemmaintatnce(APIView):
                                 "item":x.id,
                                 "maintanncegp":y.maintanncegp.id,
                             }
-                            ser=toDoMaintanceSerializers(data=data)
-                            if(ser.is_valid()):
-                                ser.save()
+                            try:
+                                obj=get_object_or_404(toDoMaintance,maintanance=y.maintanance.id,item=x.id,maintanncegp=y.maintanncegp.id)
+                            except:        
+                                ser=toDoMaintanceSerializers(data=data)
+                                if(ser.is_valid()):
+                                    ser.save()
         todo=toDoMaintance.objects.all()
         counter=0
         days_extended=[]
@@ -244,12 +250,29 @@ class getitemmaintatnce(APIView):
 class todoMaintances(APIView):
     permission_classes=(IsAuthenticated,)
     def get(self,request):
+        day=request.query_params.get('day')
+        if(day is None):
+            return Response({"error":"day is required"},status=status.HTTP_400_BAD_REQUEST)
         user=request.user
         facility=user.facilityid
         facility=get_object_or_404(Facility, id=facility.id)
         todo=toDoMaintance.objects.filter(item__facility=facility.id)
-        ser=toDoMaintanceSerializers(todo,many=True)
-        return Response(ser.data,status=status.HTTP_200_OK)
+        ans=[]
+        for x in todo:
+            if(day=="3"):
+                deadline=x.created_at+datetime.timedelta(days=3)
+            else:
+                deadline=x.created_at+datetime.timedelta(days=7)    
+            data={
+                "id":x.id,
+                "code":x.item.code,
+                "interval":x.maintanance.freq,
+                "deadline":str(deadline).split(" ")[0],
+                "name":x.maintanance.name,
+                
+            }
+            ans.append(data)
+        return Response(ans,status=status.HTTP_200_OK)
        
 
 
