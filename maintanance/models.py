@@ -39,7 +39,7 @@ class toDoMaintance(models.Model):
     maintanance=models.ForeignKey(maintanance,models.CASCADE,blank=True,null=True)
     maintanncegp=models.ForeignKey(maintancegp,models.CASCADE,blank=True,null=True)
     item=models.ForeignKey(item,models.CASCADE,blank=True,null=True)
-    done=models.BooleanField(default=True,blank=True,null=True)            
+    done=models.BooleanField(default=False,blank=True,null=True)            
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

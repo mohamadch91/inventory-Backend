@@ -15,7 +15,7 @@ import json
 from os import stat
 from urllib import response
 from django.shortcuts import render
-
+import datetime
 # Create your views here.
 from authen.serializers import *
 from rest_framework.permissions import IsAuthenticated
@@ -35,6 +35,8 @@ from settings.models import *
 from settings.serializers import *
 from item.models import *
 from items.serializers import *
+from maintanance.models import *
+from maintanance.serializers import *
 
 class dashboarditemView(APIView):
     permission_classes=(IsAuthenticated,)
@@ -174,10 +176,52 @@ class dahboardlevelView(APIView):
         return Response(final_data,status=status.HTTP_200_OK)
         
 
-class 
+class getitemmaintatnce(APIView):
+    permission_classes=(IsAuthenticated,)
+    def get(self,request):
+        user=request.user
+        facility=user.facilityid
+        facility=get_object_or_404(Facility, id=facility.id)
+        items=item.objects.filter(facility=facility.id)
+        three_days=[]
+        seven_days=[]
+        for x in items:
+            if(x.IsItFunctioning==False):
+                continue
+            if(x.MaintenanceGroup!=None):
+                actievs=activeMaintance.objects.filter(maintancegp=x.MaintenanceGroup)
+                for y in actievs:
+                    #calulate interval between now and last maintenance
+                    main=y.maintance
+                    #minus now from created at
+                    days=(datetime.now()-main.created_at).days
+                    days=days%main.freq
+                    days2=days%main.freq_in_loc
+                    if(days<=3 or days2<=3):
+                        three_days.append(x.id)
+                        #add this maintance to the list of maintance to be done
+                        data={
+                            "maintance":y.maintance.id,
+                            "item":x.id,
+                            "maintanncegp":y.maintancegp.id,
+                        }
+                        ser=toDoMaintanceSerializers(data=data)
+                        if(ser.is_valid()):
+                            ser.save()
 
-
-
-
+                    elif(days<=7 or days2<=7):
+                        seven_days.append(x.id)
+                        #add this maintance to the list of maintance to be done
+                        data={
+                            "maintance":y.maintance.id,
+                            "item":x.id,
+                            "maintanncegp":y.maintancegp.id,
+                        }
+                        ser=toDoMaintanceSerializers(data=data)
+                        if(ser.is_valid()):
+                            ser.save()
+        return Response({"three_days":len(three_days),"seven_days":len(seven_days)},status=status.HTTP_200_OK)
+        
+       
 
 
