@@ -9,7 +9,7 @@ from django.shortcuts import render
 # Create your views here.
 from re import I
 from django.shortcuts import render
-
+from django.utils import timezone
 # Create your views here.
 import json
 from os import stat
@@ -195,7 +195,8 @@ class getitemmaintatnce(APIView):
                     main=y.maintanance
                     if(main.requires==True):
                     #minus now from created at
-                        days=(datetime.date.today()-x.created_at).days
+                        days=(timezone.now()-x.created_at).days
+                        print(days)
                         days=days%main.freq
                         days2=days%main.freq_in_loc
                         if(days<=3 or days2<=3):
@@ -221,7 +222,24 @@ class getitemmaintatnce(APIView):
                             ser=toDoMaintanceSerializers(data=data)
                             if(ser.is_valid()):
                                 ser.save()
-        return Response({"three_days":len(three_days),"seven_days":len(seven_days)},status=status.HTTP_200_OK)
+        todo=toDoMaintance.objects.all()
+        counter=0
+        days_extended=[]
+        for x in todo:
+            if(x.done==False):
+
+                days=(timezone.now()-x.created_at).days
+                if(days>=4):
+                    counter+=1
+                    days_extended.append(days)
+        day=0
+        if(days_extended!=[]):
+            day=max(days_extended) 
+
+        return Response({"three_days":len(three_days),"seven_days":len(seven_days),"extended":{
+            "max_extended":day,
+            "count":counter
+        }},status=status.HTTP_200_OK)
         
        
 
