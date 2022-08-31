@@ -61,7 +61,6 @@ class dashboarditemView(APIView):
             for k in item_type:
                 items=item.objects.filter(item_class=x.id,item_type=k.id)
                 fil=items.filter(IsItFunctioning=True)
-                
                 working=0
                 if(fil.count()==0):
                     working=0
@@ -322,3 +321,45 @@ class todoMaintances(APIView):
        
 
 
+class definedlogView(APIView):
+    def get(self,request):
+        item=request.query_params.get('item')
+        if(item is None):
+            items=Item.objects.all()
+            ans=[]
+            
+            for x in items:
+                if(x.IsItFunctioning==False):
+                    continue
+                if(x.MaintenanceGroup!=None):
+                    gp=get_object_or_404(maintancegp,id=x.MaintenanceGroup)
+                    data={
+                        "id":x.id,
+                        "code":x.code,
+                        "gp":gp.name,
+                    }
+                    ans.append(data)
+            return Response(ans,status=status.HTTP_200_OK)        
+        else:
+            #get maintance to do for this group
+            todo=toDoMaintance.objects.filter(item=item)
+            ans=[]
+            for x in todo:
+                data={
+                    "id":x.id,
+                    "code":x.item.code,
+                    "interval":x.maintanance.freq,
+                    "loc_interval":x.maintanance.freq_in_loc,
+                    "deadline":str(x.created_at+datetime.timedelta(days=x.maintanance.freq)).split(" ")[0],
+                    "deadline_in_loc":str(x.created_at+datetime.timedelta(days=x.maintanance.freq_in_loc)).split(" ")[0],
+                    "name":x.maintanance.name,
+                    "done":x.done,
+                }
+                ans.append(data)
+            items=get_object_or_404(item,id=item)
+            final_ans={
+                   "code":items.code,
+                   "type":items.itemtype.title,
+                     "maintanances":ans, 
+            }    
+            return Response(final_ans,status=status.HTTP_200_OK)
