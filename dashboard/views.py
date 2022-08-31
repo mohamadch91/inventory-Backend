@@ -71,6 +71,7 @@ class dashboarditemView(APIView):
                     "item_type":k.title,
                     "total_items":items.count(),
                     "working":working,
+                    "not_working":items.count()-fil.count(),
 
                 }
                 second_data.append(data)
