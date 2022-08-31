@@ -196,7 +196,6 @@ class getitemmaintatnce(APIView):
                     if(main.requires==True):
                     #minus now from created at
                         dayss=(timezone.now()-x.created_at).days
-                        dayss=247
                         dayss=dayss%main.freq
                         dayss2=dayss%main.freq_in_loc
                         days=main.freq-dayss
