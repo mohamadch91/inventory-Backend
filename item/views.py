@@ -38,7 +38,8 @@ from items.serializers import *
 from PQS.models import *
 from PQS.serializers import *
 import copy
-
+from maintanance.models import *
+from maintanance.serializers import *
 class itemView(APIView):
     permission_classes = (IsAuthenticated,)
 
@@ -162,6 +163,10 @@ class itemFieldView(APIView):
             #    else:
                     except:
                         data["field"]["params"]=[]    
+                    if(field.id==76):
+                        maint=maintancegp.objects.filter(active=True,item_class=item_class.id,item_type=item_type.id)
+                        maint_ser=maintancegpSerializers(maint,many=True)
+                        data["field"]["params"]=maint_ser.data 
                     if(field.id==31):
                         ans=[
 

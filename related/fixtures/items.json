@@ -764,7 +764,7 @@
     "pk": 76,
     "fields": {
       "name": "Maintenance group",
-      "type": "text",
+      "type": "select",
       "topic": "Other additional and optional fields",
         "state": "MaintenanceGroup"
     }
