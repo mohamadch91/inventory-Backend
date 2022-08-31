@@ -195,10 +195,12 @@ class getitemmaintatnce(APIView):
                     main=y.maintanance
                     if(main.requires==True):
                     #minus now from created at
-                        days=(timezone.now()-x.created_at).days
-                        print(days)
-                        days=days%main.freq
-                        days2=days%main.freq_in_loc
+                        dayss=(timezone.now()-x.created_at).days
+                        dayss=247
+                        dayss=dayss%main.freq
+                        dayss2=dayss%main.freq_in_loc
+                        days=main.freq-dayss
+                        days2=main.freq_in_loc-dayss2
                         if(days<=3 or days2<=3):
                             three_days.append(x.id)
                             #add this maintance to the list of maintance to be done
@@ -227,7 +229,6 @@ class getitemmaintatnce(APIView):
         days_extended=[]
         for x in todo:
             if(x.done==False):
-
                 days=(timezone.now()-x.created_at).days
                 if(days>=4):
                     counter+=1
@@ -235,7 +236,7 @@ class getitemmaintatnce(APIView):
         day=0
         if(days_extended!=[]):
             day=max(days_extended) 
-
+        print(counter)
         return Response({"three_days":len(three_days),"seven_days":len(seven_days),"extended":{
             "max_extended":day,
             "count":counter
