@@ -240,7 +240,16 @@ class getitemmaintatnce(APIView):
             "max_extended":day,
             "count":counter
         }},status=status.HTTP_200_OK)
-        
+
+class todoMaintances(APIView):
+    permission_classes=(IsAuthenticated,)
+    def get(self,request):
+        user=request.user
+        facility=user.facilityid
+        facility=get_object_or_404(Facility, id=facility.id)
+        todo=toDoMaintance.objects.filter(item__facility=facility.id)
+        ser=toDoMaintanceSerializers(todo,many=True)
+        return Response(ser.data,status=status.HTTP_200_OK)
        
 
 
