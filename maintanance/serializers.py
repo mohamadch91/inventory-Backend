@@ -19,4 +19,14 @@ class maintancegpSerializers(serializers.ModelSerializer):
     class Meta:
         model=maintancegp
         fields='__all__'
+
+class toDoMaintanceSerializers(serializers.ModelSerializer):
+    class Meta:
+        model=toDoMaintance
+        fields='__all__'
+
+class doneMaintanceSerializers(serializers.ModelSerializer):
+    class Meta:
+        model=doneMaintance
+        fields='__all__'
         

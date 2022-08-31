@@ -3,7 +3,7 @@ from importlib.metadata import requires
 from django.db import models
 from items.models import *
 # Create your models here.
-
+from item.models import item
 
 
 class maintanance(models.Model):
@@ -34,3 +34,20 @@ class activeMaintance(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
+class toDoMaintance(models.Model):
+    id=models.AutoField(primary_key=True)
+    maintanance=models.ForeignKey(maintanance,models.CASCADE,blank=True,null=True)
+    maintanncegp=models.ForeignKey(maintancegp,models.CASCADE,blank=True,null=True)
+    item=models.ForeignKey(item,models.CASCADE,blank=True,null=True)
+    done=models.BooleanField(default=True,blank=True,null=True)            
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+class doneMaintance(models.Model):
+    id=models.AutoField(primary_key=True)
+    maintanance=models.ForeignKey(maintanance,models.CASCADE,blank=True,null=True)
+    maintanncegp=models.ForeignKey(maintancegp,models.CASCADE,blank=True,null=True)
+    done=models.BooleanField(default=True,blank=True,null=True)     
+    item=models.ForeignKey(item,models.CASCADE,blank=True,null=True)       
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
