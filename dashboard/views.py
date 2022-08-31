@@ -187,9 +187,11 @@ class getitemmaintatnce(APIView):
         three_days=[]
         seven_days=[]
         for x in items:
+            counter2=0
             if(x.IsItFunctioning==False):
                 continue
             if(x.MaintenanceGroup!=None):
+                counter2+=1
                 actievs=activeMaintance.objects.filter(maintanncegp=x.MaintenanceGroup)
                 for y in actievs:
                     #calulate interval between now and last maintenance
@@ -242,7 +244,7 @@ class getitemmaintatnce(APIView):
         if(days_extended!=[]):
             day=max(days_extended) 
         print(counter)
-        return Response({"three_days":len(three_days),"seven_days":len(seven_days),"extended":{
+        return Response({"defined":counter2,"three_days":len(three_days),"seven_days":len(seven_days),"extended":{
             "max_extended":day,
             "count":counter
         }},status=status.HTTP_200_OK)
@@ -308,10 +310,6 @@ class todoMaintances(APIView):
             
         return Response(ans,status=status.HTTP_200_OK)
     def post(self,request):
-        user=request.user
-        facility=user.facilityid
-        facility=get_object_or_404(Facility, id=facility.id)
-        todo=toDoMaintance.objects.filter(item__facility=facility.id)
         for x in request.data:
             if(x["done"]):
                 obj=get_object_or_404(toDoMaintance,id=x["id"])
