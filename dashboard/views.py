@@ -323,15 +323,16 @@ class todoMaintances(APIView):
 
 class definedlogView(APIView):
     def get(self,request):
-        item=request.query_params.get('item')
-        if(item is None):
-            items=Item.objects.all()
+        item_param=request.query_params.get('item')
+        if(item_param is None):
+            items=item.objects.all()
             ans=[]
             
             for x in items:
                 if(x.IsItFunctioning==False):
                     continue
                 if(x.MaintenanceGroup!=None):
+                    print(x.MaintenanceGroup)
                     gp=get_object_or_404(maintancegp,id=x.MaintenanceGroup)
                     data={
                         "id":x.id,
@@ -342,7 +343,7 @@ class definedlogView(APIView):
             return Response(ans,status=status.HTTP_200_OK)        
         else:
             #get maintance to do for this group
-            todo=toDoMaintance.objects.filter(item=item)
+            todo=toDoMaintance.objects.filter(item=item_param)
             ans=[]
             for x in todo:
                 data={
@@ -356,10 +357,10 @@ class definedlogView(APIView):
                     "done":x.done,
                 }
                 ans.append(data)
-            items=get_object_or_404(item,id=item)
+            items=get_object_or_404(item,id=item_param)
             final_ans={
                    "code":items.code,
-                   "type":items.itemtype.title,
+                   "type":items.item_type.title,
                      "maintanances":ans, 
             }    
             return Response(final_ans,status=status.HTTP_200_OK)
