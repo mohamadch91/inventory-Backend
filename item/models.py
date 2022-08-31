@@ -89,3 +89,5 @@ class item(models.Model):
     OtherFieldsItem2=models.BooleanField(null=True,blank=True)
     OtherFieldsItem3=models.CharField(max_length=50, null=True,blank=True)
     OtherFieldsItemParameter4=models.CharField(max_length=50, null=True,blank=True)
+    created_at=models.DateTimeField(auto_now_add=True,null=True)
+    updated_at=models.DateTimeField(auto_now=True,null=True)

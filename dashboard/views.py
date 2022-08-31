@@ -189,37 +189,38 @@ class getitemmaintatnce(APIView):
             if(x.IsItFunctioning==False):
                 continue
             if(x.MaintenanceGroup!=None):
-                actievs=activeMaintance.objects.filter(maintancegp=x.MaintenanceGroup)
+                actievs=activeMaintance.objects.filter(maintanncegp=x.MaintenanceGroup)
                 for y in actievs:
                     #calulate interval between now and last maintenance
-                    main=y.maintance
+                    main=y.maintanance
+                    if(main.requires==True):
                     #minus now from created at
-                    days=(datetime.now()-main.created_at).days
-                    days=days%main.freq
-                    days2=days%main.freq_in_loc
-                    if(days<=3 or days2<=3):
-                        three_days.append(x.id)
-                        #add this maintance to the list of maintance to be done
-                        data={
-                            "maintance":y.maintance.id,
-                            "item":x.id,
-                            "maintanncegp":y.maintancegp.id,
-                        }
-                        ser=toDoMaintanceSerializers(data=data)
-                        if(ser.is_valid()):
-                            ser.save()
+                        days=(datetime.date.today()-x.created_at).days
+                        days=days%main.freq
+                        days2=days%main.freq_in_loc
+                        if(days<=3 or days2<=3):
+                            three_days.append(x.id)
+                            #add this maintance to the list of maintance to be done
+                            data={
+                                "maintance":y.maintanance.id,
+                                "item":x.id,
+                                "maintanncegp":y.maintanncegp.id,
+                            }
+                            ser=toDoMaintanceSerializers(data=data)
+                            if(ser.is_valid()):
+                                ser.save()
 
-                    elif(days<=7 or days2<=7):
-                        seven_days.append(x.id)
-                        #add this maintance to the list of maintance to be done
-                        data={
-                            "maintance":y.maintance.id,
-                            "item":x.id,
-                            "maintanncegp":y.maintancegp.id,
-                        }
-                        ser=toDoMaintanceSerializers(data=data)
-                        if(ser.is_valid()):
-                            ser.save()
+                        elif(days<=7 or days2<=7):
+                            seven_days.append(x.id)
+                            #add this maintance to the list of maintance to be done
+                            data={
+                                "maintanance":y.maintanance.id,
+                                "item":x.id,
+                                "maintanncegp":y.maintanncegp.id,
+                            }
+                            ser=toDoMaintanceSerializers(data=data)
+                            if(ser.is_valid()):
+                                ser.save()
         return Response({"three_days":len(three_days),"seven_days":len(seven_days)},status=status.HTTP_200_OK)
         
        
