@@ -57,7 +57,7 @@ class languageView(APIView):
             
             words=languages_words.objects.filter(language=lang.id)
             if(search is not None):
-                words=languages_words.objects.filter(language=lang.id,word__contains=search) or languages_words.objects.filter(language=lang.id,translate__contains=search)
+                words=languages_words.objects.filter(language=lang.id,word__icontains=search) or languages_words.objects.filter(language=lang.id,translate__icontains=search)
             serializer =  languageWordSerializer(words, many=True)
             serializer.data[(pnum-1)*20:pnum*20]
             ans={
@@ -72,7 +72,7 @@ class languageView(APIView):
 
                 words=languages_words.objects.filter(language=x.id)
                 if(search is not None):
-                     words=languages_words.objects.filter(language=x.id,word__contains=search) or languages_words.objects.filter(language=x.id,translate__contains=search)
+                     words=languages_words.objects.filter(language=x.id,word__icontains=search) or languages_words.objects.filter(language=x.id,translate__icontains=search)
                 z=words.count()
 
                 ans.append({

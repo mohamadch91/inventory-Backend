@@ -138,9 +138,9 @@ class facilitysegView(APIView):
             if(type is not None):
                 all_fac=all_fac.filter(type=type)
             if(name is not None):
-                all_fac=all_fac.filter(name__contains=name)
+                all_fac=all_fac.filter(name__icontains=name)
             if(code is not None):
-                all_fac=all_fac.filter(code__contains=code)
+                all_fac=all_fac.filter(code__icontains=code)
         
             if(power is not None):
                 all_fac=all_fac.filter(powersource=power)
@@ -412,7 +412,7 @@ class itemGroupedReport(APIView):
             items=item.objects.all()
             facility=Facility.objects.all()
             if(name is not None):
-                facility_name=Facility.objects.filter(name__contain=name)
+                facility_name=Facility.objects.filter(name__icontains=name)
             if(level is not None):
                 facility=facility.filter(level=level)
             if(type is not None):
@@ -420,7 +420,7 @@ class itemGroupedReport(APIView):
             if(power is not None):
                 facility=facility.filter(powersource=power)
             if(code is not None):
-                facility=facility.filter(code__contain=code)
+                facility=facility.filter(code__icontains=code)
             if(item_class is not None):
                 items=items.filter(item_class=item_class)
             if(item_type is not None):
@@ -436,7 +436,7 @@ class itemGroupedReport(APIView):
             if(manufacturer is not None):
                 items=items.filter(manufacturer=manufacturer)
             if(pqs is not None):
-                items=items.filter(PQSPISCode__contains=pqs)
+                items=items.filter(PQSPISCode__icontains=pqs)
             if(year_from is not None):
                 items=items.filter(YearInstalled__gte=year_from)
             if(year_to is not None):
@@ -583,6 +583,8 @@ class itemFacilityReport(APIView):
                 facility=facility.filter(type=type)
             if(power is not None):
                 facility=facility.filter(powersource=power)
+            if(code is not None):
+                facility=facility.filter(code__icontains=code)
             if(item_class is not None):
                 items=items.filter(item_class=item_class)
             if(item_type is not None):
@@ -667,6 +669,122 @@ class itemFacilityReport(APIView):
                 }
                 final_answer.append(data)
             return Response(final_answer,status=status.HTTP_200_OK)    
+
+class facilityProfileView(APIView):
+    def get(self,request):
+        user=request.user
+        this_facility=Facility.objects.filter(id=user.facilityid.id)[0]
+        level=this_facility.level
+        allow_levels=LevelConfig.objects.filter(id__gte=level.id)
+        by_type=[]
+        by_owner=[]
+        by_power=[]
+        general=[]
+        under_1=[]
+        type=facilityParamDescription.objects.filter(paramid=10,enabled=True)
+        owner=facilityParamDescription.objects.filter(paramid=5,enabled=True)
+        power=facilityParamDescription.objects.filter(paramid=12,enabled=True)
+        for x in allow_levels:
+            facility=Facility.objects.filter(level=x.id)
+            
+            for y in type:
+                count=facility.filter(type=y.id).count()
+                data={
+                    "level":x.id,
+                    "name":x.name,
+                    "type":y.name,
+                    "count":count
+                }
+                by_type.append(data)
+            data={
+                "level":x.id,
+                "name":x.name,
+                "type":"--",
+                "count":facility.filter(type=None).count()
+            }
+            by_type.append(data)
+            for y in owner:
+                count=facility.filter(owner=y.id).count()
+                data={
+                    "level":x.id,
+                    "name":x.name,
+                    "owner":y.name,
+                    "count":count
+                }
+                by_owner.append(data)
+            data={
+                "level":x.id,
+                "name":x.name,
+                "owner":"--",
+                "count":facility.filter(owner=None).count()
+            }
+            by_owner.append(data)
+            for y in power:
+                count=facility.filter(powersource=y.id).count()
+                data={
+                    "level":x.id,
+                    "name":x.name,
+                    "power":y.name,
+                    "count":count
+                }
+                by_power.append(data)
+            data={
+                "level":x.id,
+                "name":x.name,
+                "power":"--",
+                "count":facility.filter(powersource=None).count()
+            }
+            by_power.append(data)
+            sumg=0
+            sum1=0
+            min=10000000000000000
+            max=-1
+            min1=10000000000000000
+            max1=-1
+            for x in facility:
+                general=0
+                under_1=0
+                if(x.populationnumber is not None):
+                    general=x.populationnumber
+                if(x.childrennumber is not None):
+                    under_1=x.childrennumber
+                sumg+=general
+                sum1+=under_1
+                if(general<min):
+                    min=general
+                if(general>max):
+                    max=general
+                if(under_1<min1):
+                    min1=under_1
+                if(under_1>max1):
+                    max1=under_1
+            data={
+                "level":x.id,
+                "name":x.name,
+                "total":sumg,
+                "min":min,
+                "max":max,
+                "avg":sumg/facility.count()
+            }
+            general.append(data)
+            data1={
+                "level":x.id,
+                "name":x.name,
+                "total":sum1,
+                "min":min1,
+                "max":max1,
+                "avg":sum1/facility.count()
+            }
+            under_1.append(data1)
+        final_answer={
+            "by_type":by_type,
+            "by_owner":by_owner,
+            "by_power":by_power,
+            "general":general,
+            "under_1":under_1
+        }
+        return Response(final_answer,status=status.HTTP_200_OK)
+                                   
 
 
 
