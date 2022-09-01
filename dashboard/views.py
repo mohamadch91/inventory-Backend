@@ -372,6 +372,7 @@ class definedlogView(APIView):
             final_ans={
                    "code":items.code,
                    "type":items.item_type.title,
+                     "gp":get_object_or_404(maintancegp,id=items.MaintenanceGroup).name,
                      "maintanances":ans, 
             }    
             return Response(final_ans,status=status.HTTP_200_OK)
