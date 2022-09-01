@@ -961,7 +961,19 @@ class gapItemReportView(APIView):
                 "type":typess.data,
                 "power":powerss.data,
             }
-            return Response(datas,status=status.HTTP_200_OK)        
+            return Response(datas,status=status.HTTP_200_OK) 
+        else:
+            name=request.query_params.get('name',None)
+            level=request.query_params.get('level',None)
+            type=request.query_params.get('type',None)
+            power=request.query_params.get('power',None)
+            code=request.query_params.get('code',None)
+            degree=request.query_params.get('degree',None)
+            option=request.query_params.get('option',None)
+            year_from=request.query_params.get('year_from',None)
+            year_to=request.query_params.get('year_to',None)
+            calculate_for=request.query_params.get('calculate_for',None)
+            
 
                                 
 
