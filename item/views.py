@@ -62,8 +62,13 @@ class itemView(APIView):
 
     def get(self, request):
         id=request.query_params.get('id',None)
-        if(id is not None):
-                
+        facility=request.query_params.get('facility',None)
+        if(facility is not None):
+            print("salam")
+            country=item.objects.filter(facility=facility)
+            serializer =  itemSerializer(country, many=True)
+            return Response(serializer.data)
+        if(id is not None):    
             country = item.objects.filter(id=id)
             serializer =  itemSerializer(country, many=True)
             return Response(serializer.data)

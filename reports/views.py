@@ -931,7 +931,38 @@ class profileColdchainView(APIView):
             return Response(ans,status=status.HTTP_200_OK)  
 
 
-                                
+class gapItemReportView(APIView):
+      permission_classes=(IsAuthenticated,)
+      def get(self,request):
+        help=request.query_params.get('help',None)
+        if(help is None):
+            return Response("Please provide help",status=status.HTTP_400_BAD_REQUEST)
+
+        if(help=="true"):
+            user=request.user
+            this_facility=Facility.objects.filter(id=user.facilityid.id)[0]
+            level=this_facility.level
+            allow_levels=LevelConfig.objects.filter(id__gte=level.id)
+            levels=levelSerializer(allow_levels,many=True)
+            power=facilityParamDescription.objects.filter(paramid=12,enabled=True)
+            powerss=facilityParamDescriptionSerilizer(power,many=True)
+            type=facilityParamDescription.objects.filter(paramid=10,enabled=True)
+            typess=facilityParamDescriptionSerilizer(type,many=True)
+            l_data=[]
+
+            for x in levels.data:
+                data={
+                    "name":x["name"],
+                    "id":x["id"]
+                }
+                l_data.append(data)
+            datas={
+                "level":l_data,
+                "type":typess.data,
+                "power":powerss.data,
+            }
+            return Response(datas,status=status.HTTP_200_OK)        
+
                                 
 
         
