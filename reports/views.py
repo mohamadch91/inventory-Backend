@@ -41,6 +41,7 @@ from authen.serializers import UserSerializer
 import copy
 import json
 import pandas as pd
+import os
 class gapReportView(APIView):
 
     def get(self,reqeust):
@@ -1110,7 +1111,7 @@ class gapItemReportView(APIView):
                     "exceed5":excees5,
                 }
                 else:
-                        data={
+                    data={
                     "id":x.id,
                     "name":x.name,
                     "code":x.code ,
@@ -1118,21 +1119,49 @@ class gapItemReportView(APIView):
                     "parent":parentName,
                     "general":x.populationnumber,
                     "children":x.childrennumber,
-                    "type":type_name,
-                    "tcapacity1":capacity1,
-                    "fcapacity1":capacity1,
-                    "req1":req1,
-                    "excees1":capacity1-req1,
-                    "exceed1":excees1,
-                    "exceed2":excees2,
-                    "exceed3":excees3,
-                    "exceed4":excees4,
-                    "exceed5":excees5,
+                    "type":type_name
                 }
+                    if(degree=="1"):
+                        data["tcapacity1"]=capacity1
+                        data["fcapacity1"]=fcapacity1
+                        data["req1"]=req1
+                        data["excees1"]=capacity1-req1
+                        data["exceed1"]=excees1
+                    if(degree=="2"):
+                        data["tcapacity1"]=capacity2
+                        data["fcapacity1"]=fcapacity2
+                        data["req1"]=req2
+                        data["excees1"]=capacity2-req2
+                        data["exceed1"]=excees2
+                    if(degree=="3"):
+                        data["tcapacity1"]=capacity3
+                        data["fcapacity1"]=fcapacity3
+                        data["req1"]=req3
+                        data["excees1"]=capacity3-req3
+                        data["exceed1"]=excees3
+                    if(degree=="4"):
+                        data["tcapacity1"]=capacity4
+                        data["fcapacity1"]=fcapacity4
+                        data["req1"]=req4
+                        data["excees1"]=capacity4-req4
+                        data["exceed1"]=excees4
+                    if(degree=="5"):
+                        data["tcapacity1"]=capacity5
+                        data["fcapacity1"]=fcapacity5
+                        data["req1"]=req5
+                        data["excees1"]=capacity5-req5
+                        data["exceed1"]=excees5
+                                            
+
 
                 ans.append(data)
+            file_path = './media/gap_report.xlsx'
+            if os.path.isfile(file_path):
+                    os.remove(file_path)    
+            df = pd.DataFrame(ans)
+            df.to_excel('./media/gap_report.xlsx')    
             final_ans={
-                "excel":'/media/exported_facility_json_data.xlsx' ,
+                "excel":'/media/gap_report.xlsx' ,
                 "data":ans
             }
             return Response(final_ans)
