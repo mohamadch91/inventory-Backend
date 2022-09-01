@@ -298,7 +298,10 @@ class facilityPArentView(APIView):
             id=int(id)
             fac=Facility.objects.all()
             fac_Ser=facilitySerializer(fac,many=True)
+            this=get_object_or_404(Facility,id=id)
+            fac_Ser_this=facilitySerializer(fac,many=False)
             final_ans=[]
+            final_ans.append(fac_Ser_this.data)
             for x in fac_Ser.data:
                 if(x["parentid"] is not None):
                     if(x["parentid"]>=id):
