@@ -857,16 +857,16 @@ class profileColdchainView(APIView):
                                 vc+=1
                             else:
                                 nw_vc+=1
-                        if(degree=="1"):
+                        if(degree=="4"):
                             if(z.StorageCondition=="+25C"):
                                 available+=z.NetVaccineStorageCapacity
-                        if(degree=="2"):
+                        if(degree=="1"):
                             if(z.StorageCondition=="+2 - +8 C"):
                                 available+=z.NetVaccineStorageCapacity  
-                        if(degree=="3"):
+                        if(degree=="2"):
                             if(z.StorageCondition=="+-20 C"):
                                 available+=z.NetVaccineStorageCapacity
-                        if(degree=="4"):
+                        if(degree=="3"):
                             if(z.StorageCondition=="-70 C"):
                                 available+=z.NetVaccineStorageCapacity  
                 country=CountryConfig.objects.all()[0]
@@ -995,27 +995,43 @@ class gapItemReportView(APIView):
             ans=[]
             for x in facility:
                 capacity1=0
+                fcapacity1=0
                 capacity2=0
+                fcapacity2=0
                 capacity3=0
+                fcapacity3=0
                 capacity4=0
+                fcapacity4=0
                 capacity5=0
+                fcapacity5=0
+
                 items=item.objects.filter(facility=x.id)
                 for y in items:
                     if(degree=="1"):
                         if(y.StorageCondition=="+2 - +8 C"):
                             capacity1+=y.NetVaccineStorageCapacity
+                            if(y.IsItFunctioning):
+                                fcapacity1+=y.NetVaccineStorageCapacity
                     if(degree=="2"):
                         if(y.StorageCondition=="+-20 C"):
                             capacity2+=y.NetVaccineStorageCapacity
+                            if(y.IsItFunctioning):
+                                fcapacity2+=y.NetVaccineStorageCapacity
                     if(degree=="3"):
                         if(y.StorageCondition=="-70 C"):
                             capacity3+=y.NetVaccineStorageCapacity
+                            if(y.IsItFunctioning):
+                                fcapacity3+=y.NetVaccineStorageCapacity
                     if(degree=="4"):
                         if(y.StorageCondition=="+25C"):
                             capacity4+=y.NetVaccineStorageCapacity
+                            if(y.IsItFunctioning):
+                                fcapacity4+=y.NetVaccineStorageCapacity
                     if(degree=="5"):
                         if(y.StorageCondition=="Dry store"):
-                            capacity5+=y.NetVaccineStorageCapacity    
+                            capacity5+=y.NetVaccineStorageCapacity
+                            if(y.IsItFunctioning):
+                                fcapacity5+=y.NetVaccineStorageCapacity    
                 country=CountryConfig.objects.all()[0]
                 req1=1
                 req2=1
@@ -1029,10 +1045,10 @@ class gapItemReportView(APIView):
                 else:
                     if(x.childrennumber is not None):
                         pop=x.childrennumber
-                req1=pop*x.level.undervol/1000
-                req2=pop*x.level.uppervol/1000
-                req3=pop*x.level.m25vol/1000
-                req4=pop*x.level.m70vol/1000
+                req1=pop*x.level.uppervol/1000
+                req2=pop*x.level.undevol/1000
+                req3=pop*x.level.m70vol/1000
+                req4=pop*x.level.m25vol/1000
                 req5=pop*x.level.dryvol/1000
                 excees1=False
                 excees2=False

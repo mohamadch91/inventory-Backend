@@ -301,13 +301,14 @@ class todoMaintances(APIView):
         elif(day=="extended"):
             for x in todo:
                 if(x.done==False):
-                    days=(timezone.now()-x.created_at).days
-                    if(days>=0):
-                        dayss=(timezone.now()-x.item.created_at).days
-                        dayss=dayss%x.maintanance.freq
-                        dayss2=dayss%x.maintanance.freq_in_loc
-                        days=x.maintanance.freq-dayss
-                        days2=x.maintanance.freq_in_loc-dayss2
+                    days1=(timezone.now()-x.created_at).days
+                    dayss=(timezone.now()-x.item.created_at).days
+                    dayss=dayss%x.maintanance.freq
+                    dayss2=dayss%x.maintanance.freq_in_loc
+                    days=x.maintanance.freq-dayss
+                    days2=x.maintanance.freq_in_loc-dayss2
+                    if(days1>=4):
+                        
                         data={
                             "id":x.id,
                             "code":x.item.code,
