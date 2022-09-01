@@ -412,7 +412,7 @@ class itemGroupedReport(APIView):
             items=item.objects.all()
             facility=Facility.objects.all()
             if(name is not None):
-                facility_name=Facility.objects.filter(name__icontains=name)
+                facility=Facility.objects.filter(name__icontains=name)
             if(level is not None):
                 facility=facility.filter(level=level)
             if(type is not None):
@@ -450,7 +450,6 @@ class itemGroupedReport(APIView):
                 fac_id.append(x.id)    
             #all facilitys contain same item
             items=items.filter(facility__in=fac_id)
-            print(items.count())
             same_type=[]
             same_pqs=[]
             same_manufacturer=[]
@@ -465,7 +464,6 @@ class itemGroupedReport(APIView):
                 if x.Model not in same_model:
                     same_model.append(x.Model)
             final_answer=[]
-            print(same_type,same_pqs,same_manufacturer,same_model)
             for x in same_type:
                 new_items=items.filter(item_type=x)
                 for y in same_model:

@@ -205,7 +205,6 @@ class getitemmaintatnce(APIView):
                         days=main.freq-dayss
                         days2=main.freq_in_loc-dayss2
                         if(days<=3 or days2<=3):
-                            three_days.append(x.id)
                             #add this maintance to the list of maintance to be done
                             data={
                                 "maintanance":y.maintanance.id,
@@ -214,12 +213,18 @@ class getitemmaintatnce(APIView):
                             }
                             try:
                                 obj=get_object_or_404(toDoMaintance,maintanance=y.maintanance.id,item=x.id,maintanncegp=y.maintanncegp.id)
+                                new_day=(timezone.now()-obj.updated_at).days
+                                if(new_day>=4):
+                                    obj.done=False
+                                    obj.save()
+                                    three_days.append(x.id)
                             except:        
                                 ser=toDoMaintanceSerializers(data=data)
                                 if(ser.is_valid()):
                                     ser.save()
+                                three_days.append(x.id)
+
                         elif(days<=7 or days2<=7):
-                            seven_days.append(x.id)
                             #add this maintance to the list of maintance to be done
                             data={
                                 "maintanance":y.maintanance.id,
@@ -228,10 +233,17 @@ class getitemmaintatnce(APIView):
                             }
                             try:
                                 obj=get_object_or_404(toDoMaintance,maintanance=y.maintanance.id,item=x.id,maintanncegp=y.maintanncegp.id)
+                                new_day=(timezone.now()-obj.updated_at).days
+                                if(new_day>=8):
+                                    obj.done=False
+                                    obj.save()
+                                    three_days.append(x.id)
                             except:        
                                 ser=toDoMaintanceSerializers(data=data)
                                 if(ser.is_valid()):
                                     ser.save()
+                                    seven_days.append(x.id)
+
         todo=toDoMaintance.objects.all()
         counter=0
         days_extended=[]
@@ -327,7 +339,6 @@ class definedlogView(APIView):
         if(item_param is None):
             items=item.objects.all()
             ans=[]
-            
             for x in items:
                 if(x.IsItFunctioning==False):
                     continue
