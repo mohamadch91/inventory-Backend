@@ -12,6 +12,8 @@ urlpatterns = [
       path('facprof',facilityProfileView.as_view(), name='facility profile'),
       path('item-gp', itemGroupedReport.as_view(), name='item group'),
       path('itemfac', itemFacilityReport.as_view(), name='item facility'),
+      path('coldprof', profileColdchainView.as_view(), name='profile coldchain'),
+
 
 
 

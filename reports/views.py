@@ -788,8 +788,153 @@ class facilityProfileView(APIView):
         }
         return Response(final_answer,status=status.HTTP_200_OK)
                                    
+class profileColdchainView(APIView):
+        permission_classes=(IsAuthenticated,)
+        def get(self,request):
+            degree=request.query_params.get('degree',None) 
+            if(degree is None):
+                return Response("Please provide a degree",status=status.HTTP_400_BAD_REQUEST)
+            user=request.user
+            this_facility=Facility.objects.filter(id=user.facilityid.id)[0]
+            level=this_facility.level
+            allow_levels=LevelConfig.objects.filter(id__gte=level.id) 
+            ans_1=[]
+            table_1=[]
+            table_2=[]
+            for x in allow_levels:
+                facility=Facility.objects.filter(level=x.id)
+                general=0
+                under1=0
+                cold_a=0
+                nw_cold_a=0
+
+                freezer=0
+                nw_freezer=0
+                refig=0
+                nw_refrig=0
+                fr=0
+                nw_fr=0
+                cb=0
+                nw_cb=0
+                vc=0
+                nw_vc=0
+                available=0
+                
+                for y in facility:
+                    if(y.populationnumber is not None):
+                        general+=y.populationnumber
+                    if(y.childrennumber is not None):
+                        under1+=y.childrennumber
+                    items=item.objects.filter(facility=y.id)
+                    for z in items:
+                        if(z.item_type.id==1):
+                            if(z.IsItFunctioning==True):
+                                cold_a+=1
+                            else:
+                                nw_cold_a+=1
+                        if(z.item_type.id==2):
+                            if(z.IsItFunctioning==True):
+                                freezer+=1
+                            else:
+                                nw_freezer+=1
+                        if(z.item_type.id==3):
+                            if(z.IsItFunctioning==True):
+                                refig+=1
+                            else:
+                                nw_refrig+=1
+                        if(z.item_type.id==4):
+                            if(z.IsItFunctioning==True):
+                                fr+=1
+                            else:
+                                nw_fr+=1
+                        if(z.item_type.id==5):
+                            if(z.IsItFunctioning==True):
+                                cb+=1
+                            else:
+                                nw_cb+=1
+                        if(z.item_type.id==6):
+                            if(z.IsItFunctioning==True):
+                                vc+=1
+                            else:
+                                nw_vc+=1
+                        if(degree=="1"):
+                            if(z.StorageCondition=="+25C"):
+                                available+=z.FreezerNetCapacity
+                        if(degree=="2"):
+                            if(z.StorageCondition=="+2 - +8 C"):
+                                available+=z.FreezerNetCapacity  
+                        if(degree=="3"):
+                            if(z.StorageCondition=="+-20 C"):
+                                available+=z.FreezerNetCapacity
+                        if(degree=="4"):
+                            if(z.StorageCondition=="-70 C"):
+                                available+=z.FreezerNetCapacity  
+                country=CountryConfig.objects.all()[0]
+                req=0
+                if(degree=="1"):
+                    req=x.uppervol
+                if(degree=="2"):
+                    req=x.undervol
+                if(degree=="3"):
+                    req=x.m70vol
+                if(degree=="4"):
+                    req=x.m25vol
+                require_capacity=1
+                available_capacity=1    
+                if(country.poptarget=='General population'):
+                    if(req is not None):
+                        require_capacity=general*req
+                        available_capacity=general*available
+                else:
+                    if(req is not None):
+                        require_capacity=under1*req
+                        available_capacity=under1*available        
+                data1={
+                    "id":x.id,
+                    "name":x.name,
+                    "general":general,
+                    "under1":under1,
+                    "req":req,
+                    "available":available,
+                    "diff":available-req,
+                    "require_capacity":require_capacity,
+                    "available_capacity":available_capacity,
+                    "diff_capacity":available_capacity-require_capacity,
+                }
+                table_2.append(data1)
+
+                data={
+                    "id":x.id,
+                    "name":x.name,
+                    "general":general,
+                    "under1":under1,
+                    "cold_a":cold_a,
+                    "nw_cold_a":nw_cold_a,
+                    "freezer":freezer,
+                    "nw_freezer":nw_freezer,
+                    "refrig":refig,
+                    "nw_refrig":nw_refrig,
+                    "fr":fr,
+                    "nw_fr":nw_fr,
+                    "cb":cb,
+                    "nw_cb":nw_cb,
+                    "vc":vc,
+                    "nw_vc":nw_vc
+
+                }   
+                table_1.append(data)
+            ans={
+                "table_1":table_1,
+                "table_2":table_2
+
+            }  
+            return Response(ans,status=status.HTTP_200_OK)  
 
 
+                                
+                                
+
+        
 
 
 
