@@ -1,3 +1,4 @@
+from turtle import title
 from django.shortcuts import render
 
 # Create your views here.
@@ -1158,104 +1159,105 @@ class gapItemReportView(APIView):
 
                 ans.append(data)
             excel_data=[]
-            for data in ans:
+            for m in ans:
                 new_data={
-                    "Facility id":x.id,
-                    "Facility name":x.name,
-                    "Facility code":x.code ,
-                    "Level name":x.level.name,
-                    "parent Facility ":parentName,
-                    "general population":x.populationnumber,
-                    "under 1 population":x.childrennumber,
-                    "Facility type":type_name
+                    "Facility id":m["id"],
+                    "Facility name":m["name"],
+                    "Facility code":m["code"] ,
+                    "Level name":m["level"],
+                    "parent Facility ":m["parent"],
+                    "general population":m["general"],
+                    "under 1 population":m["children"],
+                    "Facility type":m["type"]
 
                 }    
                 if(degree=="1"):
-                    new_data["Total capacity for +2 to +8"]=data["tcapacity1"]
-                    new_data["Functioning capacity for +2 to +8"]=data["fcapacity1"]
-                    new_data["Required capacity for +2 to +8"]=data["req1"]
-                    new_data["Diffrence between required capacity and available"]=data["excees1"]
+                    new_data["Total capacity for +2 to +8"]=m["tcapacity1"]
+                    new_data["Functioning capacity for +2 to +8"]=m["fcapacity1"]
+                    new_data["Required capacity for +2 to +8"]=m["req1"]
+                    new_data["Diffrence between required capacity and available +2 to +8"]=m["excees1"]
                     if(data["exceed1"]):
                         new_data["Excess +2 to +8"]="True"
                     else:
                         new_data["Excess +2 to +8"]="False"    
                 if(degree=="2"):
-                    new_data["Total capacity for + -20C "]=data["tcapacity1"]
-                    new_data["Functioning capacity for + -20C "]=data["fcapacity1"]
-                    new_data["Required capacity for + -20C "]=data["req1"]
-                    new_data["Diffrence between required capacity and available"]=data["excees1"]
+                    new_data["Total capacity for + -20C "]=m["tcapacity1"]
+                    new_data["Functioning capacity for + -20C "]=m["fcapacity1"]
+                    new_data["Required capacity for + -20C "]=m["req1"]
+                    new_data["Diffrence between required capacity and available + -20C"]=m["excees1"]
                     if(data["exceed1"]):
                         new_data["Excess -20C"]="True"
                     else:
                         new_data["Excess -20C"]="False"   
                 if(degree=="3"):
-                    new_data["Total capacity for -70 C"]=data["tcapacity1"]
-                    new_data["Functioning capacity for -70 C"]=data["fcapacity1"]
-                    new_data["Required capacity for -70 C"]=data["req1"]
-                    new_data["Diffrence between required capacity and available"]=data["excees1"]
+                    new_data["Total capacity for -70 C"]=m["tcapacity1"]
+                    new_data["Functioning capacity for -70 C"]=m["fcapacity1"]
+                    new_data["Required capacity for -70 C"]=m["req1"]
+                    new_data["Diffrence between required capacity and available -70 C"]=m["excees1"]
                     if(data["exceed1"]):
                         new_data["Excess -70C"]="True"
                     else:
                         new_data["Excess -70C"]="False"   
                 if(degree=="4"):
-                    new_data["Total capacity for +25C"]=data["tcapacity1"]
-                    new_data["Functioning capacity for +25C"]=data["fcapacity1"]
-                    new_data["Required capacity for +25C"]=data["req1"]
-                    new_data["Diffrence between required capacity and available"]=data["excees1"]
+                    new_data["Total capacity for +25C"]=m["tcapacity1"]
+                    new_data["Functioning capacity for +25C"]=m["fcapacity1"]
+                    new_data["Required capacity for +25C"]=m["req1"]
+                    new_data["Diffrence between required capacity and available +25C"]=m["excees1"]
                     if(data["exceed1"]):
                         new_data["Excess +25C"]="True"
                     else:
                         new_data["Excess +25C"]="False"   
                 if(degree=="5"):
-                    new_data["Total capacity for Dry store"]=data["tcapacity1"]
-                    new_data["Functioning capacity for Dry store"]=data["fcapacity1"]
-                    new_data["Required capacity for Dry store"]=data["req1"]
-                    new_data["Diffrence between required capacity and available"]=data["excees1"]
+                    new_data["Total capacity for Dry store"]=m["tcapacity1"]
+                    new_data["Functioning capacity for Dry store"]=m["fcapacity1"]
+                    new_data["Required capacity for Dry store"]=m["req1"]
+                    new_data["Diffrence between required capacity and available Dry store"]=m["excees1"]
                     if(data["exceed1"]):
                         new_data["Excess Dry store"]="True"
                     else:
                         new_data["Excess Dry store"]="False"   
                 if(degree=="6"):
-                    new_data["Total capacity for +2 to +8"]=data["tcapacity1"]
-                    new_data["Functioning capacity for +2 to +8"]=data["fcapacity1"]
-                    new_data["Required capacity for +2 to +8"]=data["req1"]
-                    new_data["Diffrence between required capacity and available +2 to +8"]=data["excees1"]
+                    new_data["Total capacity for +2 to +8"]=m["tcapacity1"]
+                    new_data["Functioning capacity for +2 to +8"]=m["fcapacity1"]
+                    new_data["Required capacity for +2 to +8"]=m["req1"]
+                    new_data["Diffrence between required capacity and available +2 to +8"]=m["excees1"]
                     if(data["exceed1"]):
-                        new_data["Excess +2 - +8C"]="True"
+                        new_data["Excess +2 to +8"]="True"
                     else:
-                        new_data["Excess +2 - +8C"]="False"
-                    new_data["Total capacity for + -20C "]=data["tcapacity2"]
-                    new_data["Functioning capacity for + -20C "]=data["fcapacity2"]
-                    new_data["Required capacity for + -20C "]=data["req2"]
-                    new_data["Diffrence between required capacity and available + -20C"]=data["excees2"]
+                        new_data["Excess +2 to +8"]="False"
+                    new_data["Total capacity for + -20C "]=m["tcapacity2"]
+                    new_data["Functioning capacity for + -20C "]=m["fcapacity2"]
+                    new_data["Required capacity for + -20C "]=m["req2"]
+                    new_data["Diffrence between required capacity and available + -20C"]=m["excees2"]
                     if(data["exceed2"]):
                         new_data["Excess -20C"]="True"
                     else:
                         new_data["Excess -20C"]="False"
-                    new_data["Total capacity for -70 C"]=data["tcapacity3"]
-                    new_data["Functioning capacity for -70 C"]=data["fcapacity3"]
-                    new_data["Required capacity for -70 C"]=data["req3"]
-                    new_data["Diffrence between required capacity and available -70 C"]=data["excees3"]
+                    new_data["Total capacity for -70 C"]=m["tcapacity3"]
+                    new_data["Functioning capacity for -70 C"]=m["fcapacity3"]
+                    new_data["Required capacity for -70 C"]=m["req3"]
+                    new_data["Diffrence between required capacity and available -70 C"]=m["excees3"]
                     if(data["exceed3"]):
                         new_data["Excess -70C"]="True"
                     else:
                         new_data["Excess -70C"]="False"    
-                    new_data["Total capacity for +25C"]=data["tcapacity4"]
-                    new_data["Functioning capacity for +25C"]=data["fcapacity4"]
-                    new_data["Required capacity for +25C"]=data["req4"]
-                    new_data["Diffrence between required capacity and available +25C"]=data["excees4"]
+                    new_data["Total capacity for +25C"]=m["tcapacity4"]
+                    new_data["Functioning capacity for +25C"]=m["fcapacity4"]
+                    new_data["Required capacity for +25C"]=m["req4"]
+                    new_data["Diffrence between required capacity and available +25C"]=m["excees4"]
                     if(data["exceed4"]):
                         new_data["Excess +25C"]="True"
                     else:
                         new_data["Excess +25C"]="False"
-                    new_data["Total capacity for Dry store"]=data["tcapacity5"]
-                    new_data["Functioning capacity for Dry store"]=data["fcapacity5"]
-                    new_data["Required capacity for Dry store"]=data["req5"]
-                    new_data["Diffrence between required capacity and available Dry store"]=data["excees5"]
+                    new_data["Total capacity for Dry store"]=m["tcapacity5"]
+                    new_data["Functioning capacity for Dry store"]=m["fcapacity5"]
+                    new_data["Required capacity for Dry store"]=m["req5"]
+                    new_data["Diffrence between required capacity and available Dry store"]=m["excees5"]
                     if(data["exceed5"]):
                         new_data["Excess Dry store"]="True"
                     else:
                         new_data["Excess Dry store"]="False"
+                print(new_data)        
                 excel_data.append(new_data)
                 
 
@@ -1278,11 +1280,42 @@ class gapMapReport(APIView):
     def get(self,request):
         degree=request.query_params.get('degree')
         statuss=request.query_params.get('status')
+        title1="Facility id"
+        title2=""
+        title3=""
+        if(degree=="1"):
+            title2="Excess +2 to +8"
+            title3="Diffrence between required capacity and available +2 to +8"
+        if(degree=="2"):
+            title2="Excess -20C"
+            title3="Diffrence between required capacity and available + -20C"
+        if(degree=="3"):
+            title2="Excess -70C"
+            title3="Diffrence between required capacity and available -70 C"
+        if(degree=="4"):
+            title2="Diffrence between required capacity and available +25C"
+            title3="Excess +25C"
+        if(degree=="5"):
+            title2="Excess Dry store"
+            title3="Diffrence between required capacity and available Dry store"
+            
         all_fac=Facility.objects.all()
-        excel_data_df = pandas.read_excel('/media/gap_report.xlsx', sheet_name='Sheet1')
+        excel_data_df = pandas.read_excel('./media/gap_report.xlsx', sheet_name='Sheet1')
+        facilities_id=[]
+        for x,y,z in zip(excel_data_df[title1],excel_data_df[title2],excel_data_df[title3]):
+                print(x,y,z)
+                if(statuss=="1"):
+                    if(z==0):
+                        facilities_id.append(x)
+                if(statuss=="2"):
+                    if(y==True):
+                        facilities_id.append(x)
+                if(statuss=="3"):
+                    if(y==False):
+                        facilities_id.append(x)
         dic_arr=[]
-        print(excel_data_df)
         ans=[]
+        all_fac=all_fac.filter(id__in=facilities_id)
         for x in all_fac:
             if(x.gpsCordinate is not None):
                 lat=float(x.gpsCordinate.split(",")[0].split("(")[1])
