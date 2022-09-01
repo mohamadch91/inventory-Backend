@@ -757,22 +757,26 @@ class facilityProfileView(APIView):
                     min1=under_1
                 if(under_1>max1):
                     max1=under_1
+            if(facility.count()>0):
+                sumg/=facility.count()        
             data={
                 "level":x.id,
                 "name":x.name,
                 "total":sumg,
                 "min":min,
                 "max":max,
-                "avg":sumg/facility.count()
+                "avg":sumg
             }
             general_1.append(data)
+            if(facility.count()>0):
+                sum1=sum1/facility.count()
             data1={
                 "level":x.id,
                 "name":x.name,
                 "total":sum1,
                 "min":min1,
                 "max":max1,
-                "avg":sum1/facility.count()
+                "avg":sum1
             }
             under_11.append(data1)
         final_answer={
