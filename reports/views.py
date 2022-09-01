@@ -669,6 +669,7 @@ class itemFacilityReport(APIView):
             return Response(final_answer,status=status.HTTP_200_OK)    
 
 class facilityProfileView(APIView):
+    permission_classes =(IsAuthenticated,)
     def get(self,request):
         user=request.user
         this_facility=Facility.objects.filter(id=user.facilityid.id)[0]
