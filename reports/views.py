@@ -495,6 +495,192 @@ class itemGroupedReport(APIView):
                             final_answer.append({"item_type":x.title,"model":y,"manufacturer":manufac,"pqs":w,"facility":fac_list,"count":count})
             return Response(final_answer,status=status.HTTP_200_OK)                    
 
+class itemFacilityReport(APIView):
+    permission_classes = (IsAuthenticated,)
+    def get(self,request):
+        # get help query param and check none
+        help=request.query_params.get('help',None)
+        if(help is not None):
+            return Response("need query param",status=status.HTTP_400_BAD_REQUEST)
+
+        # check if help is "true"
+        # if help is "true" return level poweer source type for facility and item_class ,item_type,physical,financial,working,item_power
+        # if help is "false" return items filter by query params
+        if(help=="true"):
+            user=request.user
+            this_facility=Facility.objects.filter(id=user.facilityid.id)[0]
+            level=this_facility.level
+            allow_levels=LevelConfig.objects.filter(id__gte=level.id)
+            levels=levelSerializer(allow_levels,many=True)
+            power=facilityParamDescription.objects.filter(paramid=12,enabled=True)
+            powerss=facilityParamDescriptionSerilizer(power,many=True)
+            type=facilityParamDescription.objects.filter(paramid=10,enabled=True)
+            typess=facilityParamDescriptionSerilizer(type,many=True)
+            l_data=[]
+
+            for x in levels.data:
+                data={
+                    "name":x["name"],
+                    "id":x["id"]
+                }
+                l_data.append(data)
+            item_class=ItemClass.objects.filter(active=True)
+            items=[]
+            for x in item_class:
+                item_type=ItemType.objects.filter(itemclass=x.id,active=True)
+                types=[]
+                for y in item_type:
+                    data_item={
+                        "name":y.title,
+                        "id":y.id
+                    }
+                    types.append(data_item)
+                manufac=Manufacturer.objects.filter(itemclass=x.id,active=True)    
+                manufacturers=[]
+                for y in manufac:
+                    data_item={
+                        "name":y.describe,
+                        "id":y.id
+                    }
+                    manufacturers.append(data_item)
+                data={
+                    "item_class_name":x.title,
+                    "item_class_id":x.id,
+                    "item_type":types,
+                    "manufacturer":manufacturers
+                }
+                items.append(data)
+            physcal=itemParamDescription.objects.filter(paramid=9,enabled=True)
+            physcal=itemParamDescriptionSerilizer(physcal,many=True) 
+            working=itemParamDescription.objects.filter(paramid=11,enabled=True)
+            working=itemParamDescriptionSerilizer(working,many=True)
+            financial=itemParamDescription.objects.filter(paramid=14,enabled=True)
+            financial=itemParamDescriptionSerilizer(financial,many=True)
+            powers=itemParamDescription.objects.filter(paramid=12,enabled=True)
+            powers=itemParamDescriptionSerilizer(powers,many=True)   
+
+            datas={
+                "level":l_data,
+                "type":typess.data,
+                "power":powerss.data,
+                "item":items,
+                "physical":physcal.data,
+                "financial":financial.data,
+                "working":working.data,
+                "item_power":powers.data,
+            }
+            return Response(datas,status=status.HTTP_200_OK)    
+        else:
+            name=request.query_params.get('name',None)
+            level=request.query_params.get('level',None)
+            type=request.query_params.get('type',None)
+            power=request.query_params.get('power',None)
+            code=request.query_params.get('code',None)
+            item_class=request.query_params.get('item_class',None)
+            item_type=request.query_params.get('item_type',None)
+            physical=request.query_params.get('physical',None)
+            financial=request.query_params.get('financial',None)
+            working=request.query_params.get('working',None)
+            item_power=request.query_params.get('item_power',None)
+            items=item.objects.all()
+            facility=Facility.objects.all()
+            if(name is not None):
+                facility=facility.filter(name__icontains=name)
+            if(level is not None):
+                facility=facility.filter(level=level)
+            if(type is not None):
+                facility=facility.filter(type=type)
+            if(power is not None):
+                facility=facility.filter(powersource=power)
+            if(item_class is not None):
+                items=items.filter(item_class=item_class)
+            if(item_type is not None):
+                items=items.filter(item_type=item_type)
+            if(physical is not None):
+                items=items.filter(PhysicalConditions=physical)
+            if(financial is not None):
+                items=items.filter(FinancialSource=financial)
+            if(working is not None):
+                items=items.filter(WorkingConditions=working)
+            if(item_power is not None):
+                items=items.filter(power=item_power)
+            fac_id=[]
+            for x in facility:
+                fac_id.append(x.id)
+            items=items.filter(facilityid__in=fac_id)
+            final_answer=[]
+            for x in items:
+                facility=x.facilityid
+                parent=facility.parentid.name
+                level=facility.level
+                type_name=""
+                if(facility.type is not None):
+                    type_name=get_object_or_404(facilityParamDescription,id=x=facility.type).name
+                fac_data={
+                    "fac_name":facility.name,
+                    "fac_parent":parent,
+                    "fac_level":level,
+                    "fac_type":type_name,
+
+                }
+                item_class=x.item_class.title
+                item_type=x.item_type.title
+                code=x.code
+                pqs=x.PQSPISCode
+                model=x.Model
+                manufac=x.Manufacturer
+                if(manufac is not None):
+                    manufac=Manufacturer.objects.filter(id=manufac.id)[0].describe
+                capacity=x.FreezerNetCapacity
+                year=x.YearInstalled
+                physical=""
+                if(x.PhysicalConditions is not None):
+                    physical=x.PhysicalConditions
+                    physical=get_object_or_404(itemParamDescription,id=physical).name
+                financial=""
+                if(x.FinancialSource is not None):
+                    financial=x.FinancialSource
+                    financial=get_object_or_404(itemParamDescription,id=financial).name
+                power=""
+                if(x.EnergySource is not None):
+                    power=get_object_or_404(itemParamDescription,id=x.EnergySource).name
+                working=""
+                if(x.WorkingConditions is not None):
+                    working=x.WorkingConditions
+                    working=get_object_or_404(itemParamDescription,id=working).name
+                func="NO"
+                if(x.IsItFunctioning):
+                    func="Yes"
+                financ=""
+    
+                item_data={
+                    "item_class":item_class,
+                    "item_type":item_type,
+                    "code":code,
+                    "pqs":pqs,
+                    "model":model,
+                    "manufac":manufac,
+                    "capacity":capacity,
+                    "year":year,
+                    "physical":physical,
+                    "financial":financial,
+                    "power":power,
+                    "working":working,
+                    "func":func,
+                }
+                data={
+                    "facility":fac_data,
+                    "item":item_data
+                }
+                final_answer.append(data)
+            return Response(final_answer,status=status.HTTP_200_OK)    
+
+
+
+
+
+
+
 
                 
 
