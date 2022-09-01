@@ -98,9 +98,14 @@ class itemFieldView(APIView):
         user=request.user
         class_id=request.query_params.get('class_id', None)
         type_id=request.query_params.get('type_id', None)
+        parent=request.query_params.get('parent',None)
+        
         if class_id is None and type_id is None:
             facility=user.facilityid
             facility=get_object_or_404(Facility, id=facility.id)
+            if(parent is not None):
+                facility=get_object_or_404(Facility,id=parent)
+                
             fac_ser=facilitySerializer(facility,many=False)
             level=facility.level.id
             levels_Ser=levelSerializer(level,many=True)
