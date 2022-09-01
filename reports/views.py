@@ -976,6 +976,8 @@ class gapItemReportView(APIView):
             calculate_for=request.query_params.get('calculate_for',None)
             facility=Facility.objects.all()
             items=item.objects.all()
+            if(degree is None):
+                return Response("degree is required",status.HTTP_200_OK)
             if(name is not None):
                 facility=facility.filter(name__icontains=name)
             if(level is not None):
@@ -1047,7 +1049,7 @@ class gapItemReportView(APIView):
                     if(x.childrennumber is not None):
                         pop=x.childrennumber
                 req1=pop*x.level.uppervol/1000
-                req2=pop*x.level.undevol/1000
+                req2=pop*x.level.undervol/1000
                 req3=pop*x.level.m70vol/1000
                 req4=pop*x.level.m25vol/1000
                 req5=pop*x.level.dryvol/1000
@@ -1139,7 +1141,7 @@ class gapItemReportView(APIView):
                         data["req1"]=req3
                         data["excees1"]=capacity3-req3
                         data["exceed1"]=excees3
-                    if(degree=="4"):
+                    if(degree=="4"):                        
                         data["tcapacity1"]=capacity4
                         data["fcapacity1"]=fcapacity4
                         data["req1"]=req4
