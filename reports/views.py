@@ -859,16 +859,16 @@ class profileColdchainView(APIView):
                                 nw_vc+=1
                         if(degree=="1"):
                             if(z.StorageCondition=="+25C"):
-                                available+=z.FreezerNetCapacity
+                                available+=z.NetVaccineStorageCapacity
                         if(degree=="2"):
                             if(z.StorageCondition=="+2 - +8 C"):
-                                available+=z.FreezerNetCapacity  
+                                available+=z.NetVaccineStorageCapacity  
                         if(degree=="3"):
                             if(z.StorageCondition=="+-20 C"):
-                                available+=z.FreezerNetCapacity
+                                available+=z.NetVaccineStorageCapacity
                         if(degree=="4"):
                             if(z.StorageCondition=="-70 C"):
-                                available+=z.FreezerNetCapacity  
+                                available+=z.NetVaccineStorageCapacity  
                 country=CountryConfig.objects.all()[0]
                 req=0
                 if(degree=="1"):
@@ -973,7 +973,158 @@ class gapItemReportView(APIView):
             year_from=request.query_params.get('year_from',None)
             year_to=request.query_params.get('year_to',None)
             calculate_for=request.query_params.get('calculate_for',None)
-            
+            facility=Facility.objects.all()
+            items=item.objects.all()
+            if(name is not None):
+                facility=facility.filter(name__icontains=name)
+            if(level is not None):
+                facility=facility.filter(level=level)
+            if(type is not None):
+                facility=facility.filter(type=type)
+            if(power is not None):
+                facility=facility.filter(powersource=power)
+            if(code is not None):
+                facility=facility.filter(code__icontains=code)
+            if(option=="2"):
+                items=items.exclude(PQSPISCode=None)
+            if(option=="3"):
+                if(year_from is not None):
+                    items=items.filter(YearInstalled__gte=year_from)
+                if(year_to is not None):
+                    items=items.filter(YearInstalled__lte=year_to)
+            ans=[]
+            for x in facility:
+                capacity1=0
+                capacity2=0
+                capacity3=0
+                capacity4=0
+                capacity5=0
+                items=item.objects.filter(facility=x.id)
+                for y in items:
+                    if(degree=="1"):
+                        if(y.StorageCondition=="+2 - +8 C"):
+                            capacity1+=y.NetVaccineStorageCapacity
+                    if(degree=="2"):
+                        if(y.StorageCondition=="+-20 C"):
+                            capacity2+=y.NetVaccineStorageCapacity
+                    if(degree=="3"):
+                        if(y.StorageCondition=="-70 C"):
+                            capacity3+=y.NetVaccineStorageCapacity
+                    if(degree=="4"):
+                        if(y.StorageCondition=="+25C"):
+                            capacity4+=y.NetVaccineStorageCapacity
+                    if(degree=="5"):
+                        if(y.StorageCondition=="Dry store"):
+                            capacity5+=y.NetVaccineStorageCapacity    
+                country=CountryConfig.objects.all()[0]
+                req1=1
+                req2=1
+                req3=1
+                req4=1
+                req5=1
+                pop=0
+                if(country.poptarget=='General population'):
+                    if(x.populationnumber is not None):
+                        pop=x.populationnumber
+                else:
+                    if(x.childrennumber is not None):
+                        pop=x.childrennumber
+                req1=pop*x.level.undervol/1000
+                req2=pop*x.level.uppervol/1000
+                req3=pop*x.level.m25vol/1000
+                req4=pop*x.level.m70vol/1000
+                req5=pop*x.level.dryvol/1000
+                excees1=False
+                excees2=False
+                excees3=False
+                excees4=False
+                excees5=False
+                if(req1-capacity1<0):
+                    excees1=True
+                if(req2-capacity2<0):
+                    excees2=True
+                if(req3-capacity3<0):
+                    excees3=True
+                if(req4-capacity4<0):
+                    excees4=True
+                if(req5-capacity5<0):
+                    excees5=True
+                type_name=""
+                if(x.type != None):
+                    type_name=get_object_or_404(facilityParamDescription,id=x.type).name
+
+                data={}  
+                parentName="--"
+                if(x.parentid is not None):
+                    parentName=x.parentid.name  
+                if(degree=="6"):
+                    data={
+                    "id":x.id,
+                    "name":x.name,
+                    "code":x.code ,
+                    "level":x.level.name,
+                    "parent":parentName,
+                    "general":x.populationnumber,
+                    "children":x.childrennumber,
+                    "type":type_name,
+                    "tcapacity1":capacity1,
+                    "tcapacity2":capacity2,
+                    "tcapacity3":capacity3,
+                    "tcapacity4":capacity4,
+                    "tcapacity5":capacity5,
+                    "fcapacity1":capacity1,
+                    "fcapacity2":capacity2,
+                    "fcapacity3":capacity3,
+                    "fcapacity4":capacity4,
+                    "fcapacity5":capacity5,
+                    "req1":req1,
+                    "req2":req2,
+                    "req3":req3,
+                    "req4":req4,
+                    "req5":req5,
+                    "excees1":capacity1-req1,
+                    "excees2":capacity2-req2,
+                    "excees3":capacity3-req3,
+                    "excees4":capacity4-req4,
+                    "excees5":capacity5-req5,
+                    "exceed1":excees1,
+                    "exceed2":excees2,
+                    "exceed3":excees3,
+                    "exceed4":excees4,
+                    "exceed5":excees5,
+                }
+                else:
+                        data={
+                    "id":x.id,
+                    "name":x.name,
+                    "code":x.code ,
+                    "level":x.level.name,
+                    "parent":parentName,
+                    "general":x.populationnumber,
+                    "children":x.childrennumber,
+                    "type":type_name,
+                    "tcapacity1":capacity1,
+                    "fcapacity1":capacity1,
+                    "req1":req1,
+                    "excees1":capacity1-req1,
+                    "exceed1":excees1,
+                    "exceed2":excees2,
+                    "exceed3":excees3,
+                    "exceed4":excees4,
+                    "exceed5":excees5,
+                }
+
+                ans.append(data)
+            final_ans={
+                "excel":'/media/exported_facility_json_data.xlsx' ,
+                "data":ans
+            }
+            return Response(final_ans)
+
+                    
+
+
+
 
                                 
 
