@@ -92,10 +92,12 @@ class FacilityView(APIView):
 class facilityFieldView(APIView):
     permission_classes = (IsAuthenticated,)
     def get(self, request):
-        
+        parent=request.query_params.get('parent',None)
         user=request.user
         user_ser=UserSerializer(user,many=False)
         this_facility=Facility.objects.filter(id=user.facilityid.id)[0]
+        if(parent is not None):
+            this_facility=get_object_or_404(Facility,id=parent)
         fac_ser=facilitySerializer(this_facility,many=False)
         country=get_object_or_404(CountryConfig,id=this_facility.country.id)
         parent_num=Facility.objects.all()
