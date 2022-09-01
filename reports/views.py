@@ -675,12 +675,12 @@ class facilityProfileView(APIView):
         user=request.user
         this_facility=Facility.objects.filter(id=user.facilityid.id)[0]
         level=this_facility.level
-        allow_levels=LevelConfig.objects.filter(id__gte=level.id)
+        allow_levels=LevelConfig.objects.filter(id__gt=level.id)
         by_type=[]
         by_owner=[]
         by_power=[]
-        general=[]
-        under_1=[]
+        general_1=[]
+        under_11=[]
         type=facilityParamDescription.objects.filter(paramid=10,enabled=True)
         owner=facilityParamDescription.objects.filter(paramid=5,enabled=True)
         power=facilityParamDescription.objects.filter(paramid=12,enabled=True)
@@ -704,7 +704,7 @@ class facilityProfileView(APIView):
             }
             by_type.append(data)
             for y in owner:
-                count=facility.filter(owner=y.id).count()
+                count=facility.filter(ownership=y.id).count()
                 data={
                     "level":x.id,
                     "name":x.name,
@@ -716,7 +716,7 @@ class facilityProfileView(APIView):
                 "level":x.id,
                 "name":x.name,
                 "owner":"--",
-                "count":facility.filter(owner=None).count()
+                "count":facility.filter(ownership=None).count()
             }
             by_owner.append(data)
             for y in power:
@@ -741,13 +741,13 @@ class facilityProfileView(APIView):
             max=-1
             min1=10000000000000000
             max1=-1
-            for x in facility:
+            for y in facility:
                 general=0
                 under_1=0
-                if(x.populationnumber is not None):
-                    general=x.populationnumber
-                if(x.childrennumber is not None):
-                    under_1=x.childrennumber
+                if(y.populationnumber is not None):
+                    general=y.populationnumber
+                if(y.childrennumber is not None):
+                    under_1=y.childrennumber
                 sumg+=general
                 sum1+=under_1
                 if(general<min):
@@ -766,7 +766,7 @@ class facilityProfileView(APIView):
                 "max":max,
                 "avg":sumg/facility.count()
             }
-            general.append(data)
+            general_1.append(data)
             data1={
                 "level":x.id,
                 "name":x.name,
@@ -775,13 +775,13 @@ class facilityProfileView(APIView):
                 "max":max1,
                 "avg":sum1/facility.count()
             }
-            under_1.append(data1)
+            under_11.append(data1)
         final_answer={
             "by_type":by_type,
             "by_owner":by_owner,
             "by_power":by_power,
-            "general":general,
-            "under_1":under_1
+            "general":general_1,
+            "under_1":under_11
         }
         return Response(final_answer,status=status.HTTP_200_OK)
                                    
