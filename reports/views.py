@@ -1123,7 +1123,22 @@ class gapItemReportView(APIView):
 
                     
 
-
+class gapMapReport(APIView):
+    permission_classes = (IsAuthenticated,)
+    def get(self,request):
+        degree=request.query_params.get('degree')
+        statuss=request.query_params.get('status')
+        all_fac=Facility.objects.all()
+        ans=[]
+        for x in all_fac:
+            if(x.gpsCordinate is not None):
+                lat=float(x.gpsCordinate.split(",")[0].split("(")[1])
+                lang=float(x.gpsCordinate.split(",")[1].split(")")[0])
+                data={
+                    "cordinates": [lat,lang]
+                }
+                ans.append(data)
+        return Response(ans,status=status.HTTP_200_OK)
 
 
                                 
