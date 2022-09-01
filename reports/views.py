@@ -500,7 +500,7 @@ class itemFacilityReport(APIView):
     def get(self,request):
         # get help query param and check none
         help=request.query_params.get('help',None)
-        if(help is not None):
+        if(help is  None):
             return Response("need query param",status=status.HTTP_400_BAD_REQUEST)
 
         # check if help is "true"
@@ -535,19 +535,10 @@ class itemFacilityReport(APIView):
                         "id":y.id
                     }
                     types.append(data_item)
-                manufac=Manufacturer.objects.filter(itemclass=x.id,active=True)    
-                manufacturers=[]
-                for y in manufac:
-                    data_item={
-                        "name":y.describe,
-                        "id":y.id
-                    }
-                    manufacturers.append(data_item)
                 data={
                     "item_class_name":x.title,
                     "item_class_id":x.id,
                     "item_type":types,
-                    "manufacturer":manufacturers
                 }
                 items.append(data)
             physcal=itemParamDescription.objects.filter(paramid=9,enabled=True)
@@ -607,15 +598,17 @@ class itemFacilityReport(APIView):
             fac_id=[]
             for x in facility:
                 fac_id.append(x.id)
-            items=items.filter(facilityid__in=fac_id)
+            items=items.filter(facility__in=fac_id)
             final_answer=[]
             for x in items:
-                facility=x.facilityid
-                parent=facility.parentid.name
-                level=facility.level
+                facility=x.facility
+                parent="Central store"
+                if(facility.parentid is not None):
+                    parent=facility.parentid.name
+                level=facility.level.id
                 type_name=""
                 if(facility.type is not None):
-                    type_name=get_object_or_404(facilityParamDescription,id=x=facility.type).name
+                    type_name=get_object_or_404(facilityParamDescription,id=x.facility.type).name
                 fac_data={
                     "fac_name":facility.name,
                     "fac_parent":parent,
