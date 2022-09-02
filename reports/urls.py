@@ -17,6 +17,8 @@ urlpatterns = [
       path('gapmap', gapMapReport.as_view(), name='gap item report'),
       path('gapcce', planGapView.as_view(), name='gap cce '),
       path('gapccePlan', planOneGapView.as_view(), name='gap cce '),
+      path('planingreport', plannedSavedReport.as_view(), name='gap cce '),
+
 
 
 

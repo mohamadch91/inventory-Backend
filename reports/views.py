@@ -1786,6 +1786,127 @@ class planOneGapView(APIView):
         return Response({"message":"success"},status=status.HTTP_200_OK)
 
                 
+class plannedSavedReport(APIView):
+    permission_classes=(IsAuthenticated,)
+    def get(self,request):
+        help=request.query_params.get('help')
+        if(help is None):
+            return Response(status=status.HTTP_400_BAD_REQUEST)
+
+        if(help=="true"):
+            user=request.user
+            this_facility=Facility.objects.filter(id=user.facilityid.id)[0]
+            level=this_facility.level
+            allow_levels=LevelConfig.objects.filter(id__gte=level.id)
+            levels=levelSerializer(allow_levels,many=True)
+            power=facilityParamDescription.objects.filter(paramid=12,enabled=True)
+            powerss=facilityParamDescriptionSerilizer(power,many=True)
+            type=facilityParamDescription.objects.filter(paramid=10,enabled=True)
+            typess=facilityParamDescriptionSerilizer(type,many=True)
+            l_data=[]
+
+            for x in levels.data:
+                data={
+                    "name":x["name"],
+                    "id":x["id"]
+                }
+                l_data.append(data)
+            datas={
+                "level":l_data,
+                "type":typess.data,
+                "power":powerss.data,
+            }
+            return Response(datas,status=status.HTTP_200_OK)
+        else:
+            name=request.query_params.get('name',None)
+            level=request.query_params.get('level',None)
+            type=request.query_params.get('type',None)
+            power=request.query_params.get('power',None)
+            code=request.query_params.get('code',None)
+            degree=request.query_params.get('degree',None)
+            general_from=request.query_params.get('general_from',None)
+            general_to=request.query_params.get('general_to',None)
+            under_1_from=request.query_params.get('under_1_from',None)
+            under_1_to=request.query_params.get('under_1_to',None)
+            req_cap_to=request.query_params.get('req_cap_to',None)
+            req_cap_from=request.query_params.get('req_cap_from',None)
+            available_from=request.query_params.get('available_from',None)
+            available_to=request.query_params.get('available_to',None)
+            func_cap_from=request.query_params.get('func_cap_from',None)
+            func_cap_to=request.query_params.get('func_cap_to',None)
+            excees_from=request.query_params.get('excees_from',None)
+            excees_to=request.query_params.get('excees_to',None)
+            facility=Facility.objects.all()
+            if(name is not None):
+                facility=facility.filter(name__icontains=name)
+            if(level is not None):
+                facility=facility.filter(level=level)
+            if(type is not None):
+                facility=facility.filter(type=type)
+            if(power is not None):
+                facility=facility.filter(powersource=power)
+            if(code is not None):
+                facility=facility.filter(code__icontains=code)
+            gap_save=gapSave.objects.filter(facility__in=facility)
+            if(degree is not None):
+                degree=int(degree)
+                gap_save=gap_save.filter(condition=degree)
+            if(general_from is not None):
+                gap_save=gap_save.filter(general__gte=general_from)
+            if(general_to is not None):
+                gap_save=gap_save.filter(general__lte=general_to)
+            if(under_1_from is not None):
+                gap_save=gap_save.filter(under_1__gte=under_1_from)
+            if(under_1_to is not None):
+                gap_save=gap_save.filter(under_1__lte=under_1_to)
+            if(req_cap_from is not None):
+                gap_save=gap_save.filter(req_capacity__gte=req_cap_from)
+            if(req_cap_to is not None):
+                gap_save=gap_save.filter(req_capacity__lte=req_cap_to)
+            if(available_from is not None):
+                gap_save=gap_save.filter(available__gte=available_from)
+            if(available_to is not None):
+                gap_save=gap_save.filter(available__lte=available_to)
+            if(func_cap_from is not None):
+                gap_save=gap_save.filter(func_cap__gte=func_cap_from)
+            if(func_cap_to is not None):
+                gap_save=gap_save.filter(func_cap__lte=func_cap_to)
+            if(excees_from is not None):
+                gap_save=gap_save.filter(exces__gte=excees_from)
+            if(excees_to is not None):
+                gap_save=gap_save.filter(exces__lte=excees_to)
+            plans=plannedGap.objects.filter(gap__in=gap_save)
+            table=[]
+            for x in plans:
+                code=""
+                vac_cap=0
+                freez_cap=0
+                type=""
+                if(x.pqs_type==3):
+                        finded=get_object_or_404(pqs3,id=x.pqs_id)
+                        code=finded.pqscode
+                        vac_cap=finded.refrigeratorcapacity
+                        freez_cap=finded.freezercapacity
+                        type=finded.description
+
+                        
+                else:
+                        finded=get_object_or_404(pqs4,id=x.pqs_id)
+                        code=finded.pqsnumber
+                        vac_cap=finded.vaccinenetstoragecapacity
+                        freez_cap=finded.coolantpacknominalcapacity
+                        type=finded.type
+                data={
+                    "id":x.id,
+                    "facility":x.gap.facility.name,
+                    "code":code,
+                    "type":type,
+                    "vac_cap":vac_cap,
+                    "freez_cap":freez_cap,
+                    "assigned":x.asiign,
+                }
+                table.append(data)
+            return Response(table,status=status.HTTP_200_OK)    
 
 
 
