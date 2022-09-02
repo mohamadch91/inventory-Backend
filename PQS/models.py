@@ -2,6 +2,8 @@ from django.db import models
 
 # Create your models here.
 class pqs4(models.Model):
+    id=models.AutoField(primary_key=True)
+
     pqsnumber = models.CharField(db_column='PQSNumber', max_length=100)  # Field name made lowercase.
     type = models.CharField(db_column='Type', max_length=100, blank=True, null=True)  # Field name made lowercase.
     manufacturer = models.CharField(db_column='Manufacturer', max_length=100, blank=True, null=True)  # Field name made lowercase.
@@ -13,6 +15,7 @@ class pqs4(models.Model):
 
 
 class pqs3(models.Model):
+    id=models.AutoField(primary_key=True)
     description = models.CharField(db_column='Description', max_length=100, blank=True, null=True)  # Field name made lowercase.
     make = models.CharField(db_column='Make', max_length=100, blank=True, null=True)  # Field name made lowercase.
     model = models.CharField(db_column='Model', max_length=100, blank=True, null=True)  # Field name made lowercase.

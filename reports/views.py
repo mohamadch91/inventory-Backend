@@ -19,7 +19,8 @@ import pandas
 # Create your views here.
 
 from rest_framework.permissions import IsAuthenticated
-
+from PQS.models import pqs3,pqs4
+from PQS.serializers import *
 from authen.models import User
 from facilities.models import Facility
 from related.models import Facilityvalidation, facilityParamDescription, itemParamDescription
@@ -1513,7 +1514,7 @@ class planGapView(APIView):
                     type_name=get_object_or_404(facilityParamDescription,id=x.facility.type).name
                 power_name=""
                 if(x.facility.powersource != None):
-                    power_name=get_object_or_404(facilityParamDescription,id=x.powersource).name
+                    power_name=get_object_or_404(facilityParamDescription,id=x.facility.powersource).name
 
                     
                 parent="--"
@@ -1551,7 +1552,101 @@ class planGapView(APIView):
             return Response(ans,status=status.HTTP_200_OK)    
 
 
+class planOneGapView(APIView):
+    permission_classes = (IsAuthenticated,)
+    def post(self,request):
+        data=request.data
+        gap=gapSave.objects.get(id=data["id"])
+        gap.planned=True
+        gap.save()
+        return Response({"message":"success"},status=status.HTTP_200_OK)
 
+    def get(self,request):
+        id=request.query_params.get('id',None)
+        pqs=request.query_params.get('pqs_id',None)
+        type=request.query_params.get('type',None)
+        if(id is None):
+            return Response(status=status.HTTP_400_BAD_REQUEST)
+        if(pqs is None):
+            y=get_object_or_404(gapSave,id=id)
+            type_name=""
+            if(y.facility.type is not None):
+                type_name=get_object_or_404(facilityParamDescription,id=y.facility.type).name
+            power_name=""
+            if(y.facility.powersource != None):
+                power_name=get_object_or_404(facilityParamDescription,id=y.facility.powersource).name
+
+                
+            parent="--"
+            if(y.parent_fac is not None):
+                parent=y.parent_fac.name
+            condition="--"
+            if(y.condition ==1):
+                condition="2-8 C"
+            if(y.condition ==2):
+                condition="-20 C"
+            if(y.condition ==3):
+                condition="-70 C"
+            if(y.condition ==4):
+                condition="+25 C"
+            if(y.condition ==5):
+                condition="Dry store"                    
+            gap_Ser={
+                "id":y.id,
+                "facility":y.facility.name,
+                "parent":parent,
+                "level":y.level.id,
+                "code":y.code,
+                "type":type_name,
+                "power":power_name,
+                "req_capacity":y.req_capacity,
+                "available":y.available,
+                "func_cap":y.func_cap,
+                "exces":y.exces,
+                "condition":condition,
+                "planned":y.planned,
+                
+            }
+            pqs3_data=pqs3.objects.all()
+            ans=[]
+            for x in pqs3_data:
+                data={
+                    "id":x.id,
+                    "name":x.description,
+                    "pqs":3
+                }
+                ans.append(data)
+            pqs4_ser=pqs4.objects.all()   
+            for z in pqs4_ser:
+                data={
+                    "id":z.id,
+                    "name":z.pqsnumber,
+                    "pqs":4
+                }
+                ans.append(data)
+            final_ans={
+                "data":gap_Ser,
+                "pqs":ans
+            }
+            return Response(final_ans,status=status.HTTP_200_OK)
+        else:
+            finded=None
+            ser=None
+            if(type=="3"):
+                finded=get_object_or_404(pqs3,id=pqs)
+                ser=pqs3Serializer(finded,many=False)
+            else:
+                finded=get_object_or_404(pqs4,id=pqs)
+                ser=pqs4Serializer(finded,many=False)
+            return Response(ser.data,status.HTTP_200_OK)    
+
+
+
+                
+
+
+
+                
 
         
 

@@ -20,3 +20,7 @@ class gapSave(models.Model):
     general=models.IntegerField(default=0)
     under_1=models.IntegerField(default=0)
     planned=models.BooleanField(default=False)
+
+class plannedGap(models.Model):
+    id=models.AutoField(primary_key=True)
+    
