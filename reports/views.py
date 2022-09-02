@@ -1172,6 +1172,7 @@ class gapItemReportView(APIView):
                     "exces":fcapacity1-req1,
                     "general":x.populationnumber,
                     "under_1":x.childrennumber,
+                    "calculate_for":calculate_for
                 }
                 save_arr.append(save_data1)
                 save_data2={
@@ -1186,6 +1187,8 @@ class gapItemReportView(APIView):
                     "exces":fcapacity2-req2,
                     "general":x.populationnumber,
                     "under_1":x.childrennumber,
+                    "calculate_for":calculate_for
+
                 }
                 save_arr.append(save_data2)
                 save_data3={
@@ -1200,6 +1203,8 @@ class gapItemReportView(APIView):
                     "exces":fcapacity3-req3,
                     "general":x.populationnumber,
                     "under_1":x.childrennumber,
+                    "calculate_for":calculate_for
+
                 }
                 save_arr.append(save_data3)
                 save_data4={
@@ -1214,6 +1219,8 @@ class gapItemReportView(APIView):
                     "exces":fcapacity4-req4,
                     "general":x.populationnumber,
                     "under_1":x.childrennumber,
+                    "calculate_for":calculate_for
+
                 }
                 save_arr.append(save_data4)
                 save_data5={
@@ -1226,6 +1233,10 @@ class gapItemReportView(APIView):
                     "available":capacity5,
                     "func_cap":fcapacity5,
                     "exces":fcapacity5-req5,
+                    "calculate_for":calculate_for,
+                     "general":x.populationnumber,
+                    "under_1":x.childrennumber,
+
                 }
                 save_arr.append(save_data5)
                 for saves in save_arr:
