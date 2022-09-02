@@ -1367,6 +1367,8 @@ class gapMapReport(APIView):
     def get(self,request):
         degree=request.query_params.get('degree')
         statuss=request.query_params.get('status')
+        if(degree is None or  statuss is None ):
+            return Response(status=status.HTTP_400_BAD_REQUEST)
         title1="Facility id"
         title2=""
         title3=""
