@@ -23,4 +23,12 @@ class gapSave(models.Model):
 
 class plannedGap(models.Model):
     id=models.AutoField(primary_key=True)
+    gap=models.ForeignKey(Facility,on_delete=models.DO_NOTHING,related_name="saved_gap",null=True)
+    pqs_type=models.IntegerField()
+    pqs_id=models.IntegerField()
+    created_at=models.DateTimeField(auto_now_add=True)
+    updated_at=models.DateTimeField(auto_now=True)
+
+
+
     
