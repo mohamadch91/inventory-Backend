@@ -26,7 +26,7 @@ from related.models import Facilityvalidation, facilityParamDescription, itemPar
 from related.serializers import facilityParamDescriptionSerilizer,itemParamDescriptionSerilizer
 from settings.serializers import levelSerializer
 from .models import *
-
+from .serializers import *
 from items.serializers import *
 from rest_framework import generics
 from rest_framework.permissions import IsAuthenticated
@@ -965,6 +965,7 @@ class gapItemReportView(APIView):
             }
             return Response(datas,status=status.HTTP_200_OK) 
         else:
+            gapSave.objects.all().delete()
             name=request.query_params.get('name',None)
             level=request.query_params.get('level',None)
             type=request.query_params.get('type',None)
@@ -1155,9 +1156,84 @@ class gapItemReportView(APIView):
                         data["req1"]=req5
                         data["excees1"]=fcapacity5-req5
                         data["exceed1"]=excees5
-                                            
-
-
+                save_arr=[]                
+                parent_save=None
+                if(x.parentid is not None):
+                    parent_save=x.parentid.id           
+                save_data1={
+                    "facility":x.id,
+                    "parent_fac":parent_save,
+                    "level":x.level.id,
+                    "code":x.code,
+                    "condition":1,
+                    "req_capacity":req1,
+                    "available":capacity1,
+                    "func_cap":fcapacity1,
+                    "exces":fcapacity1-req1,
+                    "general":x.populationnumber,
+                    "under_1":x.childrennumber,
+                }
+                save_arr.append(save_data1)
+                save_data2={
+                    "facility":x.id,
+                    "parent_fac":parent_save,
+                    "level":x.level.id,
+                    "code":x.code,
+                    "condition":2,
+                    "req_capacity":req2,
+                    "available":capacity2,
+                    "func_cap":fcapacity2,
+                    "exces":fcapacity2-req2,
+                    "general":x.populationnumber,
+                    "under_1":x.childrennumber,
+                }
+                save_arr.append(save_data2)
+                save_data3={
+                    "facility":x.id,
+                    "parent_fac":parent_save,
+                    "level":x.level.id,
+                    "code":x.code,
+                    "condition":3,
+                    "req_capacity":req3,
+                    "available":capacity3,
+                    "func_cap":fcapacity3,
+                    "exces":fcapacity3-req3,
+                    "general":x.populationnumber,
+                    "under_1":x.childrennumber,
+                }
+                save_arr.append(save_data3)
+                save_data4={
+                    "facility":x.id,
+                    "parent_fac":parent_save,
+                    "level":x.level.id,
+                    "code":x.code,
+                    "condition":4,
+                    "req_capacity":req4,
+                    "available":capacity4,
+                    "func_cap":fcapacity4,
+                    "exces":fcapacity4-req4,
+                    "general":x.populationnumber,
+                    "under_1":x.childrennumber,
+                }
+                save_arr.append(save_data4)
+                save_data5={
+                    "facility":x.id,
+                    "parent_fac":parent_save,
+                    "level":x.level.id,
+                    "code":x.code,
+                    "condition":5,
+                    "req_capacity":req5,
+                    "available":capacity5,
+                    "func_cap":fcapacity5,
+                    "exces":fcapacity5-req5,
+                }
+                save_arr.append(save_data5)
+                for saves in save_arr:
+                    save_ser=gapSaveSerializer(data=saves)
+                    if save_ser.is_valid():
+                        save_ser.save()
+                    else:
+                        print(save_ser.errors)
                 ans.append(data)
             excel_data=[]
             for m in ans:
@@ -1258,7 +1334,6 @@ class gapItemReportView(APIView):
                         new_data["Excess Dry store"]="True"
                     else:
                         new_data["Excess Dry store"]="False"
-                print(new_data)        
                 excel_data.append(new_data)
                 
 
