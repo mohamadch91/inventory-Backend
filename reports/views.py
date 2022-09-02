@@ -1370,40 +1370,23 @@ class gapMapReport(APIView):
         statuss=request.query_params.get('status')
         if(degree is None or  statuss is None ):
             return Response(status=status.HTTP_400_BAD_REQUEST)
-        title1="Facility id"
-        title2=""
-        title3=""
-        if(degree=="1"):
-            title2="Excess +2 to +8"
-            title3="Diffrence between required capacity and available +2 to +8"
-        if(degree=="2"):
-            title2="Excess -20C"
-            title3="Diffrence between required capacity and available + -20C"
-        if(degree=="3"):
-            title2="Excess -70C"
-            title3="Diffrence between required capacity and available -70 C"
-        if(degree=="4"):
-            title2="Diffrence between required capacity and available +25C"
-            title3="Excess +25C"
-        if(degree=="5"):
-            title2="Excess Dry store"
-            title3="Diffrence between required capacity and available Dry store"
-            
-        all_fac=Facility.objects.all()
-        excel_data_df = pandas.read_excel('./media/gap_report.xlsx', sheet_name='Sheet1')
+        condition=int(degree)
+        saved=gapSave.objects.filter(condition=condition)
         facilities_id=[]
-        for x,y,z in zip(excel_data_df[title1],excel_data_df[title2],excel_data_df[title3]):
-                print(x,y,z)
-                if(statuss=="1"):
-                    if(z==0):
-                        facilities_id.append(x)
-                if(statuss=="2"):
-                    if(y==True):
-                        facilities_id.append(x)
-                if(statuss=="3"):
-                    if(y==False):
-                        facilities_id.append(x)
-        dic_arr=[]
+        
+        for z in saved:
+            if(statuss=="2"):
+                if(z.req_capacity-z.func_cap>0):
+                    facilities_id.append(z.facility.id)
+            if(statuss=="3"):
+                if(z.req_capacity-z.func_cap<0):
+                    facilities_id.append(z.facility.id)
+            else:
+                if(z.req_capacity-z.func_cap==0):
+                    facilities_id.append(z.facility.id)
+                    
+        all_fac=Facility.objects.all()
+        
         ans=[]
         all_fac=all_fac.filter(id__in=facilities_id)
         for x in all_fac:
