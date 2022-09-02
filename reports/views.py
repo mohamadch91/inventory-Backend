@@ -1559,7 +1559,48 @@ class planOneGapView(APIView):
         gap=gapSave.objects.get(id=data["id"])
         gap.planned=True
         gap.save()
-        return Response({"message":"success"},status=status.HTTP_200_OK)
+        count=data["count"]
+        new_data={
+            "gap":gap.id,
+                "pqs:type":data["type"],
+                "pqs_id":data["pqs_id"],
+        }
+        ans=[]
+        code=""
+        vac_cap=0
+        freez_cap=0
+        type=""
+        if(data["type"]=="3"):
+                finded=get_object_or_404(pqs3,id=data["pqs_id"])
+                code=finded.pqscode
+                vac_cap=finded.refrigeratorcapacity
+                freez_cap=finded.freezercapacity
+                type=finded.description
+
+                
+        else:
+                finded=get_object_or_404(pqs4,id=data["pqs_id"])
+                code=finded.pqsnumber
+                vac_cap=finded.vaccinenetstoragecapacity
+                freez_cap=finded.coolantpacknominalcapacity
+                type=finded.type
+        for i in range(count):
+            ser=plannedSerializer(data=new_data)
+            if(ser.is_valid()):
+                ser.save()
+                ans_data={
+                    "id":ser.id,
+                    "facility":gap.facility.name,
+                    "code":code,
+                    "type":type,
+                    "vac_cap":vac_cap,
+                    "freez_cap":freez_cap,
+                    "assigned":False,
+                }
+                ans.append(ans_data)
+            else:
+                print(ser.errors)    
+        return Response(ans,status=status.HTTP_200_OK)
 
     def get(self,request):
         id=request.query_params.get('id',None)
@@ -1568,6 +1609,37 @@ class planOneGapView(APIView):
         if(id is None):
             return Response(status=status.HTTP_400_BAD_REQUEST)
         if(pqs is None):
+            palns=plannedGap.objects.filter(gap=id)
+            table=[]
+            for x in palns:
+                code=""
+                vac_cap=0
+                freez_cap=0
+                type=""
+                if(x.pqs_type=="3"):
+                        finded=get_object_or_404(pqs3,id=x.pqs_id)
+                        code=finded.pqscode
+                        vac_cap=finded.refrigeratorcapacity
+                        freez_cap=finded.freezercapacity
+                        type=finded.description
+
+                        
+                else:
+                        finded=get_object_or_404(pqs4,id=x.pqs_id)
+                        code=finded.pqsnumber
+                        vac_cap=finded.vaccinenetstoragecapacity
+                        freez_cap=finded.coolantpacknominalcapacity
+                        type=finded.type
+                data={
+                    "id":x.id,
+                    "facility":x.gap.facility.name,
+                    "code":code,
+                    "type":type,
+                    "vac_cap":vac_cap,
+                    "freez_cap":freez_cap,
+                    "assigned":x.assigned,
+                }
+                table.append(data)
             y=get_object_or_404(gapSave,id=id)
             type_name=""
             if(y.facility.type is not None):
@@ -1640,7 +1712,19 @@ class planOneGapView(APIView):
                 ser=pqs4Serializer(finded,many=False)
             return Response(ser.data,status.HTTP_200_OK)    
 
-
+    def put(self,request):
+        plan=get_object_or_404(plannedGap,id=request.data["id"])
+        gap_save=get_object_or_404(gapSave,id=plan.gap.id)
+        gap_save.planned=True
+        gap_save.save()
+        plan.provided=True
+        plan.asiign=True
+        plan.save()
+        return Response({"message":"success"},status=status.HTTP_200_OK)
+    def delete(self,request):
+        plan=get_object_or_404(plannedGap,id=request.data["id"])
+        plan.delete()
+        return Response({"message":"success"},status=status.HTTP_200_OK)
 
                 
 
