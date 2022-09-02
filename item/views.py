@@ -178,47 +178,67 @@ class itemFieldView(APIView):
                         maint_ser=maintancegpSerializers(maint,many=True)
                         data["field"]["params"]=maint_ser.data 
                     if(field.id==31):
-                        ans=[
-
-    {
+                        data1= {
                     "id": 1,
                     "describe": "+25C",
                     "active": True,
                     "order": 1,
                     "itemclass": 1
-                },
-                {
+                }
+                        data2= {
                     "id": 2,
                     "describe": "+2 - +8 C",
                     "active": True,
                     "order": 1,
                     "itemclass": 1
-                },
-                      {
+                }
+                        data3= {
                     "id": 3,
                     "describe": "-20 C",
                     "active": True,
                     "order": 1,
                     "itemclass": 1
-                },
-                      {
+                }
+                        data4={
                     "id": 4,
                     "describe": "-70 C",
                     "active": True,
                     "order": 1,
                     "itemclass": 1
-                },
-                      {
+                }
+                        data5={
                     "id": 5,
                     "describe": "Dry store",
                     "active": True,
                     "order": 1,
                     "itemclass": 1
-                },
-
-
-
-                        ]
+                }
+                        ic_id=item_class.id
+                        it_id=item_type.id
+                        ans=[]
+                        if(ic_id==1):
+                            if(it_id==1 or it_id==3 or it_id==5):
+                                ans.append(data2)
+                            elif(it_id==2 or it_id==4):
+                                ans.append(data3)
+                            elif(it_id==6):
+                                ans.append(data4)
+                            else:
+                                ans.append(data1)
+                                ans.append(data2)
+                                ans.append(data3)
+                                ans.append(data4)
+                                ans.append(data5)
+                        else:
+                            ans.append(data1)
+                            ans.append(data2)
+                            ans.append(data3)
+                            ans.append(data4)
+                            ans.append(data5)                    
+                 
+                 
+                 
+                 
                         data["field"]["params"]=ans
 
 
