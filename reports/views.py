@@ -1504,8 +1504,49 @@ class planGapView(APIView):
                 gap_save=gap_save.filter(exces__gte=excees_from)
             if(excees_to is not None):
                 gap_save=gap_save.filter(exces__lte=excees_to)
-            gap_ser=gapSaveSerializer(gap_save,many=True)
-            return Response(gap_ser.data,status=status.HTTP_200_OK)    
+            ans=[]
+            for x in gap_save:
+                type_name=""
+                if(x.facility.type is not None):
+                    type_name=get_object_or_404(facilityParamDescription,id=x.facility.type).name
+                power_name=""
+                if(x.facility.powersource != None):
+                    power_name=get_object_or_404(facilityParamDescription,id=x.powersource).name
+
+                    
+                parent="--"
+                if(x.parent_fac is not None):
+                    parent=x.parent_fac.name
+                condition="--"
+                if(x.condition ==1):
+                    condition="2-8 C"
+                if(x.condition ==2):
+                    condition="-20 C"
+                if(x.condition ==3):
+                    condition="-70 C"
+                if(x.condition ==4):
+                    condition="+25 C"
+                if(x.condition ==5):
+                    condition="Dry store"                    
+                data={
+                     "id":x.id,
+                    "facility":x.facility.name,
+                    "parent":parent,
+                    "level":x.level.id,
+                    "code":x.code,
+                    "type":type_name,
+                    "power":power_name,
+                    "req_capacity":x.req_capacity,
+                    "available":x.available,
+                    "func_cap":x.func_cap,
+                    "exces":x.exces,
+                    "condition":condition,
+                    "planned":x.planned,
+                    
+                   
+                }
+                ans.append(data)
+            return Response(ans,status=status.HTTP_200_OK)    
 
 
 
