@@ -17,7 +17,7 @@ from rest_framework.response import Response
 from rest_framework import status
 from rest_framework_simplejwt.views import TokenObtainPairView
 from rest_framework_simplejwt.token_blacklist.models import BlacklistedToken, OutstandingToken
-
+import copy
 
 class RegisterView(generics.CreateAPIView):
     permission_classes = (AllowAny,)
@@ -67,6 +67,7 @@ class UserView(APIView):
     def get(self, request):
         user = request.user
         serializer = UserSerializer(user)
+        new_data=copy.deepcopy(serializer.data)
         return Response(data=serializer.data,status=status.HTTP_200_OK)
 class Userdata(APIView):
     permission_classes = (IsAuthenticated,)

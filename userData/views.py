@@ -22,8 +22,12 @@ class userDataView(generics.ListAPIView):
         cs = countrySerializer(CountryConfig.objects.all(), many=True)
         messgaes=message.objects.filter(reciever=user.facilityid)
         serializer = messageSerializer(messgaes, many=True)
+        facility="--"
+        if(user.facilityid is not None):
+            facility=user.facilityid.name
         res={
             "User":user_serializer.data,
+            "facility":facility,
             "Country":cs.data,
             "Messages":serializer.data
         }
