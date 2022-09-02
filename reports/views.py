@@ -1445,7 +1445,69 @@ class planGapView(APIView):
                 "type":typess.data,
                 "power":powerss.data,
             }
-            return Response(datas,status=status.HTTP_200_OK) 
+            return Response(datas,status=status.HTTP_200_OK)
+        else:
+            name=request.query_params.get('name',None)
+            level=request.query_params.get('level',None)
+            type=request.query_params.get('type',None)
+            power=request.query_params.get('power',None)
+            code=request.query_params.get('code',None)
+            degree=request.query_params.get('degree',None)
+            general_from=request.query_params.get('general_from',None)
+            general_to=request.query_params.get('general_to',None)
+            under_1_from=request.query_params.get('under_1_from',None)
+            under_1_to=request.query_params.get('under_1_to',None)
+            req_cap_to=request.query_params.get('req_cap_to',None)
+            req_cap_from=request.query_params.get('req_cap_from',None)
+            available_from=request.query_params.get('available_from',None)
+            available_to=request.query_params.get('available_to',None)
+            func_cap_from=request.query_params.get('func_cap_from',None)
+            func_cap_to=request.query_params.get('func_cap_to',None)
+            excees_from=request.query_params.get('excees_from',None)
+            excees_to=request.query_params.get('excees_to',None)
+            facility=Facility.objects.all()
+            if(name is not None):
+                facility=facility.filter(name__icontains=name)
+            if(level is not None):
+                facility=facility.filter(level=level)
+            if(type is not None):
+                facility=facility.filter(type=type)
+            if(power is not None):
+                facility=facility.filter(powersource=power)
+            if(code is not None):
+                facility=facility.filter(code__icontains=code)
+            gap_save=gapSave.objects.filter(facility__in=facility)
+            if(degree is not None):
+                degree=int(degree)
+                gap_save=gap_save.filter(condition=degree)
+            if(general_from is not None):
+                gap_save=gap_save.filter(general__gte=general_from)
+            if(general_to is not None):
+                gap_save=gap_save.filter(general__lte=general_to)
+            if(under_1_from is not None):
+                gap_save=gap_save.filter(under_1__gte=under_1_from)
+            if(under_1_to is not None):
+                gap_save=gap_save.filter(under_1__lte=under_1_to)
+            if(req_cap_from is not None):
+                gap_save=gap_save.filter(req_capacity__gte=req_cap_from)
+            if(req_cap_to is not None):
+                gap_save=gap_save.filter(req_capacity__lte=req_cap_to)
+            if(available_from is not None):
+                gap_save=gap_save.filter(available__gte=available_from)
+            if(available_to is not None):
+                gap_save=gap_save.filter(available__lte=available_to)
+            if(func_cap_from is not None):
+                gap_save=gap_save.filter(func_cap__gte=func_cap_from)
+            if(func_cap_to is not None):
+                gap_save=gap_save.filter(func_cap__lte=func_cap_to)
+            if(excees_from is not None):
+                gap_save=gap_save.filter(exces__gte=excees_from)
+            if(excees_to is not None):
+                gap_save=gap_save.filter(exces__lte=excees_to)
+            gap_ser=gapSaveSerializer(gap_save,many=True)
+            return Response(gap_ser.data,status=status.HTTP_200_OK)    
+
+
 
 
         
