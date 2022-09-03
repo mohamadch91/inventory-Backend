@@ -327,7 +327,7 @@ class importfacilityView(APIView):
         ans=[]
         code=[]
         counter=0
-        fac_count=Facility.objects.all().count()
+        fac_count=Facility.objects.all()[len(Facility.objects.all())-1].id
         for x in request.data:
             data={}
             if(x["id"] is None):
@@ -344,18 +344,19 @@ class importfacilityView(APIView):
             else:
                 data["name"]=x["name"]    
             if(x["parentid"] is None):
-                return Response("parentid is required",status=status.HTTP_406_NOT_ACCEPTABLE)
+                return Response(x["parentid"]+"parentid is required",status=status.HTTP_406_NOT_ACCEPTABLE)
             else:
                 if(counter==0):
                     data["parentid"]=None
+                    code.append(x["parentid"])
                 else:
                     if(x["parentid"] not in code):
-                        return Response("parentid is not valid",status=status.HTTP_406_NOT_ACCEPTABLE)
+                        return Response(x["parentid"]+"parentid is not valid",status=status.HTTP_406_NOT_ACCEPTABLE)
                     i=code.index(x["parentid"])
-                    data["parentid"]=i+fac_count+1
+                    data["parentid"]=i+fac_count
             typess=""        
             if(x["type"] is None):
-                data["type"]=typess
+                data["type"]=None
             else:
                 type=x["type"]
                 types=facilityParamDescription.objects.filter(paramid=10,enabled=True,name=type)
@@ -396,13 +397,40 @@ class importfacilityView(APIView):
             facility_num=facility_num+1
             facility_num=f"{facility_num:05d}"
             data["code"]=f"{country_code}{level_code}{facility_num}"
+            print(data["parentid"])
             ser=facilitySerializer(data=data)
             if(ser.is_valid()):
                 ser.save()
-                ans.append(ser.data)
+                ns={}
+                country=CountryConfig.objects.all()[0]
+                level=LevelConfig.objects.filter(name=x["lname"])[0]
+                if(x['pop']<level.minpop or x['pop']>level.maxpop):
+                    return Response("pop is not valid",status=status.HTTP_406_NOT_ACCEPTABLE)
+                if(country.poptarget=='General population'):
+                    ns['pop']=int(x['pop'])
+                else:
+                    ns['pop']=int(x['pop']) 
+                parent=""
+                if(ser.data["parentid"] is not None):
+                    parent=Facility.objects.filter(id=data["parentid"])[0].name
+                type_ans=""
+                if(ser.data["type"] is not None):
+                    types=facilityParamDescription.objects.filter(paramid=10,enabled=True,name=ser.data["type"])[0].name    
+                new_data={
+                    "id":ser.data["id"],
+                    "code":ser.data["code"],
+                    "name":ser.data["name"],
+                    "parentid":parent,
+                    "type":type_ans,
+                    "level":ser.data["level"],
+                    "lname":level.name,
+                    "pop":ns["pop"]
+
+                }
+                ans.append(new_data)
                 counter=counter+1
             else:
-                pass
+                return Response(ser.errors,status=status.HTTP_406_NOT_ACCEPTABLE)
         return Response(ans,status=status.HTTP_200_OK)
 
 
