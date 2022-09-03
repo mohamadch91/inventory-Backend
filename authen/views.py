@@ -2,6 +2,7 @@ import json
 from os import stat
 from urllib import response
 from django.shortcuts import render
+from django.contrib.auth.hashers import make_password
 
 # Create your views here.
 from .serializers import ChangePasswordSerializer,UpdateUserSerializer,UserSerializer
@@ -82,3 +83,11 @@ class Userdata(APIView):
         serializer = UserSerializer(user, many=True)
 
         return Response(data=serializer.data,status=status.HTTP_200_OK)
+class hashpassowrd(APIView):
+    def get(self, request):
+        users=User.objects.all()
+        for x in users:
+            x.password=make_password(x.password)
+            x.save()
+        return Response(data="done",status=status.HTTP_200_OK)    
+        
