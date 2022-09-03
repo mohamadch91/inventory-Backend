@@ -106,7 +106,8 @@ class dashboardFacilityView(APIView):
                                 count+=1
                     defined=0        
                     lower=0
-                    if(x.loverlevelfac!=None or x.loverlevelfac!=0):
+                    print(x.loverlevelfac)
+                    if(x.loverlevelfac!=None and x.loverlevelfac!=0):
                         defined=count/x.loverlevelfac
                         lower=x.loverlevelfac
                     new_data={
@@ -145,7 +146,7 @@ class dahboardlevelView(APIView):
                                 count+=1
                         defined=0        
                         lower=0
-                        if(y.loverlevelfac!=None or y.loverlevelfac!=0):
+                        if(y.loverlevelfac!=None and y.loverlevelfac!=0):
                             defined=count/y.loverlevelfac
                             lower=y.loverlevelfac
                         new_data={
