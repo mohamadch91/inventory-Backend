@@ -66,7 +66,15 @@ class FacilityView(APIView):
             return Response(serializer.data)
         country = Facility.objects.all()
         serializer =  facilitySerializer(country, many=True)
-        return Response(serializer.data)
+        ser_copy=copy.deepcopy(serializer.data)
+        for i in (ser_copy):
+            type=i["type"]
+            if(type != None and type != ""):
+                type_name=get_object_or_404(facilityParamDescription,id=type).name
+                i["type"]=type_name
+                
+
+        return Response(ser_copy)
 
     def put(self, request, ):
         print(request)
@@ -343,9 +351,10 @@ class importfacilityView(APIView):
                     if(x["parentid"] not in code):
                         return Response("parentid is not valid",status=status.HTTP_406_NOT_ACCEPTABLE)
                     i=code.index(x["parentid"])
-                    data["parentid"]=i
+                    data["parentid"]=i+Facility.objects.all().count()+1
+            typess=""        
             if(x["type"] is None):
-                return Response("type is required",status=status.HTTP_406_NOT_ACCEPTABLE)
+                data["type"]=typess
             else:
                 type=x["type"]
                 types=facilityParamDescription.objects.filter(paramid=10,enabled=True,name=type)
@@ -356,26 +365,47 @@ class importfacilityView(APIView):
             if((x["level"] is None and x["lname"] is None) or x["level"]==0):
                 return Response("level is required",status=status.HTTP_406_NOT_ACCEPTABLE)
             else:
-                lcount=LevelConfig.objects.all().count()
-                if(x["level"]>lcount):
-                    return Response("level is not valid",status=status.HTTP_406_NOT_ACCEPTABLE)
-            if(x["level"] is None and x["lname"] is not None):
-                level=LevelConfig.objects.filter(name=x["lname"])
-                if(level.count()==0):
-                    return Response("level is not valid",status=status.HTTP_406_NOT_ACCEPTABLE)
-                else:
-                    data["level"]=level[0].id
+                if(x["level"] is None and x["lname"] is not None):
+                    level=LevelConfig.objects.filter(name=x["lname"])
+                    if(level.count()==0):
+                        return Response("level is not valid",status=status.HTTP_406_NOT_ACCEPTABLE)
+                    else:
+                        data["level"]=level[0].id
+                else:        
+                    lcount=LevelConfig.objects.all().count()
+                    if(x["level"]>lcount):
+                        return Response("level is not valid",status=status.HTTP_406_NOT_ACCEPTABLE)
+            
             if(x["pop"] is None):
                 return Response("pop is required",status=status.HTTP_406_NOT_ACCEPTABLE)
             else:
                 country=CountryConfig.objects.all()[0]
-                level=LevelConfig.objects.filter(name=x["lname"])
+                level=LevelConfig.objects.filter(name=x["lname"])[0]
                 if(x['pop']<level.minpop or x['pop']>level.maxpop):
                     return Response("pop is not valid",status=status.HTTP_406_NOT_ACCEPTABLE)
                 if(country.poptarget=='General population'):
                     data['populationnumber']=int(x['pop'])
                 else:
                     data['childrennumber']=int(x['pop'])    
+            country=CountryConfig.objects.all()[0]
+            country_code=country.codecountry
+            level_code=data["level"]
+            level_code =f"{level_code:02d}"
+            facility_num=Facility.objects.filter(level=level_code)[len(Facility.objects.filter(level=level_code))-1].id
+            facility_num=facility_num+1
+            facility_num=f"{facility_num:05d}"
+            data["code"]=f"{country_code}{level_code}{facility_num}"
+            ser=facilitySerializer(data=data)
+            if(ser.is_valid()):
+                ser.save()
+                ans.append(ser.data)
+                counter=counter+1
+            else:
+                return Response(ser.errors,status=status.HTTP_406_NOT_ACCEPTABLE)
+        return Response(ans,status=status.HTTP_200_OK)
+
+
+                    
                 
 
                 
