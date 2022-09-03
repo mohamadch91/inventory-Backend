@@ -327,6 +327,7 @@ class importfacilityView(APIView):
         ans=[]
         code=[]
         counter=0
+        fac_count=Facility.objects.all().count()
         for x in request.data:
             data={}
             if(x["id"] is None):
@@ -351,7 +352,7 @@ class importfacilityView(APIView):
                     if(x["parentid"] not in code):
                         return Response("parentid is not valid",status=status.HTTP_406_NOT_ACCEPTABLE)
                     i=code.index(x["parentid"])
-                    data["parentid"]=i+Facility.objects.all().count()+1
+                    data["parentid"]=i+fac_count+1
             typess=""        
             if(x["type"] is None):
                 data["type"]=typess
@@ -401,7 +402,7 @@ class importfacilityView(APIView):
                 ans.append(ser.data)
                 counter=counter+1
             else:
-                return Response(ser.errors,status=status.HTTP_406_NOT_ACCEPTABLE)
+                pass
         return Response(ans,status=status.HTTP_200_OK)
 
 
