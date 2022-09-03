@@ -106,7 +106,7 @@ class dashboardFacilityView(APIView):
                                 count+=1
                     defined=0        
                     lower=0
-                    if(x.loverlevelfac!=None):
+                    if(x.loverlevelfac!=None or x.loverlevelfac!=0):
                         defined=count/x.loverlevelfac
                         lower=x.loverlevelfac
                     new_data={
@@ -145,7 +145,7 @@ class dahboardlevelView(APIView):
                                 count+=1
                         defined=0        
                         lower=0
-                        if(y.loverlevelfac!=None):
+                        if(y.loverlevelfac!=None or y.loverlevelfac!=0):
                             defined=count/y.loverlevelfac
                             lower=y.loverlevelfac
                         new_data={
@@ -187,8 +187,8 @@ class getitemmaintatnce(APIView):
         items=item.objects.filter(facility=facility.id)
         three_days=[]
         seven_days=[]
+        counter2=0
         for x in items:
-            counter2=0
             if(x.IsItFunctioning==False):
                 continue
             if(x.MaintenanceGroup!=None):
