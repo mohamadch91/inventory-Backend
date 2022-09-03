@@ -1,3 +1,4 @@
+from operator import indexOf
 from django.shortcuts import render
 
 # Create your views here.
@@ -312,3 +313,70 @@ class facilityPArentView(APIView):
         return Response("need query param",status=status.HTTP_400_BAD_REQUEST)    
         
 
+class importfacilityView(APIView):
+    permission_classes = (IsAuthenticated,)
+    def post(self,request):
+        ans=[]
+        code=[]
+        counter=0
+        for x in request.data:
+            data={}
+            if(x["id"] is None):
+                return Response("id is required",status=status.HTTP_406_NOT_ACCEPTABLE)
+            if(x["code"] is None):
+                return Response("code is required",status=status.HTTP_406_NOT_ACCEPTABLE)
+            else:
+                if(x["code"] in code):
+                    return Response("code is not unique",status=status.HTTP_406_NOT_ACCEPTABLE)
+                else:
+                    code.append(x["code"])    
+            if(x["name"] is None):
+                return Response("name is required",status=status.HTTP_406_NOT_ACCEPTABLE)
+            else:
+                data["name"]=x["name"]    
+            if(x["parentid"] is None):
+                return Response("parentid is required",status=status.HTTP_406_NOT_ACCEPTABLE)
+            else:
+                if(counter==0):
+                    data["parentid"]=None
+                else:
+                    if(x["parentid"] not in code):
+                        return Response("parentid is not valid",status=status.HTTP_406_NOT_ACCEPTABLE)
+                    i=code.index(x["parentid"])
+                    data["parentid"]=i
+            if(x["type"] is None):
+                return Response("type is required",status=status.HTTP_406_NOT_ACCEPTABLE)
+            else:
+                type=x["type"]
+                types=facilityParamDescription.objects.filter(paramid=10,enabled=True,name=type)
+                if(types.count()==0):
+                    return Response("type is not valid",status=status.HTTP_406_NOT_ACCEPTABLE)
+                else:
+                    data["type"]=types[0].id
+            if((x["level"] is None and x["lname"] is None) or x["level"]==0):
+                return Response("level is required",status=status.HTTP_406_NOT_ACCEPTABLE)
+            else:
+                lcount=LevelConfig.objects.all().count()
+                if(x["level"]>lcount):
+                    return Response("level is not valid",status=status.HTTP_406_NOT_ACCEPTABLE)
+            if(x["level"] is None and x["lname"] is not None):
+                level=LevelConfig.objects.filter(name=x["lname"])
+                if(level.count()==0):
+                    return Response("level is not valid",status=status.HTTP_406_NOT_ACCEPTABLE)
+                else:
+                    data["level"]=level[0].id
+            if(x["pop"] is None):
+                return Response("pop is required",status=status.HTTP_406_NOT_ACCEPTABLE)
+            else:
+                country=CountryConfig.objects.all()[0]
+                level=LevelConfig.objects.filter(name=x["lname"])
+                if(x['pop']<level.minpop or x['pop']>level.maxpop):
+                    return Response("pop is not valid",status=status.HTTP_406_NOT_ACCEPTABLE)
+                if(country.poptarget=='General population'):
+                    data['populationnumber']=int(x['pop'])
+                else:
+                    data['childrennumber']=int(x['pop'])    
+                
+
+                
+                
