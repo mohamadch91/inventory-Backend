@@ -30,17 +30,20 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.db import router
-from django.urls import path,include
+from django.urls import path,include, re_path
 from rest_framework.routers import DefaultRouter
 from rest_framework_simplejwt.views import TokenRefreshView
 from django.conf import settings
 from django.conf.urls.static import static
+from django.shortcuts import render
 router = DefaultRouter()
+def render_react(request):
+    return render(request, "index.html")
+  
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('auth/', include('authen.urls')),
     path('settings/', include('settings.urls')),
-    path('', include(router.urls)),
     path('user-data/', include('userData.urls')),
     path('items/', include('items.urls')),
     path('related/', include('related.urls')),
@@ -54,7 +57,9 @@ urlpatterns = [
     path('maintanance/',include('maintanance.urls')),
     path('reports/',include('reports.urls')),
     path('dashboard/',include('dashboard.urls')),
-    path('item/qr/',include('qr.urls'))
+    path('item/qr/',include('qr.urls')),
+    re_path(r"^$", render_react),
+    re_path(r"^(?:.*)/?$", render_react),
 
 
 
