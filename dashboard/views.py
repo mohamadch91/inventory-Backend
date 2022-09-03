@@ -106,7 +106,6 @@ class dashboardFacilityView(APIView):
                                 count+=1
                     defined=0        
                     lower=0
-                    print(x.loverlevelfac)
                     if(x.loverlevelfac!=None and x.loverlevelfac!=0):
                         defined=count/x.loverlevelfac
                         lower=x.loverlevelfac
