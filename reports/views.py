@@ -1597,7 +1597,7 @@ class planOneGapView(APIView):
                 vac_cap=finded.vaccinenetstoragecapacity
                 freez_cap=finded.coolantpacknominalcapacity
                 type=finded.type
-        for i in range(count):
+        for i in range(int(count)):
             ser=plannedSerializer(data=new_data)
             if(ser.is_valid()):
                 ser.save()
