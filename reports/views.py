@@ -867,7 +867,7 @@ class profileColdchainView(APIView):
                             if(z.StorageCondition=="+2 - +8 C"):
                                 available+=z.NetVaccineStorageCapacity  
                         if(degree=="2"):
-                            if(z.StorageCondition=="+-20 C"):
+                            if(z.StorageCondition=="-20 C"):
                                 available+=z.NetVaccineStorageCapacity
                         if(degree=="3"):
                             if(z.StorageCondition=="-70 C"):
@@ -1019,7 +1019,7 @@ class gapItemReportView(APIView):
                             if(y.IsItFunctioning):
                                 fcapacity1+=y.NetVaccineStorageCapacity
                     if(degree=="2"):
-                        if(y.StorageCondition=="+-20 C"):
+                        if(y.StorageCondition=="-20 C"):
                             capacity2+=y.NetVaccineStorageCapacity
                             if(y.IsItFunctioning):
                                 fcapacity2+=y.NetVaccineStorageCapacity

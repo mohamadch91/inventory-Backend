@@ -1,4 +1,5 @@
 from typing import final
+from xmlrpc.client import APPLICATION_ERROR
 from django.shortcuts import render
 
 # Create your views here.
@@ -302,5 +303,26 @@ class itemPQSView(APIView):
             return Response("need query param",status=status.HTTP_200_OK)
 
             
-
+class itemdb(APIView):
+    def post(self,request):
+        new_data=copy.deepcopy(request.data)
+        for i in new_data:
+            fac=get_object_or_404(Facility,code=i["facility"])
+            i["facility"]=fac.id
+            item_type=get_object_or_404(ItemType,title=i["item_type"])
+            i["item_type"]=item_type.id
+            item_class=get_object_or_404(ItemClass,title=i["item_class"])
+            i["item_class"]=item_class.id
+            if(i["StorageCondition"]=="2-8 C"):
+                i["StorageCondition"]="+2 - +8 C"
+            if(i["StorageCondition"]=="-20 C"):
+                i["StorageCondition"]="-20 C"
+            if(i["StorageCondition"]=="-70 C"):
+                i["StorageCondition"]="-70 C"   
+            ser=itemSerializer(data=i)     
+            if ser.is_valid():
+                ser.save()
+            else:
+                return Response(ser.errors,status=status.HTTP_400_BAD_REQUEST)
         
+        return Response("ok",status=status.HTTP_200_OK)

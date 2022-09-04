@@ -7,7 +7,7 @@ def deleteRecord():
         print("Connected to SQLite")
 
         # Deleting single record now
-        sql_delete_query = """DROP TABLE django_admin_log"""
+        sql_delete_query = """DELETE from item """
         cursor.execute(sql_delete_query)
         sqliteConnection.commit()
         print("Record deleted successfully ")
