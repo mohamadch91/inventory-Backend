@@ -1,3 +1,4 @@
+from decimal import Decimal
 from turtle import title
 from django.shortcuts import render
 
@@ -1077,6 +1078,17 @@ class gapItemReportView(APIView):
                 excees3=False
                 excees4=False
                 excees5=False
+                req1=float(req1)
+                req2=float(req2)
+                req3=float(req3)
+                req4=float(req4)
+                req5=float(req5)
+
+                # fcapacity1=Decimal(fcapacity1)
+                # fcapacity2=Decimal(fcapacity2)
+                # fcapacity3=Decimal(fcapacity3)
+                # fcapacity4=Decimal(fcapacity4)
+                # fcapacity5=Decimal(fcapacity5)
                 if(req1-capacity1<0):
                     excees1=True
                 if(req2-capacity2<0):
