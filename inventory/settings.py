@@ -195,8 +195,7 @@ STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CORS_ALLOWED_ORIGINS = [
-    "https://www.test-cors.org",'http://localhost:3000','https://invfrontdev.herokuapp.com','http://5.182.47.38:3002','http://127.0.0.1:8000'
-]
+    "https://www.test-cors.org",'http://localhost:3000','https://invfrontdev.herokuapp.com','http://5.182.47.38:3002']
 
 # CSRF_TRUSTED_ORIGINS = [
 #     'www.test-cors.org',
