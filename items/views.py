@@ -28,7 +28,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from django.shortcuts import get_object_or_404
-
+import copy
 
 class itemclassView(APIView):
     permission_classes = (IsAuthenticated,)
@@ -254,3 +254,16 @@ class manhelper(APIView):
         item_class=ItemClass.objects.filter(active=True)
         ser=itemclassSerializer(item_class,many=True)
         return Response(ser.data)
+
+class itemdb(APIView):
+    def post(self,request):
+        new_data=copy.deepcopy(request.data)
+        for i in new_data:
+            item=get_object_or_404(ItemType,id=i["id"])
+            i["code"]=item.code
+            i["itemclass"]=item.itemclass.id
+            ser=itemtypeSerializer(item,data=i)
+            if ser.is_valid():
+                ser.save()
+            else:
+                pass

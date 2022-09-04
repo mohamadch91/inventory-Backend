@@ -58,7 +58,7 @@ class item(models.Model):
     NetGeneratedPower=models.IntegerField(null=True,blank=True)
     EnergySource=models.CharField(max_length=50, null=True,blank=True)
     DoesItHaveAnExtraFuelTank=models.BooleanField(null=True,blank=True)
-    PowerOrFuelConsumption=models.IntegerField(null=True)
+    PowerOrFuelConsumption=models.IntegerField(null=True,blank=True)
     IsThereAnAutomaticStartUpSystem=models.BooleanField(null=True,blank=True)
     FinancialSource=models.IntegerField(null=True,blank=True)
     UnitCostWhenInstalled=models.IntegerField(null=True,blank=True)
