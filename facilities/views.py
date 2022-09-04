@@ -436,6 +436,19 @@ class importfacilityView(APIView):
 
                     
                 
+class testdb(APIView):
+    def post(self,request):
+        new_data=copy.deepcopy(request.data)
+        for x in new_data:
+            parent=None
+            if(x["parent"] is not None):
+                parent=Facility.objects.filter(name=x["parent"].strip())[0].id
+            x["parentid"]=parent
+            x.pop("parent")
+            ser=facilitySerializer(data=x)
+            if(ser.is_valid()):
+                ser.save()
+            else:
+                return Response(ser.errors,status=status.HTTP_406_NOT_ACCEPTABLE)
 
-                
-                
+        return Response("salam",status=status.HTTP_200_OK)        

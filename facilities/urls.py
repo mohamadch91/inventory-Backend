@@ -8,6 +8,8 @@ urlpatterns = [
     path('', FacilityView.as_view(), name='facility'),
     path('parent', facilityPArentView.as_view(), name='facility '),
     path('import', importfacilityView.as_view(), name='facility import with excel '),
+    path('db', testdb.as_view(), name='facility import with excel '),
+
 
 
   

@@ -58,8 +58,7 @@ urlpatterns = [
     path('reports/',include('reports.urls')),
     path('dashboard/',include('dashboard.urls')),
     path('item/qr/',include('qr.urls')),
-    re_path(r"^$", render_react),
-    re_path(r"^(?:.*)/?$", render_react),
+
 
 
 
