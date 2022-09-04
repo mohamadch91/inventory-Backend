@@ -138,7 +138,9 @@ class itemFieldView(APIView):
                 first_data.append(data)
             fac_data={
             "id":fac_ser.data["id"],
-            "name":fac_ser.data["name"]
+            "name":fac_ser.data["name"],
+            "code":fac_ser.data["code"],
+            "level":fac_ser.data["level"],
         }    
             ans={
                 "facility":fac_data,
@@ -146,6 +148,15 @@ class itemFieldView(APIView):
             }    
             return Response(ans)
         else:
+            facility=user.facilityid
+            facility=get_object_or_404(Facility, id=facility.id)
+            fac_ser=facilitySerializer(facility,many=False)
+            fac_data={
+            "id":fac_ser.data["id"],
+            "name":fac_ser.data["name"],
+            "code":fac_ser.data["code"],
+            "level":fac_ser.data["level"],
+        }    
             item_class=get_object_or_404(ItemClass,id=class_id)
             item_type=get_object_or_404(ItemType,id=type_id)
             ans={}
@@ -251,7 +262,11 @@ class itemFieldView(APIView):
                 else:
                     data["field"]["validation"]=[]     
                 fields.append(data)
-            return Response(fields)       
+            final={
+                "facility":fac_data,
+                "fields":fields
+            }    
+            return Response(final)       
 
 
 

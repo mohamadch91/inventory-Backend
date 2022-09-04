@@ -105,6 +105,8 @@ class facilitysegView(APIView):
             this_facility=Facility.objects.filter(id=user.facilityid.id)[0]
             level=this_facility.level
             allow_levels=LevelConfig.objects.filter(id__gte=level.id)
+            counter=CountryConfig.objects.all()[0]
+            allow_levels=allow_levels.filter(id__lte=counter.levels) 
             levels=levelSerializer(allow_levels,many=True)
             power=facilityParamDescription.objects.filter(paramid=12,enabled=True)
             power=facilityParamDescriptionSerilizer(power,many=True)
@@ -211,6 +213,8 @@ class subfacView(APIView):
             this_facility=Facility.objects.filter(id=user.facilityid.id)[0]
             level=this_facility.level
             allow_levels=LevelConfig.objects.filter(id__gte=level.id)
+            counter=CountryConfig.objects.all()[0]
+            allow_levels=allow_levels.filter(id__lte=counter.levels)
             levels=levelSerializer(allow_levels,many=True)
             l_data=[]
             for x in levels.data:
@@ -269,6 +273,8 @@ class facilitymap(APIView):
             this_facility=Facility.objects.filter(id=user.facilityid.id)[0]
             level=this_facility.level
             allow_levels=LevelConfig.objects.filter(id__gte=level.id)
+            counter=CountryConfig.objects.all()[0]
+            allow_levels=allow_levels.filter(id__lte=counter.levels)
             levels=levelSerializer(allow_levels,many=True)
             power=facilityParamDescription.objects.filter(paramid=12,enabled=True)
             power=facilityParamDescriptionSerilizer(power,many=True)
@@ -333,6 +339,8 @@ class itemGroupedReport(APIView):
             this_facility=Facility.objects.filter(id=user.facilityid.id)[0]
             level=this_facility.level
             allow_levels=LevelConfig.objects.filter(id__gte=level.id)
+            counter=CountryConfig.objects.all()[0]
+            allow_levels=allow_levels.filter(id__lte=counter.levels)
             levels=levelSerializer(allow_levels,many=True)
             power=facilityParamDescription.objects.filter(paramid=12,enabled=True)
             powerss=facilityParamDescriptionSerilizer(power,many=True)
@@ -512,6 +520,8 @@ class itemFacilityReport(APIView):
             this_facility=Facility.objects.filter(id=user.facilityid.id)[0]
             level=this_facility.level
             allow_levels=LevelConfig.objects.filter(id__gte=level.id)
+            counter=CountryConfig.objects.all()[0]
+            allow_levels=allow_levels.filter(id__lte=counter.levels)
             levels=levelSerializer(allow_levels,many=True)
             power=facilityParamDescription.objects.filter(paramid=12,enabled=True)
             powerss=facilityParamDescriptionSerilizer(power,many=True)
@@ -678,6 +688,8 @@ class facilityProfileView(APIView):
         this_facility=Facility.objects.filter(id=user.facilityid.id)[0]
         level=this_facility.level
         allow_levels=LevelConfig.objects.filter(id__gt=level.id)
+        counter=CountryConfig.objects.all()[0]
+        allow_levels=allow_levels.filter(id__lte=counter.levels)
         by_type=[]
         by_owner=[]
         by_power=[]
@@ -800,7 +812,9 @@ class profileColdchainView(APIView):
             user=request.user
             this_facility=Facility.objects.filter(id=user.facilityid.id)[0]
             level=this_facility.level
-            allow_levels=LevelConfig.objects.filter(id__gte=level.id) 
+            allow_levels=LevelConfig.objects.filter(id__gte=level.id)
+            counter=CountryConfig.objects.all()[0]
+            allow_levels=allow_levels.filter(id__lte=counter.levels) 
             ans_1=[]
             table_1=[]
             table_2=[]
@@ -946,6 +960,8 @@ class gapItemReportView(APIView):
             this_facility=Facility.objects.filter(id=user.facilityid.id)[0]
             level=this_facility.level
             allow_levels=LevelConfig.objects.filter(id__gte=level.id)
+            counter=CountryConfig.objects.all()[0]
+            allow_levels=allow_levels.filter(id__lte=counter.levels)
             levels=levelSerializer(allow_levels,many=True)
             power=facilityParamDescription.objects.filter(paramid=12,enabled=True)
             powerss=facilityParamDescriptionSerilizer(power,many=True)
@@ -1413,6 +1429,8 @@ class planGapView(APIView):
             this_facility=Facility.objects.filter(id=user.facilityid.id)[0]
             level=this_facility.level
             allow_levels=LevelConfig.objects.filter(id__gte=level.id)
+            counter=CountryConfig.objects.all()[0]
+            allow_levels=allow_levels.filter(id__lte=counter.levels)
             levels=levelSerializer(allow_levels,many=True)
             power=facilityParamDescription.objects.filter(paramid=12,enabled=True)
             powerss=facilityParamDescriptionSerilizer(power,many=True)
@@ -1781,6 +1799,8 @@ class plannedSavedReport(APIView):
             this_facility=Facility.objects.filter(id=user.facilityid.id)[0]
             level=this_facility.level
             allow_levels=LevelConfig.objects.filter(id__gte=level.id)
+            counter=CountryConfig.objects.all()[0]
+            allow_levels=allow_levels.filter(id__lte=counter.levels)
             levels=levelSerializer(allow_levels,many=True)
             power=facilityParamDescription.objects.filter(paramid=12,enabled=True)
             powerss=facilityParamDescriptionSerilizer(power,many=True)

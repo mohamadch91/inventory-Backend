@@ -91,10 +91,10 @@ class FacilityView(APIView):
         facility = get_object_or_404(Facility, id=id)
         below=Facility.objects.filter(parentid=facility.id)
         if below.count()>0:
-            return Response({"message": "Cannot delete facility with children"}, status=status.HTTP_400_BAD_REQUEST)
+            return Response({"message": "Cannot delete facility with children"}, status=status.HTTP_403_FORBIDDEN)
         item_num=item.objects.filter(facility=facility.id).count()
         if item_num>0:
-            return Response({"message": "Cannot delete facility with items"}, status=status.HTTP_400_BAD_REQUEST)
+            return Response({"message": "Cannot delete facility with items"}, status=status.HTTP_403_FORBIDDEN)
         facility.delete()    
         return Response(status=status.HTTP_204_NO_CONTENT)
 
@@ -119,22 +119,23 @@ class facilityFieldView(APIView):
                 if(parents.data[x]["parentid"] is not None):
                     if(parents.data[y]["parentid"] is not None):
                         if(parents.data[y]["parentid"]>=parents.data[x]["id"]):
-                            print("counter"+str(counter))
+                            # print("counter"+str(counter))
                             counter+=1
-            sum+=counter                
+            sum+=counter  
+            print(parents.data[x]["loverlevelfac"])              
             if(parents.data[x]["loverlevelfac"] is not None):                
                 if(sum>= parents.data[x]["loverlevelfac"]):
+                    print("salam")
                     if(this_facility.id<parents.data[x]["id"]):
                         break
-                    print(this_facility.id)        
-                    print(parents.data[x]["id"])
-                    print(parents.data[x]["loverlevelfac"])
-                    print(counter)
+
                     return Response("You have reached the maximum number of facilities you can add",status=status.HTTP_403_FORBIDDEN)
 
 
         level=this_facility.level
         allow_levels=LevelConfig.objects.filter(id__gt=level.id)
+        counter=CountryConfig.objects.all()[0]
+        allow_levels=allow_levels.filter(id__lte=counter.levels)
         if(allow_levels.count()==0):
             return Response ("you cannot add facility at this level",status=status.HTTP_403_FORBIDDEN)  
         

@@ -99,33 +99,33 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt.token_blacklist',
     
 ]
+
 MIDDLEWARE = [
-  "django.middleware.security.SecurityMiddleware",
-  "whitenoise.middleware.WhiteNoiseMiddleware",
-  "django.contrib.sessions.middleware.SessionMiddleware",
-  "django.middleware.common.CommonMiddleware",
-  "django.middleware.csrf.CsrfViewMiddleware",
-  "django.contrib.auth.middleware.AuthenticationMiddleware",
-  "django.contrib.messages.middleware.MessageMiddleware",
-  "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    'django.middleware.security.SecurityMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 ROOT_URLCONF = 'inventory.urls'
 
 TEMPLATES = [
-  {
-    "BACKEND": "django.template.backends.django.DjangoTemplates",
-    # Tell Django where to find Reacts index.html file
-    "DIRS": [os.path.join(BASE_DIR, "build")],
-    "APP_DIRS": True,
-    "OPTIONS": {
-      "context_processors": [
-      "django.template.context_processors.debug",
-      "django.template.context_processors.request",
-      "django.contrib.auth.context_processors.auth",
-      "django.contrib.messages.context_processors.messages",
-      ],
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
     },
-  },
 ]
 VERSATILEIMAGEFIELD_RENDITION_KEY_SETS = {
     'product_headshot': [
@@ -195,7 +195,8 @@ STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CORS_ALLOWED_ORIGINS = [
-    "https://www.test-cors.org",'http://localhost:3000','https://invfrontdev.herokuapp.com','http://5.182.47.38:3002']
+    "https://www.test-cors.org",'http://localhost:3000','https://invfrontdev.herokuapp.com','http://5.182.47.38:3002'
+]
 
 # CSRF_TRUSTED_ORIGINS = [
 #     'www.test-cors.org',
@@ -210,10 +211,3 @@ REST_FRAMEWORK = {
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ],
 }
-STATICFILES_DIRS = [
-  # Tell Django where to look for React's static files (css, js)
-  os.path.join(BASE_DIR, "build/static"),
-]
-
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
-STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
