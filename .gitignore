@@ -5,3 +5,6 @@
 __pycache__/
 *.py[cod]
 /all_fixtures
+*.xlsx
+readexcelfile.py
+readexcelfile1.py
