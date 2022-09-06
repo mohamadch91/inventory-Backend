@@ -941,10 +941,10 @@ class profileColdchainView(APIView):
                     "under1":under1,
                     "req":req,
                     "available":available,
-                    "diff":available-req,
+                    "diff":float(available)-float(req),
                     "require_capacity":require_capacity,
                     "available_capacity":available_capacity,
-                    "diff_capacity":available_capacity-require_capacity,
+                    "diff_capacity":float(available_capacity)-float(require_capacity),
                 }
                 table_2.append(data1)
 
@@ -1021,7 +1021,8 @@ class gapItemReportView(APIView):
             year_from=request.query_params.get('year_from',None)
             year_to=request.query_params.get('year_to',None)
             calculate_for=request.query_params.get('calculate_for',None)
-            facility=Facility.objects.all()
+            facility=Facility.objects.filter(parentid=request.user.facilityid.id)
+            facility=Facility.objects.filter(id=request.user.facilityid.id)|facility
             items=item.objects.all()
             if(degree is None):
                 return Response("degree is required",status.HTTP_200_OK)
@@ -1439,8 +1440,8 @@ class gapMapReport(APIView):
             else:
                 if(z.req_capacity-z.func_cap==0):
                     facilities_id.append(z.facility.id)
-                    
-        all_fac=Facility.objects.all()
+        all_fac=Facility.objects.filter(parentid=request.user.facilityid.id)
+        all_fac=Facility.objects.filter(id=request.user.facilityid.id)|all_fac           
         
         ans=[]
         all_fac=all_fac.filter(id__in=facilities_id)
@@ -1508,7 +1509,8 @@ class planGapView(APIView):
             func_cap_to=request.query_params.get('func_cap_to',None)
             excees_from=request.query_params.get('excees_from',None)
             excees_to=request.query_params.get('excees_to',None)
-            facility=Facility.objects.all()
+            facility=Facility.objects.filter(parentid=request.user.facilityid.id)
+            facility=Facility.objects.filter(id=request.user.facilityid.id)|facility
             if(name is not None):
                 facility=facility.filter(name__icontains=name)
             if(level is not None):
