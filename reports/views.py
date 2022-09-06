@@ -1406,13 +1406,15 @@ class gapItemReportView(APIView):
                 
 
 
+            file_str=CountryConfig.objects.all().first().codecountry+"_"+str(degree)+"_"+str(datetime.datetime.now())+".xlsx"
             file_path = './media/gap_report.xlsx'
+        
             if os.path.isfile(file_path):
                     os.remove(file_path)    
             df = pd.DataFrame(excel_data)
-            df.to_excel('./media/gap_report.xlsx')    
+            df.to_excel('./media/'+file_str, index=False)  
             final_ans={
-                "excel":'/media/gap_report.xlsx' ,
+                "excel":'/media/'+file_str ,
                 "data":ans
             }
             return Response(final_ans)
@@ -1749,7 +1751,7 @@ class planOneGapView(APIView):
             for x in pqs3_data:
                 data={
                     "id":x.id,
-                    "name":x.description,
+                    "name":x.description+x.refrigeratorcapacity,
                     "pqs":3
                 }
                 ans.append(data)
@@ -1757,7 +1759,7 @@ class planOneGapView(APIView):
             for z in pqs4_ser:
                 data={
                     "id":z.id,
-                    "name":z.pqsnumber,
+                    "name":z.pqsnumber+z.vaccinenetstoragecapacity,
                     "pqs":4
                 }
                 ans.append(data)
