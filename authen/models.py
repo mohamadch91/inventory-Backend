@@ -18,7 +18,7 @@ class User(AbstractUser):
     reportadmin = models.BooleanField(blank=True, null=True)
     useradmin = models.BooleanField(blank=True, null=True)
     facilityid=models.ForeignKey(Facility, on_delete=models.CASCADE, blank=True, null=True)
-    owner=models.ForeignKey('self', on_delete=models.CASCADE, blank=True, null=True)
+    owner=models.CharField(max_length=50, blank=True, null=True)
 
     # USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []

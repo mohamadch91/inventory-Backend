@@ -15,7 +15,7 @@ import json
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['pk','password','is_active','is_superuser','name','facilityid','username','idnumber','position','phone','facadmin','itemadmin','reportadmin','useradmin','created_at','updated_at']
+        fields = ['pk','password','owner','is_active','is_superuser','name','facilityid','username','idnumber','position','phone','facadmin','itemadmin','reportadmin','useradmin','created_at','updated_at']
         extra_kwargs = {'password': {'write_only': True}}
         read_only_fields = ['created_at','updated_at']
 
@@ -24,7 +24,7 @@ class RegisterSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = User
-        fields = ['pk','password','is_active','name','facilityid','username','idnumber','position','phone','facadmin','itemadmin','reportadmin','useradmin','created_at','updated_at']
+        fields = ['pk','password','owner','is_active','name','facilityid','username','idnumber','position','phone','facadmin','itemadmin','reportadmin','useradmin','created_at','updated_at']
         extra_kwargs = {'password': {'write_only': True}}
     def create(self, validated_data):
         print(validated_data)

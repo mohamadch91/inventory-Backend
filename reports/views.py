@@ -1,4 +1,6 @@
 from decimal import Decimal
+from sqlite3 import Date
+from time import timezone
 from turtle import title
 from django.shortcuts import render
 
@@ -45,6 +47,8 @@ import copy
 import json
 import pandas as pd
 import os
+import datetime
+
 class gapReportView(APIView):
 
     def get(self,reqeust):
@@ -90,12 +94,13 @@ class exportExcel(APIView):
         # item_json=json.dumps(item_ser,indent=4)
         df = pd.DataFrame(facility_Ser)
         df_1 = pd.DataFrame(item_ser)
-        facility_str=country
-        df.to_excel('./media/exported_facility_json_data.xlsx')
-        df_1.to_excel('./media/exported_item_json_data.xlsx')
+        facility_str=country.codecountry+str(datetime.datetime.now())+"-Facility.xlsx"
+        item_str=country.codecountry+str(datetime.datetime.now())+"-Item.xlsx"
+        df.to_excel('./media/'+facility_str)
+        df_1.to_excel('./media/'+item_str)
         data={
-            "facility":"/media/exported_facility_json_data.xlsx",
-            "item":'/media/exported_item_json_data.xlsx'
+            "facility":"/media/"+facility_str,
+            "item":'/media/'+item_str
         }
         return Response(data,status=status.HTTP_200_OK)
 
@@ -147,7 +152,8 @@ class facilitysegView(APIView):
             general_to=request.query_params.get('gto',None)
             under_from=request.query_params.get('underfrom',None)
             under_to=request.query_params.get('underto',None)
-            all_fac=Facility.objects.all()
+            all_fac=Facility.objects.filter(parentid=request.user.facilityid.id)
+            all_fac=Facility.objects.filter(id=request.user.facilityid.id)|all_fac
             if(level is not None):
                 all_fac=all_fac.filter(level=level)
             if(type is not None):
@@ -238,7 +244,8 @@ class subfacView(APIView):
         else:
             #filter level
             level=request.query_params.get('level',None)
-            all_fac=Facility.objects.all()
+            all_fac=Facility.objects.filter(parentid=request.user.facilityid.id)
+            all_fac=Facility.objects.filter(id=request.user.facilityid.id)|all_fac
             if(level is not None):
                 all_fac=Facility.objects.filter(level=level)
             #return facilityname parentname level code type power population children
@@ -309,7 +316,8 @@ class facilitymap(APIView):
             type=request.query_params.get('type',None)
             power=request.query_params.get('power',None)
             func=request.query_params.get('func',None)
-            all_fac=Facility.objects.all()
+            all_fac=Facility.objects.filter(parentid=request.user.facilityid.id)
+            all_fac=Facility.objects.filter(id=request.user.facilityid.id)|all_fac
             if(level is not None):
                 all_fac=all_fac.filter(level=level)
             if(type is not None):
@@ -326,13 +334,17 @@ class facilitymap(APIView):
 
             ans=[]
             for x in all_fac:
-                if(x.gpsCordinate is not None):
-                    lat=float(x.gpsCordinate.split(",")[0].split("(")[1])
-                    lang=float(x.gpsCordinate.split(",")[1].split(")")[0])
-                    data={
-                        "cordinates": [lat,lang]
-                    }
-                    ans.append(data)
+                try:
+                    if(x.gpsCordinate is not None):
+                        print(x.gpsCordinate)
+                        lat=float(x.gpsCordinate.split(",")[0].split("(")[1])
+                        lang=float(x.gpsCordinate.split(",")[1].split(")")[0])
+                        data={
+                            "cordinates": [lat,lang]
+                        }
+                        ans.append(data)
+                except:
+                    continue        
             return Response(ans,status=status.HTTP_200_OK)
 
 #item grouped report
@@ -431,7 +443,8 @@ class itemGroupedReport(APIView):
             capacity_from=request.query_params.get('capacity_from',None)
             capacity_to=request.query_params.get('capacity_to',None)
             items=item.objects.all()
-            facility=Facility.objects.all()
+            facility=Facility.objects.filter(parentid=request.user.facilityid.id)
+            facility=Facility.objects.filter(id=request.user.facilityid.id)|facility
             if(name is not None):
                 facility=Facility.objects.filter(name__icontains=name)
             if(level is not None):
@@ -595,7 +608,8 @@ class itemFacilityReport(APIView):
             working=request.query_params.get('working',None)
             item_power=request.query_params.get('item_power',None)
             items=item.objects.all()
-            facility=Facility.objects.all()
+            facility=Facility.objects.filter(parentid=request.user.facilityid.id)
+            facility=Facility.objects.filter(id=request.user.facilityid.id)|facility
             if(name is not None):
                 facility=facility.filter(name__icontains=name)
             if(level is not None):
@@ -709,6 +723,8 @@ class facilityProfileView(APIView):
         owner=facilityParamDescription.objects.filter(paramid=5,enabled=True)
         power=facilityParamDescription.objects.filter(paramid=12,enabled=True)
         for x in allow_levels:
+            facility=Facility.objects.filter(parentid=request.user.facilityid.id)
+            facility=Facility.objects.filter(id=request.user.facilityid.id)|facility
             facility=Facility.objects.filter(level=x.id)
             
             for y in type:
@@ -829,6 +845,8 @@ class profileColdchainView(APIView):
             table_1=[]
             table_2=[]
             for x in allow_levels:
+                facility=Facility.objects.filter(parentid=request.user.facilityid.id)
+                facility=Facility.objects.filter(id=request.user.facilityid.id)|facility
                 facility=Facility.objects.filter(level=x.id)
                 general=0
                 under1=0
