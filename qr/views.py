@@ -45,11 +45,16 @@ class QRhelperview(APIView):
         user=request.user
         facility=user.facilityid
         facility=get_object_or_404(Facility, id=facility.id)
-        all_fac=Facility.objects.all()
+        all_fac=Facility.objects.filter(parentid=facility.id)
+        all_fac=Facility.objects.filter(id=facility.id)|all_fac
         fac_ans=[]
+        fac_ans.append({
+            "id":facility.id,
+            "name":facility.name,
+        })
         for x in all_fac:
             if(x.parentid is not None):
-                if(x.parentid.id>=facility.id):
+                if(x.parentid.id==facility.id or x.id==facility.id):
                     data={
                         "name":x.name,
                         "id":x.id,
@@ -80,10 +85,10 @@ class QRhelperview(APIView):
         working_ser=itemParamDescriptionSerilizer(working,many=True)
         phy=itemParamDescription.objects.filter(paramid=9,enabled=True)
         phy_ser=itemParamDescriptionSerilizer(phy,many=True)
-        users=User.objects.all()
+        
+        users=User.objects.filter(facilityid__in=all_fac)
         user_Data=[]
         for i in users:
-            if(i.facilityid.id>=facility.id):
                 data={
                     "name":i.username,
                     "id":i.pk
@@ -116,6 +121,8 @@ class generateQrView(APIView):
         items=item.objects.all()
         if(facility is not None):
             items=items.filter(facility=facility)
+        else:
+            items=item.objects.filter(facility=request.user.facilityid)    
         if(item_type is not None):
             items=items.filter(item_type=item_type)
         if(item_class is not None):

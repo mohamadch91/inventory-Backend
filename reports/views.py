@@ -67,21 +67,30 @@ class exportExcel(APIView):
                 x['parentid']= ""
             else:    
                 x['parentid']=parent[0].name
-            user=get_object_or_404(User,pk=x['completerstaffname'])
-            x['completerstaffname']=user.username
-
+            try:    
+                user=get_object_or_404(User,pk=x['completerstaffname'])
+                x['completerstaffname']=user.username
+            except:
+                x['completerstaffname']=""
         for x in item_ser:
-            facility=get_object_or_404(Facility,id=x['facility'])
-            item_class=get_object_or_404(ItemClass,id=x['item_class'])
-            item_type=get_object_or_404(ItemType,id=x['item_type'])
-            x['facility']=facility.name
-            x['item_class']=item_class.code
-            x['item_type']=item_type.code
+            try:
+                facility=get_object_or_404(Facility,id=x['facility'])
+                item_class=get_object_or_404(ItemClass,id=x['item_class'])
+                item_type=get_object_or_404(ItemType,id=x['item_type'])
+                x['facility']=facility.name
+                x['item_class']=item_class.code
+                x['item_type']=item_type.code
+            except:
+                x['facility']=""
+                x['item_class']=""
+                x['item_type']=""
+                    
 
         # fac_json=json.dumps(facility_Ser,indent=4)
         # item_json=json.dumps(item_ser,indent=4)
         df = pd.DataFrame(facility_Ser)
         df_1 = pd.DataFrame(item_ser)
+        facility_str=country
         df.to_excel('./media/exported_facility_json_data.xlsx')
         df_1.to_excel('./media/exported_item_json_data.xlsx')
         data={
