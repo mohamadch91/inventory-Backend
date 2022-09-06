@@ -59,7 +59,7 @@ class dashboarditemView(APIView):
             item_type=ItemType.objects.filter(itemclass=x.id,active=True)
             second_data=[]
             for k in item_type:
-                items=item.objects.filter(item_class=x.id,item_type=k.id)
+                items=item.objects.filter(item_class=x.id,item_type=k.id,facility=facility.id)
                 fil=items.filter(IsItFunctioning=True)
                 working=0
                 if(fil.count()==0):
@@ -94,7 +94,8 @@ class dashboardFacilityView(APIView):
             fac_ser=facilitySerializer(facility,many=False)
             level=facility.level.id
             levels_Ser=levelSerializer(level,many=True)
-            all_fac=Facility.objects.all()
+            all_fac=Facility.objects.filter(parentid=facility.id,is_functioning=True)
+            all_fac=Facility.objects.filter(id=facility.id)|all_fac 
             ans=[]
             for x in all_fac:
                 new_data={}
@@ -102,7 +103,7 @@ class dashboardFacilityView(APIView):
                     count=0
                     for y in all_fac:
                         if(y.parentid is not None):
-                            if(y.parentid.id>=x.id):
+                            if(y.parentid.id==x.id ):
                                 count+=1
                     defined=0        
                     lower=0
@@ -128,11 +129,14 @@ class dahboardlevelView(APIView):
         level=facility.level.id
         levels_Ser=levelSerializer(level,many=True)
         levels=LevelConfig.objects.all()
+        counter=CountryConfig.objects.all()[0]
+        levels=levels.filter(id__lte=counter.levels)
         first_ans=[]
         second_ans=[]
         for x in levels:
             if(x.id>=level):
-                fac=Facility.objects.filter(level=x.id)
+                fac=Facility.objects.filter(level=x.id,parentid=facility.id)
+                # fac=Facility.objects.filter(id=facility.id)|fac
                 fac_count=fac.count()
                 count=0
                 allow_count=0
