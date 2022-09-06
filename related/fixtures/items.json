@@ -3,7 +3,7 @@
     "model": "related.Field",
     "pk": 1,
     "fields": {
-      "name": "Type (Parameter)",
+      "name": "Type  ",
       "type": "select",
       "topic": "Type",
         "state": "TypeP"
@@ -13,7 +13,7 @@
     "model": "related.Field",
     "pk": 2,
     "fields": {
-      "name": "Manufacturer (Parameter)",
+      "name": "Manufacturer  ",
       "type": "select",
       "topic": "Type",
         "state": "Manufacturer"
@@ -33,7 +33,7 @@
     "model": "related.Field",
     "pk": 4,
     "fields": {
-      "name": "Type 1 (Parameter)",
+      "name": "Type 1  ",
       "type": "select",
       "topic": "Type",
         "state": "Type1"
@@ -43,7 +43,7 @@
     "model": "related.Field",
     "pk": 5,
     "fields": {
-      "name": "Type 2 (Parameter)",
+      "name": "Type 2  ",
       "type": "select",
       "topic": "Type",
         "state": "Type2"
@@ -53,7 +53,7 @@
     "model": "related.Field",
     "pk": 6,
     "fields": {
-      "name": "Type 3 (Parameter)",
+      "name": "Type 3  ",
       "type": "select",
       "topic": "Type",
         "state": "Type3"
@@ -63,7 +63,7 @@
     "model": "related.Field",
     "pk": 7,
     "fields": {
-      "name": "Type 4 (Parameter)",
+      "name": "Type 4  ",
       "type": "select",
       "topic": "Type",
         "state": "Type4"
@@ -73,7 +73,7 @@
     "model": "related.Field",
     "pk": 8,
     "fields": {
-      "name": "Type 5 (Parameter)",
+      "name": "Type 5  ",
       "type": "select",
       "topic": "Type",
         "state": "Type5"
@@ -83,7 +83,7 @@
     "model": "related.Field",
     "pk": 9,
     "fields": {
-      "name": "Type 1 (Parameter)",
+      "name": "Type 1  ",
       "type": "select",
       "topic": "Type",
         "state": "Type1P"
