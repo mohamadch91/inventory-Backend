@@ -842,6 +842,16 @@
         "topic": "Other",
           "state": "completerstaffsign"
       }
-    }
+    },
+      {
+        "model": "related.relatedFacility",
+        "pk": 69,
+        "fields": {
+          "name": "Facility delete reason",
+          "type": "select",
+          "topic": "Delete",
+          "state": "delete_reason"
+        }
+      }
   ]
  

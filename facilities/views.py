@@ -129,6 +129,8 @@ class facilityFieldView(APIView):
         rel=relatedFacility.objects.filter(active=True)
         ans=[]
         for x in rel:
+            if(id==69):
+                continue
             if(x.id==1 or x.id ==3 or x.id==8 or x.id == 9 or x.id==10):
                 continue
             if((x.id==6 or x.id==5) and country.poptarget=='General population'):
