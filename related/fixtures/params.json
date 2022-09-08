@@ -96,6 +96,14 @@
       "order": 11
     }
   },
+   {
+    "model": "related.facilityParam",
+    "pk": 13,
+    "fields": {
+      "fieldid": 69,
+      "order": 12
+    }
+  },
 
   {
     "model": "related.itemParam",
@@ -207,6 +215,14 @@
     "fields": {
       "fieldid": 53,
       "order": 15
+    }
+  },
+  {
+    "model": "related.itemParam",
+    "pk": 15,
+    "fields": {
+      "fieldid": 51,
+      "order": 16
     }
   }
 ]

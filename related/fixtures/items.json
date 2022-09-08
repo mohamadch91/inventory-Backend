@@ -808,5 +808,15 @@
       "topic": "Other additional and optional fields",
         "state": "OtherFieldsItemParameter4"
     }
+  },
+  {
+    "model": "related.Field",
+    "pk": 81,
+    "fields": {
+      "name": "Item delete reason",
+      "type": "select",
+      "topic": "Delete",
+      "state": "delete_reason"
+    }
   }
 ]
