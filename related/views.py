@@ -128,6 +128,7 @@ class fieldView(APIView):
         query_set=Field.objects.all()
         query_set=query_set.exclude(id=59)
         query_set=query_set.exclude(id=60)
+        query_set=query_set.exclude(id=81)
 
         query_set=query_set.exclude(id=61)
 
