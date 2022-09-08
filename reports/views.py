@@ -123,9 +123,9 @@ class facilitysegView(APIView):
             counter=CountryConfig.objects.all()[0]
             allow_levels=allow_levels.filter(id__lte=counter.levels) 
             levels=levelSerializer(allow_levels,many=True)
-            power=facilityParamDescription.objects.filter(paramid=12,enabled=True)
+            power=facilityParamDescription.objects.filter(paramid=10,enabled=True)
             power=facilityParamDescriptionSerilizer(power,many=True)
-            type=facilityParamDescription.objects.filter(paramid=10,enabled=True)
+            type=facilityParamDescription.objects.filter(paramid=12,enabled=True)
             type=facilityParamDescriptionSerilizer(type,many=True)
             l_data=[]
             for x in levels.data:
@@ -136,8 +136,8 @@ class facilitysegView(APIView):
                 l_data.append(data)
             data={
                 "level":l_data,
-                "type":type.data,
-                "power":power.data,
+                "type":power.data,
+                "power":type.data,
 
             }
             return Response(data,status=status.HTTP_200_OK)
@@ -293,9 +293,9 @@ class facilitymap(APIView):
             counter=CountryConfig.objects.all()[0]
             allow_levels=allow_levels.filter(id__lte=counter.levels)
             levels=levelSerializer(allow_levels,many=True)
-            power=facilityParamDescription.objects.filter(paramid=12,enabled=True)
+            power=facilityParamDescription.objects.filter(paramid=10,enabled=True)
             power=facilityParamDescriptionSerilizer(power,many=True)
-            type=facilityParamDescription.objects.filter(paramid=10,enabled=True)
+            type=facilityParamDescription.objects.filter(paramid=12,enabled=True)
             type=facilityParamDescriptionSerilizer(type,many=True)
             l_data=[]
             for x in levels.data:
@@ -364,9 +364,9 @@ class itemGroupedReport(APIView):
             counter=CountryConfig.objects.all()[0]
             allow_levels=allow_levels.filter(id__lte=counter.levels)
             levels=levelSerializer(allow_levels,many=True)
-            power=facilityParamDescription.objects.filter(paramid=12,enabled=True)
+            power=facilityParamDescription.objects.filter(paramid=10,enabled=True)
             powerss=facilityParamDescriptionSerilizer(power,many=True)
-            type=facilityParamDescription.objects.filter(paramid=10,enabled=True)
+            type=facilityParamDescription.objects.filter(paramid=12,enabled=True)
             typess=facilityParamDescriptionSerilizer(type,many=True)
             l_data=[]
 
@@ -410,7 +410,7 @@ class itemGroupedReport(APIView):
             working=itemParamDescriptionSerilizer(working,many=True)
             financial=itemParamDescription.objects.filter(paramid=14,enabled=True)
             financial=itemParamDescriptionSerilizer(financial,many=True)
-            powers=itemParamDescription.objects.filter(paramid=12,enabled=True)
+            powers=itemParamDescription.objects.filter(paramid=10,enabled=True)
             powers=itemParamDescriptionSerilizer(powers,many=True)   
 
             datas={
@@ -546,9 +546,9 @@ class itemFacilityReport(APIView):
             counter=CountryConfig.objects.all()[0]
             allow_levels=allow_levels.filter(id__lte=counter.levels)
             levels=levelSerializer(allow_levels,many=True)
-            power=facilityParamDescription.objects.filter(paramid=12,enabled=True)
+            power=facilityParamDescription.objects.filter(paramid=10,enabled=True)
             powerss=facilityParamDescriptionSerilizer(power,many=True)
-            type=facilityParamDescription.objects.filter(paramid=10,enabled=True)
+            type=facilityParamDescription.objects.filter(paramid=12,enabled=True)
             typess=facilityParamDescriptionSerilizer(type,many=True)
             l_data=[]
 
@@ -581,7 +581,7 @@ class itemFacilityReport(APIView):
             working=itemParamDescriptionSerilizer(working,many=True)
             financial=itemParamDescription.objects.filter(paramid=14,enabled=True)
             financial=itemParamDescriptionSerilizer(financial,many=True)
-            powers=itemParamDescription.objects.filter(paramid=12,enabled=True)
+            powers=itemParamDescription.objects.filter(paramid=10,enabled=True)
             powers=itemParamDescriptionSerilizer(powers,many=True)   
 
             datas={
@@ -719,9 +719,9 @@ class facilityProfileView(APIView):
         by_power=[]
         general_1=[]
         under_11=[]
-        type=facilityParamDescription.objects.filter(paramid=10,enabled=True)
+        type=facilityParamDescription.objects.filter(paramid=12,enabled=True)
         owner=facilityParamDescription.objects.filter(paramid=5,enabled=True)
-        power=facilityParamDescription.objects.filter(paramid=12,enabled=True)
+        power=facilityParamDescription.objects.filter(paramid=10,enabled=True)
         for x in allow_levels:
             facility=Facility.objects.filter(parentid=request.user.facilityid.id)
             facility=Facility.objects.filter(id=request.user.facilityid.id)|facility
@@ -798,26 +798,28 @@ class facilityProfileView(APIView):
                     min1=under_1
                 if(under_1>max1):
                     max1=under_1
+            avgg=1        
             if(facility.count()>0):
-                sumg/=facility.count()        
+                avgg=sumg/facility.count()        
             data={
                 "level":x.id,
                 "name":x.name,
                 "total":sumg,
                 "min":min,
                 "max":max,
-                "avg":sumg
+                "avg":avgg
             }
             general_1.append(data)
+            avg1=1
             if(facility.count()>0):
-                sum1=sum1/facility.count()
+                avg1=sum1/facility.count()
             data1={
                 "level":x.id,
                 "name":x.name,
                 "total":sum1,
                 "min":min1,
                 "max":max1,
-                "avg":sum1
+                "avg":avg1
             }
             under_11.append(data1)
         final_answer={
@@ -943,8 +945,8 @@ class profileColdchainView(APIView):
                     "available":available,
                     "diff":float(available)-float(req),
                     "require_capacity":require_capacity,
-                    "available_capacity":available_capacity,
-                    "diff_capacity":float(available_capacity)-float(require_capacity),
+                    "available_capacity":available_capacity/1000,
+                    "diff_capacity":(float(available_capacity)-float(require_capacity))/1000,
                 }
                 table_2.append(data1)
 
@@ -991,9 +993,9 @@ class gapItemReportView(APIView):
             counter=CountryConfig.objects.all()[0]
             allow_levels=allow_levels.filter(id__lte=counter.levels)
             levels=levelSerializer(allow_levels,many=True)
-            power=facilityParamDescription.objects.filter(paramid=12,enabled=True)
+            power=facilityParamDescription.objects.filter(paramid=10,enabled=True)
             powerss=facilityParamDescriptionSerilizer(power,many=True)
-            type=facilityParamDescription.objects.filter(paramid=10,enabled=True)
+            type=facilityParamDescription.objects.filter(paramid=12,enabled=True)
             typess=facilityParamDescriptionSerilizer(type,many=True)
             l_data=[]
 
@@ -1117,15 +1119,15 @@ class gapItemReportView(APIView):
                 # fcapacity3=Decimal(fcapacity3)
                 # fcapacity4=Decimal(fcapacity4)
                 # fcapacity5=Decimal(fcapacity5)
-                if(req1-capacity1<0):
+                if(req1-fcapacity1<0):
                     excees1=True
-                if(req2-capacity2<0):
+                if(req2-fcapacity2<0):
                     excees2=True
-                if(req3-capacity3<0):
+                if(req3-fcapacity3<0):
                     excees3=True
-                if(req4-capacity4<0):
+                if(req4-fcapacity4<0):
                     excees4=True
-                if(req5-capacity5<0):
+                if(req5-fcapacity5<0):
                     excees5=True
                 type_name="--"
                 if(x.type != None):
@@ -1474,9 +1476,9 @@ class planGapView(APIView):
             counter=CountryConfig.objects.all()[0]
             allow_levels=allow_levels.filter(id__lte=counter.levels)
             levels=levelSerializer(allow_levels,many=True)
-            power=facilityParamDescription.objects.filter(paramid=12,enabled=True)
+            power=facilityParamDescription.objects.filter(paramid=10,enabled=True)
             powerss=facilityParamDescriptionSerilizer(power,many=True)
-            type=facilityParamDescription.objects.filter(paramid=10,enabled=True)
+            type=facilityParamDescription.objects.filter(paramid=12,enabled=True)
             typess=facilityParamDescriptionSerilizer(type,many=True)
             l_data=[]
 
@@ -1845,9 +1847,9 @@ class plannedSavedReport(APIView):
             counter=CountryConfig.objects.all()[0]
             allow_levels=allow_levels.filter(id__lte=counter.levels)
             levels=levelSerializer(allow_levels,many=True)
-            power=facilityParamDescription.objects.filter(paramid=12,enabled=True)
+            power=facilityParamDescription.objects.filter(paramid=10,enabled=True)
             powerss=facilityParamDescriptionSerilizer(power,many=True)
-            type=facilityParamDescription.objects.filter(paramid=10,enabled=True)
+            type=facilityParamDescription.objects.filter(paramid=12,enabled=True)
             typess=facilityParamDescriptionSerilizer(type,many=True)
             l_data=[]
 

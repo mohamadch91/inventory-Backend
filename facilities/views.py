@@ -92,10 +92,10 @@ class FacilityView(APIView):
         facility = get_object_or_404(Facility, id=id)
         below=Facility.objects.filter(parentid=facility.id)
         if below.count()>0:
-            return Response({"message": "Cannot delete facility with children"}, status=status.HTTP_403_FORBIDDEN)
+            return Response({"message": "Cannot delete facility with children"}, status=status.HTTP_409_CONFLICT)
         item_num=item.objects.filter(facility=facility.id).count()
         if item_num>0:
-            return Response({"message": "Cannot delete facility with items"}, status=status.HTTP_403_FORBIDDEN)
+            return Response({"message": "Cannot delete facility with items"}, status=status.HTTP_409_CONFLICT)
         facility.delete()    
         return Response(status=status.HTTP_204_NO_CONTENT)
 
