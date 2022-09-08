@@ -624,3 +624,19 @@ class facilityFieldprintView(APIView):
         }
         return Response(data,status=status.HTTP_200_OK)
 
+class facilityDeleteView(APIView):
+    def get(self,request):
+        del_res=facilityParamDescription.objects.filter(paramid=13)
+        desc_ser=facilityParamDescriptionSerilizer(del_res,many=True)
+        return Response(desc_ser.data,status=status.HTTP_200_OK)
+    def post(self,request):
+        data=request.data
+        id=data["id"]
+        del_res=get_object_or_404(Facility,id=id)
+        ser=facilitySerializer(data=del_res)
+        if(ser.is_valid()):
+            del_res.save()
+            return Response(ser.data,status=status.HTTP_200_OK)
+        return Response(ser.errors,status=status.HTTP_400_BAD_REQUEST)    
+
+
