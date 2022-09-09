@@ -152,7 +152,7 @@ class facilitysegView(APIView):
             general_to=request.query_params.get('gto',None)
             under_from=request.query_params.get('underfrom',None)
             under_to=request.query_params.get('underto',None)
-            all_fac=Facility.objects.filter(parentid=request.user.facilityid.id)
+            all_fac=Facility.objects.filter(parentid=request.user.facilityid.id,is_deleted=False)
             all_fac=Facility.objects.filter(id=request.user.facilityid.id)|all_fac
             if(level is not None):
                 all_fac=all_fac.filter(level=level)
@@ -244,7 +244,7 @@ class subfacView(APIView):
         else:
             #filter level
             level=request.query_params.get('level',None)
-            all_fac=Facility.objects.filter(parentid=request.user.facilityid.id)
+            all_fac=Facility.objects.filter(parentid=request.user.facilityid.id,is_deleted=False)
             all_fac=Facility.objects.filter(id=request.user.facilityid.id)|all_fac
             if(level is not None):
                 all_fac=Facility.objects.filter(level=level)
@@ -316,7 +316,7 @@ class facilitymap(APIView):
             type=request.query_params.get('type',None)
             power=request.query_params.get('power',None)
             func=request.query_params.get('func',None)
-            all_fac=Facility.objects.filter(parentid=request.user.facilityid.id)
+            all_fac=Facility.objects.filter(parentid=request.user.facilityid.id,is_deleted=False)
             all_fac=Facility.objects.filter(id=request.user.facilityid.id)|all_fac
             if(level is not None):
                 all_fac=all_fac.filter(level=level)
@@ -443,7 +443,7 @@ class itemGroupedReport(APIView):
             capacity_from=request.query_params.get('capacity_from',None)
             capacity_to=request.query_params.get('capacity_to',None)
             items=item.objects.all()
-            facility=Facility.objects.filter(parentid=request.user.facilityid.id)
+            facility=Facility.objects.filter(parentid=request.user.facilityid.id,is_deleted=False)
             facility=Facility.objects.filter(id=request.user.facilityid.id)|facility
             if(name is not None):
                 facility=Facility.objects.filter(name__icontains=name)
@@ -608,7 +608,7 @@ class itemFacilityReport(APIView):
             working=request.query_params.get('working',None)
             item_power=request.query_params.get('item_power',None)
             items=item.objects.all()
-            facility=Facility.objects.filter(parentid=request.user.facilityid.id)
+            facility=Facility.objects.filter(parentid=request.user.facilityid.id,is_deleted=False)
             facility=Facility.objects.filter(id=request.user.facilityid.id)|facility
             if(name is not None):
                 facility=facility.filter(name__icontains=name)
@@ -723,7 +723,7 @@ class facilityProfileView(APIView):
         owner=facilityParamDescription.objects.filter(paramid=5,enabled=True)
         power=facilityParamDescription.objects.filter(paramid=10,enabled=True)
         for x in allow_levels:
-            facility=Facility.objects.filter(parentid=request.user.facilityid.id)
+            facility=Facility.objects.filter(parentid=request.user.facilityid.id,is_deleted=False)
             facility=Facility.objects.filter(id=request.user.facilityid.id)|facility
             facility=Facility.objects.filter(level=x.id)
             
@@ -847,7 +847,7 @@ class profileColdchainView(APIView):
             table_1=[]
             table_2=[]
             for x in allow_levels:
-                facility=Facility.objects.filter(parentid=request.user.facilityid.id)
+                facility=Facility.objects.filter(parentid=request.user.facilityid.id,is_deleted=False)
                 facility=Facility.objects.filter(id=request.user.facilityid.id)|facility
                 facility=Facility.objects.filter(level=x.id)
                 general=0
@@ -1023,7 +1023,7 @@ class gapItemReportView(APIView):
             year_from=request.query_params.get('year_from',None)
             year_to=request.query_params.get('year_to',None)
             calculate_for=request.query_params.get('calculate_for',None)
-            facility=Facility.objects.filter(parentid=request.user.facilityid.id)
+            facility=Facility.objects.filter(parentid=request.user.facilityid.id,is_deleted=False)
             facility=Facility.objects.filter(id=request.user.facilityid.id)|facility
             items=item.objects.all()
             if(degree is None):
@@ -1444,7 +1444,7 @@ class gapMapReport(APIView):
             else:
                 if(z.req_capacity-z.func_cap==0):
                     facilities_id.append(z.facility.id)
-        all_fac=Facility.objects.filter(parentid=request.user.facilityid.id)
+        all_fac=Facility.objects.filter(parentid=request.user.facilityid.id,is_deleted=False)
         all_fac=Facility.objects.filter(id=request.user.facilityid.id)|all_fac           
         
         ans=[]
@@ -1513,7 +1513,7 @@ class planGapView(APIView):
             func_cap_to=request.query_params.get('func_cap_to',None)
             excees_from=request.query_params.get('excees_from',None)
             excees_to=request.query_params.get('excees_to',None)
-            facility=Facility.objects.filter(parentid=request.user.facilityid.id)
+            facility=Facility.objects.filter(parentid=request.user.facilityid.id,is_deleted=False)
             facility=Facility.objects.filter(id=request.user.facilityid.id)|facility
             if(name is not None):
                 facility=facility.filter(name__icontains=name)

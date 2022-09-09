@@ -70,7 +70,7 @@ class HRView(APIView):
 class HRhelperView(APIView):
     
     def get(self,request):
-        facility=Facility.objects.filter(parentid=request.user.facilityid.id)
+        facility=Facility.objects.filter(parentid=request.user.facilityid.id,is_deleted=False)
         facility=Facility.objects.filter(id=request.user.facilityid.id)|facility
         ans=[]
         for x in facility:

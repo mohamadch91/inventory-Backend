@@ -64,7 +64,7 @@ class FacilityView(APIView):
             facility = get_object_or_404(Facility, id=id)
             serializer = facilitySerializer(facility)
             return Response(serializer.data)
-        country = Facility.objects.filter(parentid=request.user.facilityid.id)
+        country = Facility.objects.filter(parentid=request.user.facilityid.id,is_deleted=False)
         country=Facility.objects.filter(id=request.user.facilityid.id)|country
         serializer =  facilitySerializer(country, many=True)
         ser_copy=copy.deepcopy(serializer.data)
@@ -632,6 +632,13 @@ class facilityDeleteView(APIView):
     def post(self,request):
         data=request.data
         id=data["id"]
+        facility = get_object_or_404(Facility, id=id)
+        below=Facility.objects.filter(parentid=facility.id)
+        if below.count()>0:
+            return Response({"message": "Cannot delete facility with children"}, status=status.HTTP_409_CONFLICT)
+        item_num=item.objects.filter(facility=facility.id).count()
+        if item_num>0:
+            return Response({"message": "Cannot delete facility with items"}, status=status.HTTP_409_CONFLICT)
         del_res=get_object_or_404(Facility,id=id)
         ser=facilitySerializer(data=del_res)
         if(ser.is_valid()):

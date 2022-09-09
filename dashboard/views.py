@@ -94,7 +94,7 @@ class dashboardFacilityView(APIView):
             fac_ser=facilitySerializer(facility,many=False)
             level=facility.level.id
             levels_Ser=levelSerializer(level,many=True)
-            all_fac=Facility.objects.filter(parentid=facility.id,is_functioning=True)
+            all_fac=Facility.objects.filter(parentid=facility.id,is_functioning=True,is_deleted=False)
             all_fac=Facility.objects.filter(id=facility.id)|all_fac 
             ans=[]
             for x in all_fac:
@@ -135,7 +135,7 @@ class dahboardlevelView(APIView):
         second_ans=[]
         for x in levels:
             if(x.id>=level):
-                fac=Facility.objects.filter(level=x.id,parentid=facility.id)
+                fac=Facility.objects.filter(level=x.id,parentid=facility.id,is_deleted=False,is_functioning=True)
                 # fac=Facility.objects.filter(id=facility.id)|fac
                 fac_count=fac.count()
                 count=0
