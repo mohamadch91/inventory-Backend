@@ -80,7 +80,7 @@ class Facility(models.Model):
     other6 = models.CharField(max_length=100, blank=True, null=True)
     remark = models.CharField(max_length=500, blank=True, null=True)
     completerstaffsign = models.CharField(db_column='completerStaffSign', max_length=50, blank=True, null=True)  # Field name made lowercase.
-    is_deleted = models.BooleanField(db_column='isDeleted', blank=True, null=True)  # Field name made lowercase.
+    is_deleted = models.BooleanField(db_column='isDeleted',default=False)  # Field name made lowercase.
     delete_reason=models.CharField(max_length=50,blank=True,null=True)
 
 

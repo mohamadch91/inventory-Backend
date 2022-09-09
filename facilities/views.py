@@ -626,11 +626,12 @@ class facilityFieldprintView(APIView):
 
 class facilityDeleteView(APIView):
     def get(self,request):
-        del_res=facilityParamDescription.objects.filter(paramid=13)
+        del_res=facilityParamDescription.objects.filter(paramid=13,enabled=True)
         desc_ser=facilityParamDescriptionSerilizer(del_res,many=True)
         return Response(desc_ser.data,status=status.HTTP_200_OK)
     def post(self,request):
         data=request.data
+        print(data)
         id=data["id"]
         facility = get_object_or_404(Facility, id=id)
         below=Facility.objects.filter(parentid=facility.id)
