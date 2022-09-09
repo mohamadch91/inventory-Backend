@@ -201,7 +201,7 @@ class getitemmaintatnce(APIView):
                 for y in actievs:
                     #calulate interval between now and last maintenance
                     main=y.maintanance
-                    if(main.requires==True):
+                    if(main.requires==True and main.enable==True):
                     #minus now from created at
                         dayss=(timezone.now()-x.created_at).days
                         dayss=dayss%main.freq
@@ -218,7 +218,12 @@ class getitemmaintatnce(APIView):
                             try:
                                 obj=get_object_or_404(toDoMaintance,maintanance=y.maintanance.id,item=x.id,maintanncegp=y.maintanncegp.id)
                                 new_day=(timezone.now()-obj.updated_at).days
-                                if(new_day>=4):
+                                new_day2=(timezone.now()-obj.created_at).days
+                                print(new_day)
+                                if(new_day2<=3):
+                                    if(obj.done==False):
+                                        three_days.append(data)
+                                elif(new_day>=4):
                                     obj.done=False
                                     obj.save()
                                     three_days.append(x.id)
@@ -238,10 +243,14 @@ class getitemmaintatnce(APIView):
                             try:
                                 obj=get_object_or_404(toDoMaintance,maintanance=y.maintanance.id,item=x.id,maintanncegp=y.maintanncegp.id)
                                 new_day=(timezone.now()-obj.updated_at).days
+                                new_day2=(timezone.now()-obj.created_at).days
+                                if(new_day2<=7):
+                                    if(obj.done==False):
+                                        seven_days.append(data)
                                 if(new_day>=8):
                                     obj.done=False
                                     obj.save()
-                                    three_days.append(x.id)
+                                    seven_days.append(x.id)
                             except:        
                                 ser=toDoMaintanceSerializers(data=data)
                                 if(ser.is_valid()):
