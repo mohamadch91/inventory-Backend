@@ -60,12 +60,19 @@ class FacilityView(APIView):
 
     def get(self, request):
         id=request.query_params.get("id",None)
+        deleted=request.query_params.get("deleted",False)
         if id is not None:
             facility = get_object_or_404(Facility, id=id)
             serializer = facilitySerializer(facility)
             return Response(serializer.data)
-        country = Facility.objects.filter(parentid=request.user.facilityid.id,is_deleted=False)
-        country=Facility.objects.filter(id=request.user.facilityid.id)|country
+        if(deleted=="true"):
+            country = Facility.objects.filter(parentid=request.user.facilityid.id)
+            country=Facility.objects.filter(id=request.user.facilityid.id)|country
+            country=country.filter(is_deleted=True)
+            
+        else:
+            country = Facility.objects.filter(parentid=request.user.facilityid.id,is_deleted=False)
+            country=Facility.objects.filter(id=request.user.facilityid.id)|country
         serializer =  facilitySerializer(country, many=True)
         ser_copy=copy.deepcopy(serializer.data)
         for i in (ser_copy):
@@ -93,7 +100,7 @@ class FacilityView(APIView):
         below=Facility.objects.filter(parentid=facility.id)
         if below.count()>0:
             return Response({"message": "Cannot delete facility with children"}, status=status.HTTP_409_CONFLICT)
-        item_num=item.objects.filter(facility=facility.id).count()
+        item_num=item.objects.filter(facility=facility.id,isDel=False).count()
         if item_num>0:
             return Response({"message": "Cannot delete facility with items"}, status=status.HTTP_409_CONFLICT)
         facility.delete()    
@@ -637,13 +644,13 @@ class facilityDeleteView(APIView):
         below=Facility.objects.filter(parentid=facility.id)
         if below.count()>0:
             return Response({"message": "Cannot delete facility with children"}, status=status.HTTP_409_CONFLICT)
-        item_num=item.objects.filter(facility=facility.id).count()
+        item_num=item.objects.filter(facility=facility.id,isDel=False).count()
         if item_num>0:
             return Response({"message": "Cannot delete facility with items"}, status=status.HTTP_409_CONFLICT)
         del_res=get_object_or_404(Facility,id=id)
-        ser=facilitySerializer(data=del_res)
+        ser=facilitySerializer(del_res,data=data)
         if(ser.is_valid()):
-            del_res.save()
+            ser.save()
             return Response(ser.data,status=status.HTTP_200_OK)
         return Response(ser.errors,status=status.HTTP_400_BAD_REQUEST)    
 

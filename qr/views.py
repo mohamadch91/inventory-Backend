@@ -45,7 +45,7 @@ class QRhelperview(APIView):
         user=request.user
         facility=user.facilityid
         facility=get_object_or_404(Facility, id=facility.id)
-        all_fac=Facility.objects.filter(parentid=facility.id)
+        all_fac=Facility.objects.filter(parentid=facility.id,is_deleted=False)
         all_fac=Facility.objects.filter(id=facility.id)|all_fac
         fac_ans=[]
         fac_ans.append({
@@ -122,7 +122,7 @@ class generateQrView(APIView):
         if(facility is not None):
             items=items.filter(facility=facility)
         else:
-            items=item.objects.filter(facility=request.user.facilityid)    
+            items=item.objects.filter(facility=request.user.facilityid,isDel=False)    
         if(item_type is not None):
             items=items.filter(item_type=item_type)
         if(item_class is not None):
@@ -162,7 +162,7 @@ class getqrView(APIView):
         code=request.query_params.get('code',None)
         if(code is None):
             return Response('need query param',status=status.HTTP_400_BAD_REQUEST)
-        x=item.objects.filter(code=code)[0]
+        x=item.objects.filter(code=code,isDel=False)[0]
         data={
                 "id":x.id,
                 "item_class":x.item_class.title,

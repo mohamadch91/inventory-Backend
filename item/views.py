@@ -12,7 +12,7 @@ from django.shortcuts import render
 # Create your views here.
 import json
 from os import stat
-from urllib import response
+from urllib import request, response
 from django.shortcuts import render
 
 # Create your views here.
@@ -64,16 +64,19 @@ class itemView(APIView):
     def get(self, request):
         id=request.query_params.get('id',None)
         facility=request.query_params.get('facility',None)
+        deleted=request.query_params.get('deleted',False)
         if(facility is not None):
-            country=item.objects.filter(facility=facility)
+            country=item.objects.filter(facility=facility,isDel=False)
             serializer =  itemSerializer(country, many=True)
             return Response(serializer.data)
         if(id is not None):    
-            country = item.objects.filter(id=id)
+            country = item.objects.filter(id=id,isDel=False)
             serializer =  itemSerializer(country, many=True)
             return Response(serializer.data)
-
-        country = item.objects.filter(facility=request.user.facilityid) 
+        if(deleted=="true"):
+            country = item.objects.filter(facility=request.user.facilityid,isDel=True) 
+        else:
+            country = item.objects.filter(facility=request.user.facilityid,isDel=False) 
         serializer =  itemSerializer(country, many=True)
         return Response(serializer.data)
 
@@ -350,12 +353,12 @@ class itemDeleteView(APIView):
         data=request.data
         print(data)
         id=data["id"]
-        
-        del_res=get_object_or_404(item,id=id)
-        ser=itemSerializer(data=del_res)
+        items=get_object_or_404(item,id=id)
+        ser=itemSerializer(items,data=data)
         if(ser.is_valid()):
-            del_res.save()
+            ser.save()
             return Response(ser.data,status=status.HTTP_200_OK)
+        print(ser.errors)    
         return Response(ser.errors,status=status.HTTP_400_BAD_REQUEST)    
 
 

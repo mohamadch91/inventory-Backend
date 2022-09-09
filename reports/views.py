@@ -872,7 +872,7 @@ class profileColdchainView(APIView):
                         general+=y.populationnumber
                     if(y.childrennumber is not None):
                         under1+=y.childrennumber
-                    items=item.objects.filter(facility=y.id)
+                    items=item.objects.filter(facility=y.id,isDel=False)
                     for z in items:
                         if(z.item_type.id==1):
                             if(z.IsItFunctioning==True):
@@ -1058,7 +1058,7 @@ class gapItemReportView(APIView):
                 capacity5=0
                 fcapacity5=0
 
-                items=item.objects.filter(facility=x.id)
+                items=item.objects.filter(facility=x.id,isDel=False)
                 for y in items:
                     if(degree=="1"):
                         if(y.StorageCondition=="+2 - +8 C"):

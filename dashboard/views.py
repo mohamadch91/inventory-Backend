@@ -59,7 +59,7 @@ class dashboarditemView(APIView):
             item_type=ItemType.objects.filter(itemclass=x.id,active=True)
             second_data=[]
             for k in item_type:
-                items=item.objects.filter(item_class=x.id,item_type=k.id,facility=facility.id)
+                items=item.objects.filter(item_class=x.id,item_type=k.id,facility=facility.id,isDel=False)
                 fil=items.filter(IsItFunctioning=True)
                 working=0
                 if(fil.count()==0):
@@ -188,7 +188,7 @@ class getitemmaintatnce(APIView):
         user=request.user
         facility=user.facilityid
         facility=get_object_or_404(Facility, id=facility.id)
-        items=item.objects.filter(facility=facility.id)
+        items=item.objects.filter(facility=facility.id,isDel=False)
         three_days=[]
         seven_days=[]
         counter2=0
