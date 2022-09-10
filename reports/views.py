@@ -410,7 +410,7 @@ class itemGroupedReport(APIView):
             working=itemParamDescriptionSerilizer(working,many=True)
             financial=itemParamDescription.objects.filter(paramid=14,enabled=True)
             financial=itemParamDescriptionSerilizer(financial,many=True)
-            powers=itemParamDescription.objects.filter(paramid=10,enabled=True)
+            powers=itemParamDescription.objects.filter(paramid=12,enabled=True)
             powers=itemParamDescriptionSerilizer(powers,many=True)   
 
             datas={
