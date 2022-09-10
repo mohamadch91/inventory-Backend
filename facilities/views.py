@@ -119,10 +119,9 @@ class facilityFieldView(APIView):
         country=get_object_or_404(CountryConfig,id=this_facility.country.id)
         parent_num=Facility.objects.filter(parentid=this_facility.id).count()
         parents=facilitySerializer(parent_num,many=True)
-                    
-        if(parent_num>= this_facility.loverlevelfac):
-            print(parent_num)
-            return Response("You have reached the maximum number of facilities you can add",status=status.HTTP_403_FORBIDDEN)
+        if(this_facility.loverlevelfac is not None):            
+            if(parent_num>= this_facility.loverlevelfac):
+                return Response("You have reached the maximum number of facilities you can add",status=status.HTTP_403_FORBIDDEN)
 
 
         level=this_facility.level
