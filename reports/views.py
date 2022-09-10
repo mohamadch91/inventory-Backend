@@ -136,8 +136,8 @@ class facilitysegView(APIView):
                 l_data.append(data)
             data={
                 "level":l_data,
-                "type":power.data,
-                "power":type.data,
+                "type":type.data,
+                "power":power.data,
 
             }
             return Response(data,status=status.HTTP_200_OK)

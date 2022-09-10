@@ -100,11 +100,7 @@ class dashboardFacilityView(APIView):
             for x in all_fac:
                 new_data={}
                 if(x.id>=facility.id):
-                    count=0
-                    for y in all_fac:
-                        if(y.parentid is not None):
-                            if(y.parentid.id==x.id ):
-                                count+=1
+                    count=Facility.objects.filter(parentid=x.id,is_functioning=True,is_deleted=False).count()
                     defined=0        
                     lower=0
                     if(x.loverlevelfac!=None and x.loverlevelfac!=0):
