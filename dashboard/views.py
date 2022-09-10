@@ -98,8 +98,7 @@ class dashboardFacilityView(APIView):
             all_fac=Facility.objects.filter(id=facility.id)|all_fac 
             ans=[]
             for x in all_fac:
-                new_data={}
-                if(x.id>=facility.id):
+                    new_data={}
                     count=Facility.objects.filter(parentid=x.id,is_functioning=True,is_deleted=False).count()
                     defined=0        
                     lower=0
@@ -132,37 +131,32 @@ class dahboardlevelView(APIView):
         for x in levels:
             if(x.id>=level):
                 fac=Facility.objects.filter(level=x.id,parentid=facility.id,is_deleted=False,is_functioning=True)
-                # fac=Facility.objects.filter(id=facility.id)|fac
+                if(x.id==level):
+                    fac=Facility.objects.filter(id=facility.id)|fac
                 fac_count=fac.count()
                 count=0
                 allow_count=0
                 for y in fac:
                     new_data={}
-                    if(y.id>=facility.id):
-                        count=0
-                        for z in fac:
-                            if(z.id>y.id):
-                                count+=1
-                        defined=0        
-                        lower=0
-                        if(y.loverlevelfac!=None and y.loverlevelfac!=0):
-                            defined=count/y.loverlevelfac
-                            lower=y.loverlevelfac
-                        new_data={
-                            "id":y.id,
-                            "name":y.name,
-                            "sub_fac":count,
-                            "defined":"%.2f"%defined,
-                            "lower":lower,
-                            "update":y.updated_at,
-                            "level_id":x.id,
-                        "level_name":x.name,
-                        }
-                        second_ans.append(new_data)
+                    count+=Facility.objects.filter(parentid=y.id,is_functioning=True,is_deleted=False).count()
+                    defined=0        
+                    lower=0
+                    if(y.loverlevelfac!=None and y.loverlevelfac!=0):
+                        defined=count/y.loverlevelfac
+                        lower=y.loverlevelfac
+                    new_data={
+                        "id":y.id,
+                        "name":y.name,
+                        "sub_fac":count,
+                        "defined":"%.2f"%defined,
+                        "lower":lower,
+                        "update":y.updated_at,
+                        "level_id":x.id,
+                    "level_name":x.name,
+                    }
+                    second_ans.append(new_data)
                     if(y.loverlevelfac!=None):
                         allow_count+=y.loverlevelfac
-                    subs=Facility.objects.filter(parentid=y.id)
-                    count+=subs.count()
                 data={
                     "level_id":x.id,
                     "level_name":x.name,
@@ -215,7 +209,6 @@ class getitemmaintatnce(APIView):
                                 obj=get_object_or_404(toDoMaintance,maintanance=y.maintanance.id,item=x.id,maintanncegp=y.maintanncegp.id)
                                 new_day=(timezone.now()-obj.updated_at).days
                                 new_day2=(timezone.now()-obj.created_at).days
-                                print(new_day)
                                 if(new_day2<=3):
                                     if(obj.done==False):
                                         three_days.append(data)
@@ -265,7 +258,6 @@ class getitemmaintatnce(APIView):
         day=0
         if(days_extended!=[]):
             day=max(days_extended) 
-        print(counter)
         return Response({"defined":counter2,"three_days":len(three_days),"seven_days":len(seven_days),"extended":{
             "max_extended":day,
             "count":counter
@@ -353,7 +345,6 @@ class definedlogView(APIView):
                 if(x.IsItFunctioning==False):
                     continue
                 if(x.MaintenanceGroup!=None):
-                    print(x.MaintenanceGroup)
                     gp=get_object_or_404(maintancegp,id=x.MaintenanceGroup)
                     data={
                         "id":x.id,
