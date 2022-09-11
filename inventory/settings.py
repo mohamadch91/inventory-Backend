@@ -18,7 +18,7 @@ from datetime import timedelta
 BASE_DIR = Path(__file__).resolve().parent.parent
 # Activate Django-Heroku.
 
-STATIC_ROOT = '/home/invgapor/public_html/api/static/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
@@ -140,14 +140,10 @@ WSGI_APPLICATION = 'inventory.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
-'default': {
-     'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'invgapor_db_',
-        'USER': 'invgapor_db',
-        'PASSWORD': 'qDqM2UWMxa93uMH',
-        'HOST': 'localhost',
-        'PORT': '',
-}
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': str(BASE_DIR / 'db.sqlite3'),
+    }
 }
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
