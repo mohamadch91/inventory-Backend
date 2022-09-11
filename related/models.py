@@ -16,12 +16,12 @@ class relatedFacility(models.Model):
         other1='Other'
 
     id=models.AutoField(primary_key=True)
-    name=models.CharField(max_length=80)
+    name=models.TextField(max_length=120)
     active=models.BooleanField(default=True)
     required=models.BooleanField(default=False)
-    topic=models.CharField(max_length=50,choices=topics.choices,null=True,default=topics.gen)
-    type=models.CharField(max_length=20)
-    state=models.CharField(max_length=20,null=True)
+    topic=models.CharField(max_length=100,choices=topics.choices,null=True,default=topics.gen)
+    type=models.CharField(max_length=100)
+    state=models.CharField(max_length=100,null=True)
     disabled=models.BooleanField(default=False)
  
 class Field(models.Model):
@@ -39,9 +39,9 @@ class Field(models.Model):
 
     id=models.AutoField(primary_key=True)
     name=models.CharField(max_length=80)
-    topic=models.CharField(max_length=50,choices=topics.choices)
-    type=models.CharField(max_length=20)
-    state=models.CharField(max_length=20,null=True)
+    topic=models.CharField(max_length=100,choices=topics.choices)
+    type=models.CharField(max_length=100)
+    state=models.CharField(max_length=100,null=True)
 
 class relatedItemType(models.Model):
     id=models.AutoField(primary_key=True)
