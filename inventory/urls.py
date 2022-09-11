@@ -36,6 +36,8 @@ from rest_framework_simplejwt.views import TokenRefreshView
 from django.conf import settings
 from django.conf.urls.static import static
 from django.shortcuts import render
+from django.urls import include, re_path
+from django.views.generic.base import TemplateView
 router = DefaultRouter()
 def render_react(request):
     return render(request, "index.html")
@@ -58,6 +60,7 @@ urlpatterns = [
     path('reports/',include('reports.urls')),
     path('dashboard/',include('dashboard.urls')),
     path('item/qr/',include('qr.urls')),
+    re_path(r'^$', TemplateView.as_view(template_name='static_pages/index.html'), name='home'),
 
 
 
