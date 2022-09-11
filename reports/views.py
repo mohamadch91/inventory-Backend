@@ -18,7 +18,6 @@ import json
 from os import stat
 from urllib import response
 from django.shortcuts import render
-import pandas
 # Create your views here.
 
 from rest_framework.permissions import IsAuthenticated
