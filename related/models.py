@@ -38,7 +38,7 @@ class Field(models.Model):
         Add='Other additional and optional fields'
 
     id=models.AutoField(primary_key=True)
-    name=models.CharField(max_length=20)
+    name=models.CharField(max_length=80)
     topic=models.CharField(max_length=50,choices=topics.choices)
     type=models.CharField(max_length=20)
     state=models.CharField(max_length=20,null=True)

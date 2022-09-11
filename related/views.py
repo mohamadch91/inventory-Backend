@@ -138,6 +138,7 @@ class fieldView(APIView):
         serializer = fieldSerializer(query_set, many=True)
         return Response(serializer.data)    
     def put(self,request):
+        print(request.data)
         id=request.data["id"]
         country = get_object_or_404(Field, id=id)
         serializer = fieldSerializer(country, data=request.data)
