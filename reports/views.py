@@ -1,7 +1,7 @@
 from decimal import Decimal
 from sqlite3 import Date
 from time import timezone
-from turtle import title
+
 from django.shortcuts import render
 
 # Create your views here.
