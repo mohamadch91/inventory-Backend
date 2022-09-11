@@ -358,28 +358,11 @@ class importfacilityView(APIView):
                         return Response(x["parentid"]+"parentid is not valid",status=status.HTTP_406_NOT_ACCEPTABLE)
                     i=code.index(x["parentid"])
                     data["parentid"]=i+fac_count
-            typess=""        
-            if(x["type"] is None):
-                data["type"]=None
-            else:
-                type=x["type"]
-                types=facilityParamDescription.objects.filter(paramid=10,enabled=True,name__icontains=type)
-                if(types.count()==0):
-                    return Response(type+"type is not valid",status=status.HTTP_406_NOT_ACCEPTABLE)
-                else:
-                    data["type"]=types[0].id
-            if((x["level"] is None and x["lname"] is None) or x["level"]==0):
+           
+            if((x["level"] is None) or x["level"]==0):
                 print("level is none")
                 return Response("level is required",status=status.HTTP_406_NOT_ACCEPTABLE)
             else:
-                if(x["level"] is None and x["lname"] is not None):
-                    level=LevelConfig.objects.filter(name=x["lname"])
-                    if(level.count()==0):
-                        print("level is not valid")
-                        return Response("level is not valid",status=status.HTTP_406_NOT_ACCEPTABLE)
-                    else:
-                        data["level"]=level[0].id
-                else:        
                     lcount=LevelConfig.objects.all().count()
                     if(x["level"]>lcount):
                         print("level is not valid")
@@ -390,7 +373,7 @@ class importfacilityView(APIView):
                 return Response("pop is required",status=status.HTTP_406_NOT_ACCEPTABLE)
             else:
                 country=CountryConfig.objects.all()[0]
-                level=LevelConfig.objects.filter(name=x["lname"])[0]
+                level=LevelConfig.objects.filter(id=x["level"])[0]
                 if(x['pop']<level.minpop or x['pop']>level.maxpop):
                     print("pop is not valid")
                     return Response("pop is not valid",status=status.HTTP_406_NOT_ACCEPTABLE)
@@ -412,7 +395,7 @@ class importfacilityView(APIView):
                 ser.save()
                 ns={}
                 country=CountryConfig.objects.all()[0]
-                level=LevelConfig.objects.filter(name=x["lname"])[0]
+                level=LevelConfig.objects.filter(id=x["level"])[0]
                 if(x['pop']<level.minpop or x['pop']>level.maxpop):
                     print("pop is not valid")
                     return Response("pop is not valid",status=status.HTTP_406_NOT_ACCEPTABLE)
@@ -425,8 +408,7 @@ class importfacilityView(APIView):
                     parent=Facility.objects.filter(id=data["parentid"])[0].name
                 type_ans=""
                 if(ser.data["type"] is not None):
-
-                    types=facilityParamDescription.objects.filter(paramid=10,enabled=True,name=ser.data["type"])[0].name    
+                    type_ans=facilityParamDescription.objects.filter(paramid=10,enabled=True,name=ser.data["type"])[0].name    
                 new_data={
                     "id":ser.data["id"],
                     "code":ser.data["code"],
