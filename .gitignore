@@ -8,3 +8,6 @@ __pycache__/
 *.xlsx
 readexcelfile.py
 readexcelfile1.py
+/.cloud/
+.cloud/
+/.cloud

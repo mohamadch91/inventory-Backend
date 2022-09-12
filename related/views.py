@@ -1,3 +1,4 @@
+from copy import copy
 from dataclasses import field
 from django.shortcuts import render
 
@@ -26,7 +27,7 @@ from rest_framework.response import Response
 from rest_framework import status
 from items.models import ItemType
 from django.shortcuts import get_object_or_404
-
+import copy
 
 # Create your views here.
 class relatedfacilityView(APIView):
@@ -34,7 +35,18 @@ class relatedfacilityView(APIView):
     def get(self,request):
         query_set=relatedFacility.objects.all()
         serializer = relatedfacilitySerilizer(query_set, many=True)
-        return Response(serializer.data)
+        new_data=copy.deepcopy(serializer.data)
+        country=CountryConfig.objects.all()[0]
+        if(country.poptarget is not None):
+            if(country.poptarget == 'General population'):
+                new_data[4]['required']=True
+                new_data[5]['required']=False
+
+            else:
+                new_data[5]['required']=True
+                new_data[4]['required']=False
+
+        return Response(new_data)
     def put(self, request):
         ans=[]
         for x in request.data:

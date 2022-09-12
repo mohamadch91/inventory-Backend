@@ -367,6 +367,8 @@ class importfacilityView(APIView):
                     if(x["level"]>lcount):
                         print("level is not valid")
                         return Response("level is not valid",status=status.HTTP_406_NOT_ACCEPTABLE)
+                    else:
+                        data["level"]=x["level"]
             
             if(x["pop"] is None):
                 print("pop is none")
