@@ -386,8 +386,12 @@ class importfacilityView(APIView):
             country=CountryConfig.objects.all()[0]
             country_code=country.codecountry
             level_code=data["level"]
+            ll=level_code
             level_code =f"{level_code:02d}"
-            facility_num=Facility.objects.filter(level=level_code)[len(Facility.objects.filter(level=level_code))-1].id
+            if(len(Facility.objects.filter(level=ll))==0):
+                facility_num=0
+            else:
+                facility_num=Facility.objects.filter(level=level_code)[len(Facility.objects.filter(level=ll))-1].id
             facility_num=facility_num+1
             facility_num=f"{facility_num:05d}"
             data["code"]=f"{country_code}{level_code}{facility_num}"
