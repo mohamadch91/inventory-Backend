@@ -274,7 +274,7 @@
     "pk": 28,
     "fields": {
       "name": "Year installed:",
-      "type": "select",
+      "type": "number",
       "topic": "Condition fields",
         "state": "YearInstalled"
     }

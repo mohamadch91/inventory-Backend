@@ -347,6 +347,18 @@
         "float": true,
         "floating": 2
       }
+    },
+    {
+      "model": "related.Itemvalidation",
+      "pk": 26,
+      "fields": {
+        "fieldid": 47,
+        "digits": 1,
+        "min": 1,
+        "max": 3,
+        "float": false,
+        "floating": -1
+      }
     }
   
 ]

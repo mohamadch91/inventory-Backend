@@ -53,7 +53,10 @@ class itemView(APIView):
         item_type=new_data["item_type"]
         item_class=get_object_or_404(ItemClass, id=item_class)
         item_type=get_object_or_404(ItemType, id=item_type)   
-        item_code=f"{item.objects.all()[item.objects.count()-1].id+1:03d}"    
+        if(item.objects.count()==0):
+         item_code=f"{1:03d}"    
+        else:
+            item_code=f"{item.objects.all()[item.objects.count()-1].id+1:03d}"    
         new_data["code"]=f"{facility.code}{item_class.code}{item_type.code}{item_code}"
         serializer = itemSerializer(data=new_data)
         if serializer.is_valid():
@@ -257,17 +260,20 @@ class itemFieldView(APIView):
 
 
                          
-                val=Itemvalidation.objects.filter(fieldid=x.id)
+                val=Itemvalidation.objects.filter(fieldid=x.field.id)
                 val_ser=ItemvalidationSerilizer(val,many=True)
+                print(val_ser.data)   
+
                 if(val.count()>0):
                     data["field"]["validation"]=val_ser.data
                 else:
-                    data["field"]["validation"]=[]     
+                    data["field"]["validation"]=[]  
                 fields.append(data)
             final={
                 "facility":fac_data,
                 "fields":fields
             }    
+          
             return Response(final)       
 
 
