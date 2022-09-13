@@ -84,7 +84,7 @@ class FacilityView(APIView):
 
         return Response(ser_copy)
 
-    def put(self, request, ):
+    def put(self, request ):
         print(request)
         id=request.data["id"]
         country = get_object_or_404(Facility, id=id)
@@ -322,23 +322,18 @@ class importfacilityView(APIView):
         ans=[]
         code=[]
         counter=0
-        fac_count=Facility.objects.all()[len(Facility.objects.all())-1].id
         for x in request.data:
             data={}
-            if(x["id"] is None):
-                print("id is none")
-                return Response("id is required",status=status.HTTP_406_NOT_ACCEPTABLE)
+          
             if(x["code"] is None):
-                print("code is none")
                 return Response("code is required",status=status.HTTP_406_NOT_ACCEPTABLE)
             else:
                 if(x["code"] in code):
-                    print("code is duplicate")
                     return Response("code is not unique",status=status.HTTP_406_NOT_ACCEPTABLE)
                 else:
-                    code.append(x["code"])    
+                    code.append(x["code"])   
+                    data["other_code"]=x["code"] 
             if(x["name"] is None):
-                print("name is none")
                 return Response("name is required",status=status.HTTP_406_NOT_ACCEPTABLE)
             else:
                 data["name"]=x["name"]    
@@ -347,7 +342,6 @@ class importfacilityView(APIView):
                     if(x["level"]==2):
                         data["parentid"]=1
                     else:    
-                        print("parentid is none",counter)
                         return Response("parentid is required",status=status.HTTP_406_NOT_ACCEPTABLE)
             else:
                 if(counter==0):
@@ -356,28 +350,26 @@ class importfacilityView(APIView):
                 else:
                     if(x["parentid"] not in code):
                         return Response(x["parentid"]+"parentid is not valid",status=status.HTTP_406_NOT_ACCEPTABLE)
-                    i=code.index(x["parentid"])
-                    data["parentid"]=i+fac_count
+                    i=Facility.objects.filter(other_code=x["parentid"]).first().id
+                    print(i,"finded index")
+                    
+                    data["parentid"]=i
            
             if((x["level"] is None) or x["level"]==0):
-                print("level is none")
                 return Response("level is required",status=status.HTTP_406_NOT_ACCEPTABLE)
             else:
                     lcount=LevelConfig.objects.all().count()
                     if(x["level"]>lcount):
-                        print("level is not valid")
                         return Response("level is not valid",status=status.HTTP_406_NOT_ACCEPTABLE)
                     else:
                         data["level"]=x["level"]
             
             if(x["pop"] is None):
-                print("pop is none")
                 return Response("pop is required",status=status.HTTP_406_NOT_ACCEPTABLE)
             else:
                 country=CountryConfig.objects.all()[0]
                 level=LevelConfig.objects.filter(id=x["level"])[0]
                 if(x['pop']<level.minpop or x['pop']>level.maxpop):
-                    print("pop is not valid")
                     return Response("pop is not valid",status=status.HTTP_406_NOT_ACCEPTABLE)
                 if(country.poptarget=='General population'):
                     data['populationnumber']=int(x['pop'])
@@ -395,15 +387,18 @@ class importfacilityView(APIView):
             facility_num=facility_num+1
             facility_num=f"{facility_num:05d}"
             data["code"]=f"{country_code}{level_code}{facility_num}"
-            print(data["parentid"])
+          
+            finded_fac=Facility.objects.filter(other_code=data["other_code"])
+            if(finded_fac.count()>0):
+                return Response("code is not unique",status=status.HTTP_406_NOT_ACCEPTABLE)
             ser=facilitySerializer(data=data)
+
             if(ser.is_valid()):
                 ser.save()
                 ns={}
                 country=CountryConfig.objects.all()[0]
                 level=LevelConfig.objects.filter(id=x["level"])[0]
                 if(x['pop']<level.minpop or x['pop']>level.maxpop):
-                    print("pop is not valid")
                     return Response("pop is not valid",status=status.HTTP_406_NOT_ACCEPTABLE)
                 if(country.poptarget=='General population'):
                     ns['pop']=int(x['pop'])
@@ -423,7 +418,8 @@ class importfacilityView(APIView):
                     "type":type_ans,
                     "level":ser.data["level"],
                     "lname":level.name,
-                    "pop":ns["pop"]
+                    "pop":ns["pop"],
+                    "other_code":ser.data["other_code"]
 
                 }
                 ans.append(new_data)

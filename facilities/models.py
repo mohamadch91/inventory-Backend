@@ -8,6 +8,7 @@ from settings.models import CountryConfig, LevelConfig
 # Create your models here.
 
 class Facility(models.Model):
+    id=models.AutoField(primary_key=True)
     country=models.ForeignKey(CountryConfig, on_delete=models.DO_NOTHING,blank=True,null=True)
     parentid = models.ForeignKey('self',on_delete=models.DO_NOTHING,blank=True,null=True) # Field name made lowercase.
     level = models.ForeignKey(LevelConfig, on_delete=models.DO_NOTHING, blank=True, null=True)
@@ -82,6 +83,7 @@ class Facility(models.Model):
     completerstaffsign = models.CharField(db_column='completerStaffSign', max_length=50, blank=True, null=True)  # Field name made lowercase.
     is_deleted = models.BooleanField(db_column='isDeleted',default=False)  # Field name made lowercase.
     delete_reason=models.CharField(max_length=50,blank=True,null=True)
+    other_code=models.CharField(max_length=50,blank=True,null=True)
 
 
     class Meta:
