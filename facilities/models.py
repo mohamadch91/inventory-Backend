@@ -10,7 +10,7 @@ from settings.models import CountryConfig, LevelConfig
 class Facility(models.Model):
     id=models.AutoField(primary_key=True)
     country=models.ForeignKey(CountryConfig, on_delete=models.DO_NOTHING,blank=True,null=True)
-    parentid = models.ForeignKey('self',on_delete=models.DO_NOTHING,blank=True,null=True) # Field name made lowercase.
+    parentid = models.ForeignKey('self',on_delete=models.CASCADE,blank=True,null=True) # Field name made lowercase.
     level = models.ForeignKey(LevelConfig, on_delete=models.DO_NOTHING, blank=True, null=True)
     name=models.CharField(max_length=100,blank=True,null=True)
     code=models.CharField(  max_length=50,blank=True,null=True)

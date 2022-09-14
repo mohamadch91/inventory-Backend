@@ -75,6 +75,10 @@ class exportExcel(APIView):
                 x['completerstaffname']=user.username
             except:
                 x['completerstaffname']=""
+            type_name=""
+            if(x["type"] != None):
+                type_name=get_object_or_404(facilityParamDescription,id=x["type"]).name
+            x["type"]=type_name
         for x in item_ser:
             try:
                 facility=get_object_or_404(Facility,id=x['facility'])

@@ -54,13 +54,16 @@ class relatedfacilityView(APIView):
             print(type(id))
             if(id==35):
                 for i in range(2):
+                    country = get_object_or_404(relatedFacility, id=id+i+1)
+                    
                     data={
                         "id":i+1,
                         "active":x["active"],
-                        "required":x["required"]
+                        "required":x["required"],
+                         "name":country.name,
+                        "type":country.type
 
                     }
-                    country = get_object_or_404(relatedFacility, id=id+i+1)
                     serializer = relatedfacilitySerilizer(country, data=data)
                     if serializer.is_valid():
                         serializer.save()

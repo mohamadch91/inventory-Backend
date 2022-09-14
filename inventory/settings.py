@@ -64,7 +64,7 @@ SIMPLE_JWT = {
     'SLIDING_TOKEN_LIFETIME': timedelta(minutes=5),
     'SLIDING_TOKEN_REFRESH_LIFETIME': timedelta(days=1),
 }
-ALLOWED_HOSTS = ['*','http://localhost:3000','https://invfrontdev.herokuapp.com'
+ALLOWED_HOSTS = ['*','http://localhost:3000','https://invfrontdev.herokuapp.com','https://inventory.runflare.run/'
 ]
 
 # Application definition
@@ -139,6 +139,16 @@ WSGI_APPLICATION = 'inventory.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+# DATABASES = {
+#   'default': {
+#      'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'inventorpft_db',
+#         'USER': 'postgres',
+#         'PASSWORD': 'tie9at9kpiue8de',
+#         'HOST': 'inventorydb-huj-service',
+#         'PORT': '',
+# }
+# }
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -196,9 +206,9 @@ CORS_ALLOWED_ORIGINS = [
     "https://www.test-cors.org",'http://localhost:3000','https://invfrontdev.herokuapp.com','http://5.182.47.38:3002','https://invgap.org'
 ]
 
-# CSRF_TRUSTED_ORIGINS = [
-#     'www.test-cors.org',
-# ]
+CSRF_TRUSTED_ORIGINS = [
+    'https://inventory.runflare.run',
+]
 
 lo = True
 REST_FRAMEWORK = {

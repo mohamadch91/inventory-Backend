@@ -47,9 +47,9 @@
       "pk": 4,
       "fields": {
         "fieldid": 13,
-        "digits": 4,
+        "digits": 2,
         "min": 0,
-        "max": 9999,
+        "max": -1,
         "float": true,
         "floating": 2
       }
