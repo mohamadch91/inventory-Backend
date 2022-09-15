@@ -44,7 +44,7 @@
     "model": "related.facilityParam",
     "pk": 6,
     "fields": {
-      "fieldid": 27,
+      "fieldid": 69,
       "order": 5
     }
   },
@@ -94,14 +94,6 @@
     "fields": {
       "fieldid": 4,
       "order": 11
-    }
-  },
-   {
-    "model": "related.facilityParam",
-    "pk": 13,
-    "fields": {
-      "fieldid": 69,
-      "order": 12
     }
   },
 

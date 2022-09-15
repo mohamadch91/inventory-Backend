@@ -271,6 +271,7 @@ class paramView(APIView):
                     "description":len(description_ser.data)
                 }
                 facility.append(ans)
+            print(facility)
             for x in item_param:
                 field=get_object_or_404(Field, id=x.fieldid.id)
                 field_ser=fieldSerializer(field)

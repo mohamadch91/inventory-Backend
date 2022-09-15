@@ -110,6 +110,8 @@ class facilityFieldView(APIView):
     permission_classes = (IsAuthenticated,)
     def get(self, request):
         parent=request.query_params.get('parent',None)
+        id=request.query_params.get('id',None)
+        print(id)
         user=request.user
         user_ser=UserSerializer(user,many=False)
         this_facility=Facility.objects.filter(id=user.facilityid.id)[0]
@@ -126,6 +128,9 @@ class facilityFieldView(APIView):
 
         level=this_facility.level
         allow_levels=LevelConfig.objects.filter(id__gt=level.id)
+        if(id is not None):
+            if(id=="1"):
+                allow_levels=LevelConfig.objects.filter(id__gte=level.id)
         counter=CountryConfig.objects.all()[0]
         allow_levels=allow_levels.filter(id__lte=counter.levels)
         if(allow_levels.count()==0):
@@ -179,8 +184,8 @@ class facilityFieldView(APIView):
                 "validation":[{
                     "fieldid": 6,
                     "digits": -1,
-                    "min": level.minpop,
-                    "max": level.maxpop,
+                    "min": -1,
+                    "max": -1,
                     "float": False,
                     "floating": -1
                      }]
@@ -229,8 +234,8 @@ class facilityFieldView(APIView):
                 "validation":[{
                     "fieldid": 5,
                     "digits": -1,
-                    "min": level.minpop,
-                    "max": level.maxpop,
+                    "min": -1,
+                    "max": -1,
                     "float": False,
                     "floating": -1
                      }]
@@ -282,6 +287,12 @@ class facilityFieldView(APIView):
             "id":fac_ser.data["id"],
             "name":fac_ser.data["name"]
         }
+        if(id is not None):
+            if(id=="1"):
+                   fac_data={
+            "id":"",
+            "name":""
+        }
         user_data={
             "id":user_ser.data["pk"],
             "username":user_ser.data["username"]
@@ -322,6 +333,7 @@ class importfacilityView(APIView):
         ans=[]
         code=[]
         counter=0
+        Facility.objects.filter(id__gt=1).delete()
         for x in request.data:
             data={}
           
@@ -351,7 +363,6 @@ class importfacilityView(APIView):
                     if(x["parentid"] not in code):
                         return Response(x["parentid"]+"parentid is not valid",status=status.HTTP_406_NOT_ACCEPTABLE)
                     i=Facility.objects.filter(other_code=x["parentid"]).first().id
-                    print(i,"finded index")
                     
                     data["parentid"]=i
            
@@ -632,7 +643,7 @@ class facilityFieldprintView(APIView):
 
 class facilityDeleteView(APIView):
     def get(self,request):
-        del_res=facilityParamDescription.objects.filter(paramid=13,enabled=True)
+        del_res=facilityParamDescription.objects.filter(paramid=6,enabled=True)
         desc_ser=facilityParamDescriptionSerilizer(del_res,many=True)
         return Response(desc_ser.data,status=status.HTTP_200_OK)
     def post(self,request):
