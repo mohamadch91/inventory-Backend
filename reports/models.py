@@ -17,8 +17,8 @@ class gapSave(models.Model):
     func_cap=models.FloatField(default=0)
     exces=models.FloatField(default=0)
     calculate_for=models.CharField(max_length=20,blank=True,null=True)
-    general=models.IntegerField(default=0)
-    under_1=models.IntegerField(default=0)
+    general=models.IntegerField(default=0,blank=True,null=True)
+    under_1=models.IntegerField(default=0,blank=True,null=True)
     planned=models.BooleanField(default=False)
 
 class plannedGap(models.Model):

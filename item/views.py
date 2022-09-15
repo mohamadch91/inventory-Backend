@@ -292,13 +292,22 @@ class itemPQSView(APIView):
                 if(tcode=='REF' or tcode=='FRZ' or tcode=='CRF' or tcode=='UFR' or tcode=='IFR' ):
                     pqs=pqs3.objects.all()
                     ser=pqs3Serializer(pqs,many=True)
-                    return Response(ser.data,status=status.HTTP_200_OK)
+                    new_Data=copy.deepcopy(ser.data)
+                    for i in new_Data:
+                        i["ptype"]=3
+                    return Response(new_Data,status=status.HTTP_200_OK)
                 else:
                     pqss=pqs3.objects.all()
                     ser=pqs3Serializer(pqss,many=True)
+                    new_Data=copy.deepcopy(ser.data)
+                    for i in new_Data:
+                        i["ptype"]=3
                     pqs44=pqs4.objects.all()
                     ser4=pqs4Serializer(pqs44,many=True)
-                    ans=ser4.data +ser.data 
+                    new_Data4=copy.deepcopy(ser4.data)
+                    for i in new_Data4:
+                        i["ptype"]=4
+                    ans=new_Data+new_Data4
                     return Response(ans,status=status.HTTP_200_OK)       
 
             if(item_class.code=='PCC'):
@@ -306,21 +315,36 @@ class itemPQSView(APIView):
                 if(tcode=='CBX' or tcode=='VBX'  ):
                     pqs44=pqs4.objects.all()
                     ser4=pqs4Serializer(pqs44,many=True)
-                    return Response(ser4.data,status=status.HTTP_200_OK)
+                    new_Data4=copy.deepcopy(ser4.data)
+                    for i in new_Data4:
+                        i["ptype"]=4
+                    return Response(new_Data4,status=status.HTTP_200_OK)
                 else:
                     pqss=pqs3.objects.all()
                     ser=pqs3Serializer(pqss,many=True)
+                    new_Data=copy.deepcopy(ser.data)
+                    for i in new_Data:
+                        i["ptype"]=3
                     pqs44=pqs4.objects.all()
                     ser4=pqs4Serializer(pqs44,many=True)
-                    ans=ser4.data +ser.data 
-                    return Response(ans,status=status.HTTP_200_OK)       
+                    new_Data4=copy.deepcopy(ser4.data)
+                    for i in new_Data4:
+                        i["ptype"]=4
+                    ans=new_Data+new_Data4
+                    return Response(ans,status=status.HTTP_200_OK)        
             else:
                 pqss=pqs3.objects.all()
                 ser=pqs3Serializer(pqss,many=True)
+                new_Data=copy.deepcopy(ser.data)
+                for i in new_Data:
+                    i["ptype"]=3
                 pqs44=pqs4.objects.all()
                 ser4=pqs4Serializer(pqs44,many=True)
-                ans=ser4.data +ser.data 
-                return Response(ans,status=status.HTTP_200_OK)   
+                new_Data4=copy.deepcopy(ser4.data)
+                for i in new_Data4:
+                    i["ptype"]=4
+                ans=new_Data+new_Data4
+                return Response(ans,status=status.HTTP_200_OK)     
         else:
                     
             return Response("need query param",status=status.HTTP_200_OK)

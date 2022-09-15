@@ -1026,6 +1026,12 @@ class gapItemReportView(APIView):
             year_from=request.query_params.get('year_from',None)
             year_to=request.query_params.get('year_to',None)
             calculate_for=request.query_params.get('calculate_for',None)
+            cc_for=calculate_for
+            if(calculate_for is not  None):
+                calculate_for=int(calculate_for)
+                current=datetime.date.today().year
+                calculate_for=calculate_for-current
+            
             facility=Facility.objects.filter(parentid=request.user.facilityid.id,is_deleted=False)
             facility=Facility.objects.filter(id=request.user.facilityid.id)|facility
             items=item.objects.all()
@@ -1101,11 +1107,20 @@ class gapItemReportView(APIView):
                 else:
                     if(x.childrennumber is not None):
                         pop=x.childrennumber
-                req1=pop*x.level.uppervol/1000
-                req2=pop*x.level.undervol/1000
-                req3=pop*x.level.m70vol/1000
-                req4=pop*x.level.m25vol/1000
-                req5=pop*x.level.dryvol/1000
+                if(calculate_for==0):
+                    req1=pop*x.level.uppervol/1000
+                    req2=pop*x.level.undervol/1000
+                    req3=pop*x.level.m70vol/1000
+                    req4=pop*x.level.m25vol/1000
+                    req5=pop*x.level.dryvol/1000
+                else:
+                    calculate_for=(country.poprate)**calculate_for
+                    req1=pop*x.level.uppervolnew/1000*calculate_for
+                    req2=pop*x.level.undervolnew/1000*calculate_for
+                    req3=pop*x.level.m70volnew/1000*calculate_for
+                    req4=pop*x.level.m25volnew/1000*calculate_for
+                    req5=pop*x.level.dryvolnew/1000*calculate_for
+                    
                 excees1=False
                 excees2=False
                 excees3=False
@@ -1234,7 +1249,7 @@ class gapItemReportView(APIView):
                     "exces":fcapacity1-req1,
                     "general":x.populationnumber,
                     "under_1":x.childrennumber,
-                    "calculate_for":calculate_for
+                    "calculate_for":cc_for
                 }
                 save_arr.append(save_data1)
                 save_data2={
@@ -1249,7 +1264,7 @@ class gapItemReportView(APIView):
                     "exces":fcapacity2-req2,
                     "general":x.populationnumber,
                     "under_1":x.childrennumber,
-                    "calculate_for":calculate_for
+                    "calculate_for":cc_for
 
                 }
                 save_arr.append(save_data2)
@@ -1265,7 +1280,7 @@ class gapItemReportView(APIView):
                     "exces":fcapacity3-req3,
                     "general":x.populationnumber,
                     "under_1":x.childrennumber,
-                    "calculate_for":calculate_for
+                    "calculate_for":cc_for
 
                 }
                 save_arr.append(save_data3)
@@ -1281,7 +1296,7 @@ class gapItemReportView(APIView):
                     "exces":fcapacity4-req4,
                     "general":x.populationnumber,
                     "under_1":x.childrennumber,
-                    "calculate_for":calculate_for
+                    "calculate_for":cc_for
 
                 }
                 save_arr.append(save_data4)
@@ -1295,7 +1310,7 @@ class gapItemReportView(APIView):
                     "available":capacity5,
                     "func_cap":fcapacity5,
                     "exces":fcapacity5-req5,
-                    "calculate_for":calculate_for,
+                    "calculate_for":cc_for,
                      "general":x.populationnumber,
                     "under_1":x.childrennumber,
 
