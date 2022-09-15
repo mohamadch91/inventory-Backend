@@ -45,7 +45,10 @@ class FacilityView(APIView):
         country_code=country.codecountry
         level_code=new_data["level"]
         level_code =f"{level_code:02d}"
-        facility_num=Facility.objects.filter(level=level_code)[len(Facility.objects.filter(level=level_code))-1].id
+        if(len(Facility.objects.filter(level=level_code))==0):
+            facility_num=0
+        else:
+            facility_num=Facility.objects.filter(level=level_code)[len(Facility.objects.filter(level=level_code))-1].id
         facility_num=facility_num+1
         facility_num=f"{facility_num:05d}"
         new_data["code"]=f"{country_code}{level_code}{facility_num}"
@@ -121,9 +124,10 @@ class facilityFieldView(APIView):
         country=get_object_or_404(CountryConfig,id=this_facility.country.id)
         parent_num=Facility.objects.filter(parentid=this_facility.id).count()
         parents=facilitySerializer(parent_num,many=True)
-        if(this_facility.loverlevelfac is not None):            
-            if(parent_num>= this_facility.loverlevelfac):
-                return Response("You have reached the maximum number of facilities you can add",status=status.HTTP_403_FORBIDDEN)
+        if(id is None or id =="new"):
+            if(this_facility.loverlevelfac is not None):            
+                if(parent_num>= this_facility.loverlevelfac):
+                    return Response("You have reached the maximum number of facilities you can add",status=status.HTTP_403_FORBIDDEN)
 
 
         level=this_facility.level
@@ -133,8 +137,9 @@ class facilityFieldView(APIView):
                 allow_levels=LevelConfig.objects.filter(id__gte=level.id)
         counter=CountryConfig.objects.all()[0]
         allow_levels=allow_levels.filter(id__lte=counter.levels)
-        if(allow_levels.count()==0):
-            return Response ("you cannot add facility at this level",status=status.HTTP_403_FORBIDDEN)  
+        if(id is None or id =="new"):
+            if(allow_levels.count()==0):
+                return Response ("you cannot add facility at this level",status=status.HTTP_403_FORBIDDEN)  
         
         levels_Ser=levelSerializer(allow_levels,many=True)
         rel=relatedFacility.objects.filter(active=True)

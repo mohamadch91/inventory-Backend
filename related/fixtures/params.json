@@ -216,5 +216,13 @@
       "fieldid": 81,
       "order": 16
     }
-  }
+  },
+    {
+      "model": "related.itemParam",
+      "pk": 16,
+      "fields": {
+        "fieldid": 27,
+        "order": 16
+      }
+    }
 ]
