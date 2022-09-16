@@ -202,6 +202,9 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_CREDENTIALS = True
+
 CORS_ALLOWED_ORIGINS = [
     "https://www.test-cors.org",'http://localhost:3000','https://invfrontdev.herokuapp.com','http://5.182.47.38:3002','https://invgap.org'
 ]
