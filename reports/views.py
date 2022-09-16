@@ -157,18 +157,18 @@ class facilitysegView(APIView):
             under_to=request.query_params.get('underto',None)
             all_fac=Facility.objects.filter(parentid=request.user.facilityid.id,is_deleted=False)
             all_fac=Facility.objects.filter(id=request.user.facilityid.id)|all_fac
-            if(level is not None):
+            if(level is not None and level !="-1"):
                 all_fac=all_fac.filter(level=level)
-            if(type is not None):
+            if(type is not None and type!="-1"):
                 all_fac=all_fac.filter(type=type)
             if(name is not None):
                 all_fac=all_fac.filter(name__icontains=name)
             if(code is not None):
                 all_fac=all_fac.filter(code__icontains=code)
         
-            if(power is not None):
+            if(power is not None and power!="-1"):
                 all_fac=all_fac.filter(powersource=power)
-            if(func is not None):
+            if(func is not None and func!="-1"):
                 if(func=="true"):
                     all_fac=all_fac.filter(is_functioning=True)
                 else:
