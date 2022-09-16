@@ -131,11 +131,14 @@ class relatedfacilityView(APIView):
                 
             country = get_object_or_404(relatedFacility, id=id)
             serializer = relatedfacilitySerilizer(country, data=x)
+
             if serializer.is_valid():
                 serializer.save()
                 ans.append(serializer.data)
             else:
                 return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        ans=sorted(ans, key=lambda k: k['id'])
+        
         return Response(ans)    
 class fieldView(APIView):
     permission_classes = (IsAuthenticated,)
@@ -245,6 +248,7 @@ class relatedItemTypeView(APIView):
                 obj=relatedItemType.objects.filter(field=x['fieldid'], itemtype=x['itemtypeid'])
                 if(len(obj)==1):
                     obj.delete()
+        ans=sorted(ans, key=lambda k: k['id'])
         return Response(ans,status=status.HTTP_200_OK)
 
 
