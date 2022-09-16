@@ -220,8 +220,9 @@ class relatedItemTypeView(APIView):
                     else:
                         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
                 else:
-                    obj=relatedItemType.objects.filter(field=x['fieldid'], itemtype=x['itemtypeid'])
-                    obj.update(required=x['required'])
+                    obj=relatedItemType.objects.filter(field=x['fieldid'], itemtype=x['itemtypeid'])[0]
+                    obj.required=x['required']
+                    obj.save()
                     # data={
                     #     "required":x['required'],
                     #     "itemtype":itemtype.id,
