@@ -120,6 +120,7 @@ class FacilityView(APIView):
                 
         #reverse array
         # ser_copy=ser_copy[::-1]
+        ser_copy=sorted(ser_copy, key=lambda k: k['id'])
         return Response(ser_copy)
 
     def put(self, request ):

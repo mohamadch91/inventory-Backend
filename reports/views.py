@@ -523,7 +523,7 @@ class itemGroupedReport(APIView):
                             manufac=""
                             count=new_items.count()        
                             if(z is not None):
-                                manufac=Manufacturer.objects.filter(id=z.id)
+                                manufac=Manufacturer.objects.filter(id=z)
                                 if(manufac.count()>0):
                                     manufac=manufac[0].describe
        
