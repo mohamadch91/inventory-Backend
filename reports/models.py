@@ -5,9 +5,9 @@ from facilities.models import Facility
 from settings.models import LevelConfig
 class gapSave(models.Model):
     id=models.AutoField(primary_key=True)
-    facility=models.ForeignKey(Facility,on_delete=models.DO_NOTHING,related_name="facility_gap",null=True)
-    parent_fac=models.ForeignKey(Facility,on_delete=models.DO_NOTHING,related_name="parent_fac",null=True,blank=True)
-    level=models.ForeignKey(LevelConfig,on_delete=models.DO_NOTHING,related_name="level",null=True,blank=True)
+    facility=models.ForeignKey(Facility,on_delete=models.CASCADE,related_name="facility_gap",null=True)
+    parent_fac=models.ForeignKey(Facility,on_delete=models.CASCADE,related_name="parent_fac",null=True,blank=True)
+    level=models.ForeignKey(LevelConfig,on_delete=models.CASCADE,related_name="level",null=True,blank=True)
     code=models.CharField(max_length=20,blank=True,null=True)
     condition=models.IntegerField()
     created_at=models.DateTimeField(auto_now_add=True)

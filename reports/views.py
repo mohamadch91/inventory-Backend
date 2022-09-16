@@ -663,7 +663,7 @@ class itemFacilityReport(APIView):
                 model=x.Model
                 manufac=x.Manufacturer
                 if(manufac is not None):
-                    manufac=Manufacturer.objects.filter(id=manufac.id)[0].describe
+                    manufac=Manufacturer.objects.filter(id=manufac)[0].describe
                 capacity=x.FreezerNetCapacity
                 year=x.YearInstalled
                 physical=""

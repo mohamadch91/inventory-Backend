@@ -71,17 +71,28 @@ class itemView(APIView):
         if(facility is not None):
             country=item.objects.filter(facility=facility,isDel=False)
             serializer =  itemSerializer(country, many=True)
-            return Response(serializer.data)
+            new_data=copy.deepcopy(serializer.data)
+            for i in new_data:
+                if(i["Manufacturer"] is not None):
+                    man=get_object_or_404(Manufacturer,id=i["Manufacturer"])
+                    i["Manufacturer"]=man.describe
+            return Response(new_data)
         if(id is not None):    
             country = item.objects.filter(id=id,isDel=False)
             serializer =  itemSerializer(country, many=True)
-            return Response(serializer.data)
+            new_data=copy.deepcopy(serializer.data)
+            return Response(new_data)
         if(deleted=="true"):
             country = item.objects.filter(facility=request.user.facilityid,isDel=True) 
         else:
             country = item.objects.filter(facility=request.user.facilityid,isDel=False) 
         serializer =  itemSerializer(country, many=True)
-        return Response(serializer.data)
+        new_data=copy.deepcopy(serializer.data)
+        for i in new_data:
+            if(i["Manufacturer"] is not None):
+                man=get_object_or_404(Manufacturer,id=i["Manufacturer"])
+                i["Manufacturer"]=man.describe
+        return Response(new_data)
 
     def put(self, request, ):
         id=request.data["id"]
@@ -109,7 +120,7 @@ class itemFieldView(APIView):
         if class_id is None and type_id is None:
             facility=user.facilityid
             facility=get_object_or_404(Facility, id=facility.id)
-            if(parent is not None):
+            if(parent is not None and parent!=""):
                 facility=get_object_or_404(Facility,id=parent)
                 
             fac_ser=facilitySerializer(facility,many=False)
@@ -155,6 +166,8 @@ class itemFieldView(APIView):
         else:
             facility=user.facilityid
             facility=get_object_or_404(Facility, id=facility.id)
+            if(parent is not None):
+                facility=get_object_or_404(Facility,id=parent)
             fac_ser=facilitySerializer(facility,many=False)
             fac_data={
             "id":fac_ser.data["id"],
@@ -168,6 +181,7 @@ class itemFieldView(APIView):
             Manufacturers=Manufacturer.objects.filter(active=True,itemclass=item_class.id)
             man_Ser=ManufacturerSerializer(Manufacturers,many=True)    
             related=relatedItemType.objects.filter(itemtype=item_type.id)
+            related=related.order_by('id')
             fields=[]
             for x in related:
                 data={}
@@ -262,13 +276,14 @@ class itemFieldView(APIView):
                          
                 val=Itemvalidation.objects.filter(fieldid=x.field.id)
                 val_ser=ItemvalidationSerilizer(val,many=True)
-                print(val_ser.data)   
 
                 if(val.count()>0):
                     data["field"]["validation"]=val_ser.data
                 else:
                     data["field"]["validation"]=[]  
                 fields.append(data)
+            #sort field by order
+            fields=sorted(fields, key=lambda k: k['field']['id'])
             final={
                 "facility":fac_data,
                 "fields":fields

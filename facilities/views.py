@@ -63,20 +63,54 @@ class FacilityView(APIView):
 
     def get(self, request):
         id=request.query_params.get("id",None)
-        deleted=request.query_params.get("deleted",False)
         if id is not None:
             facility = get_object_or_404(Facility, id=id)
             serializer = facilitySerializer(facility)
             return Response(serializer.data)
-        if(deleted=="true"):
-            country = Facility.objects.filter(parentid=request.user.facilityid.id)
-            country=Facility.objects.filter(id=request.user.facilityid.id)|country
-            country=country.filter(is_deleted=True)
-            
-        else:
-            country = Facility.objects.filter(parentid=request.user.facilityid.id,is_deleted=False)
-            country=Facility.objects.filter(id=request.user.facilityid.id)|country
-        serializer =  facilitySerializer(country, many=True)
+        deleted=request.query_params.get("is_deleted",False)
+        name=request.query_params.get('name',None)
+        code=request.query_params.get('code',None)
+        level=request.query_params.get('level',None)
+        type=request.query_params.get('type',None)
+        power=request.query_params.get('power',None)
+        func=request.query_params.get('func',None)
+        general_from=request.query_params.get('gfrom',None)
+        general_to=request.query_params.get('gto',None)
+        under_from=request.query_params.get('underfrom',None)
+        under_to=request.query_params.get('underto',None)
+        all_fac=Facility.objects.filter(parentid=request.user.facilityid.id)
+        all_fac=Facility.objects.filter(id=request.user.facilityid.id)|all_fac
+        if(level is not None ) :
+            all_fac=all_fac.filter(level=level)
+        if(type is not None):
+            all_fac=all_fac.filter(type=type)
+        if(name is not None):
+            all_fac=all_fac.filter(name__icontains=name)
+        if(code is not None):
+            all_fac=all_fac.filter(code__icontains=code)
+    
+        if(power is not None):
+            all_fac=all_fac.filter(powersource=power)
+        if(func is not None):
+            if(func=="true"):
+                all_fac=all_fac.filter(is_functioning=True)
+            else:
+                all_fac=all_fac.filter(is_functioning=False)
+        if(general_from is not None):
+            all_fac=all_fac.filter(populationnumber__gte=name)
+        if(general_to is not None):
+            all_fac=all_fac.filter(populationnumber__lte=name)
+        if(under_from is not None):
+            all_fac=all_fac.filter(childrennumber__gte=name)
+        if(under_to is not None):
+            all_fac=all_fac.filter(childrennumber__lte=name)
+        if(deleted is not None):
+            if(deleted=="true"):
+                all_fac=all_fac.filter(is_deleted=True)
+            else:
+                all_fac=all_fac.filter(is_deleted=False)
+        all_fac.order_by('id')
+        serializer =  facilitySerializer(all_fac, many=True)
         ser_copy=copy.deepcopy(serializer.data)
         for i in (ser_copy):
             type=i["type"]
@@ -84,7 +118,8 @@ class FacilityView(APIView):
                 type_name=get_object_or_404(facilityParamDescription,id=type).name
                 i["type"]=type_name
                 
-
+        #reverse array
+        # ser_copy=ser_copy[::-1]
         return Response(ser_copy)
 
     def put(self, request ):
@@ -143,6 +178,7 @@ class facilityFieldView(APIView):
         
         levels_Ser=levelSerializer(allow_levels,many=True)
         rel=relatedFacility.objects.filter(active=True)
+        rel=rel.order_by('id')
         ans=[]
         for x in rel:
             if(x.id==69):
@@ -338,7 +374,17 @@ class importfacilityView(APIView):
         ans=[]
         code=[]
         counter=0
-        Facility.objects.filter(id__gt=1).delete()
+        try:
+            
+            facc=Facility.objects.filter(id__gt=1)
+            facc.order_by('id')
+            for x in facc:
+                try:
+                    x.delete()
+                except:
+                    pass
+        except:
+            return Response("you cant delete facility has items",status=status.HTTP_400_BAD_REQUEST)
         for x in request.data:
             data={}
           
@@ -403,7 +449,7 @@ class importfacilityView(APIView):
             facility_num=facility_num+1
             facility_num=f"{facility_num:05d}"
             data["code"]=f"{country_code}{level_code}{facility_num}"
-          
+            data["country"]=country.id
             finded_fac=Facility.objects.filter(other_code=data["other_code"])
             if(finded_fac.count()>0):
                 return Response("code is not unique",status=status.HTTP_406_NOT_ACCEPTABLE)
