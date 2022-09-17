@@ -66,7 +66,12 @@ class FacilityView(APIView):
         if id is not None:
             facility = get_object_or_404(Facility, id=id)
             serializer = facilitySerializer(facility)
-            return Response(serializer.data)
+            new_Ser=copy.deepcopy(serializer.data)
+            if(new_Ser["completerstaffname"]is not None):
+                new_Ser["completerstaffname"]=get_object_or_404(User,pk=int(new_Ser["completerstaffname"])).username
+            new_Ser["created_at"]=new_Ser["created_at"].split("T")[0]+" "+new_Ser["created_at"].split("T")[1].split(".")[0]
+            new_Ser["updated_at"]=new_Ser["updated_at"].split("T")[0]+" "+new_Ser["updated_at"].split("T")[1].split(".")[0]
+            return Response(new_Ser)
         deleted=request.query_params.get("is_deleted",False)
         name=request.query_params.get('name',None)
         code=request.query_params.get('code',None)
@@ -117,6 +122,8 @@ class FacilityView(APIView):
             if(type != None and type != ""):
                 type_name=get_object_or_404(facilityParamDescription,id=type).name
                 i["type"]=type_name
+                i["created_at"]=i["created_at"].split("T")[0]+" "+i["created_at"].split("T")[1].split(".")[0]
+                i["updated_at"]=i["updated_at"].split("T")[0]+" "+i["updated_at"].split("T")[1].split(".")[0]
                 
         #reverse array
         # ser_copy=ser_copy[::-1]
@@ -127,7 +134,9 @@ class FacilityView(APIView):
         print(request)
         id=request.data["id"]
         country = get_object_or_404(Facility, id=id)
-        serializer =  facilitySerializer(country, data=request.data)
+        data=copy.deepcopy(request.data)
+        data["completerstaffname"]=request.user.id
+        serializer =  facilitySerializer(country, data=data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)
@@ -156,6 +165,11 @@ class facilityFieldView(APIView):
         this_facility=Facility.objects.filter(id=user.facilityid.id)[0]
         if(parent is not None):
             this_facility=get_object_or_404(Facility,id=parent)
+        if(id is not None and id!="new"):
+            xxfca=get_object_or_404(Facility,id=id)
+            if(xxfca.parentid is not None):
+                this_facility=get_object_or_404(Facility,id=xxfca.parentid.id)
+
         fac_ser=facilitySerializer(this_facility,many=False)
         country=get_object_or_404(CountryConfig,id=this_facility.country.id)
         parent_num=Facility.objects.filter(parentid=this_facility.id).count()
@@ -185,6 +199,22 @@ class facilityFieldView(APIView):
             if(x.id==69):
                 continue
             if(x.id==1 or x.id ==3 or x.id==8 or x.id == 9 or x.id==10):
+                if(id is not None and id!="new"):
+                    if(x.id==8 or x.id == 9 or x.id==10):
+                            data={
+                        "id":x.id,
+                        "name":x.name,
+                        "topic":x.topic,
+                        "type":x.type,
+                        "active":False,
+                        "required":True,
+                        "stateName":x.state,
+                        "disabled":True,
+                        "params":[],
+                        "validation":[]
+
+                            }
+                            ans.append(data)
                 continue
             if((x.id==6 or x.id==5) and country.poptarget=='General population'):
                 if(x.id==5):
@@ -355,17 +385,18 @@ class facilityPArentView(APIView):
         id=request.query_params.get('id',None)
         if(id is not None):
             id=int(id)
-            fac=Facility.objects.all()
-            fac_Ser=facilitySerializer(fac,many=True)
-            this=get_object_or_404(Facility,id=id)
-            fac_Ser_this=facilitySerializer(this,many=False)
-            final_ans=[]
-            final_ans.append(fac_Ser_this.data)
-            for x in fac_Ser.data:
-                if(x["parentid"] is not None):
-                    if(x["parentid"]==id):
-                        final_ans.append(x)
-            return Response(final_ans,status=status.HTTP_200_OK)
+            fac=Facility.objects.filter(parentid=id)
+            this=Facility.objects.filter(id=id)
+            fac=this |fac
+            fac_ser=facilitySerializer(fac,many=True)
+            ser_copy=copy.deepcopy(fac_ser.data)
+            for i in ser_copy:
+                type=i["type"]
+                if(type != None and type != ""):
+                    type_name=get_object_or_404(facilityParamDescription,id=type).name
+                    i["type"]=type_name
+            ser_copy=sorted(ser_copy, key=lambda k: k['id'])
+            return Response(ser_copy,status=status.HTTP_200_OK)
         return Response("need query param",status=status.HTTP_400_BAD_REQUEST)    
         
 
