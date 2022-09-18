@@ -99,9 +99,10 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
+
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -203,12 +204,13 @@ STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CORS_ORIGIN_ALLOW_ALL = True
-CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOW_CREDENTIALS = False
 
 CORS_ALLOWED_ORIGINS = [
     "https://www.test-cors.org",'http://localhost:3000','https://invfrontdev.herokuapp.com','http://5.182.47.38:3002','https://invgap.org'
 ]
-
+CORS_ALLOW_HEADERS = [ "accept", "accept-encoding", "authorization", "content-type", "dnt", "origin", "user-agent", "x-csrftoken", "x-requested-with", ]
+CORS_ALLOW_METHODS =[ "DELETE", "GET", "OPTIONS", "PATCH", "POST", "PUT"] 
 CSRF_TRUSTED_ORIGINS = [
     'https://inventory.runflare.run',
 ]
