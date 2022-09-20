@@ -52,17 +52,17 @@ class languageView(APIView):
         if name is not None:
             if(pnum is None):
                     return Response("need query page num")
-            pnum=int(pnum[0]) 
+            pnum=int(pnum) 
             lang = languages.objects.filter(name=name)[0]
             
             words=languages_words.objects.filter(language=lang.id)
             if(search is not None):
                 words=languages_words.objects.filter(language=lang.id,word__icontains=search) or languages_words.objects.filter(language=lang.id,translate__icontains=search)
             serializer =  languageWordSerializer(words, many=True)
-            serializer.data[(pnum-1)*20:pnum*20]
+            
             ans={
                 "language":lang.name,
-                "words":serializer.data,
+                "words":serializer.data[((pnum-1)*20):(pnum*20)],
             }
             return Response(ans)
         else:
@@ -150,3 +150,18 @@ class languageView(APIView):
         lang = get_object_or_404(languageWordSerializer, id=id)
         lang.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)    
+
+class getlanguages(APIView):
+    def get(self,request):
+        print(request)
+        name=request.query_params.get('name',None)
+        lang = languages.objects.filter(name=name)[0]
+        
+        words=languages_words.objects.filter(language=lang.id)
+        ans={}
+        for i in words:
+            ans[i.word]=i.translate
+        
+        
+        return Response(ans)
+        
