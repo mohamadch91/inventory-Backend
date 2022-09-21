@@ -62,7 +62,8 @@ class helperView(APIView):
                     },
                     "item_type":second_data,
                 }
-                first_data.append(data)
+                if(len(second_data)>0):
+                    first_data.append(data)
             return Response(first_data)
 
 
