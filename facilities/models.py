@@ -38,7 +38,7 @@ class Facility(models.Model):
     climate=models.CharField(max_length=50,blank=True,null=True)
     ownership = models.CharField(max_length=50, blank=True, null=True)
     roadtype = models.CharField(db_column='roadType', max_length=50,blank=True, null=True)  # Field name made lowercase.
-    distancefromparent = models.IntegerField(db_column='distanceFromParent', blank=True, null=True)  # Field name made lowercase.
+    distancefromparent = models.FloatField(db_column='distanceFromParent', blank=True, null=True)  # Field name made lowercase.
     timetoparent = models.CharField(db_column='timeToParent', max_length=50, blank=True, null=True)  # Field name made lowercase.
     days_open =models.IntegerField(db_column='daysOpen', blank=True, null=True)  # Field name made lowercase.
     working_from=models.CharField(max_length=50,db_column='workingFrom', blank=True, null=True)  # Field name made lowercase.
