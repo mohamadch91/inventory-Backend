@@ -1107,7 +1107,7 @@ class gapItemReportView(APIView):
                 else:
                     if(x.childrennumber is not None):
                         pop=x.childrennumber
-                if(calculate_for==0):
+                if(calculate_for==0 or calculate_for is None):
                     req1=pop*x.level.uppervol/1000
                     req2=pop*x.level.undervol/1000
                     req3=pop*x.level.m70vol/1000
