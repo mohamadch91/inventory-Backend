@@ -47,7 +47,8 @@ import json
 import pandas as pd
 import os
 import datetime
-
+from related.models import *
+from related.serializers import *
 class gapReportView(APIView):
 
     def get(self,reqeust):
@@ -60,10 +61,26 @@ class exportExcel(APIView):
         item_ser=itemSerializer(item.objects.all(),many=True)
         item_ser=copy.deepcopy(item_ser.data)
         country=CountryConfig.objects.all()[0]
+        rel_fac=relatedFacility.objects.all()
+        rel_item=Field.objects.all()
         for x in facility_Ser:
-            x['country']:country.country
+            
+            
+            for z in rel_fac:
+                strs=z.state
+                if(x[strs] != None):
+                    param=facilityParam.objects.filter(fieldid=z.id).order_by('order')
+                    if(param.count()!=0):
+                        desc=facilityParamDescription.objects.filter(id=x[strs]).order_by('order')
+                        if(desc.count()!=0):
+                            x[strs]=desc[0].name
+
+
+            x["created_at"]=x["created_at"].split("T")[0]
+            x["updated_at"]=x["updated_at"].split("T")[0]
+            x['country']=country.country
             level=get_object_or_404(LevelConfig,id=x['level'])
-            x['level']=level.name
+            x['level']=str(level.id)+"-" +level.name
             parent=Facility.objects.filter(id=x['parentid'])
             
             if(parent.count()==0):
@@ -75,11 +92,16 @@ class exportExcel(APIView):
                 x['completerstaffname']=user.username
             except:
                 x['completerstaffname']=""
-            type_name=""
-            if(x["type"] != None):
-                type_name=get_object_or_404(facilityParamDescription,id=x["type"]).name
-            x["type"]=type_name
+
         for x in item_ser:
+            for z in rel_item:
+                strs=z.state
+                if(x[strs] != None):
+                    param=itemParam.objects.filter(fieldid=z.id).order_by('order')
+                    if(param.count()!=0):
+                        desc=itemParamDescription.objects.filter(id=x[strs]).order_by('order')
+                        if(desc.count()!=0):
+                            x[strs]=desc[0].name
             try:
                 facility=get_object_or_404(Facility,id=x['facility'])
                 item_class=get_object_or_404(ItemClass,id=x['item_class'])
@@ -91,14 +113,16 @@ class exportExcel(APIView):
                 x['facility']=""
                 x['item_class']=""
                 x['item_type']=""
+            if(x['Manufacturer'] !=None):
+                x['Manufacturer']=Manufacturer.objects.filter(id=x['Manufacturer'])[0].describe
                     
 
         # fac_json=json.dumps(facility_Ser,indent=4)
         # item_json=json.dumps(item_ser,indent=4)
         df = pd.DataFrame(facility_Ser)
         df_1 = pd.DataFrame(item_ser)
-        facility_str=country.codecountry+str(datetime.datetime.now())+"-Facility.xlsx"
-        item_str=country.codecountry+str(datetime.datetime.now())+"-Item.xlsx"
+        facility_str=country.codecountry+str(datetime.datetime.now()).split(".")[0]+"-Facility.xlsx"
+        item_str=country.codecountry+str(datetime.datetime.now()).split(".")[0]+"-Item.xlsx"
         df.to_excel('./media/'+facility_str)
         df_1.to_excel('./media/'+item_str)
         data={
@@ -728,7 +752,7 @@ class facilityProfileView(APIView):
         for x in allow_levels:
             facility=Facility.objects.filter(parentid=request.user.facilityid.id,is_deleted=False)
             facility=Facility.objects.filter(id=request.user.facilityid.id)|facility
-            facility=Facility.objects.filter(level=x.id)
+            facility=facility.filter(level=x.id)
             
             for y in type:
                 count=facility.filter(type=y.id).count()
@@ -803,7 +827,15 @@ class facilityProfileView(APIView):
                     max1=under_1
             avgg=1        
             if(facility.count()>0):
-                avgg=sumg/facility.count()        
+                avgg=sumg/facility.count()     
+            if (min==10000000000000000):
+                min=0
+            if (max==-1):
+                max=0
+            if (min1==10000000000000000):
+                min1=0
+            if (max1==-1):
+                max1=0  
             data={
                 "level":x.id,
                 "name":x.name,
@@ -852,7 +884,7 @@ class profileColdchainView(APIView):
             for x in allow_levels:
                 facility=Facility.objects.filter(parentid=request.user.facilityid.id,is_deleted=False)
                 facility=Facility.objects.filter(id=request.user.facilityid.id)|facility
-                facility=Facility.objects.filter(level=x.id)
+                facility=facility.filter(level=x.id)
                 general=0
                 under1=0
                 cold_a=0
@@ -908,16 +940,16 @@ class profileColdchainView(APIView):
                             else:
                                 nw_vc+=1
                         if(degree=="4"):
-                            if(z.StorageCondition=="+25C"):
+                            if(z.StorageCondition=="1"):
                                 available+=z.NetVaccineStorageCapacity
                         if(degree=="1"):
-                            if(z.StorageCondition=="+2 - +8 C"):
+                            if(z.StorageCondition=="2"):
                                 available+=z.NetVaccineStorageCapacity  
                         if(degree=="2"):
-                            if(z.StorageCondition=="-20 C"):
+                            if(z.StorageCondition=="3"):
                                 available+=z.NetVaccineStorageCapacity
                         if(degree=="3"):
-                            if(z.StorageCondition=="-70 C"):
+                            if(z.StorageCondition=="4"):
                                 available+=z.NetVaccineStorageCapacity  
                 country=CountryConfig.objects.all()[0]
                 req=0
@@ -947,7 +979,7 @@ class profileColdchainView(APIView):
                     "req":req,
                     "available":available,
                     "diff":float(available)-float(req),
-                    "require_capacity":require_capacity,
+                    "require_capacity":require_capacity/1000,
                     "available_capacity":available_capacity/1000,
                     "diff_capacity":(float(available_capacity)-float(require_capacity))/1000,
                 }
@@ -1070,27 +1102,27 @@ class gapItemReportView(APIView):
                 items=item.objects.filter(facility=x.id,isDel=False)
                 for y in items:
                     if(degree=="1"):
-                        if(y.StorageCondition=="+2 - +8 C"):
+                        if(y.StorageCondition=="2"):
                             capacity1+=y.NetVaccineStorageCapacity
                             if(y.IsItFunctioning):
                                 fcapacity1+=y.NetVaccineStorageCapacity
                     if(degree=="2"):
-                        if(y.StorageCondition=="-20 C"):
+                        if(y.StorageCondition=="3"):
                             capacity2+=y.NetVaccineStorageCapacity
                             if(y.IsItFunctioning):
                                 fcapacity2+=y.NetVaccineStorageCapacity
                     if(degree=="3"):
-                        if(y.StorageCondition=="-70 C"):
+                        if(y.StorageCondition=="4"):
                             capacity3+=y.NetVaccineStorageCapacity
                             if(y.IsItFunctioning):
                                 fcapacity3+=y.NetVaccineStorageCapacity
                     if(degree=="4"):
-                        if(y.StorageCondition=="+25C"):
+                        if(y.StorageCondition=="1"):
                             capacity4+=y.NetVaccineStorageCapacity
                             if(y.IsItFunctioning):
                                 fcapacity4+=y.NetVaccineStorageCapacity
                     if(degree=="5"):
-                        if(y.StorageCondition=="Dry store"):
+                        if(y.StorageCondition=="5"):
                             capacity5+=y.NetVaccineStorageCapacity
                             if(y.IsItFunctioning):
                                 fcapacity5+=y.NetVaccineStorageCapacity    
@@ -1425,8 +1457,21 @@ class gapItemReportView(APIView):
                 excel_data.append(new_data)
                 
 
-
-            file_str=CountryConfig.objects.all().first().codecountry+"_"+str(degree)+"_"+str(datetime.datetime.now())+".xlsx"
+            deegre_str=""
+            if(degree=="1"):
+                deegre_str="2-8C"
+            if(degree=="2"):
+                deegre_str="-20C"
+            if(degree=="3"):
+                deegre_str="-70C"
+            if(degree=="4"):
+                deegre_str="+25C"
+            if(degree=="5"):
+                deegre_str="DryC"
+            if(degree=="6"):
+                deegre_str="all_conditions"
+            print(deegre_str)    
+            file_str=CountryConfig.objects.all().first().codecountry+"_"+str(deegre_str)+"_"+str(datetime.datetime.now()).split(".")[0].strip()+".xlsx"
             file_path = './media/gap_report.xlsx'
         
             if os.path.isfile(file_path):

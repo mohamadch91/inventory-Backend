@@ -251,8 +251,18 @@ class getitemmaintatnce(APIView):
         days_extended=[]
         for x in todo:
             if(x.done==False):
+                dayss=(timezone.now()-x.item.created_at).days
+                dayss=dayss%x.maintanance.freq
+                dayss2=dayss%x.maintanance.freq_in_loc
+                days=x.maintanance.freq-dayss
+                days2=x.maintanance.freq_in_loc-dayss2
                 days=(timezone.now()-x.created_at).days
-                if(days>=4):
+                deadline=x.created_at+datetime.timedelta(days=days)    
+                deadline1=x.created_at+datetime.timedelta(days=days2)
+                remain=(timezone.now()-deadline)
+                remain1=(timezone.now()-deadline1)
+                print(remain.days)
+                if(remain.days>0 or remain1.days>0):
                     counter+=1
                     days_extended.append(days)
         day=0
@@ -296,6 +306,7 @@ class todoMaintances(APIView):
                     "deadline":str(deadline).split(" ")[0],
                     "deadline_in_loc":str(deadline1).split(" ")[0],
                     "name":x.maintanance.name,
+                    "item_type":x.item.item_type.title,
                     
                 }
                 ans.append(data)
@@ -319,6 +330,8 @@ class todoMaintances(APIView):
                             "deadline_in_loc":str(x.created_at+datetime.timedelta(days=days2)).split(" ")[0],
                             "extended":(timezone.now()-x.created_at-datetime.timedelta(days=3)).days,
                             "name":x.maintanance.name,
+                            "item_type":x.item.item_type.title,
+
                             
                         }
                         ans.append(data)                    

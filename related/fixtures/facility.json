@@ -828,7 +828,7 @@
         "name": "Remarks",
         "type": "text",
         "topic": "Other",
-          "state": "remarks"
+          "state": "remark"
       }
     }
    ,
