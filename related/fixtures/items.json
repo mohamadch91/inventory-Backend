@@ -486,7 +486,7 @@
       "name": "Energy source for generators:",
       "type": "select",
       "topic": "Electrical fields",
-        "state": "EnergySource"
+        "state": "EnergySource_generator"
     }
   },
   {

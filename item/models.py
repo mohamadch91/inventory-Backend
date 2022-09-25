@@ -56,7 +56,7 @@ class item(models.Model):
     Voltage=models.IntegerField(null=True,blank=True)
     Phase=models.IntegerField(null=True,blank=True)
     NetGeneratedPower=models.IntegerField(null=True,blank=True)
-    EnergySource=models.CharField(max_length=50, null=True,blank=True)
+    EnergySource_generator=models.CharField(max_length=50, null=True,blank=True)
     DoesItHaveAnExtraFuelTank=models.BooleanField(null=True,blank=True)
     PowerOrFuelConsumption=models.IntegerField(null=True,blank=True)
     IsThereAnAutomaticStartUpSystem=models.BooleanField(null=True,blank=True)

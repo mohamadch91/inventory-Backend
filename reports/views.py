@@ -99,9 +99,14 @@ class exportExcel(APIView):
                 if(x[strs] != None):
                     param=itemParam.objects.filter(fieldid=z.id).order_by('order')
                     if(param.count()!=0):
-                        desc=itemParamDescription.objects.filter(id=x[strs]).order_by('order')
+                        print(x[strs])
+                        desc=itemParamDescription.objects.filter(id=x[strs])
+                        print(desc)
+                        print(x[strs])
                         if(desc.count()!=0):
                             x[strs]=desc[0].name
+                            
+                            
             try:
                 facility=get_object_or_404(Facility,id=x['facility'])
                 item_class=get_object_or_404(ItemClass,id=x['item_class'])
@@ -115,6 +120,8 @@ class exportExcel(APIView):
                 x['item_type']=""
             if(x['Manufacturer'] !=None):
                 x['Manufacturer']=Manufacturer.objects.filter(id=x['Manufacturer'])[0].describe
+            x["created_at"]=x["created_at"].split("T")[0]
+            x["updated_at"]=x["updated_at"].split("T")[0]
                     
 
         # fac_json=json.dumps(facility_Ser,indent=4)
