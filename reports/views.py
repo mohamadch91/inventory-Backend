@@ -1823,7 +1823,7 @@ class planOneGapView(APIView):
             for x in pqs3_data:
                 data={
                     "id":x.id,
-                    "name":x.description+x.refrigeratorcapacity,
+                    "name":x.description+str(x.refrigeratorcapacity),
                     "pqs":3
                 }
                 ans.append(data)
@@ -1831,7 +1831,7 @@ class planOneGapView(APIView):
             for z in pqs4_ser:
                 data={
                     "id":z.id,
-                    "name":z.pqsnumber+z.vaccinenetstoragecapacity,
+                    "name":z.pqsnumber+str(z.vaccinenetstoragecapacity),
                     "pqs":4
                 }
                 ans.append(data)
