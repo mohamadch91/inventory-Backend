@@ -210,8 +210,10 @@ class getitemmaintatnce(APIView):
                                 new_day=(timezone.now()-obj.updated_at).days
                                 new_day2=(timezone.now()-obj.created_at).days
                                 if(new_day2<=3):
-                                    if(obj.done==False):
-                                        three_days.append(data)
+                                    dd=obj.created_at+datetime.timedelta(days=3)
+                                    if(dd<timezone.now()): 
+                                        if(obj.done==False):
+                                            three_days.append(data)
                                 elif(new_day>=4):
                                     obj.done=False
                                     obj.save()
@@ -234,8 +236,10 @@ class getitemmaintatnce(APIView):
                                 new_day=(timezone.now()-obj.updated_at).days
                                 new_day2=(timezone.now()-obj.created_at).days
                                 if(new_day2<=7):
-                                    if(obj.done==False):
-                                        seven_days.append(data)
+                                    ddx=obj.created_at+datetime.timedelta(days=7)
+                                    if(ddx<timezone.now()):
+                                        if(obj.done==False):
+                                            seven_days.append(data)
                                 if(new_day>=8):
                                     obj.done=False
                                     obj.save()
@@ -256,7 +260,7 @@ class getitemmaintatnce(APIView):
                 dayss2=dayss%x.maintanance.freq_in_loc
                 days=x.maintanance.freq-dayss
                 days2=x.maintanance.freq_in_loc-dayss2
-                days=(timezone.now()-x.created_at).days
+                days222=(timezone.now()-x.created_at).days
                 deadline=x.created_at+datetime.timedelta(days=days)    
                 deadline1=x.created_at+datetime.timedelta(days=days2)
                 remain=(timezone.now()-deadline)
@@ -264,10 +268,11 @@ class getitemmaintatnce(APIView):
                 print(remain.days)
                 if(remain.days>0 or remain1.days>0):
                     counter+=1
-                    days_extended.append(days)
+                    days_extended.append(days222)
         day=0
         if(days_extended!=[]):
             day=max(days_extended) 
+        print(len(three_days))
         return Response({"defined":counter2,"three_days":len(three_days),"seven_days":len(seven_days),"extended":{
             "max_extended":day,
             "count":counter
@@ -309,7 +314,10 @@ class todoMaintances(APIView):
                     "item_type":x.item.item_type.title,
                     
                 }
-                ans.append(data)
+                remain=(timezone.now()-deadline)
+                remain1=(timezone.now()-deadline1)
+                if(remain.days<0 or remain1.days<0):
+                    ans.append(data)
         elif(day=="extended"):
             for x in todo:
                 if(x.done==False):
@@ -319,7 +327,11 @@ class todoMaintances(APIView):
                     dayss2=dayss%x.maintanance.freq_in_loc
                     days=x.maintanance.freq-dayss
                     days2=x.maintanance.freq_in_loc-dayss2
-                    if(days1>=4):
+                    deadline=x.created_at+datetime.timedelta(days=days)
+                    deadline1=x.created_at+datetime.timedelta(days=days2)
+                    remain=(timezone.now()-deadline)
+                    remain1=(timezone.now()-deadline1)  
+                    if(remain.days>0 or remain1.days>0):
                         
                         data={
                             "id":x.id,
