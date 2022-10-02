@@ -47,23 +47,27 @@ class itemView(APIView):
     def post(self, request):
         
         new_data=copy.deepcopy(request.data)
-        facility=new_data["facility"]
-        facility=get_object_or_404(Facility, id=facility)
-        item_class=new_data["item_class"]
-        item_type=new_data["item_type"]
-        item_class=get_object_or_404(ItemClass, id=item_class)
-        item_type=get_object_or_404(ItemType, id=item_type)   
-        if(item.objects.count()==0):
-         item_code=f"{1:03d}"    
-        else:
-            item_code=f"{item.objects.all()[item.objects.count()-1].id+1:03d}"    
-        new_data["code"]=f"{facility.code}{item_class.code}{item_type.code}{item_code}"
-        serializer = itemSerializer(data=new_data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
+        x=int(new_data["same_item"])
+        ans=[]
+        for i in range(x):
+            facility=new_data["facility"]
+            facility=get_object_or_404(Facility, id=facility)
+            item_class=new_data["item_class"]
+            item_type=new_data["item_type"]
+            item_class=get_object_or_404(ItemClass, id=item_class)
+            item_type=get_object_or_404(ItemType, id=item_type)   
+            if(item.objects.count()==0):
+                item_code=f"{1:03d}"    
+            else:
+                item_code=f"{item.objects.all()[item.objects.count()-1].id+1:03d}"    
+            new_data["code"]=f"{facility.code}{item_class.code}{item_type.code}{item_code}"
+            serializer = itemSerializer(data=new_data)
+            if serializer.is_valid():
+                serializer.save()
+                ans.append(serializer.data)
+            else:
+                return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        return Response(ans,status=status.HTTP_201_CREATED)
     def get(self, request):
         id=request.query_params.get('id',None)
         facility=request.query_params.get('facility',None)
