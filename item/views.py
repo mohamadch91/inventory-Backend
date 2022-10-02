@@ -183,6 +183,28 @@ class itemFieldView(APIView):
             related=relatedItemType.objects.filter(itemtype=item_type.id)
             related=related.order_by('id')
             fields=[]
+            same_item={}
+            same_item['field']={
+                "id":877,
+                "name":"Number of the same items with the same condition in this facility",
+                "params":[],
+                "required":False,
+                "state":"same_item",
+                "topic":"Other additional and optional fields",
+                "type":"number",
+                "validation":[
+                    {
+                        "id":877,
+                        "digits":4,
+                        "min":1,
+                        "max":1000,
+                        "float":False,
+                        "floating":-1,
+                        "fieldid":877,
+                    }
+                ],
+            }
+            fields.append(same_item)
             for x in related:
                 data={}
                 field=Field.objects.get(id=x.field.id)
