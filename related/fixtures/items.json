@@ -803,7 +803,7 @@
     "model": "related.Field",
     "pk": 80,
     "fields": {
-      "name": "Other fields Item Parameter 4",
+      "name": "Other fields Item Parameter",
       "type": "select",
       "topic": "Other additional and optional fields",
         "state": "OtherFieldsItemParameter4"

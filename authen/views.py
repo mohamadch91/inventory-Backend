@@ -74,8 +74,12 @@ class Userdata(APIView):
 
     def get(self, request):
         id=request.query_params.get('id',None)
+        req_user=request.user
         if(id):
+            
             user = User.objects.filter(facilityid=id)
+            if(req_user.id !=1):
+                user=user.filter(id__gt=1)
             serializer = UserSerializer(user,many=True)
             return Response(data=serializer.data,status=status.HTTP_200_OK)
         user = User.objects.all()

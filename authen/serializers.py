@@ -39,6 +39,7 @@ class UpdateUserSerializer(serializers.ModelSerializer):
         extra_kwargs = {
             'first_name': {'required': True},
             'last_name': {'required': True},
+            'password': {'required': False},
         }
 
     def validate_password(self, value: str) -> str:
