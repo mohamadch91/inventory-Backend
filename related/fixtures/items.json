@@ -83,7 +83,7 @@
     "model": "related.Field",
     "pk": 9,
     "fields": {
-      "name": "Type 1  ",
+      "name": "Type 1 second  ",
       "type": "select",
       "topic": "Type",
         "state": "Type1P"
@@ -683,7 +683,7 @@
     "model": "related.Field",
     "pk": 68,
     "fields": {
-      "name": "Is the dry storage area equipped with pallets/shelves/racks in a good physical condition?",
+      "name": "Is the dry storage area equipped with pallets in a good  condition?",
       "type": "bool",
       "topic": "Dry store fields",
         "state": "IsTheDryStorageArea"

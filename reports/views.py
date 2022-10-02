@@ -247,6 +247,7 @@ class facilitysegView(APIView):
 
                 }     
                 ans.append(data)
+            ans=sorted(ans, key=lambda k: k['level'])
             return Response(ans,status=status.HTTP_200_OK)
 
 class subfacView(APIView):
@@ -281,7 +282,7 @@ class subfacView(APIView):
             all_fac=Facility.objects.filter(parentid=request.user.facilityid.id,is_deleted=False)
             all_fac=Facility.objects.filter(id=request.user.facilityid.id)|all_fac
             if(level is not None):
-                all_fac=Facility.objects.filter(level=level)
+                all_fac=all_fac.filter(level=level)
             #return facilityname parentname level code type power population children
             final_ans=[]
             for x in all_fac:
@@ -304,6 +305,8 @@ class subfacView(APIView):
 
                 }     
                 final_ans.append(data)
+            final_ans=sorted(final_ans, key=lambda k: k['level'])
+
             return Response(final_ans,status=status.HTTP_200_OK)    
 
 
@@ -374,7 +377,8 @@ class facilitymap(APIView):
                         lat=float(x.gpsCordinate.split(",")[0].split("(")[1])
                         lang=float(x.gpsCordinate.split(",")[1].split(")")[0])
                         data={
-                            "cordinates": [lat,lang]
+                            "cordinates": [lat,lang],
+                            "level":x.level.id,
                         }
                         ans.append(data)
                 except:
@@ -476,7 +480,8 @@ class itemGroupedReport(APIView):
             year_to=request.query_params.get('year_to',None)
             capacity_from=request.query_params.get('capacity_from',None)
             capacity_to=request.query_params.get('capacity_to',None)
-            items=item.objects.all()
+            items=item.objects.filter(isDel=False)
+
             facility=Facility.objects.filter(parentid=request.user.facilityid.id,is_deleted=False)
             facility=Facility.objects.filter(id=request.user.facilityid.id)|facility
             if(name is not None):
@@ -519,9 +524,9 @@ class itemGroupedReport(APIView):
             #all facilitys contain same item
             items=items.filter(facility__in=fac_id)
             same_type=[]
-            same_pqs=[]
-            same_manufacturer=[]
-            same_model=[]
+            same_pqs=["-"]
+            same_manufacturer=["-"]
+            same_model=["-"]
             for x in items:
                 if x.item_type not in same_type:
                     same_type.append(x.item_type)
@@ -535,11 +540,14 @@ class itemGroupedReport(APIView):
             for x in same_type:
                 new_items=items.filter(item_type=x)
                 for y in same_model:
-                    new_items=new_items.filter(Model=y)
+                    if(y  != "-"):
+                        new_items=new_items.filter(Model=y)
                     for z in same_manufacturer:
-                        new_items=new_items.filter(Manufacturer=z)
+                        if(z  != "-"):
+                            new_items=new_items.filter(Manufacturer=z)
                         for w in same_pqs:
-                            new_items=new_items.filter(PQSPISCode=w) 
+                            if(w  != "-"):
+                                new_items=new_items.filter(PQSPISCode=w) 
                             fac_list=[]
                             added_fac=[]
                             for a in new_items:
@@ -554,9 +562,10 @@ class itemGroupedReport(APIView):
                             manufac=""
                             count=new_items.count()        
                             if(z is not None):
-                                manufac=Manufacturer.objects.filter(id=z)
-                                if(manufac.count()>0):
-                                    manufac=manufac[0].describe
+                                if(z != "-"):
+                                    manufac=Manufacturer.objects.filter(id=z)
+                                    if(manufac.count()>0):
+                                        manufac=manufac[0].describe
        
                             final_answer.append({"item_type":x.title,"model":y,"manufacturer":manufac,"pqs":w,"facility":fac_list,"count":count})
             return Response(final_answer,status=status.HTTP_200_OK)                    
@@ -641,7 +650,7 @@ class itemFacilityReport(APIView):
             financial=request.query_params.get('financial',None)
             working=request.query_params.get('working',None)
             item_power=request.query_params.get('item_power',None)
-            items=item.objects.all()
+            items=item.objects.filter(isDel=False)
             facility=Facility.objects.filter(parentid=request.user.facilityid.id,is_deleted=False)
             facility=Facility.objects.filter(id=request.user.facilityid.id)|facility
             if(name is not None):
@@ -695,7 +704,7 @@ class itemFacilityReport(APIView):
                 manufac=x.Manufacturer
                 if(manufac is not None):
                     manufac=Manufacturer.objects.filter(id=manufac)[0].describe
-                capacity=x.FreezerNetCapacity
+                capacity=x.NetVaccineStorageCapacity
                 year=x.YearInstalled
                 physical=""
                 if(x.PhysicalConditions is not None):
@@ -737,6 +746,7 @@ class itemFacilityReport(APIView):
                     "item":item_data
                 }
                 final_answer.append(data)
+            final_answer=sorted(final_answer, key=lambda k: k['facility']['fac_level'])
             return Response(final_answer,status=status.HTTP_200_OK)    
 
 class facilityProfileView(APIView):
@@ -1054,7 +1064,7 @@ class gapItemReportView(APIView):
             }
             return Response(datas,status=status.HTTP_200_OK) 
         else:
-            gapSave.objects.all().delete()
+            # gapSave.objects.all().delete()
             name=request.query_params.get('name',None)
             level=request.query_params.get('level',None)
             type=request.query_params.get('type',None)
@@ -1073,7 +1083,8 @@ class gapItemReportView(APIView):
             
             facility=Facility.objects.filter(parentid=request.user.facilityid.id,is_deleted=False)
             facility=Facility.objects.filter(id=request.user.facilityid.id)|facility
-            items=item.objects.all()
+            items=item.objects.filter(isDel=False)
+
             if(degree is None):
                 return Response("degree is required",status.HTTP_200_OK)
             if(name is not None):
@@ -1087,13 +1098,15 @@ class gapItemReportView(APIView):
             if(code is not None):
                 facility=facility.filter(code__icontains=code)
             if(option=="2"):
-                items=items.exclude(PQSPISCode=None)
+                x=item.objects.filter(PQSPISCode=None)
+                items=items.exclude(x)
             if(option=="3"):
                 if(year_from is not None):
                     items=items.filter(YearInstalled__gte=year_from)
                 if(year_to is not None):
                     items=items.filter(YearInstalled__lte=year_to)
             ans=[]
+            save_arr=[]
             for x in facility:
                 capacity1=0
                 fcapacity1=0
@@ -1199,7 +1212,7 @@ class gapItemReportView(APIView):
                     "id":x.id,
                     "name":x.name,
                     "code":x.code ,
-                    "level":x.level.name,
+                    "level":str(x.level.id) +"-" +x.level.name,
                     "parent":parentName,
                     "general":x.populationnumber,
                     "children":x.childrennumber,
@@ -1236,7 +1249,7 @@ class gapItemReportView(APIView):
                     "id":x.id,
                     "name":x.name,
                     "code":x.code ,
-                    "level":x.level.name,
+                    "level":str(x.level.id) +"-" +x.level.name,
                     "parent":parentName,
                     "general":x.populationnumber,
                     "children":x.childrennumber,
@@ -1272,7 +1285,6 @@ class gapItemReportView(APIView):
                         data["req1"]=req5
                         data["excees1"]=fcapacity5-req5
                         data["exceed1"]=excees5
-                save_arr=[]                
                 parent_save=None
                 if(x.parentid is not None):
                     parent_save=x.parentid.id           
@@ -1355,13 +1367,14 @@ class gapItemReportView(APIView):
 
                 }
                 save_arr.append(save_data5)
-                for saves in save_arr:
-                    save_ser=gapSaveSerializer(data=saves)
-                    if save_ser.is_valid():
-                        save_ser.save()
-                    else:
-                        print(save_ser.errors)
+                # for saves in save_arr:
+                #     save_ser=gapSaveSerializer(data=saves)
+                #     if save_ser.is_valid():
+                #         save_ser.save()
+                #     else:
+                #         print(save_ser.errors)
                 ans.append(data)
+            ans=sorted(ans, key=lambda k: k['id'])
             excel_data=[]
             for m in ans:
                 new_data={
@@ -1380,7 +1393,7 @@ class gapItemReportView(APIView):
                     new_data["Functioning capacity for +2 to +8"]=m["fcapacity1"]
                     new_data["Required capacity for +2 to +8"]=m["req1"]
                     new_data["Diffrence between required capacity and available +2 to +8"]=m["excees1"]
-                    if(data["exceed1"]):
+                    if(m["exceed1"]):
                         new_data["Excess +2 to +8"]="True"
                     else:
                         new_data["Excess +2 to +8"]="False"    
@@ -1389,7 +1402,7 @@ class gapItemReportView(APIView):
                     new_data["Functioning capacity for + -20C "]=m["fcapacity1"]
                     new_data["Required capacity for + -20C "]=m["req1"]
                     new_data["Diffrence between required capacity and available + -20C"]=m["excees1"]
-                    if(data["exceed1"]):
+                    if(m["exceed1"]):
                         new_data["Excess -20C"]="True"
                     else:
                         new_data["Excess -20C"]="False"   
@@ -1398,7 +1411,7 @@ class gapItemReportView(APIView):
                     new_data["Functioning capacity for -70 C"]=m["fcapacity1"]
                     new_data["Required capacity for -70 C"]=m["req1"]
                     new_data["Diffrence between required capacity and available -70 C"]=m["excees1"]
-                    if(data["exceed1"]):
+                    if(m["exceed1"]):
                         new_data["Excess -70C"]="True"
                     else:
                         new_data["Excess -70C"]="False"   
@@ -1407,7 +1420,7 @@ class gapItemReportView(APIView):
                     new_data["Functioning capacity for +25C"]=m["fcapacity1"]
                     new_data["Required capacity for +25C"]=m["req1"]
                     new_data["Diffrence between required capacity and available +25C"]=m["excees1"]
-                    if(data["exceed1"]):
+                    if(m["exceed1"]):
                         new_data["Excess +25C"]="True"
                     else:
                         new_data["Excess +25C"]="False"   
@@ -1416,7 +1429,7 @@ class gapItemReportView(APIView):
                     new_data["Functioning capacity for Dry store"]=m["fcapacity1"]
                     new_data["Required capacity for Dry store"]=m["req1"]
                     new_data["Diffrence between required capacity and available Dry store"]=m["excees1"]
-                    if(data["exceed1"]):
+                    if(m["exceed1"]):
                         new_data["Excess Dry store"]="True"
                     else:
                         new_data["Excess Dry store"]="False"   
@@ -1425,7 +1438,7 @@ class gapItemReportView(APIView):
                     new_data["Functioning capacity for +2 to +8"]=m["fcapacity1"]
                     new_data["Required capacity for +2 to +8"]=m["req1"]
                     new_data["Diffrence between required capacity and available +2 to +8"]=m["excees1"]
-                    if(data["exceed1"]):
+                    if(m["exceed1"]):
                         new_data["Excess +2 to +8"]="True"
                     else:
                         new_data["Excess +2 to +8"]="False"
@@ -1433,7 +1446,7 @@ class gapItemReportView(APIView):
                     new_data["Functioning capacity for + -20C "]=m["fcapacity2"]
                     new_data["Required capacity for + -20C "]=m["req2"]
                     new_data["Diffrence between required capacity and available + -20C"]=m["excees2"]
-                    if(data["exceed2"]):
+                    if(m["exceed2"]):
                         new_data["Excess -20C"]="True"
                     else:
                         new_data["Excess -20C"]="False"
@@ -1441,7 +1454,7 @@ class gapItemReportView(APIView):
                     new_data["Functioning capacity for -70 C"]=m["fcapacity3"]
                     new_data["Required capacity for -70 C"]=m["req3"]
                     new_data["Diffrence between required capacity and available -70 C"]=m["excees3"]
-                    if(data["exceed3"]):
+                    if(m["exceed3"]):
                         new_data["Excess -70C"]="True"
                     else:
                         new_data["Excess -70C"]="False"    
@@ -1449,7 +1462,7 @@ class gapItemReportView(APIView):
                     new_data["Functioning capacity for +25C"]=m["fcapacity4"]
                     new_data["Required capacity for +25C"]=m["req4"]
                     new_data["Diffrence between required capacity and available +25C"]=m["excees4"]
-                    if(data["exceed4"]):
+                    if(m["exceed4"]):
                         new_data["Excess +25C"]="True"
                     else:
                         new_data["Excess +25C"]="False"
@@ -1457,7 +1470,7 @@ class gapItemReportView(APIView):
                     new_data["Functioning capacity for Dry store"]=m["fcapacity5"]
                     new_data["Required capacity for Dry store"]=m["req5"]
                     new_data["Diffrence between required capacity and available Dry store"]=m["excees5"]
-                    if(data["exceed5"]):
+                    if(m["exceed5"]):
                         new_data["Excess Dry store"]="True"
                     else:
                         new_data["Excess Dry store"]="False"
@@ -1487,11 +1500,37 @@ class gapItemReportView(APIView):
             df.to_excel('./media/'+file_str, index=False)  
             final_ans={
                 "excel":'/media/'+file_str ,
-                "data":ans
+                "data":ans,
+                "save":save_arr
             }
             return Response(final_ans)
 
-                    
+class gapSaveReport(APIView):
+    permission_classes = (IsAuthenticated,)
+    def post(self, request):
+        gapSave.objects.all().delete()
+        condition=request.query_params.get('condition',None)
+        if(condition is None):
+            return Response({"error":"condition is required"},status.HTTP_400_BAD_REQUEST)
+        data=request.data
+        if(data is None):
+            return Response({"error":"data is required"},status.HTTP_400_BAD_REQUEST)
+        condition=int(condition)
+        saves=[]
+        for d in data:
+            if(condition == 6):
+                saves.append(d)
+            else:    
+                if(d["condition"]==condition):
+                    saves.append(d)
+        for s in saves:
+            save_ser=gapSaveSerializer(data=s)
+            if save_ser.is_valid():
+                save_ser.save()
+            else:
+                print(save_ser.errors)
+        return Response({"success":"data saved successfully"},status.HTTP_200_OK)
+
 
 class gapMapReport(APIView):
     permission_classes = (IsAuthenticated,)
@@ -1595,7 +1634,7 @@ class planGapView(APIView):
                 facility=facility.filter(powersource=power)
             if(code is not None):
                 facility=facility.filter(code__icontains=code)
-            gap_save=gapSave.objects.filter(facility__in=facility)
+            gap_save=gapSave.objects.filter(facility__in=facility,exces__lt=0)
             if(degree is not None):
                 degree=int(degree)
                 gap_save=gap_save.filter(condition=degree)
@@ -1665,6 +1704,7 @@ class planGapView(APIView):
                    
                 }
                 ans.append(data)
+            ans=sorted(ans, key=lambda k: k['level'])
             return Response(ans,status=status.HTTP_200_OK)    
 
 
@@ -1823,7 +1863,7 @@ class planOneGapView(APIView):
             for x in pqs3_data:
                 data={
                     "id":x.id,
-                    "name":x.description+str(x.refrigeratorcapacity),
+                    "name":x.description+ " Capacity: "+str(x.refrigeratorcapacity),
                     "pqs":3
                 }
                 ans.append(data)
@@ -1831,7 +1871,7 @@ class planOneGapView(APIView):
             for z in pqs4_ser:
                 data={
                     "id":z.id,
-                    "name":z.pqsnumber+str(z.vaccinenetstoragecapacity),
+                    "name":z.pqsnumber+" Capacity: "+str(z.vaccinenetstoragecapacity),
                     "pqs":4
                 }
                 ans.append(data)
@@ -2017,6 +2057,7 @@ class plannedSavedReport(APIView):
                 data={
                     "id":x.id,
                     "facility":x.gap.facility.name,
+                    "level":x.gap.facility.level.id,
                     "code":code,
                     "type":type,
                     "vac_cap":vac_cap,
@@ -2024,6 +2065,7 @@ class plannedSavedReport(APIView):
                     "assigned":x.asiign,
                 }
                 table.append(data)
+            table=sorted(table, key=lambda k: k['level'])
             return Response(table,status=status.HTTP_200_OK)    
 
 

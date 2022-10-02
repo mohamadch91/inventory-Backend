@@ -10,6 +10,8 @@ from os import stat
 from urllib import response
 from django.shortcuts import render
 
+import facilities
+
 # Create your views here.
 from .serializers import *
 from rest_framework.permissions import IsAuthenticated
@@ -23,7 +25,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from django.shortcuts import get_object_or_404
-
+from facilities.models import Facility
 
 class CountryView(APIView):
     permission_classes = (IsAuthenticated,)
@@ -51,6 +53,10 @@ class CountryView(APIView):
         serializer =  countrySerializer(country, data=request.data)
         if serializer.is_valid():
             serializer.save()
+            code=serializer.data["codecountry"]
+            fac=Facility.objects.filter(id=1)[0]
+            fac.code=code+"0100001"
+            fac.save()
             return Response(serializer.data)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
@@ -83,7 +89,8 @@ class LevelView(APIView):
     def get(self, request):
         level = LevelConfig.objects.all()
         serializer =  levelSerializer(level, many=True)
-        return Response(serializer.data)
+        x=sorted(serializer.data, key=lambda k: k['id'])
+        return Response(x)
 
     def put(self, request, *args, **kwargs):
         # rows=request.data["rows"]

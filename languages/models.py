@@ -12,8 +12,8 @@ class languages(models.Model):
 class languages_words(models.Model):
     id=models.AutoField(primary_key=True)
     language=models.ForeignKey(languages, on_delete=models.CASCADE, blank=True, null=True)
-    word=models.CharField(max_length=100,blank=True,null=True)
-    translate=models.CharField(max_length=100,blank=True,null=True)
+    word=models.CharField(max_length=800,blank=True,null=True)
+    translate=models.CharField(max_length=800,blank=True,null=True)
 
     def __str__(self):
         return self.word

@@ -199,6 +199,7 @@ class relatedItemTypeView(APIView):
                 field=get_object_or_404(Field, id=x['fieldid'])
                 itemtype=get_object_or_404(ItemType, id=x['itemtypeid'])
                 obj=relatedItemType.objects.filter(field=x['fieldid'], itemtype=x['itemtypeid'])
+                print(len(obj))
                 if(len(obj)==0):
                     if(field.id==25):
                         for i in range(1,3):

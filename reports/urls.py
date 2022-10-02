@@ -14,6 +14,7 @@ urlpatterns = [
       path('itemfac', itemFacilityReport.as_view(), name='item facility'),
       path('coldprof', profileColdchainView.as_view(), name='profile coldchain'),
       path('gapitem', gapItemReportView.as_view(), name='gap item report'),
+      path('gapsave', gapSaveReport.as_view(), name='gap save report'),
       path('gapmap', gapMapReport.as_view(), name='gap item report'),
       path('gapcce', planGapView.as_view(), name='gap cce '),
       path('gapccePlan', planOneGapView.as_view(), name='gap cce '),

@@ -106,6 +106,7 @@ class dashboardFacilityView(APIView):
                         defined=count/x.loverlevelfac
                         lower=x.loverlevelfac
                     new_data={
+                        "level":x.level.id,
                         "name":x.name,
                         "sub_fac":count,
                         "defined":"%.2f"%defined,
@@ -113,6 +114,7 @@ class dashboardFacilityView(APIView):
 
                     }
                     ans.append(new_data)
+            ans=sorted(ans, key = lambda i: i['level'])
             return Response(ans,status=status.HTTP_200_OK)            
 class dahboardlevelView(APIView):
     permission_classes=(IsAuthenticated,)
@@ -150,6 +152,7 @@ class dahboardlevelView(APIView):
                         "sub_fac":count,
                         "defined":"%.2f"%defined,
                         "lower":lower,
+                        "code":y.code,
                         "update":y.updated_at,
                         "level_id":x.id,
                     "level_name":x.name,

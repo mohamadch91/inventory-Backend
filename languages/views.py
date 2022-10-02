@@ -110,8 +110,8 @@ class languageView(APIView):
                 json_obj=json.dumps(final_ans[i],indent=4)
                 print(lang.name)
                 counter+=1
-                with open('./media/'+lang.name+'/translation.json', "w") as outfile:
-                    outfile.write(json_obj)      
+                # with open('./media/'+lang.name+'/translation.json', "w") as outfile:
+                #     outfile.write(json_obj)      
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     def put(self, request):
@@ -131,7 +131,7 @@ class languageView(APIView):
                 else:
                     ids.append(x.id)
                     for k in lang_words:
-                        print(k)
+                        # print(k)
                         dict[k.word]=k.translate
                  
                 final_ans.append(dict)
@@ -140,9 +140,9 @@ class languageView(APIView):
                 json_obj=json.dumps(final_ans[i],indent=4)
                 lang=languages.objects.filter(id=ids[i])[0]
                 counter+=1
-                print(lang.name)
-                with open('./media/'+lang.name+'/translation.json', "w") as outfile:
-                    outfile.write(json_obj)
+                # print(lang.name)
+                # with open('./media/'+lang.name+'/translation.json', "w") as outfile:
+                #     outfile.write(json_obj)
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     def delete(self, request):
@@ -155,12 +155,13 @@ class getlanguages(APIView):
     def get(self,request):
         print(request)
         name=request.query_params.get('name',None)
-        lang = languages.objects.filter(name=name)[0]
+        lang = get_object_or_404(languages,name=name)
         
         words=languages_words.objects.filter(language=lang.id)
         ans={}
         for i in words:
-            ans[i.word]=i.translate
+            if(i.word !=""):
+                ans[i.word]=i.translate
         
         
         return Response(ans)

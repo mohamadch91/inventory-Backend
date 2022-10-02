@@ -44,7 +44,8 @@ class itemclassView(APIView):
     def get(self, request):
         country = ItemClass.objects.all()
         serializer =  itemclassSerializer(country, many=True)
-        return Response(serializer.data)
+        sort=sorted(serializer.data, key=lambda k: k['id'])
+        return Response(sort)
 
     def put(self, request, ):
         id=request.data["id"]
@@ -116,7 +117,9 @@ class itemtypeView(APIView):
     def get(self, request):
         level = ItemType.objects.all()
         serializer =  itemtypeSerializer(level, many=True)
-        return Response(serializer.data)
+        sort=sorted(serializer.data, key=lambda k: k['id'])
+
+        return Response(sort)
     def put(self, request, *args, **kwargs):
             id=request.data["id"]
             level = get_object_or_404(ItemType, id=id)
@@ -228,9 +231,11 @@ class manufacturerView(APIView):
             ser=itemclassSerializer(x)
             manufacturer=Manufacturer.objects.filter(itemclass=x.id)
             serializer =  ManufacturerSerializer(manufacturer, many=True)
+            sort=sorted(serializer.data, key=lambda k: k['id'])
+
             data={
                 "item_class":ser.data,
-                "manufacturer":serializer.data
+                "manufacturer":sort
             }
             ans.append(data)
         return Response(ans,status=status.HTTP_200_OK) 

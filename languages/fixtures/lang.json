@@ -31,7 +31,7 @@
     "model": "languages.languages",
     "pk": 5,
     "fields": {
-      "name": "fa"
+      "name": "ot"
     }
   },
   {
@@ -40,5 +40,19 @@
     "fields": {
       "name": "ru"
     }
-  }
+  },
+   {
+     "model": "languages.languages",
+     "pk": 7,
+     "fields": {
+       "name": "uk"
+     }
+   },
+    {
+      "model": "languages.languages",
+      "pk": 8,
+      "fields": {
+        "name": "ch"
+      }
+    }
 ]

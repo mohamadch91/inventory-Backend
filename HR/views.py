@@ -79,4 +79,5 @@ class HRhelperView(APIView):
                 "name":x.name
             }
             ans.append(data)
+        ans=sorted(ans, key = lambda i: i['id'])
         return Response(ans)    

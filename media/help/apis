@@ -1,0 +1,96 @@
+for country
+
+{
+    "id": 1,
+    "country": "salam",
+    "codecountry": null,
+    "currency": null,
+    "levels": null,
+    "logo": null,
+    "secondLogo": null,
+    "poptarget": null,
+    "poprate": null,
+    "havehr": null,
+    "mainlocation": null,
+    "logo2": null,
+    "usingtool": null,
+    "usingmaintenance": null
+}
+
+ decimal point 3 digit seperator for langfuages all fields
+for levels
+{
+    "id": 3,
+    "maxpop": null,
+    "minpop": null,
+    "uppervol": null,
+    "undervol": null,
+    "maxpopu1": null,
+    "minpopu1": null,
+    "m25vol": null,
+    "m70vol": null,
+    "m25volnew": null,
+    "m70volnew": null,
+    "uppervolnew": null,
+    "undervolnew": null,
+    "name": null,
+    "dryvol": null,
+    "dryvolnew": null,
+    "created_at": "2022-08-03T00:40:29.584067Z",
+    "updated_at": "2022-08-03T00:40:29.584120Z",
+    "country": null,
+    "parent": null
+}
+
+
+add level hey add mishavad
+tekrari add nashe
+add level refresh
+close
+check box 
+
+[
+{
+'fieldid': 2,
+"itemtypeid: 1,
+"enable" : true ,
+"required" : false
+},
+{
+"fieldid": 2,
+"itemtypeid: 1,
+"enable" : true ,
+"required" : false
+}]
+
+
+logo biad samet chap
+
+filter facility segmentation filters
+facility seg report type va power
+
+ER data basee
+data dictionry 
+footer kuchik she texte monsabe biad
+
+modal * dashte basheee
+jadavel sorting bokhore
+centarl levelesh biad ok bashe
+
+import facility hamash pak shee az avval import she
+not in use biad inja
+unde 1 range nadare dge*
+gross volume *
+reason for not functioning
+check box avaz she
+
+load pqs moshkel dareeee
+ahsara hadaksare 
+is it functioning chapas
+headere fix 
+dorbino check koneee
+
+
+
+
+
