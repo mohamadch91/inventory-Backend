@@ -143,14 +143,14 @@ class itemFieldView(APIView):
                 for k in item_type:
                     new_data={
                         "id":k.id,
-                        "title":k.code+"-"+k.title,
+                        "title":k.code+" - "+k.title,
                         "havepqs":k.havePQS,
                     }
                     second_data.append(new_data)
                 data={
                     "item_class":{
                         "id":x.id,
-                        "title":x.code +"-" +x.title,
+                        "title":x.code +" - " +x.title,
 
                     },
                     "item_type":second_data,

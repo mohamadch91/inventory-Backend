@@ -47,7 +47,7 @@
       "model": "related.relatedFacility",
       "pk": 4,
       "fields": {
-        "name": "Facility types ",
+        "name": "Facility types",
         "type": "select",
         "topic": "Facility general information",
         "disabled": true,

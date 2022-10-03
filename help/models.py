@@ -17,9 +17,11 @@ class Help(models.Model) :
         en = "en"  
         fr = "fr"  
         ar = "ar"  
-        fa = "fa"  
+        ot = "ot"  
         es = "es"  
         ru = "ru"  
+        ch ="ch"
+        uk ="uk"
 
     page = models.CharField(max_length=20 , choices=choices.choices , blank=True , null=True)
     lang = models.CharField(max_length=20  ,choices=language.choices , blank=True , null=True)
