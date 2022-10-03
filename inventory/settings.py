@@ -144,7 +144,7 @@ DATABASES = {
   'default': {
      'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'invgap_db',
-        'USER': 'invgap',
+        'USER': 'postgres',
         'PASSWORD': 'fdhdkj@33443',
         'HOST': 'localhost',
         'PORT': '',
