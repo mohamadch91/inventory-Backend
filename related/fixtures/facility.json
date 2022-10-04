@@ -366,7 +366,7 @@
       "pk": 29,
       "fields": {
         "name": "Distance from higher level to this facility in time (hh:mm)",
-        "type": "number",
+        "type": "text",
          "topic": "Facility general information",
           "state": "timetoparent"
       }
@@ -390,7 +390,7 @@
       "pk": 31,
       "fields": {
         "name": "Facility working hours from: (hh:mm)",
-        "type": "number",
+        "type": "text",
          "topic": "Facility general information",
           "state": "working_from"
       }
@@ -402,7 +402,7 @@
       "pk": 32,
       "fields": {
         "name": "Facility working hours to: (hh:mm)",
-        "type": "number",
+        "type": "text",
          "topic": "Facility general information",
           "state": "working_to"
       }
