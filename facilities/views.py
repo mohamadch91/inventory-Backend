@@ -48,7 +48,7 @@ class FacilityView(APIView):
         if(len(Facility.objects.filter(level=level_code))==0):
             facility_num=0
         else:
-            facility_num=Facility.objects.filter(level=level_code)[len(Facility.objects.filter(level=level_code))-1].id
+            facility_num=Facility.objects.filter(level=level_code).count()
         facility_num=facility_num+1
         facility_num=f"{facility_num:05d}"
         new_data["code"]=f"{country_code}{level_code}{facility_num}"
@@ -477,7 +477,7 @@ class importfacilityView(APIView):
             if(len(Facility.objects.filter(level=ll))==0):
                 facility_num=0
             else:
-                facility_num=Facility.objects.filter(level=level_code)[len(Facility.objects.filter(level=ll))-1].id
+                facility_num=Facility.objects.filter(level=level_code).count()
             facility_num=facility_num+1
             facility_num=f"{facility_num:05d}"
             data["code"]=f"{country_code}{level_code}{facility_num}"

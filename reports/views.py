@@ -99,10 +99,7 @@ class exportExcel(APIView):
                 if(x[strs] != None):
                     param=itemParam.objects.filter(fieldid=z.id).order_by('order')
                     if(param.count()!=0):
-                        print(x[strs])
                         desc=itemParamDescription.objects.filter(id=x[strs])
-                        print(desc)
-                        print(x[strs])
                         if(desc.count()!=0):
                             x[strs]=desc[0].name
                             
