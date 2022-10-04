@@ -45,7 +45,7 @@ class relatedfacilityView(APIView):
             else:
                 new_data[5]['required']=True
                 new_data[4]['required']=False
-
+        new_data=sorted(new_data, key=lambda k: k['id'])
         return Response(new_data)
     def put(self, request):
         ans=[]
@@ -189,6 +189,7 @@ class relatedItemTypeView(APIView):
             x['field']=field_serilize.data
             x['itemtype']=itemtype_serilize.data
             final_ans.append(x)
+        final_ans=sorted(final_ans, key=lambda k: k['field']['id'])
         return Response(final_ans,status=status.HTTP_200_OK)    
 
     def put(self,request):

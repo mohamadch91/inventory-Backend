@@ -444,7 +444,7 @@ class importfacilityView(APIView):
                     code.append(x["parentid"])
                 else:
                     if(x["parentid"] not in code):
-                        return Response(x["parentid"]+"parentid is not valid",status=status.HTTP_406_NOT_ACCEPTABLE)
+                        return Response(x["parentid"]+":parentid is not valid",status=status.HTTP_406_NOT_ACCEPTABLE)
                     i=Facility.objects.filter(other_code=x["parentid"]).first().id
                     
                     data["parentid"]=i
@@ -459,12 +459,12 @@ class importfacilityView(APIView):
                         data["level"]=x["level"]
             
             if(x["pop"] is None):
-                return Response("pop is required",status=status.HTTP_406_NOT_ACCEPTABLE)
+                return Response("population is required",status=status.HTTP_406_NOT_ACCEPTABLE)
             else:
                 country=CountryConfig.objects.all()[0]
                 level=LevelConfig.objects.filter(id=x["level"])[0]
                 if(x['pop']<level.minpop or x['pop']>level.maxpop):
-                    return Response("pop is not valid",status=status.HTTP_406_NOT_ACCEPTABLE)
+                    return Response("population is not valid",status=status.HTTP_406_NOT_ACCEPTABLE)
                 if(country.poptarget=='General population'):
                     data['populationnumber']=int(x['pop'])
                 else:
@@ -493,7 +493,7 @@ class importfacilityView(APIView):
                 country=CountryConfig.objects.all()[0]
                 level=LevelConfig.objects.filter(id=x["level"])[0]
                 if(x['pop']<level.minpop or x['pop']>level.maxpop):
-                    return Response("pop is not valid",status=status.HTTP_406_NOT_ACCEPTABLE)
+                    return Response("population is not valid",status=status.HTTP_406_NOT_ACCEPTABLE)
                 if(country.poptarget=='General population'):
                     ns['pop']=int(x['pop'])
                 else:
