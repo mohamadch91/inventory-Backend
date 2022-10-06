@@ -163,13 +163,24 @@ class getqrView(APIView):
         if(code is None):
             return Response('need query param',status=status.HTTP_400_BAD_REQUEST)
         x=item.objects.filter(code=code,isDel=False)[0]
+        manfac=""
+        if (x.Manufacturer is not None):
+            man=get_object_or_404(Manufacturer,id=x.Manufacturer)
+            manfac=man.describe
         data={
                 "id":x.id,
                 "item_class":x.item_class.title,
                 "item_type":x.item_type.title,
-                "pqs_code":x.Model,
+                "pqs_code":x.PQSPISCode,
+                "model":x.Model,
                 "code":x.code,
                 "qr":x.code,
+                "capacity":x.NetVaccineStorageCapacity,
+                "manufac":manfac,
+                "facility":x.facility.name,
+                "functioning":x.IsItFunctioning,
+                
+                
 
             }
         return Response(data,status=status.HTTP_200_OK)
