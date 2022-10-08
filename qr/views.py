@@ -162,7 +162,11 @@ class getqrView(APIView):
         code=request.query_params.get('code',None)
         if(code is None):
             return Response('need query param',status=status.HTTP_400_BAD_REQUEST)
-        x=item.objects.filter(code=code,isDel=False)[0]
+        x=item.objects.filter(code=code,isDel=False)
+        if (x.count()==0):
+            return Response([],status=status.HTTP_200_OK)
+        else:
+            x=x[0]
         manfac=""
         if (x.Manufacturer is not None):
             man=get_object_or_404(Manufacturer,id=x.Manufacturer)
