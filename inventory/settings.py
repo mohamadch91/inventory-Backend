@@ -143,7 +143,7 @@ WSGI_APPLICATION = 'inventory.wsgi.application'
 DATABASES = {
   'default': {
      'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'invgap_db4',
+        'NAME': 'invgap_db2',
         'USER': 'postgres',
         'PASSWORD': 'fdhdkj@33443',
         'HOST': 'localhost',
@@ -207,7 +207,7 @@ CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_CREDENTIALS = False
 
 CORS_ALLOWED_ORIGINS = [
-    "https://www.test-cors.org",'http://localhost:3000','https://invfrontdev.herokuapp.com','http://5.182.47.38:3002','https://invgap.org'
+    "https://www.test-cors.org",'http://localhost:3000','https://invfrontdev.herokuapp.com','http://5.182.47.38:3002','https://invgap.org','https://demoapi1.invgap.org','https://demoapi2.invgap.org','https://demoapi3.invgap.org'
 ]
 CORS_ALLOW_HEADERS = [ "accept", "accept-encoding", "authorization", "content-type", "dnt", "origin", "user-agent", "x-csrftoken", "x-requested-with", ]
 CORS_ALLOW_METHODS =[ "DELETE", "GET", "OPTIONS", "PATCH", "POST", "PUT"] 
