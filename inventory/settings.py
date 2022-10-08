@@ -207,12 +207,12 @@ CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_CREDENTIALS = False
 
 CORS_ALLOWED_ORIGINS = [
-    "https://www.test-cors.org",'http://localhost:3000','https://invfrontdev.herokuapp.com','http://5.182.47.38:3002','https://invgap.org','https://demoapi1.invgap.org','https://demoapi2.invgap.org','https://demoapi3.invgap.org'
+    "https://www.test-cors.org",'http://localhost:3000','https://invfrontdev.herokuapp.com','http://5.182.47.38:3002','https://invgap.org'
 ]
 CORS_ALLOW_HEADERS = [ "accept", "accept-encoding", "authorization", "content-type", "dnt", "origin", "user-agent", "x-csrftoken", "x-requested-with", ]
 CORS_ALLOW_METHODS =[ "DELETE", "GET", "OPTIONS", "PATCH", "POST", "PUT"] 
 CSRF_TRUSTED_ORIGINS = [
-    'https://inventory.runflare.run',
+    'https://inventory.runflare.run','https://demoapi1.invgap.org','https://demoapi2.invgap.org','https://demoapi3.invgap.org','https://api.invgap.org'
 ]
 
 lo = True
