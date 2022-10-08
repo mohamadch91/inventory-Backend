@@ -143,7 +143,7 @@ WSGI_APPLICATION = 'inventory.wsgi.application'
 DATABASES = {
   'default': {
      'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'invgap_db4',
+        'NAME': 'invgap_db3',
         'USER': 'postgres',
         'PASSWORD': 'fdhdkj@33443',
         'HOST': 'localhost',
