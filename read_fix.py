@@ -4,7 +4,7 @@ import pandas
 import math
 import json
 
-excel_data_df = pandas.read_excel('translate.xlsx', sheet_name='Final')
+excel_data_df = pandas.read_excel('t.xlsx', sheet_name='Trans')
 dic_arr_ot=[]
 dic_arr_fr=[]
 dic_arr_ru=[]
