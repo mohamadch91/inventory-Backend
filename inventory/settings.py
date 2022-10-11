@@ -135,7 +135,7 @@ VERSATILEIMAGEFIELD_RENDITION_KEY_SETS = {
     ]
 }
 WSGI_APPLICATION = 'inventory.wsgi.application'
-
+DATA_UPLOAD_MAX_NUMBER_FIELDS = 10240
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
@@ -143,7 +143,7 @@ WSGI_APPLICATION = 'inventory.wsgi.application'
 DATABASES = {
   'default': {
      'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'invgap_db4',
+        'NAME': 'invgap_db1',
         'USER': 'postgres',
         'PASSWORD': 'fdhdkj@33443',
         'HOST': 'localhost',

@@ -4,7 +4,7 @@ import pandas
 import math
 import json
 
-excel_data_df = pandas.read_excel('t.xlsx', sheet_name='Trans')
+excel_data_df = pandas.read_excel('trans.xlsx', sheet_name='Trans')
 dic_arr_ot=[]
 dic_arr_fr=[]
 dic_arr_ru=[]
@@ -18,15 +18,55 @@ dic_arr_ch=[]
 
 
 for i in range(len(excel_data_df)):
+    cl=excel_data_df['Clause'][i]
+    en=excel_data_df['EN'][i]
+    fr=excel_data_df['FR'][i]
+    ar=excel_data_df['AR'][i]
+    ru=excel_data_df['RU'][i]
+    sp=excel_data_df['SP'][i]
+    ot=excel_data_df['Other'][i]
+    ch=excel_data_df['CH'][i]
+    if str(en)=='nan':
+        en=cl
+    if str(fr)=='nan':
+        fr='FR: '+cl
+    if str(ar)=='nan':
+        ar='AR: '+cl
+    if str(ru)=='nan':
+        ru='RU: '+cl
+    if str(sp)=='nan':
+        sp='SP: '+cl
+    if str(ot)=='nan':
+        ot='OT: '+cl
+    if str(ch)=='nan':
+        ch='CH: '+cl
     
+    if ("'" in cl ):
+        cl=cl.replace("'", "#")
+    if ("'" in en):
+        en=en.replace("'", "#")
+    if ("'" in fr):
+        fr=fr.replace("'", "#")
+    if ("'" in ar):
+        ar=ar.replace("'", "#")
+    if ("'" in ru):
+        ru=ru.replace("'", "#")
+    if ("'" in sp):
+        sp=sp.replace("'", "#")
+    if ("'" in ot):
+        ot=ot.replace("'", "#")
+    if ("'" in ch):
+        ch=ch.replace("'", "#")
+
+   
     data_en=  {
       "model": "languages.languages_words",
       "pk": i*7+1,
       "fields": {
         "id":i*7+1,
         "language":1,
-        "word":excel_data_df['Clause'][i],
-        "translate":excel_data_df['EN'][i]
+        "word":cl,
+        "translate":en
 
       }
     }
@@ -37,8 +77,8 @@ for i in range(len(excel_data_df)):
       "fields": {
         "id":i*7+2,
         "language":2,
-        "word":excel_data_df['Clause'][i],
-        "translate":excel_data_df['AR'][i]
+        "word":cl,
+        "translate":ar
 
       }
     }
@@ -49,8 +89,8 @@ for i in range(len(excel_data_df)):
       "fields": {
         "id":i*7+3,
         "language":3,
-        "word":excel_data_df['Clause'][i],
-        "translate":excel_data_df['FR'][i]
+        "word":cl,
+        "translate":fr
 
       }
     }
@@ -61,8 +101,8 @@ for i in range(len(excel_data_df)):
       "fields": {
         "id":i*7+4,
         "language":4,
-        "word":excel_data_df['Clause'][i],
-        "translate":excel_data_df['SP'][i]
+        "word":cl,
+        "translate":sp
 
       }
     }
@@ -73,8 +113,8 @@ for i in range(len(excel_data_df)):
       "fields": {
         "id":i*7+5,
         "language":5,
-        "word":excel_data_df['Clause'][i],
-        "translate":excel_data_df['Other'][i]
+        "word":cl,
+        "translate":ot
 
       }
     }
@@ -85,8 +125,8 @@ for i in range(len(excel_data_df)):
       "fields": {
         "id":i*7+6,
         "language":6,
-        "word":excel_data_df['Clause'][i],
-        "translate":excel_data_df['RU'][i]
+        "word":cl,
+        "translate":ru
 
       }
     }
@@ -97,14 +137,21 @@ for i in range(len(excel_data_df)):
       "fields": {
         "id":i*7+7,
         "language":8,
-        "word":excel_data_df['Clause'][i],
-        "translate":excel_data_df['CH'][i]
+        "word":cl,
+        "translate":ch
 
       }
     }
-    dic_arr_ru.append(data_ru)
-
-
-final=dic_arr_en+dic_arr_ot+dic_arr_ar+dic_arr_fr+dic_arr_ru+dic_arr_sp+dic_arr_ch
+    dic_arr_ch.append(data_ch)
+final=[]
+for a,b,c,d,e,f,g in zip(dic_arr_en,dic_arr_ar,dic_arr_fr,dic_arr_sp,dic_arr_ot,dic_arr_ru,dic_arr_ch):
+    
+    final.append(a)
+    final.append(b)
+    final.append(c)
+    final.append(d)
+    final.append(e)
+    final.append(f)
+    final.append(g)
 with open("fix.json", "w") as outfile:
     outfile.write(str(final))       
