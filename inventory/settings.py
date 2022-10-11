@@ -143,7 +143,7 @@ DATA_UPLOAD_MAX_NUMBER_FIELDS = 10240
 DATABASES = {
   'default': {
      'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'invgap_db3',
+        'NAME': 'invgap_db4',
         'USER': 'postgres',
         'PASSWORD': 'fdhdkj@33443',
         'HOST': 'localhost',
