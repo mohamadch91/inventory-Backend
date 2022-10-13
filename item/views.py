@@ -388,8 +388,18 @@ class itemPQSView(APIView):
                 ans=new_Data+new_Data4
                 return Response(ans,status=status.HTTP_200_OK)     
         else:
-                    
-            return Response("need query param",status=status.HTTP_200_OK)
+                pqss=pqs3.objects.all()
+                ser=pqs3Serializer(pqss,many=True)
+                new_Data=copy.deepcopy(ser.data)
+                for i in new_Data:
+                    i["ptype"]=3
+                pqs44=pqs4.objects.all()
+                ser4=pqs4Serializer(pqs44,many=True)
+                new_Data4=copy.deepcopy(ser4.data)
+                for i in new_Data4:
+                    i["ptype"]=4
+                ans=new_Data+new_Data4
+                return Response(ans,status=status.HTTP_200_OK)   
 
             
 class itemdb(APIView):
