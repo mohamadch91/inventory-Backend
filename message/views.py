@@ -54,7 +54,6 @@ class messageView(APIView):
         if (type=="sender"):
             messages=messageSerializer(message.objects.filter(sender=facility.id),many=True)
             final_ans=[]
-            print(messages.data)
             for x in messages.data:
                 ans=copy.deepcopy(x)
                 send_fac=get_object_or_404(Facility,id=x["sender"])
@@ -72,9 +71,10 @@ class messageView(APIView):
                 final_ans.append(ans)
             return Response(final_ans)
         else:
+            m=message.objects.filter(reciever=facility.id)
+            messages=messageSerializer(m,many=True)
             messages=messageSerializer(message.objects.filter(reciever=facility.id),many=True)
             final_ans=[]
-            print(messages.data)
             for x in messages.data:
                 ans=copy.deepcopy(x)
                 send_fac=get_object_or_404(Facility,id=x["sender"])
