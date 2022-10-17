@@ -126,7 +126,9 @@ class helperView(APIView):
     def get(self,request):
         facility=Facility.objects.filter(parentid=request.user.facilityid.id,is_deleted=False)
         facility=Facility.objects.filter(id=request.user.facilityid.id)|facility
-        facility=Facility.objects.filter(id=request.user.facilityid.parentid.id)|facility
+        parent=request.user.facilityid.parentid
+        if(parent is not None):
+            facility=Facility.objects.filter(id=request.user.facilityid.parentid.id)|facility
         ans=[]
         for x in facility:
             data={
