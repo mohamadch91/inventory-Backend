@@ -120,3 +120,19 @@ class messageView(APIView):
         messages = get_object_or_404(message, id=id)
         messages.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+class helperView(APIView):
+    permission_classes= [IsAuthenticated]
+    def get(self,request):
+        facility=Facility.objects.filter(parentid=request.user.facilityid.id,is_deleted=False)
+        facility=Facility.objects.filter(id=request.user.facilityid.id)|facility
+        facility=Facility.objects.filter(id=request.user.facilityid.parentid.id)|facility
+        ans=[]
+        for x in facility:
+            data={
+                "id":x.id,
+                "name":x.name
+            }
+            ans.append(data)
+        ans=sorted(ans, key = lambda i: i['id'])
+        return Response(ans)
