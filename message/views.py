@@ -138,3 +138,10 @@ class helperView(APIView):
             ans.append(data)
         ans=sorted(ans, key = lambda i: i['id'])
         return Response(ans)
+
+class unreadCountView(APIView):
+    permission_classes= [IsAuthenticated]
+    def get(self,request):
+        facility=Facility.objects.filter(id=request.user.facilityid.id)[0]
+        count=message.objects.filter(reciever=facility.id,read=False).count()
+        return Response(count)
