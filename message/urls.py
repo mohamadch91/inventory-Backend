@@ -6,6 +6,8 @@ urlpatterns = [
 
     path('', messageView.as_view(), name='message'),
     path('helper', helperView.as_view(), name='message'),
+    path('unread-count', helperView.as_view(), name='message'),
+
 
 
   
