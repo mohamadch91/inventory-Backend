@@ -1120,29 +1120,35 @@ class gapItemReportView(APIView):
                 for y in items:
                     if(degree=="1"):
                         if(y.StorageCondition=="2"):
-                            capacity1+=y.NetVaccineStorageCapacity
-                            if(y.IsItFunctioning):
-                                fcapacity1+=y.NetVaccineStorageCapacity
+                            if(y.NetVaccineStorageCapacity is not None):
+                                capacity1+=y.NetVaccineStorageCapacity
+                                if(y.IsItFunctioning):
+                                    fcapacity1+=y.NetVaccineStorageCapacity
                     if(degree=="2"):
                         if(y.StorageCondition=="3"):
-                            capacity2+=y.NetVaccineStorageCapacity
-                            if(y.IsItFunctioning):
-                                fcapacity2+=y.NetVaccineStorageCapacity
+                            if(y.NetVaccineStorageCapacity is not None):
+
+                                capacity2+=y.NetVaccineStorageCapacity
+                                if(y.IsItFunctioning):
+                                    fcapacity2+=y.NetVaccineStorageCapacity
                     if(degree=="3"):
                         if(y.StorageCondition=="4"):
-                            capacity3+=y.NetVaccineStorageCapacity
-                            if(y.IsItFunctioning):
-                                fcapacity3+=y.NetVaccineStorageCapacity
+                            if(y.NetVaccineStorageCapacity is not None):
+                                capacity3+=y.NetVaccineStorageCapacity
+                                if(y.IsItFunctioning):
+                                    fcapacity3+=y.NetVaccineStorageCapacity
                     if(degree=="4"):
                         if(y.StorageCondition=="1"):
-                            capacity4+=y.NetVaccineStorageCapacity
-                            if(y.IsItFunctioning):
-                                fcapacity4+=y.NetVaccineStorageCapacity
+                            if(y.NetVaccineStorageCapacity is not None):
+                                capacity4+=y.NetVaccineStorageCapacity
+                                if(y.IsItFunctioning):
+                                    fcapacity4+=y.NetVaccineStorageCapacity
                     if(degree=="5"):
                         if(y.StorageCondition=="5"):
-                            capacity5+=y.NetVaccineStorageCapacity
-                            if(y.IsItFunctioning):
-                                fcapacity5+=y.NetVaccineStorageCapacity    
+                            if(y.NetVaccineStorageCapacity is not None):
+                                capacity5+=y.NetVaccineStorageCapacity
+                                if(y.IsItFunctioning):
+                                    fcapacity5+=y.NetVaccineStorageCapacity    
                 country=CountryConfig.objects.all()[0]
                 req1=1
                 req2=1
