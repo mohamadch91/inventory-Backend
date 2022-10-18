@@ -15,3 +15,11 @@ class message(models.Model):
     updated_at=models.DateTimeField(auto_now=True)
     def __str__(self):
         return self.subject
+class readedMessage(models.Model):
+    id=models.AutoField(primary_key=True)
+    message=models.ForeignKey(message, on_delete=models.CASCADE, blank=True, null=True)
+    user=models.ForeignKey(Facility, on_delete=models.CASCADE, blank=True, null=True)
+    created_at=models.DateTimeField(auto_now_add=True)
+    updated_at=models.DateTimeField(auto_now=True)
+    def __str__(self):
+        return self.message.subject
