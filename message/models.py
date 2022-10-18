@@ -11,6 +11,7 @@ class message(models.Model):
     subject=models.CharField(max_length=100,blank=True,null=True)
     body=models.TextField(max_length=500,blank=True,null=True)
     created_at=models.DateTimeField(auto_now_add=True)
+    read=models.BooleanField(default=False)
     updated_at=models.DateTimeField(auto_now=True)
     def __str__(self):
         return self.subject
