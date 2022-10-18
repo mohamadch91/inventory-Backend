@@ -72,9 +72,43 @@ class itemView(APIView):
     def get(self, request):
         id=request.query_params.get('id',None)
         facility=request.query_params.get('facility',None)
-        deleted=request.query_params.get('deleted',False)
+        deleted=request.query_params.get('isDel',False)
+        item_class=request.query_params.get('item_class',None)
+        item_type=request.query_params.get('item_type',None)
+        code=request.query_params.get('code',None)
+        physical=request.query_params.get('physical',None)
+        working=request.query_params.get('working',None)
+        year_from=request.query_params.get('yfrom',None)
+        year_to=request.query_params.get('yto',None)
+        func=request.query_params.get('functioning',None)
+        items=item.objects.all()
+        if(item_type is not None):
+            items=items.filter(item_type=item_type)
+        if(item_class is not None):
+            items=items.filter(item_class=item_class)
+        if(physical is not None):
+            items=items.filter(PhysicalConditions=physical)
+        if(working is not None):
+            items=items.filter(WorkingConditions=working)
+
+        if(year_from is not None):
+            items=items.filter(YearInstalled__gte=year_from)
+        if(year_to is not None):
+            items=items.filter(YearInstalled__lte=year_to)
+        if(code is not None):
+            items=items.filter(code__icontains=code)
+        if(func is not None):
+            if(func=="true"):
+                items=items.filter(IsItFunctioning=True)
+            else:
+                items=items.filter(IsItFunctioning=False)
+        if(deleted=="true"):
+            items=items.filter(isDel=True)
+        else:
+            items=items.filter(isDel=False)
+        
         if(facility is not None):
-            country=item.objects.filter(facility=facility,isDel=False)
+            country=items.filter(facility=facility,isDel=False)
             serializer =  itemSerializer(country, many=True)
             new_data=copy.deepcopy(serializer.data)
             for i in new_data:
@@ -87,11 +121,8 @@ class itemView(APIView):
             serializer =  itemSerializer(country, many=True)
             new_data=copy.deepcopy(serializer.data)
             return Response(new_data)
-        if(deleted=="true"):
-            country = item.objects.filter(facility=request.user.facilityid,isDel=True) 
-        else:
-            country = item.objects.filter(facility=request.user.facilityid,isDel=False) 
-        serializer =  itemSerializer(country, many=True)
+       
+        serializer =  itemSerializer(items, many=True)
         new_data=copy.deepcopy(serializer.data)
         for i in new_data:
             if(i["Manufacturer"] is not None):
