@@ -354,7 +354,7 @@ class itemPQSView(APIView):
 
             if(item_class.code=='PCC'):
                 tcode=item_type.code
-                if(tcode=='CBX' or tcode=='VBX'  ):
+                if(tcode=='CBX' or tcode=='VCX'):
                     pqs44=pqs4.objects.all()
                     ser4=pqs4Serializer(pqs44,many=True)
                     new_Data4=copy.deepcopy(ser4.data)
