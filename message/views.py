@@ -144,4 +144,7 @@ class unreadCountView(APIView):
     def get(self,request):
         facility=Facility.objects.filter(id=request.user.facilityid.id)[0]
         count=message.objects.filter(reciever=facility.id,read=False).count()
-        return Response(count,status=status.HTTP_200_OK)
+        if(count==0):
+            return Response(count,status=status.HTTP_200_OK)
+        else:
+            readed=
