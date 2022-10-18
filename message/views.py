@@ -143,8 +143,36 @@ class unreadCountView(APIView):
     permission_classes= [IsAuthenticated]
     def get(self,request):
         facility=Facility.objects.filter(id=request.user.facilityid.id)[0]
-        count=message.objects.filter(reciever=facility.id,read=False).count()
+        all_mas=message.objects.filter(reciever=facility.id,read=False)
+        count=all_mas.count()
         if(count==0):
             return Response(count,status=status.HTTP_200_OK)
         else:
-            readed=
+            unread_count=0
+            for x in all_mas:
+                readed=readedMessage.objects.filter(messageid=x.id,user=request.user.id)
+                if(readed.count()==0):
+                    unread_count+=1
+            return Response(unread_count,status=status.HTTP_200_OK)
+class readMessageView(APIView):
+    permission_classes= [IsAuthenticated]
+    def post(self, request):
+        user=request.user
+        facility=Facility.objects.filter(id=user.facilityid.id)[0]
+        for x in request.data:
+            new_data={
+                "user":user.id,
+                "messageid":x
+            }
+            serializer =  readedMessageSerializer(data=new_data)
+            if serializer.is_valid():
+                serializer.save()
+            all_users=User.objects.filter(facilityid=facility.id)
+            user_count=0
+            for y in all_users:
+                readed=readedMessage.objects.filter(messageid=x,user=y.id)
+                if(readed.count()!=0):
+                    user_count+=1
+            if(user_count==all_users.count()):
+                message.objects.filter(id=x).update(read=True)
+        return Response(status=status.HTTP_200_OK)
