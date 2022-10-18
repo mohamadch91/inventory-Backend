@@ -89,6 +89,10 @@ class messageView(APIView):
                 }
                 ans["sender"]=sender
                 ans["reciever"]=reciev
+                readed_mas=readedMessage.objects.filter(message=x["id"],user=user.pk)
+                print(readed_mas)
+                if(readed_mas.count()>0):
+                    ans["read"]=True
                 final_ans.append(ans)
             return Response(final_ans)
     def post(self, request):
@@ -150,7 +154,8 @@ class unreadCountView(APIView):
         else:
             unread_count=0
             for x in all_mas:
-                readed=readedMessage.objects.filter(messageid=x.id,user=request.user.id)
+                readed=readedMessage.objects.filter(message=x.id,user=request.user.pk)
+                print(readed)
                 if(readed.count()==0):
                     unread_count+=1
             return Response(unread_count,status=status.HTTP_200_OK)
@@ -161,18 +166,23 @@ class readMessageView(APIView):
         facility=Facility.objects.filter(id=user.facilityid.id)[0]
         for x in request.data:
             new_data={
-                "user":user.id,
-                "messageid":x
+                "user":user.pk,
+                "message":x
             }
+            print(new_data)
             serializer =  readedMessageSerializer(data=new_data)
             if serializer.is_valid():
                 serializer.save()
+            else:
+                print(serializer.errors,"salam")
+
             all_users=User.objects.filter(facilityid=facility.id)
             user_count=0
             for y in all_users:
-                readed=readedMessage.objects.filter(messageid=x,user=y.id)
+                readed=readedMessage.objects.filter(message=x,user=y.id)
                 if(readed.count()!=0):
                     user_count+=1
             if(user_count==all_users.count()):
                 message.objects.filter(id=x).update(read=True)
+
         return Response(status=status.HTTP_200_OK)

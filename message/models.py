@@ -1,7 +1,7 @@
 from django.db import models
 from facilities.models import Facility
 # Create your models here.
-
+from authen.models import User
 # message model need sender reciever subject and body
 
 class message(models.Model):
@@ -18,7 +18,7 @@ class message(models.Model):
 class readedMessage(models.Model):
     id=models.AutoField(primary_key=True)
     message=models.ForeignKey(message, on_delete=models.CASCADE, blank=True, null=True)
-    user=models.ForeignKey(Facility, on_delete=models.CASCADE, blank=True, null=True)
+    user=models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)
     created_at=models.DateTimeField(auto_now_add=True)
     updated_at=models.DateTimeField(auto_now=True)
     def __str__(self):
