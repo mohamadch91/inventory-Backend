@@ -68,7 +68,7 @@ class exportExcel(APIView):
             
             for z in rel_fac:
                 strs=z.state
-                if(x[strs] != None):
+                if(x[strs] != None and x[strs]!=''):
                     param=facilityParam.objects.filter(fieldid=z.id).order_by('order')
                     if(param.count()!=0):
                         desc=facilityParamDescription.objects.filter(id=x[strs]).order_by('order')
@@ -96,7 +96,7 @@ class exportExcel(APIView):
         for x in item_ser:
             for z in rel_item:
                 strs=z.state
-                if(x[strs] != None):
+                if(x[strs] != None and x[strs]!='' ):
                     param=itemParam.objects.filter(fieldid=z.id).order_by('order')
                     if(param.count()!=0):
                         desc=itemParamDescription.objects.filter(id=x[strs])
