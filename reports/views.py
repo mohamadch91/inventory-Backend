@@ -955,16 +955,20 @@ class profileColdchainView(APIView):
                                 nw_vc+=1
                         if(degree=="4"):
                             if(z.StorageCondition=="1"):
-                                available+=z.NetVaccineStorageCapacity
+                                if(z.NetVaccineStorageCapacity is not None):
+                                    available+=z.NetVaccineStorageCapacity
                         if(degree=="1"):
                             if(z.StorageCondition=="2"):
-                                available+=z.NetVaccineStorageCapacity  
+                                if(z.NetVaccineStorageCapacity is not None):
+                                    available+=z.NetVaccineStorageCapacity  
                         if(degree=="2"):
                             if(z.StorageCondition=="3"):
-                                available+=z.NetVaccineStorageCapacity
+                                if(z.NetVaccineStorageCapacity is not None):
+                                    available+=z.NetVaccineStorageCapacity
                         if(degree=="3"):
                             if(z.StorageCondition=="4"):
-                                available+=z.NetVaccineStorageCapacity  
+                                if(z.NetVaccineStorageCapacity is not None):
+                                    available+=z.NetVaccineStorageCapacity  
                 country=CountryConfig.objects.all()[0]
                 req=0
                 if(degree=="1"):
