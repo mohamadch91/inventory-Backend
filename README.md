@@ -30,34 +30,49 @@ for install dependencies please read Project installation file
 ## Edit python files
 1. open inventory/settings.py
 2. comment following lines:
-    ` DATABASES = {`
-     `'default': {`
-         `'ENGINE': 'django.db.backends.sqlite3',`
-         `'NAME': str(BASE_DIR / 'db.sqlite3'),`
-     `}`
-     `}`
+```
+     DATABASES = {
+     'default': {
+         'ENGINE': 'django.db.backends.sqlite3',
+         'NAME': str(BASE_DIR / 'db.sqlite3'),
+     }
+     } 
+```
 3. uncomment following lines like this:
-       ` DATABASES = {`
-    `     'default': {`
-    ` 'ENGINE': 'django.db.backends.postgresql',`
-     `   'NAME': 'nw_db',`
-       ` 'USER': 'postgres',`
-    `    'PASSWORD': 'changed_password',`
-       ` 'HOST': 'localhost',`
-      `  'PORT': '',`
-`}`
-`}`
+```
+        DATABASES = {
+         'default': {
+     'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'nw_db',
+        'USER': 'postgres',
+        'PASSWORD': 'changed_password',
+        'HOST': 'localhost',
+        'PORT': '',
+    }
+       } 
+```
 ##  Load initial datas
- for loading data base tables and please use this commands:
-    `python3 manage.py makemigrations`
-    `python3 manage.py migrate`
+for loading data base tables and please use this commands:
+```bash
+        python3 manage.py makemigrations
+```
+
+```bash
+    python3 manage.py migrate
+```
 then you must load initial data
-    `python3 mannage.py loaddata initial.json`
+```bash
+    python3 mannage.py loaddata initial.json
+```
 now you have user admin with password admin
 for load translations data please use following command
-    `python3 manage.py loaddata languages/fixtures/fix.json`
+```bash
+    python3 manage.py loaddata languages/fixtures/fix.json
+```
     
 ## Run project
 for run the project 
-    `python3 manage.py runserver 0.0.0.0:8000`
+```bash
+    python3 manage.py runserver 0.0.0.0:8000
+```
 you can check localhost:8000 or your server ip for successfully setup 
