@@ -54,6 +54,9 @@ for install dependencies please read Project installation file
 then you must load initial data
     `python3 mannage.py loaddata initial.json`
 now you have user admin with password admin
+for load translations data please use following command
+    `python3 manage.py loaddata languages/fixtures/fix.json`
+    
 ## Run project
 for run the project 
     `python3 manage.py runserver 0.0.0.0:8000`
