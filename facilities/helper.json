@@ -1,0 +1,324 @@
+http://46.105.58.235:8007/facilities/facility-field
+METHOd GET :
+
+
+
+{
+    "facility": {
+        "id": 1,
+        "name": "Central store"
+    },
+    "user": {
+        "id": 1,
+        "username": "admin"
+    },
+    "levels": [
+        {
+            "id": 2,
+            "maxpop": 8524336,
+            "minpop": 1,
+            "uppervol": "2.52",
+            "undervol": "0.00",
+            "m25vol": "0.00",
+            "m70vol": "0.13",
+            "m25volnew": "0.00",
+            "m70volnew": "0.00",
+            "uppervolnew": "0.00",
+            "undervolnew": "0.03",
+            "name": "Level",
+            "dryvol": "0.29",
+            "dryvolnew": "0.01",
+            "created_at": "2022-09-29T10:39:46.167621Z",
+            "updated_at": "2022-10-12T08:45:28.191565Z",
+            "country": 1,
+            "parent": 1
+        },
+        {
+            "id": 3,
+            "maxpop": 24335785,
+            "minpop": 2,
+            "uppervol": "3.40",
+            "undervol": "0.22",
+            "m25vol": "0.01",
+            "m70vol": "0.13",
+            "m25volnew": "0.00",
+            "m70volnew": "0.00",
+            "uppervolnew": "0.00",
+            "undervolnew": "0.00",
+            "name": "Level",
+            "dryvol": "1.42",
+            "dryvolnew": "0.00",
+            "created_at": "2022-09-29T10:44:02.507434Z",
+            "updated_at": "2022-10-12T08:45:28.249263Z",
+            "country": 1,
+            "parent": 1
+        },
+        {
+            "id": 4,
+            "maxpop": 12580005,
+            "minpop": 1,
+            "uppervol": "2.89",
+            "undervol": "0.00",
+            "m25vol": "0.00",
+            "m70vol": "0.00",
+            "m25volnew": "0.00",
+            "m70volnew": "0.00",
+            "uppervolnew": "0.00",
+            "undervolnew": "0.01",
+            "name": "Level",
+            "dryvol": "0.38",
+            "dryvolnew": "0.00",
+            "created_at": "2022-09-29T10:44:02.509254Z",
+            "updated_at": "2022-10-12T08:45:28.307544Z",
+            "country": 1,
+            "parent": 2
+        },
+        {
+            "id": 5,
+            "maxpop": 58585858,
+            "minpop": 1,
+            "uppervol": "0.00",
+            "undervol": "0.00",
+            "m25vol": "0.00",
+            "m70vol": "0.00",
+            "m25volnew": "0.00",
+            "m70volnew": "0.00",
+            "uppervolnew": "0.00",
+            "undervolnew": "0.00",
+            "name": "levels5",
+            "dryvol": "0.00",
+            "dryvolnew": "0.00",
+            "created_at": "2022-09-29T14:52:37.087705Z",
+            "updated_at": "2022-10-12T08:45:28.375684Z",
+            "country": 1,
+            "parent": 3
+        }
+    ],
+    "related": [
+        {
+            "id": 2,
+            "name": "Facility name",
+            "topic": "Facility general information",
+            "type": "text",
+            "active": true,
+            "required": true,
+            "stateName": "name",
+            "disabled": true,
+            "params": [],
+            "validation": []
+        },
+        {
+            "id": 4,
+            "name": "Facility types",
+            "topic": "Facility general information",
+            "type": "select",
+            "active": true,
+            "required": true,
+            "stateName": "type",
+            "disabled": true,
+            "params": [
+                {
+                    "id": 20,
+                    "name": "t1",
+                    "order": 1,
+                    "enabled": true,
+                    "paramid": 12
+                },
+                {
+                    "id": 21,
+                    "name": "t2",
+                    "order": 2,
+                    "enabled": true,
+                    "paramid": 12
+                }
+            ],
+            "validation": []
+        },
+        {
+            "id": 5,
+            "name": "Number of general populations served by this facility:",
+            "topic": "Facility general information",
+            "type": "number",
+            "active": true,
+            "required": true,
+            "stateName": "populationnumber",
+            "disabled": true,
+            "params": [],
+            "validation": [
+                {
+                    "fieldid": 5,
+                    "digits": -1,
+                    "min": 2,
+                    "max": 700000,
+                    "float": false,
+                    "floating": -1
+                }
+            ]
+        },
+        {
+            "id": 6,
+            "name": "Number of under-1 populations served by this facility:",
+            "topic": "Facility general information",
+            "type": "number",
+            "active": true,
+            "required": false,
+            "stateName": "childrennumber",
+            "disabled": true,
+            "params": [],
+            "validation": [
+                {
+                    "fieldid": 6,
+                    "digits": -1,
+                    "min": -1,
+                    "max": -1,
+                    "float": false,
+                    "floating": -1
+                }
+            ]
+        },
+        {
+            "id": 7,
+            "name": "Number of lower-level facilities served by this facility",
+            "topic": "Facility general information",
+            "type": "number",
+            "active": true,
+            "required": true,
+            "stateName": "loverlevelfac",
+            "disabled": true,
+            "params": [],
+            "validation": [
+                {
+                    "id": 1,
+                    "digits": -1,
+                    "min": -1,
+                    "max": -1,
+                    "float": false,
+                    "floating": -1,
+                    "fieldid": 7
+                }
+            ]
+        },
+        {
+            "id": 11,
+            "name": "State/ Province",
+            "topic": "Facility general information",
+            "type": "select",
+            "active": true,
+            "required": true,
+            "stateName": "province",
+            "disabled": true,
+            "params": [
+                {
+                    "id": 5,
+                    "name": "state1",
+                    "order": 1,
+                    "enabled": true,
+                    "paramid": 3
+                },
+                {
+                    "id": 6,
+                    "name": "state2",
+                    "order": 2,
+                    "enabled": true,
+                    "paramid": 3
+                }
+            ],
+            "validation": []
+        },
+        {
+            "id": 12,
+            "name": "Zone:",
+            "topic": "Facility general information",
+            "type": "text",
+            "active": true,
+            "required": false,
+            "stateName": "zone",
+            "disabled": false,
+            "params": [],
+            "validation": []
+        },
+        {
+            "id": 13,
+            "name": "District:",
+            "topic": "Facility general information",
+            "type": "text",
+            "active": true,
+            "required": false,
+            "stateName": "district",
+            "disabled": false,
+            "params": [],
+            "validation": []
+        },
+        {
+            "id": 14,
+            "name": "City:",
+            "topic": "Facility general information",
+            "type": "text",
+            "active": true,
+            "required": false,
+            "stateName": "city",
+            "disabled": false,
+            "params": [],
+            "validation": []
+        },
+        {
+            "id": 15,
+            "name": "Address:",
+            "topic": "Facility general information",
+            "type": "text",
+            "active": true,
+            "required": false,
+            "stateName": "address",
+            "disabled": false,
+            "params": [],
+            "validation": []
+        },
+        {
+            "id": 16,
+            "name": "Postal code:",
+            "topic": "Facility general information",
+            "type": "text",
+            "active": true,
+            "required": false,
+            "stateName": "postalcode",
+            "disabled": false,
+            "params": [],
+            "validation": []
+        },
+        {
+            "id": 17,
+            "name": "Facility national code:",
+            "topic": "Facility general information",
+            "type": "text",
+            "active": true,
+            "required": false,
+            "stateName": "national_code",
+            "disabled": false,
+            "params": [],
+            "validation": []
+        },
+        {
+            "id": 18,
+            "name": "Email address:",
+            "topic": "Facility general information",
+            "type": "text",
+            "active": true,
+            "required": false,
+            "stateName": "email",
+            "disabled": false,
+            "params": [],
+            "validation": []
+        },
+        {
+            "id": 19,
+            "name": "Phone number:",
+            "topic": "Facility general information",
+            "type": "text",
+            "active": true,
+            "required": false,
+            "stateName": "phone",
+            "disabled": false,
+            "params": [],
+            "validation": []
+        }]
+}
