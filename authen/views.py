@@ -93,4 +93,6 @@ class hashpassowrd(APIView):
             x.password=make_password(x.password)
             x.save()
         return Response(data="done",status=status.HTTP_200_OK)    
-        
+class UrlCheckView(APIView):
+    def get(self,request):
+        return Response({"message":"ok"},status=status.HTTP_200_OK)
