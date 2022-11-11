@@ -43,7 +43,7 @@ for i in range(len(excel_data_df)):
     if str(ch)=='nan':
         ch='CH: '+cl
     if str(uk)=='nan':
-        ch='UK: '+cl
+        uk='UK: '+cl
     
     if ("'" in cl ):
         cl=cl.replace("'", "#")
@@ -162,7 +162,7 @@ for i in range(len(excel_data_df)):
     }
     dic_arr_ch.append(data_ch)
 final=[]
-for a,b,c,d,e,f,g in zip(dic_arr_en,dic_arr_ar,dic_arr_fr,dic_arr_sp,dic_arr_ot,dic_arr_ru,dic_arr_ch):
+for a,b,c,d,e,f,g,h in zip(dic_arr_en,dic_arr_ar,dic_arr_fr,dic_arr_sp,dic_arr_ot,dic_arr_ru,dic_arr_ch,dic_arr_uk):
     
     final.append(a)
     final.append(b)
@@ -171,5 +171,6 @@ for a,b,c,d,e,f,g in zip(dic_arr_en,dic_arr_ar,dic_arr_fr,dic_arr_sp,dic_arr_ot,
     final.append(e)
     final.append(f)
     final.append(g)
+    final.append(h)
 with open("fix.json", "w") as outfile:
     outfile.write(str(final))       
