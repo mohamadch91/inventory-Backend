@@ -12,6 +12,7 @@ dic_arr_sp=[]
 dic_arr_en=[]
 dic_arr_ar=[]
 dic_arr_ch=[]
+dic_arr_uk=[]
 
 
 
@@ -24,6 +25,7 @@ for i in range(len(excel_data_df)):
     ar=excel_data_df['AR'][i]
     ru=excel_data_df['RU'][i]
     sp=excel_data_df['SP'][i]
+    uk=excel_data_df['UK'][i]
     ot=excel_data_df['Other'][i]
     ch=excel_data_df['CH'][i]
     if str(en)=='nan':
@@ -40,6 +42,8 @@ for i in range(len(excel_data_df)):
         ot='OT: '+cl
     if str(ch)=='nan':
         ch='CH: '+cl
+    if str(uk)=='nan':
+        ch='UK: '+cl
     
     if ("'" in cl ):
         cl=cl.replace("'", "#")
@@ -57,13 +61,15 @@ for i in range(len(excel_data_df)):
         ot=ot.replace("'", "#")
     if ("'" in ch):
         ch=ch.replace("'", "#")
+    if ("'" in uk):
+        uk=uk.replace("'", "#")
 
    
     data_en=  {
       "model": "languages.languages_words",
-      "pk": i*7+1,
+      "pk": i*8+1,
       "fields": {
-        "id":i*7+1,
+        "id":i*8+1,
         "language":1,
         "word":cl,
         "translate":en
@@ -73,9 +79,9 @@ for i in range(len(excel_data_df)):
     dic_arr_en.append(data_en)
     data_ar=  {
       "model": "languages.languages_words",
-      "pk": i*7+2,
+      "pk": i*8+2,
       "fields": {
-        "id":i*7+2,
+        "id":i*8+2,
         "language":2,
         "word":cl,
         "translate":ar
@@ -85,9 +91,9 @@ for i in range(len(excel_data_df)):
     dic_arr_ar.append(data_ar)
     data_fr=  {
       "model": "languages.languages_words",
-      "pk": i*7+3,
+      "pk": i*8+3,
       "fields": {
-        "id":i*7+3,
+        "id":i*8+3,
         "language":3,
         "word":cl,
         "translate":fr
@@ -97,9 +103,9 @@ for i in range(len(excel_data_df)):
     dic_arr_fr.append(data_fr)
     data_es=  {
       "model": "languages.languages_words",
-      "pk": i*7+4,
+      "pk": i*8+4,
       "fields": {
-        "id":i*7+4,
+        "id":i*8+4,
         "language":4,
         "word":cl,
         "translate":sp
@@ -109,9 +115,9 @@ for i in range(len(excel_data_df)):
     dic_arr_sp.append(data_es)
     data_fa=  {
       "model": "languages.languages_words",
-      "pk": i*7+5,
+      "pk": i*8+5,
       "fields": {
-        "id":i*7+5,
+        "id":i*8+5,
         "language":5,
         "word":cl,
         "translate":ot
@@ -121,9 +127,9 @@ for i in range(len(excel_data_df)):
     dic_arr_ot.append(data_fa)
     data_ru=  {
       "model": "languages.languages_words",
-      "pk": i*7+6,
+      "pk": i*8+6,
       "fields": {
-        "id":i*7+6,
+        "id":i*8+6,
         "language":6,
         "word":cl,
         "translate":ru
@@ -131,11 +137,23 @@ for i in range(len(excel_data_df)):
       }
     }
     dic_arr_ru.append(data_ru)
+    data_uk=  {
+      "model": "languages.languages_words",
+      "pk": i*8+7,
+      "fields": {
+        "id":i*8+7,
+        "language":7,
+        "word":cl,
+        "translate":uk
+
+      }
+    }
+    dic_arr_uk.append(data_uk)
     data_ch=  {
       "model": "languages.languages_words",
-      "pk": i*7+7,
+      "pk": i*8+8,
       "fields": {
-        "id":i*7+7,
+        "id":i*8+8,
         "language":8,
         "word":cl,
         "translate":ch
