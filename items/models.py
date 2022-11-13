@@ -22,6 +22,8 @@ class ItemType(models.Model):
     havePQS=models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True, null=True, blank=True)
     updated_at = models.DateTimeField(auto_now=True, null=True, blank=True)
+    def __str__(self) -> str:
+        return self.title
 
 class Itemtypelevel(models.Model):
     id = models.AutoField(db_column='ID', primary_key=True)  # Field name made lowercase.
