@@ -464,4 +464,16 @@ class itemDeleteView(APIView):
         print(ser.errors)    
         return Response(ser.errors,status=status.HTTP_400_BAD_REQUEST)    
 
-
+class ItemAllfac(APIView):
+    permission_classes = [IsAuthenticated]
+    def get(self,request):
+        all_fac=Facility.objects.filter(parentid=request.user.facilityid.id)
+        all_fac=Facility.objects.filter(id=request.user.facilityid.id)|all_fac
+        items=item.objects.filter(facility__in=all_fac)
+        ser=itemSerializer(items,many=True)
+        new_data=copy.deepcopy(ser.data)
+        for i in new_data:
+                if(i["Manufacturer"] is not None):
+                    man=get_object_or_404(Manufacturer,id=i["Manufacturer"])
+                    i["Manufacturer"]=man.describe
+        return Response(new_data,status=status.HTTP_200_OK)
