@@ -632,37 +632,16 @@ class AllFieldView(APIView):
                 #sort field by order
                 fields=sorted(fields, key=lambda k: k['field']['id'])
                 new_Data=[]
-                if(item_C.code=='ACC'):
-                    tcode=k.code
-                if(tcode=='REF' or tcode=='FRZ' or tcode=='CRF' or tcode=='UFR' or tcode=='IFR' ):
-                    pqs=pqs3.objects.all()
-                    ser=pqs3Serializer(pqs,many=True)
-                    new_Data=copy.deepcopy(ser.data)
-                    for i in new_Data:
-                        i["ptype"]=3
-                    
-                else:
-                    pqss=pqs3.objects.all()
-                    ser=pqs3Serializer(pqss,many=True)
-                    new_Data=copy.deepcopy(ser.data)
-                    for i in new_Data:
-                        i["ptype"]=3
-                    pqs44=pqs4.objects.all()
-                    ser4=pqs4Serializer(pqs44,many=True)
-                    new_Data4=copy.deepcopy(ser4.data)
-                    for i in new_Data4:
-                        i["ptype"]=4
-                    new_Data=new_Data+new_Data4
-
-                if(item_C.code=='PCC'):
-                    tcode=k.code
-                    if(tcode=='CBX' or tcode=='VCX'):
-                        pqs44=pqs4.objects.all()
-                        ser4=pqs4Serializer(pqs44,many=True)
-                        new_Data4=copy.deepcopy(ser4.data)
-                        for i in new_Data4:
-                            i["ptype"]=4
-                        new_Data=new_Data4
+                if (k.havePQS):
+                    if(item_C.code=='ACC'):
+                        tcode=k.code
+                    if(tcode=='REF' or tcode=='FRZ' or tcode=='CRF' or tcode=='UFR' or tcode=='IFR' ):
+                        pqs=pqs3.objects.all()
+                        ser=pqs3Serializer(pqs,many=True)
+                        new_Data=copy.deepcopy(ser.data)
+                        for i in new_Data:
+                            i["ptype"]=3
+                        
                     else:
                         pqss=pqs3.objects.all()
                         ser=pqs3Serializer(pqss,many=True)
@@ -675,19 +654,41 @@ class AllFieldView(APIView):
                         for i in new_Data4:
                             i["ptype"]=4
                         new_Data=new_Data+new_Data4
-                else:
-                    pqss=pqs3.objects.all()
-                    ser=pqs3Serializer(pqss,many=True)
-                    new_Data=copy.deepcopy(ser.data)
-                    for i in new_Data:
-                        i["ptype"]=3
-                    pqs44=pqs4.objects.all()
-                    ser4=pqs4Serializer(pqs44,many=True)
-                    new_Data4=copy.deepcopy(ser4.data)
-                    for i in new_Data4:
-                        i["ptype"]=4
-                    new_Data=new_Data+new_Data4
 
+                    if(item_C.code=='PCC'):
+                        tcode=k.code
+                        if(tcode=='CBX' or tcode=='VCX'):
+                            pqs44=pqs4.objects.all()
+                            ser4=pqs4Serializer(pqs44,many=True)
+                            new_Data4=copy.deepcopy(ser4.data)
+                            for i in new_Data4:
+                                i["ptype"]=4
+                            new_Data=new_Data4
+                        else:
+                            pqss=pqs3.objects.all()
+                            ser=pqs3Serializer(pqss,many=True)
+                            new_Data=copy.deepcopy(ser.data)
+                            for i in new_Data:
+                                i["ptype"]=3
+                            pqs44=pqs4.objects.all()
+                            ser4=pqs4Serializer(pqs44,many=True)
+                            new_Data4=copy.deepcopy(ser4.data)
+                            for i in new_Data4:
+                                i["ptype"]=4
+                            new_Data=new_Data+new_Data4
+                    else:
+                        pqss=pqs3.objects.all()
+                        ser=pqs3Serializer(pqss,many=True)
+                        new_Data=copy.deepcopy(ser.data)
+                        for i in new_Data:
+                            i["ptype"]=3
+                        pqs44=pqs4.objects.all()
+                        ser4=pqs4Serializer(pqs44,many=True)
+                        new_Data4=copy.deepcopy(ser4.data)
+                        for i in new_Data4:
+                            i["ptype"]=4
+                        new_Data=new_Data+new_Data4
+    
                 new_data_item={
                     "id":k.id,
                     "title":k.code+" - "+k.title,
