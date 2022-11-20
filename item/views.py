@@ -477,3 +477,243 @@ class ItemAllfac(APIView):
                     man=get_object_or_404(Manufacturer,id=i["Manufacturer"])
                     i["Manufacturer"]=man.describe
         return Response(new_data,status=status.HTTP_200_OK)
+class AllFieldView(APIView):
+    def get(self,request):
+        user=request.user
+        facility=user.facilityid
+        parent=request.query_params.get('parent',None)
+
+        facility=get_object_or_404(Facility, id=facility.id)
+        if(parent is not None and parent!=""):
+            facility=get_object_or_404(Facility,id=parent)
+            
+        fac_ser=facilitySerializer(facility,many=False)
+        level=facility.level.id
+        levels_Ser=levelSerializer(level,many=True)
+        item_type_id=[]
+        itemTypeinlevels=Itemtypelevel.objects.filter(level=level,active=True)
+        for x in itemTypeinlevels:
+            item_type_id.append(x.itemtypeid.id)
+        item_class=ItemClass.objects.filter(active=True)
+        first_data=[]
+        for x in item_class:
+            x_ser=itemclassSerializer(x)
+            item_type=ItemType.objects.filter(itemclass=x.id,active=True,id__in=item_type_id)
+            second_data=[]
+            for k in item_type:
+                item_class=get_object_or_404(ItemClass,id=x.id)
+                item_type=get_object_or_404(ItemType,id=k.id)
+                Manufacturers=Manufacturer.objects.filter(active=True,itemclass=item_class.id)
+                man_Ser=ManufacturerSerializer(Manufacturers,many=True)    
+                related=relatedItemType.objects.filter(itemtype=item_type.id)
+                related=related.order_by('id')
+                fields=[]
+                same_item={}
+                same_item['field']={
+                    "id":877,
+                    "name":"Number of the same items with the same condition in this facility",
+                    "params":[],
+                    "required":False,
+                    "state":"same_item",
+                    "topic":"Other additional and optional fields",
+                    "type":"number",
+                    "validation":[
+                        {
+                            "id":877,
+                            "digits":4,
+                            "min":1,
+                            "max":1000,
+                            "float":False,
+                            "floating":-1,
+                            "fieldid":877,
+                        }
+                    ],
+                }
+                fields.append(same_item)
+                for x in related:
+                    data={}
+                    field=Field.objects.get(id=x.field.id)
+                    field_ser=fieldSerializer(field,many=False)
+                    copys=copy.deepcopy(field_ser.data)
+                    data["field"]=copys
+                    data["field"]["required"]=x.required
+                    if(field.id==2):
+                    
+                        data["field"]["params"]=man_Ser.data
+                    else:
+                        try:
+                            param=itemParam.objects.get(fieldid=field.id)
+                #    if(param.count()>0):
+                            params=itemParamSerilizer(param,many=False)                        
+                            describe=itemParamDescription.objects.filter(paramid=params.data["id"],enabled=True)
+                            des_ser=itemParamDescriptionSerilizer(describe,many=True) 
+                            data["field"]["params"]=des_ser.data
+                #    else:
+                        except:
+                            data["field"]["params"]=[]    
+                        if(field.id==76):
+                            maint=maintancegp.objects.filter(enable=True,item_class=item_class.id,item_type=item_type.id)
+                            maint_ser=maintancegpSerializers(maint,many=True)
+                            data["field"]["params"]=maint_ser.data 
+                        if(field.id==31):
+                            data1= {
+                        "id": 1,
+                        "describe": "+25C",
+                        "active": True,
+                        "order": 1,
+                        "itemclass": 1
+                    }
+                            data2= {
+                        "id": 2,
+                        "describe": "+2 - +8 C",
+                        "active": True,
+                        "order": 1,
+                        "itemclass": 1
+                    }
+                            data3= {
+                        "id": 3,
+                        "describe": "-20 C",
+                        "active": True,
+                        "order": 1,
+                        "itemclass": 1
+                    }
+                            data4={
+                        "id": 4,
+                        "describe": "-70 C",
+                        "active": True,
+                        "order": 1,
+                        "itemclass": 1
+                    }
+                            data5={
+                        "id": 5,
+                        "describe": "Dry store",
+                        "active": True,
+                        "order": 1,
+                        "itemclass": 1
+                    }
+                            ic_id=item_class.id
+                            it_id=item_type.id
+                            ans=[]
+                            if(ic_id==1):
+                                if(it_id==1 or it_id==3 or it_id==5):
+                                    ans.append(data2)
+                                elif(it_id==2 or it_id==4):
+                                    ans.append(data3)
+                                elif(it_id==6):
+                                    ans.append(data4)
+                                else:
+                                    ans.append(data1)
+                                    ans.append(data2)
+                                    ans.append(data3)
+                                    ans.append(data4)
+                                    ans.append(data5)
+                            else:
+                                ans.append(data1)
+                                ans.append(data2)
+                                ans.append(data3)
+                                ans.append(data4)
+                                ans.append(data5)                    
+                    
+                    
+                    
+                    
+                            data["field"]["params"]=ans
+
+
+                            
+                    val=Itemvalidation.objects.filter(fieldid=x.field.id)
+                    val_ser=ItemvalidationSerilizer(val,many=True)
+
+                    if(val.count()>0):
+                        data["field"]["validation"]=val_ser.data
+                    else:
+                        data["field"]["validation"]=[]  
+                    fields.append(data)
+                #sort field by order
+                fields=sorted(fields, key=lambda k: k['field']['id'])
+                new_Data=[]
+                if(x.code=='ACC'):
+                    tcode=k.code
+                if(tcode=='REF' or tcode=='FRZ' or tcode=='CRF' or tcode=='UFR' or tcode=='IFR' ):
+                    pqs=pqs3.objects.all()
+                    ser=pqs3Serializer(pqs,many=True)
+                    new_Data=copy.deepcopy(ser.data)
+                    for i in new_Data:
+                        i["ptype"]=3
+                    
+                else:
+                    pqss=pqs3.objects.all()
+                    ser=pqs3Serializer(pqss,many=True)
+                    new_Data=copy.deepcopy(ser.data)
+                    for i in new_Data:
+                        i["ptype"]=3
+                    pqs44=pqs4.objects.all()
+                    ser4=pqs4Serializer(pqs44,many=True)
+                    new_Data4=copy.deepcopy(ser4.data)
+                    for i in new_Data4:
+                        i["ptype"]=4
+                    new_Data=new_Data+new_Data4
+
+                if(x.code=='PCC'):
+                    tcode=k.code
+                    if(tcode=='CBX' or tcode=='VCX'):
+                        pqs44=pqs4.objects.all()
+                        ser4=pqs4Serializer(pqs44,many=True)
+                        new_Data4=copy.deepcopy(ser4.data)
+                        for i in new_Data4:
+                            i["ptype"]=4
+                        new_Data=new_Data4
+                    else:
+                        pqss=pqs3.objects.all()
+                        ser=pqs3Serializer(pqss,many=True)
+                        new_Data=copy.deepcopy(ser.data)
+                        for i in new_Data:
+                            i["ptype"]=3
+                        pqs44=pqs4.objects.all()
+                        ser4=pqs4Serializer(pqs44,many=True)
+                        new_Data4=copy.deepcopy(ser4.data)
+                        for i in new_Data4:
+                            i["ptype"]=4
+                        new_Data=new_Data+new_Data4
+                else:
+                    pqss=pqs3.objects.all()
+                    ser=pqs3Serializer(pqss,many=True)
+                    new_Data=copy.deepcopy(ser.data)
+                    for i in new_Data:
+                        i["ptype"]=3
+                    pqs44=pqs4.objects.all()
+                    ser4=pqs4Serializer(pqs44,many=True)
+                    new_Data4=copy.deepcopy(ser4.data)
+                    for i in new_Data4:
+                        i["ptype"]=4
+                    new_Data=new_Data+new_Data4
+
+                new_data_item={
+                    "id":k.id,
+                    "title":k.code+" - "+k.title,
+                    "havepqs":k.havePQS,
+                    "fields":fields,
+                    "pqs":new_Data
+                }
+                second_data.append(new_data_item)
+            data={
+                "item_class":{
+                    "id":x.id,
+                    "title":x.code +" - " +x.title,
+
+                },
+                "item_type":second_data,
+            }
+            first_data.append(data)
+        fac_data={
+        "id":fac_ser.data["id"],
+        "name":fac_ser.data["name"],
+        "code":fac_ser.data["code"],
+        "level":fac_ser.data["level"],
+    }    
+        ans={
+            "facility":fac_data,
+            "data":first_data
+        } 
+        return Response(ans)
+    
