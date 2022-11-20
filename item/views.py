@@ -496,14 +496,14 @@ class AllFieldView(APIView):
             item_type_id.append(x.itemtypeid.id)
         item_class=ItemClass.objects.filter(active=True)
         first_data=[]
-        for x in item_class:
+        for item_C in item_class:
             x_ser=itemclassSerializer(x)
-            item_type=ItemType.objects.filter(itemclass=x.id,active=True,id__in=item_type_id)
+            item_type=ItemType.objects.filter(itemclass=item_C.id,active=True,id__in=item_type_id)
             second_data=[]
             for k in item_type:
-                item_class=get_object_or_404(ItemClass,id=x.id)
+                item_class=get_object_or_404(ItemClass,id=item_C.id)
                 item_type=get_object_or_404(ItemType,id=k.id)
-                Manufacturers=Manufacturer.objects.filter(active=True,itemclass=item_class.id)
+                Manufacturers=Manufacturer.objects.filter(active=True,itemclass=item_C.id)
                 man_Ser=ManufacturerSerializer(Manufacturers,many=True)    
                 related=relatedItemType.objects.filter(itemtype=item_type.id)
                 related=related.order_by('id')
@@ -632,7 +632,7 @@ class AllFieldView(APIView):
                 #sort field by order
                 fields=sorted(fields, key=lambda k: k['field']['id'])
                 new_Data=[]
-                if(x.code=='ACC'):
+                if(item_C.code=='ACC'):
                     tcode=k.code
                 if(tcode=='REF' or tcode=='FRZ' or tcode=='CRF' or tcode=='UFR' or tcode=='IFR' ):
                     pqs=pqs3.objects.all()
@@ -654,7 +654,7 @@ class AllFieldView(APIView):
                         i["ptype"]=4
                     new_Data=new_Data+new_Data4
 
-                if(x.code=='PCC'):
+                if(item_C.code=='PCC'):
                     tcode=k.code
                     if(tcode=='CBX' or tcode=='VCX'):
                         pqs44=pqs4.objects.all()
@@ -698,8 +698,8 @@ class AllFieldView(APIView):
                 second_data.append(new_data_item)
             data={
                 "item_class":{
-                    "id":x.id,
-                    "title":x.code +" - " +x.title,
+                    "id":item_C.id,
+                    "title":item_C.code +" - " +item_C.title,
 
                 },
                 "item_type":second_data,
