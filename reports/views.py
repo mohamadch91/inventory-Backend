@@ -203,13 +203,13 @@ class facilitysegView(APIView):
                     all_fac=all_fac.filter(is_functioning=False)
 
             if(general_from is not None):
-                all_fac=all_fac.filter(populationnumber__gte=name)
+                all_fac=all_fac.filter(populationnumber__gte=general_from)
             if(general_to is not None):
-                all_fac=all_fac.filter(populationnumber__lte=name)
+                all_fac=all_fac.filter(populationnumber__lte=general_to)
             if(under_from is not None):
-                all_fac=all_fac.filter(childrennumber__gte=name)
+                all_fac=all_fac.filter(childrennumber__gte=under_from)
             if(under_to is not None):
-                all_fac=all_fac.filter(childrennumber__lte=name)
+                all_fac=all_fac.filter(childrennumber__lte=under_to)
 
             ans=[]
             for x in all_fac:
