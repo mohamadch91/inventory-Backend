@@ -729,8 +729,8 @@ class itemFixedView(APIView):
             code=_copy.code
             code=code[:10]
             item_fac=_copy.facility.id
-            code_fac=get_object_or_404(Facility,code=code).id
-            if(item_fac!=code_fac):
+            code_fac=get_object_or_404(Facility,code=code)
+            if(item_fac!=code_fac.id):
                 _copy.facility=code_fac
                 _copy.save()
         return Response("done")
