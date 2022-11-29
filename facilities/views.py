@@ -159,7 +159,6 @@ class facilityFieldView(APIView):
     def get(self, request):
         parent=request.query_params.get('parent',None)
         id=request.query_params.get('id',None)
-        print(id)
         user=request.user
         user_ser=UserSerializer(user,many=False)
         this_facility=Facility.objects.filter(id=user.facilityid.id)[0]
@@ -181,7 +180,7 @@ class facilityFieldView(APIView):
 
 
         level=this_facility.level
-        allow_levels=LevelConfig.objects.filter(id__gt=level.id)
+        allow_levels=LevelConfig.objects.filter(id__gte=level.id)
         if(id is not None):
             if(id=="1"):
                 allow_levels=LevelConfig.objects.filter(id__gte=level.id)
@@ -357,7 +356,7 @@ class facilityFieldView(APIView):
             ans.append(data)
         fac_data={
             "id":fac_ser.data["id"],
-            "name":fac_ser.data["name"]
+            "name":fac_ser.data["name"]+"-"+fac_ser.data["code"],
         }
         if(id is not None):
             if(id=="1"):
