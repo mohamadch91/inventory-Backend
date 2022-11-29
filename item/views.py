@@ -194,7 +194,7 @@ class itemFieldView(APIView):
                 first_data.append(data)
             fac_data={
             "id":fac_ser.data["id"],
-            "name":fac_ser.data["name"],
+            "name":fac_ser.data["name"]+" - " +fac_ser.data["code"],
             "code":fac_ser.data["code"],
             "level":fac_ser.data["level"],
         }    
