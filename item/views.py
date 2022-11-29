@@ -121,7 +121,7 @@ class itemView(APIView):
             serializer =  itemSerializer(country, many=True)
             new_data=copy.deepcopy(serializer.data)
             return Response(new_data)
-       
+        items=items.filter(facility=request.user.facility,isDel=False)       
         serializer =  itemSerializer(items, many=True)
         new_data=copy.deepcopy(serializer.data)
         for i in new_data:
