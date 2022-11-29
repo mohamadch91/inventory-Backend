@@ -124,7 +124,7 @@ class itemView(APIView):
             sored_data=sorted(new_data, key=lambda k: k['code'])
             return Response(sored_data)
             
-        items=items.filter(facility=request.user.facility,isDel=False)       
+        items=items.filter(facility=request.user.facilityid,isDel=False)       
         serializer =  itemSerializer(items, many=True)
         new_data=copy.deepcopy(serializer.data)
         for i in new_data:
