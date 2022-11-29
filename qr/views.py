@@ -60,6 +60,7 @@ class QRhelperview(APIView):
                         "id":x.id,
                     }
                     fac_ans.append(data)
+        fac_ans=sorted(fac_ans, key = lambda i: i['id'])
         item_class=ItemClass.objects.filter(active=True)
         first_data=[]
         for x in item_class:
