@@ -213,7 +213,7 @@ CORS_ALLOW_HEADERS = [ "accept", "accept-encoding", "authorization", "content-ty
 CORS_ALLOW_METHODS =[ "DELETE", "GET", "OPTIONS", "PATCH", "POST", "PUT"] 
 CSRF_TRUSTED_ORIGINS = [
     'https://inventory.runflare.run','https://demoapi1.invgap.org','https://demoapi2.invgap.org','https://demoapi3.invgap.org','https://api.invgap.org','https://tlsapi.invgap.org','https://ukrapi.invgap.org',
-    'https://phiapi.invgap.org'
+    'https://phlapi.invgap.org'
 ]
 
 lo = True
