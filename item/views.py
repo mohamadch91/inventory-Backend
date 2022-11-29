@@ -115,12 +115,15 @@ class itemView(APIView):
                 if(i["Manufacturer"] is not None):
                     man=get_object_or_404(Manufacturer,id=i["Manufacturer"])
                     i["Manufacturer"]=man.describe
-            return Response(new_data)
+            sored_data=sorted(new_data, key=lambda k: k['code'])
+            return Response(sored_data)
         if(id is not None):    
             country = item.objects.filter(id=id,isDel=False)
             serializer =  itemSerializer(country, many=True)
             new_data=copy.deepcopy(serializer.data)
-            return Response(new_data)
+            sored_data=sorted(new_data, key=lambda k: k['code'])
+            return Response(sored_data)
+            
         items=items.filter(facility=request.user.facility,isDel=False)       
         serializer =  itemSerializer(items, many=True)
         new_data=copy.deepcopy(serializer.data)
@@ -128,7 +131,8 @@ class itemView(APIView):
             if(i["Manufacturer"] is not None):
                 man=get_object_or_404(Manufacturer,id=i["Manufacturer"])
                 i["Manufacturer"]=man.describe
-        return Response(new_data)
+        sored_data=sorted(new_data, key=lambda k: k['code'])
+        return Response(sored_data)
 
     def put(self, request, ):
         id=request.data["id"]
