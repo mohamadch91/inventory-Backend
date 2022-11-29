@@ -12,5 +12,6 @@ urlpatterns = [
       path('delete', itemDeleteView.as_view(), name='item import with excel '),
       path('itemallFac', ItemAllfac.as_view(), name='item import with excel '),
       path('item-field-mobile', AllFieldView.as_view(), name='item import with excel '),
+      path('item-fixed', itemFixedView.as_view(), name='item import with excel '),
 
 ]

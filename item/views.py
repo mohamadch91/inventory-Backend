@@ -721,4 +721,16 @@ class AllFieldView(APIView):
             "data":first_data
         } 
         return Response(ans)
-    
+
+class itemFixedView(APIView):
+    def get(self,request):
+        items=item.objects.all()
+        for item in items:
+            code=item.code
+            code=code[:10]
+            item_fac=item.facility.id
+            code_fac=get_object_or_404(Facility,code=code).id
+            if(item_fac!=code_fac):
+                item.facility=code_fac
+                item.save()
+        return Response("done")
