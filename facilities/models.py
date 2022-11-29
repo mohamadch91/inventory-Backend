@@ -90,4 +90,4 @@ class Facility(models.Model):
         db_table = 'Facility'
 
     def __str__(self) -> str:
-        return self.name
+        return self.name+self.code
