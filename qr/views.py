@@ -49,14 +49,14 @@ class QRhelperview(APIView):
         all_fac=Facility.objects.filter(id=facility.id)|all_fac
         fac_ans=[]
         fac_ans.append({
-            "id":facility.id,
+            "id":facility.level.id+"-"+facility.id+"-"+facility.code[-5:],
             "name":facility.name,
         })
         for x in all_fac:
             if(x.parentid is not None):
                 if(x.parentid.id==facility.id or x.id==facility.id):
                     data={
-                        "name":x.name,
+                        "name":x.level.id+"-"+x.name+"-"+x.code[-5:],
                         "id":x.id,
                     }
                     fac_ans.append(data)
