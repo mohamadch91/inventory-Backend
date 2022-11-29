@@ -725,12 +725,12 @@ class AllFieldView(APIView):
 class itemFixedView(APIView):
     def get(self,request):
         items=item.objects.all()
-        for item in items:
-            code=item.code
+        for _copy in items:
+            code=_copy.code
             code=code[:10]
-            item_fac=item.facility.id
+            item_fac=_copy.facility.id
             code_fac=get_object_or_404(Facility,code=code).id
             if(item_fac!=code_fac):
-                item.facility=code_fac
-                item.save()
+                _copy.facility=code_fac
+                _copy.save()
         return Response("done")
