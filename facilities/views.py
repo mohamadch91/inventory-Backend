@@ -53,7 +53,7 @@ class FacilityView(APIView):
         facility_num=f"{facility_num:05d}"
         new_data["code"]=f"{country_code}{level_code}{facility_num}"
         new_data["country"]=country.id
-        new_data["parentid"]=get_object_or_404(Facility,name=request.data["parentName"]).id
+        new_data["parentid"]=get_object_or_404(Facility,name=request.data["parentName"].split(" - ")[0]).id
         new_data["completerstaffname"]=request.user.id
         serializer =   facilitySerializer(data=new_data)
         if serializer.is_valid():
