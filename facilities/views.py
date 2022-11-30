@@ -171,7 +171,7 @@ class facilityFieldView(APIView):
 
         fac_ser=facilitySerializer(this_facility,many=False)
         country=get_object_or_404(CountryConfig,id=this_facility.country.id)
-        parent_num=Facility.objects.filter(parentid=this_facility.id).count()
+        parent_num=Facility.objects.filter(parentid=this_facility.id,is_deleted=False).count()
         parents=facilitySerializer(parent_num,many=True)
         if(id is None or id =="new"):
             if(this_facility.loverlevelfac is not None):            
@@ -553,7 +553,7 @@ class facilityFieldprintView(APIView):
             this_facility=get_object_or_404(Facility,id=parent)
         fac_ser=facilitySerializer(this_facility,many=False)
         country=get_object_or_404(CountryConfig,id=this_facility.country.id)
-        parent_num=Facility.objects.filter(parentid=this_facility.id).count()
+        parent_num=Facility.objects.filter(parentid=this_facility.id,is_deleted=False).count()
         parents=facilitySerializer(parent_num,many=True)
                     
  
