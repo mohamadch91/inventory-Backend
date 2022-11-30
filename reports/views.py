@@ -1131,7 +1131,6 @@ class gapItemReportView(APIView):
                     if(degree=="2"):
                         if(y.StorageCondition=="3"):
                             if(y.NetVaccineStorageCapacity is not None):
-
                                 capacity2+=y.NetVaccineStorageCapacity
                                 if(y.IsItFunctioning):
                                     fcapacity2+=y.NetVaccineStorageCapacity

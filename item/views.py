@@ -41,6 +41,8 @@ from PQS.serializers import *
 import copy
 from maintanance.models import *
 from maintanance.serializers import *
+import datetime
+
 class itemView(APIView):
     permission_classes = (IsAuthenticated,)
 
@@ -480,6 +482,30 @@ class ItemAllfac(APIView):
                 if(i["Manufacturer"] is not None):
                     man=get_object_or_404(Manufacturer,id=i["Manufacturer"])
                     i["Manufacturer"]=man.describe
+                todo=toDoMaintance.objects.filter(item=i["id"])
+                ans=[]
+                for x in todo:
+                    data={
+                        "id":x.id,
+                        "code":x.item.code,
+                        "interval":x.maintanance.freq,
+                        "loc_interval":x.maintanance.freq_in_loc,
+                        "deadline":str(x.created_at+datetime.timedelta(days=x.maintanance.freq)).split(" ")[0],
+                        "deadline_in_loc":str(x.created_at+datetime.timedelta(days=x.maintanance.freq_in_loc)).split(" ")[0],
+                        "name":x.maintanance.name,
+                        "done":x.done,
+                    }
+                    ans.append(data)
+                items=get_object_or_404(item,id=i["id"])
+                final_ans={
+                    "code":items.code,
+                    "type":items.item_type.title,
+                    "class":items.item_class.title,
+                        "gp":get_object_or_404(maintancegp,id=items.MaintenanceGroup).name,
+                        "maintanances":ans, 
+                }    
+                i["maintanances"]=final_ans
+
         return Response(new_data,status=status.HTTP_200_OK)
 class AllFieldView(APIView):
     def get(self,request):
@@ -723,6 +749,7 @@ class AllFieldView(APIView):
         return Response(ans)
 
 class itemFixedView(APIView):
+
     def get(self,request):
         items=item.objects.all()
         for _copy in items:
