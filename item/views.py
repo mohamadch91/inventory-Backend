@@ -504,7 +504,7 @@ class ItemAllfac(APIView):
                         "gp":get_object_or_404(maintancegp,id=items.MaintenanceGroup).name,
                         "maintanances":ans, 
                 }    
-                i["maintanancData"]=final_ans
+                i["maintananceData"]=final_ans
 
         return Response(new_data,status=status.HTTP_200_OK)
 class AllFieldView(APIView):
