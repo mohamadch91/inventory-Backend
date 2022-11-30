@@ -499,8 +499,8 @@ class ItemAllfac(APIView):
                 items=get_object_or_404(item,id=i["id"])
                 final_ans={
                     "code":items.code,
-                    "type":items.item_type.title,
-                    "class":items.item_class.title,
+                    "type": items.item_type.code+" - "+items.item_type.title,
+                    "class":items.item_class.code+" - "+items.item_class.title,
                         "gp":get_object_or_404(maintancegp,id=items.MaintenanceGroup).name,
                         "maintanances":ans, 
                 }    
