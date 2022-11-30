@@ -143,7 +143,7 @@ DATA_UPLOAD_MAX_NUMBER_FIELDS = 10240
 DATABASES = {
   'default': {
      'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'phi_db',
+        'NAME': 'ukr_db',
         'USER': 'postgres',
         'PASSWORD': 'fdhdkj@33443',
         'HOST': 'localhost',
