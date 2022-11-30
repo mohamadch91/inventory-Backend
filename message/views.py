@@ -137,7 +137,7 @@ class helperView(APIView):
         for x in facility:
             data={
                 "id":x.id,
-                "name":x.name
+                "name":x.name+" - "+x.code[3:]
             }
             ans.append(data)
         ans=sorted(ans, key = lambda i: i['id'])
