@@ -356,7 +356,7 @@ class facilityFieldView(APIView):
             ans.append(data)
         fac_data={
             "id":fac_ser.data["id"],
-            "name":fac_ser.data["name"]+" - "+fac_ser.data["code"],
+            "name":fac_ser.data["name"]+" - "+fac_ser.data["code"][3:],
         }
         if(id is not None):
             if(id=="1"):

@@ -194,7 +194,7 @@ class itemFieldView(APIView):
                 first_data.append(data)
             fac_data={
             "id":fac_ser.data["id"],
-            "name":fac_ser.data["name"]+" - " +fac_ser.data["code"],
+            "name":fac_ser.data["name"]+" - " +fac_ser.data["code"][3:],
             "code":fac_ser.data["code"],
             "level":fac_ser.data["level"],
         }    
@@ -211,7 +211,7 @@ class itemFieldView(APIView):
             fac_ser=facilitySerializer(facility,many=False)
             fac_data={
             "id":fac_ser.data["id"],
-            "name":fac_ser.data["name"],
+            "name":fac_ser.data["name"]+" - " +fac_ser.data["code"][3:],
             "code":fac_ser.data["code"],
             "level":fac_ser.data["level"],
         }    

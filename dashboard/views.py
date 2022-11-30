@@ -107,7 +107,7 @@ class dashboardFacilityView(APIView):
                         lower=x.loverlevelfac
                     new_data={
                         "level":x.level.id,
-                        "name":x.name,
+                        "name":x.name+"-"+x.code[3:],
                         "sub_fac":count,
                         "defined":"%.2f"%defined,
                         "lower":lower
