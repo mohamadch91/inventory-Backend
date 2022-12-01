@@ -497,11 +497,17 @@ class ItemAllfac(APIView):
                     }
                     ans.append(data)
                 items=get_object_or_404(item,id=i["id"])
+                mgp=maintancegp.objects.filter(id=items.MaintenanceGroup)
+                if(mgp.count()>0):
+                    mgp=mgp[0]
+                    mgp=mgp.name
+                else:
+                    mgp=None
                 final_ans={
                     "code":items.code,
                     "type": items.item_type.code+" - "+items.item_type.title,
                     "class":items.item_class.code+" - "+items.item_class.title,
-                        "gp":get_object_or_404(maintancegp,id=items.MaintenanceGroup).name,
+                        "gp":mgp,
                         "maintanances":ans, 
                 }    
                 i["maintananceData"]=final_ans
