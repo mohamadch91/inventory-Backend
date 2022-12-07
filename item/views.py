@@ -475,7 +475,7 @@ class ItemAllfac(APIView):
     def get(self,request):
         all_fac=Facility.objects.filter(parentid=request.user.facilityid.id)
         all_fac=Facility.objects.filter(id=request.user.facilityid.id)|all_fac
-        items=item.objects.filter(facility__in=all_fac)
+        items=item.objects.filter(facility__in=all_fac,isDel=False)
         ser=itemSerializer(items,many=True)
         new_data=copy.deepcopy(ser.data)
         for i in new_data:
