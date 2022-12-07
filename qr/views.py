@@ -53,8 +53,6 @@ class QRhelperview(APIView):
         #     "name":facility.name+" - "+facility.code[3:],
         # })
         for x in all_fac:
-            if(x.parentid is not None):
-                if(x.parentid.id==facility.id or x.id==facility.id):
                     data={
                         "name":x.name+"-"+x.code[3:],
                         "id":x.id,
