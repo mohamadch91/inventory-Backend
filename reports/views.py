@@ -1282,30 +1282,66 @@ class gapItemReportView(APIView):
                         data["req1"]=req1
                         data["excees1"]=fcapacity1-req1
                         data["exceed1"]=excees1
+                        data["item_type"]={
+                            "name":"Cold room",
+                            "count":cr_count,
+                            "name1":"Freezer room",
+                            "count1":fr_count,
+                            "name2":"Refrigerator",
+                            "count2":ref_count
+                        }
                     if(degree=="2"):
                         data["tcapacity1"]=capacity2
                         data["fcapacity1"]=fcapacity2
                         data["req1"]=req2
                         data["excees1"]=fcapacity2-req2
                         data["exceed1"]=excees2
+                        data["item_type"]={
+                            "name":"Freezer",
+                            "count":f_count,
+                            "name1":"Combined refrigerator and freezer",
+                            "count1":crf_count,
+                            
+                        }
                     if(degree=="3"):
                         data["tcapacity1"]=capacity3
                         data["fcapacity1"]=fcapacity3
                         data["req1"]=req3
                         data["excees1"]=fcapacity3-req3
                         data["exceed1"]=excees3
+                        data["item_type"]={
+                            "name":"Ultra cold freezer (-70 C)",
+                            "count":ucf_count,
+                          
+                        }
                     if(degree=="4"):                        
                         data["tcapacity1"]=capacity4
                         data["fcapacity1"]=fcapacity4
                         data["req1"]=req4
                         data["excees1"]=fcapacity4-req4
                         data["exceed1"]=excees4
+                        data["item_type"]={
+                            "name":"Cold room",
+                            "count":cr_count,
+                            "name1":"Freezer room",
+                            "count1":fr_count,
+                            "name2":"Refrigerator",
+                            "count2":ref_count
+                        }
                     if(degree=="5"):
                         data["tcapacity1"]=capacity5
                         data["fcapacity1"]=fcapacity5
                         data["req1"]=req5
                         data["excees1"]=fcapacity5-req5
                         data["exceed1"]=excees5
+                        data["item_type"]={
+                            "name":"Cold room",
+                            "count":cr_count,
+                            "name1":"Freezer room",
+                            "count1":fr_count,
+                            "name2":"Refrigerator",
+                            "count2":ref_count
+                        }
                 parent_save=None
                 if(x.parentid is not None):
                     parent_save=x.parentid.id           
