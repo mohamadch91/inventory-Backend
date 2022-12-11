@@ -1134,18 +1134,27 @@ class gapItemReportView(APIView):
                                 capacity2+=y.NetVaccineStorageCapacity
                                 if(y.IsItFunctioning):
                                     fcapacity2+=y.NetVaccineStorageCapacity
+                            elif(y.FreezerNetCapacity is not None):
+                                capacity2+=y.FreezerNetCapacity
+                                if(y.IsItFunctioning):
+                                    fcapacity2+=y.FreezerNetCapacity
                     if(degree=="3"):
                         if(y.StorageCondition=="4"):
                             if(y.NetVaccineStorageCapacity is not None):
                                 capacity3+=y.NetVaccineStorageCapacity
                                 if(y.IsItFunctioning):
                                     fcapacity3+=y.NetVaccineStorageCapacity
+                            elif(y.FreezerNetCapacity is not None):
+                                capacity3+=y.FreezerNetCapacity
+                                if(y.IsItFunctioning):
+                                    fcapacity3+=y.FreezerNetCapacity
                     if(degree=="4"):
                         if(y.StorageCondition=="1"):
                             if(y.NetVaccineStorageCapacity is not None):
                                 capacity4+=y.NetVaccineStorageCapacity
                                 if(y.IsItFunctioning):
                                     fcapacity4+=y.NetVaccineStorageCapacity
+                           
                     if(degree=="5"):
                         if(y.StorageCondition=="5"):
                             if(y.NetVaccineStorageCapacity is not None):
