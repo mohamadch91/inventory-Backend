@@ -1121,6 +1121,12 @@ class gapItemReportView(APIView):
                 fcapacity5=0
 
                 items=item.objects.filter(facility=x.id,isDel=False)
+                cr_count=items.filter(item_type=1).count()
+                fr_count=items.filter(item_type=2).count()
+                ref_count=items.filter(item_type=3).count()
+                f_count=items.filter(item_type=4).count()
+                crf_count=items.filter(item_type=5).count()
+                ucf_count=items.filter(item_type=6).count()
                 for y in items:
                     if(degree=="1"):
                         if(y.StorageCondition=="2"):
