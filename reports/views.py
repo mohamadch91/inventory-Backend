@@ -1263,6 +1263,20 @@ class gapItemReportView(APIView):
                     "exceed3":excees3,
                     "exceed4":excees4,
                     "exceed5":excees5,
+                    "item_type" : {
+                        "name":"Cold room",
+                            "count":cr_count,
+                            "name1":"Freezer room",
+                            "count1":fr_count,
+                            "name2":"Refrigerator",
+                            "count2":ref_count,
+                            "name3":"Ultra cold freezer (-70 C)",
+                            "count3":ucf_count,
+                              "name4":"Freezer",
+                            "count4":f_count,
+                            "name5":"Combined refrigerator and freezer",
+                            "count5":crf_count,
+                    }
 
                 }
                 else:
