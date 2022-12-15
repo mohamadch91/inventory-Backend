@@ -95,4 +95,5 @@ class hashpassowrd(APIView):
         return Response(data="done",status=status.HTTP_200_OK)    
 class UrlCheckView(APIView):
     def get(self,request):
+        print(request)
         return Response({"message":"ok"},status=status.HTTP_200_OK)
