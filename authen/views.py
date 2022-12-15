@@ -95,5 +95,5 @@ class hashpassowrd(APIView):
         return Response(data="done",status=status.HTTP_200_OK)    
 class UrlCheckView(APIView):
     def get(self,request):
-        print(request.headers)
+        print(request.build_absolute_uri())
         return Response({"message":"ok"},status=status.HTTP_200_OK)
