@@ -433,11 +433,9 @@ class importfacilityView(APIView):
                 data["name"]=x["name"]    
             if(x["parentid"] is None):
                 if(x["level"] is not None):
-                    if(x["level"]==2):
                         data["parentid"]=1
-                    else:    
-                        return Response("parentid is required",status=status.HTTP_406_NOT_ACCEPTABLE)
-            else:
+
+            else:   
                 if(counter==0):
                     data["parentid"]=1
                     code.append(x["parentid"])
