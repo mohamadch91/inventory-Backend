@@ -51,7 +51,6 @@ class relatedfacilityView(APIView):
         ans=[]
         for x in request.data:
             id=x["id"]
-            print(type(id))
             if(id==35):
                 for i in range(2):
                     country = get_object_or_404(relatedFacility, id=id+i+1)
@@ -156,7 +155,6 @@ class fieldView(APIView):
         serializer = fieldSerializer(query_set, many=True)
         return Response(serializer.data)    
     def put(self,request):
-        print(request.data)
         id=request.data["id"]
         country = get_object_or_404(Field, id=id)
         serializer = fieldSerializer(country, data=request.data)
@@ -200,7 +198,6 @@ class relatedItemTypeView(APIView):
                 field=get_object_or_404(Field, id=x['fieldid'])
                 itemtype=get_object_or_404(ItemType, id=x['itemtypeid'])
                 obj=relatedItemType.objects.filter(field=x['fieldid'], itemtype=x['itemtypeid'])
-                print(len(obj))
                 if(len(obj)==0):
                     if(field.id==25):
                         for i in range(1,3):
@@ -278,7 +275,6 @@ class paramView(APIView):
                     "description":len(description_ser.data)
                 }
                 facility.append(ans)
-            print(facility)
             for x in item_param:
                 field=get_object_or_404(Field, id=x.fieldid.id)
                 field_ser=fieldSerializer(field)
