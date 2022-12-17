@@ -33,6 +33,7 @@ from settings.models import *
 from settings.serializers import *
 from item.models import *
 import copy
+import pandas
 class FacilityView(APIView):
     permission_classes = (IsAuthenticated,)
 
@@ -524,19 +525,36 @@ class importfacilityView(APIView):
                 
 class testdb(APIView):
     def post(self,request):
-        new_data=copy.deepcopy(request.data)
-        for x in new_data:
-            parent=None
-            if(x["parent"] is not None):
-                parent=Facility.objects.filter(name=x["parent"].strip())[0].id
-            x["parentid"]=parent
-            x.pop("parent")
-            ser=facilitySerializer(data=x)
-            if(ser.is_valid()):
-                ser.save()
-            else:
-                return Response(ser.errors,status=status.HTTP_406_NOT_ACCEPTABLE)
+        excel_data_df = pandas.read_excel('tfac.xlsx', sheet_name='Facilities')
+        dic_arr=[]
+        counter=0
+        for i in range(len(excel_data_df)):
+            z=int(excel_data_df['Isdel'][i])
+            if(z==0):
+                counter+=1
+                dic={
+                "country": 1,
+                "parent":excel_data_df['parent'][i],
+                "name": excel_data_df['name'][i],
+                "code": excel_data_df['code'][i],
+                    "level": int(excel_data_df['level'][i]),
+                    "populationnumber": int(excel_data_df['populationNumber'][i]),
+                    "childrennumber": int(excel_data_df['childrenNumber'][i]),
+                    "gpsCordinate": "LatLng("+str(excel_data_df['gps'][i])+")",
+                    "city": excel_data_df['city'][i],
+                    "address": excel_data_df['address'][i],
+                    "havegen": excel_data_df['HaveGenerator'][i],
+                    "loverlevelfac": excel_data_df['lowerLevel'][i],
 
+
+                }
+                dic_arr.append(dic)
+
+        # json_object = json.dumps(dic_arr,indent=1)
+        # print(json_object)
+        print(counter)
+        with open("tfac.json", "w") as outfile:
+            outfile.write(str(dic_arr))
         return Response("salam",status=status.HTTP_200_OK)        
 
 
