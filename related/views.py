@@ -28,6 +28,7 @@ from rest_framework import status
 from items.models import ItemType
 from django.shortcuts import get_object_or_404
 import copy
+import pandas
 
 # Create your views here.
 class relatedfacilityView(APIView):
