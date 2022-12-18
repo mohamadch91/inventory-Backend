@@ -525,14 +525,14 @@ class DeletefacilityView(APIView):
         count=0
         fac=Facility.objects.all()
         for i in fac:
-            continue
+            # continue
             # love=Facility.objects.filter(parentid=i.id)
 
             # if(love.count()>=i.loverlevelfac):
             #     i.loverlevelfac=love.count()+1
             #     i.save()
-            # if(i.id!=1):
-            #     i.delete()
+            if(i.id!=1):
+                i.delete()
 
         return Response(count,status=status.HTTP_200_OK)
 
@@ -552,7 +552,7 @@ class testdb(APIView):
                 "country": 1,
                 "parent":excel_data_df['parent'][i],
                 "name": excel_data_df['name'][i],
-                "code": excel_data_df['code'][i],
+                "other_code": excel_data_df['code'][i],
                     "level": int(excel_data_df['level'][i]),
                     "populationnumber": int(excel_data_df['populationNumber'][i]),
                     "childrennumber": int(excel_data_df['childrenNumber'][i]),
@@ -575,6 +575,19 @@ class testdb(APIView):
                     "working_from":excel_data_df['workingHFrom'][i],
                     "working_to":excel_data_df['workingHTo'][i],
                 }
+                country=CountryConfig.objects.all()[0]
+                country_code=country.codecountry
+                level_code=dic["level"]
+                level_code =f"{level_code:02d}"
+                if(len(Facility.objects.filter(level=level_code))==0):
+                    facility_num=0
+                else:
+                    facility_num=Facility.objects.filter(level=level_code).count()
+                facility_num=facility_num+1
+                facility_num=f"{facility_num:05d}"
+                dic["code"]=f"{country_code}{level_code}{facility_num}"
+
+
                 ## iterate all keys and check for  ### value
                 dic_copy=dic.copy()
                 if( "###" in dic['gpsCordinate']):
