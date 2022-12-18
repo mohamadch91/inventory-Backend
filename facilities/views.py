@@ -527,6 +527,7 @@ class DeletefacilityView(APIView):
         for i in fac:
             if(i.id!=1):
                 i.delete()
+        return Response("deleted",status=status.HTTP_200_OK)
 
 
 
@@ -534,8 +535,9 @@ class DeletefacilityView(APIView):
 class testdb(APIView):
     def get(self,request):
         excel_data_df = pandas.read_excel('tfac.xlsx', sheet_name='Facilities')
+        excel_data_df.fillna("###", inplace=True)
         counter=0
-        for i in range(len(excel_data_df)):
+        for i in range(len(excel_data_df)): 
             z=int(excel_data_df['Isdel'][i])
             if(z==0):
                 counter+=1
@@ -566,7 +568,7 @@ class testdb(APIView):
                     "working_from":excel_data_df['workingHFrom'][i],
                     "working_to":excel_data_df['workingHTo'][i],
                 }
-                print(dic)
+                
                 if(dic['type']!=None) or dic['type']!="":
                     new_type=facilityParamDescription.objects.filter(name=dic['type'])
                     if (new_type.count()>0):
@@ -601,7 +603,7 @@ class testdb(APIView):
                 if(dic['powersource']!=None) or dic['powersource']!="":
                     new_powersource=facilityParamDescription.objects.filter(name=dic['powersource'])
                     if(new_powersource.count()>0):
-                        dic['powersource']=new_powersource
+                        dic['powersource']=new_powersource[0].id
                     else:
                         temp_param={
                             "name":dic['powersource'],
@@ -617,6 +619,7 @@ class testdb(APIView):
                 if(counter==1):
                     dic['id']=1
                     dic['parent']=None
+                    print(dic)
                     facility=get_object_or_404(Facility,id=1)
                     ser=facilitySerializer(facility,data=dic)
                     if(ser.is_valid()):
@@ -638,7 +641,7 @@ class testdb(APIView):
                         }
                         return Response(res,status=status.HTTP_406_NOT_ACCEPTABLE)
                         
-
+        return Response({"counter":counter},status=status.HTTP_200_OK)
 
 
 
