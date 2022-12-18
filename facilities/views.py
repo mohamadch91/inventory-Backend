@@ -524,9 +524,8 @@ class importfacilityView(APIView):
                     
                 
 class testdb(APIView):
-    def post(self,request):
+    def get(self,request):
         excel_data_df = pandas.read_excel('tfac.xlsx', sheet_name='Facilities')
-        dic_arr=[]
         counter=0
         for i in range(len(excel_data_df)):
             z=int(excel_data_df['Isdel'][i])
@@ -558,23 +557,9 @@ class testdb(APIView):
                     "year":excel_data_df['year'][i],
                     "working_from":excel_data_df['workingHFrom'][i],
                     "working_to":excel_data_df['workingHTo'][i],
-
-
-
-
-
-
-
-
                 }
-                dic_arr.append(dic)
 
         # json_object = json.dumps(dic_arr,indent=1)
-        # print(json_object)
-        print(counter)
-        with open("tfac.json", "w") as outfile:
-            outfile.write(str(dic_arr))
-        return Response("salam",status=status.HTTP_200_OK)        
 
 
 class facilityFieldprintView(APIView):
