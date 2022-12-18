@@ -570,6 +570,8 @@ class testdb(APIView):
                 }
                 ## iterate all keys and check for  ### value
                 dic_copy=dic.copy()
+                if( "###" in dic['gpsCordinate']):
+                    del dic_copy['gpsCordinate']
                 for i in dic.keys():
                     if(dic[i] == "###"):
                         del dic_copy[i]
@@ -620,11 +622,10 @@ class testdb(APIView):
                         if(ser.is_valid()):
                             ser.save()
                             dic['powersource']=ser.data["id"]
-                        
+                dic['is_suitable']=True
                 if(counter==1):
                     dic['id']=1
                     dic['parent']=None
-                    print(dic)
                     facility=get_object_or_404(Facility,id=1)
                     ser=facilitySerializer(facility,data=dic)
                     if(ser.is_valid()):
@@ -637,8 +638,9 @@ class testdb(APIView):
                         return Response(res,status=status.HTTP_406_NOT_ACCEPTABLE)
                 else:
                     print(dic)
-                    parent=Facility.objects.filter(name=dic['parent'])
-                    parent=parent(parent.count()-1)
+                    parent_name=dic['parent'].strip()
+                    parent=Facility.objects.filter(name=parent_name)
+                    parent=parent[parent.count()-1]
                     del dic['parent']
                     dic['parentid']=parent.id
                     ser=facilitySerializer(data=dic)
