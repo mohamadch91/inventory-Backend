@@ -522,19 +522,19 @@ class importfacilityView(APIView):
 
 class DeletefacilityView(APIView):
     def get(self,request):
-
+        count=0
         fac=Facility.objects.all()
         for i in fac:
-            continue
-            # love=Facility.objects.filter(parentid=i.id)
+            # continue
+            love=Facility.objects.filter(parentid=i.id)
 
-            # if(love.count()>=i.loverlevelfac):
-            #     i.loverlevelfac=love.count()+1
-            #     i.save()
-        #     if(i.id!=1):
-        #         i.delete()
+            if(love.count()>=i.loverlevelfac):
+                i.loverlevelfac=love.count()+1
+                i.save()
+            # if(i.id!=1):
+            #     i.delete()
 
-        return Response("done",status=status.HTTP_200_OK)
+        return Response(count,status=status.HTTP_200_OK)
 
 
 
