@@ -637,7 +637,6 @@ class testdb(APIView):
                         }
                         return Response(res,status=status.HTTP_406_NOT_ACCEPTABLE)
                 else:
-                    print(dic)
                     parent_name=dic['parent'].strip()
                     parent=Facility.objects.filter(name=parent_name)
                     parent=parent[parent.count()-1]
