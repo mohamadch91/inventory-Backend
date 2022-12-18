@@ -42,7 +42,7 @@ import copy
 from maintanance.models import *
 from maintanance.serializers import *
 import datetime
-
+import pandas
 class itemView(APIView):
     permission_classes = (IsAuthenticated,)
 
@@ -430,28 +430,145 @@ class itemPQSView(APIView):
 
             
 class itemdb(APIView):
-    def post(self,request):
-        new_data=copy.deepcopy(request.data)
-        for i in new_data:
-            fac=get_object_or_404(Facility,code=i["facility"])
-            i["facility"]=fac.id
-            item_type=get_object_or_404(ItemType,title=i["item_type"])
-            i["item_type"]=item_type.id
-            item_class=get_object_or_404(ItemClass,title=i["item_class"])
-            i["item_class"]=item_class.id
-            if(i["StorageCondition"]=="2-8 C"):
-                i["StorageCondition"]="+2 - +8 C"
-            if(i["StorageCondition"]=="-20 C"):
-                i["StorageCondition"]="-20 C"
-            if(i["StorageCondition"]=="-70 C"):
-                i["StorageCondition"]="-70 C"   
-            ser=itemSerializer(data=i)     
-            if ser.is_valid():
-                ser.save()
-            else:
-                return Response(ser.errors,status=status.HTTP_400_BAD_REQUEST)
-        
-        return Response("ok",status=status.HTTP_200_OK)
+    def get(self,request):
+        excel_data_df = pandas.read_excel('tfac.xlsx', sheet_name='Facilities')
+        excel_data_df.fillna("###", inplace=True)
+        counter=0
+        for i in range(len(excel_data_df)): 
+            z=int(excel_data_df['Isdel'][i])
+            if(z==0):
+                counter+=1
+                dic={
+                "country": 1,
+                "parent":excel_data_df['parent'][i],
+                "name": excel_data_df['name'][i],
+                "code": excel_data_df['code'][i],
+                    "level": int(excel_data_df['level'][i]),
+                    "populationnumber": int(excel_data_df['populationNumber'][i]),
+                    "childrennumber": int(excel_data_df['childrenNumber'][i]),
+                    "gpsCordinate": "LatLng("+str(excel_data_df['gps'][i])+")",
+                    "city": excel_data_df['city'][i],
+                    "address": excel_data_df['address'][i],
+                    "havegen": excel_data_df['HaveGenerator'][i],
+                    "loverlevelfac": excel_data_df['lowerLevel'][i],
+                    "type":excel_data_df['typeval'][i],
+                    "district":excel_data_df['district'][i],
+                    "ownership":excel_data_df['ownership'][i],
+                    "powersource":excel_data_df['powersource'][i],   
+                    "total_staff":excel_data_df['staffNumber'][i], 
+                    "prof_staff":excel_data_df['NumProfStaff'][i], 
+                    "total_staff":excel_data_df['staffNumber'][i], 
+                    "drivers":excel_data_df['NumDriverStaff'][i], 
+                    "haveinternet":excel_data_df['haveInternet'][i], 
+                    "phone":excel_data_df['phone'][i], 
+                    "year":excel_data_df['year'][i],
+                    "working_from":excel_data_df['workingHFrom'][i],
+                    "working_to":excel_data_df['workingHTo'][i],
+                }
+                ## iterate all keys and check for  ### value
+                dic_copy=dic.copy()
+                if( "###" in dic['gpsCordinate']):
+                    del dic_copy['gpsCordinate']
+                for i in dic.keys():
+                    if(dic[i] == "###"):
+                        del dic_copy[i]
+                dic=dic_copy
+                if 'type' in dic and ((dic['type']!=None) or dic['type']!=""):
+                    new_type=facilityParamDescription.objects.filter(name=dic['type'])
+                    if (new_type.count()>0):
+                        dic['type']=new_type[0].id
+                    else:
+                        temp_param={
+                            "name":dic['type'],
+                            "paramid":12,
+                            "enabled":True,
+                            "order":1
+                        }
+                        ser=facilityParamDescriptionSerilizer(data=temp_param)
+                        if(ser.is_valid()):
+                            ser.save()
+                            dic['type']=ser.data["id"]
+                        
+                if  'ownership' in dic   and ((dic['ownership']!=None) or dic['ownership']!=""):
+                    new_ownership=facilityParamDescription.objects.filter(name=dic['ownership'])
+                    if(new_ownership.count()>0):
+                        dic['ownership']=new_ownership[0].id
+                    else:
+                        temp_param={
+                            "name":dic['ownership'],
+                            "paramid":5,
+                            "enabled":True,
+                            "order":1
+                        }
+                        ser=facilityParamDescriptionSerilizer(data=temp_param)
+                        if(ser.is_valid()):
+                            ser.save()
+                            dic['ownership']=ser.data["id"]
+                if 'powersource' in dic and ((dic['powersource']!=None) or dic['powersource']!=""):
+                    new_powersource=facilityParamDescription.objects.filter(name=dic['powersource'])
+                    if(new_powersource.count()>0):
+                        dic['powersource']=new_powersource[0].id
+                    else:
+                        temp_param={
+                            "name":dic['powersource'],
+                            "paramid":10,
+                            "enabled":True,
+                            "order":1
+                        }
+                        ser=facilityParamDescriptionSerilizer(data=temp_param)
+                        if(ser.is_valid()):
+                            ser.save()
+                            dic['powersource']=ser.data["id"]
+                dic['is_suitable']=True
+                if(counter==1):
+                    dic['id']=1
+                    dic['parent']=None
+                    facility=get_object_or_404(Facility,id=1)
+                    ser=facilitySerializer(facility,data=dic)
+                    if(ser.is_valid()):
+                        ser.save()
+                    else:
+                        res={
+                            "error":ser.errors,
+                            "counter":counter
+                        }
+                        return Response(res,status=status.HTTP_406_NOT_ACCEPTABLE)
+                else:
+                    parent_name=dic['parent'].strip()
+                    parent=Facility.objects.filter(name=parent_name)
+                    parent=parent[parent.count()-1]
+                    del dic['parent']
+                    dic['parentid']=parent.id
+                    ser=facilitySerializer(data=dic)
+                    if(ser.is_valid()):
+                        ser.save()
+                    else:
+                        res={
+                            "error":ser.errors,
+                            "counter":counter
+                        }
+                        return Response(res,status=status.HTTP_406_NOT_ACCEPTABLE)
+                        
+        return Response({"counter":counter},status=status.HTTP_200_OK)
+
+
+
+class itemdbfix(APIView):
+    def get(self,request):
+        count=0
+        fac=Facility.objects.all()
+        for i in fac:
+            # continue
+            love=Facility.objects.filter(parentid=i.id)
+
+            if(love.count()>=i.loverlevelfac):
+                i.loverlevelfac=love.count()+1
+                i.save()
+            # if(i.id!=1):
+            #     i.delete()
+
+        return Response(count,status=status.HTTP_200_OK)
+
 
 class itemDeleteView(APIView):
     def get(self,request):
