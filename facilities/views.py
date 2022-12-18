@@ -569,10 +569,12 @@ class testdb(APIView):
                     "working_to":excel_data_df['workingHTo'][i],
                 }
                 ## iterate all keys and check for  ### value
+                dic_copy=dic.copy()
                 for i in dic.keys():
                     if(dic[i] == "###"):
-                        del dic[i]
-                if(dic['type']!=None) or dic['type']!="":
+                        del dic_copy[i]
+                dic=dic_copy
+                if 'type' in dic and ((dic['type']!=None) or dic['type']!=""):
                     new_type=facilityParamDescription.objects.filter(name=dic['type'])
                     if (new_type.count()>0):
                         dic['type']=new_type[0].id
@@ -588,7 +590,7 @@ class testdb(APIView):
                             ser.save()
                             dic['type']=ser.data["id"]
                         
-                if(dic['ownership']!=None) or dic['ownership']!="":
+                if  'ownership' in dic   and ((dic['ownership']!=None) or dic['ownership']!=""):
                     new_ownership=facilityParamDescription.objects.filter(name=dic['ownership'])
                     if(new_ownership.count()>0):
                         dic['ownership']=new_ownership[0].id
@@ -603,7 +605,7 @@ class testdb(APIView):
                         if(ser.is_valid()):
                             ser.save()
                             dic['ownership']=ser.data["id"]
-                if(dic['powersource']!=None) or dic['powersource']!="":
+                if 'powersource' in dic and ((dic['powersource']!=None) or dic['powersource']!=""):
                     new_powersource=facilityParamDescription.objects.filter(name=dic['powersource'])
                     if(new_powersource.count()>0):
                         dic['powersource']=new_powersource[0].id
