@@ -151,11 +151,22 @@ DATA_UPLOAD_MAX_NUMBER_FIELDS = 10240
 # }
 # }
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': str(BASE_DIR / 'db.sqlite3'),
-    }
+  'default': {
+     'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'inventory',
+        'USER': 'postgres',
+        'PASSWORD': 'mohamad',
+        'HOST': 'localhost',
+        'PORT': '',
 }
+}
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': str(BASE_DIR / 'db.sqlite3'),
+#     }
+# }
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
