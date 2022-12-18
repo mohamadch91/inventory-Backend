@@ -545,6 +545,15 @@ class testdb(APIView):
                     "address": excel_data_df['address'][i],
                     "havegen": excel_data_df['HaveGenerator'][i],
                     "loverlevelfac": excel_data_df['lowerLevel'][i],
+                    "type":excel_data_df['typeval'][i],
+                    "district":excel_data_df['district'][i],
+                    "ownership":excel_data_df['ownership'][i],
+                    "powersource":excel_data_df['powersource'][i],   
+                    "total_staff":excel_data_df['staffNumber'][i], 
+                    "prof_staff":excel_data_df['NumProfStaff'][i], 
+                    "total_staff":excel_data_df['staffNumber'][i], 
+
+
 
 
                 }
