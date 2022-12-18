@@ -552,6 +552,16 @@ class testdb(APIView):
                     "total_staff":excel_data_df['staffNumber'][i], 
                     "prof_staff":excel_data_df['NumProfStaff'][i], 
                     "total_staff":excel_data_df['staffNumber'][i], 
+                    "drivers":excel_data_df['NumDriverStaff'][i], 
+                    "haveinternet":excel_data_df['haveInternet'][i], 
+                    "phone":excel_data_df['phone'][i], 
+                    "year":excel_data_df['year'][i],
+                    "working_from":excel_data_df['workingHFrom'][i],
+                    "working_to":excel_data_df['workingHTo'][i],
+
+
+
+
 
 
 
