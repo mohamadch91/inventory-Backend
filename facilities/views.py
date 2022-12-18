@@ -525,9 +525,16 @@ class DeletefacilityView(APIView):
 
         fac=Facility.objects.all()
         for i in fac:
-            if(i.id!=1):
-                i.delete()
-        return Response("deleted",status=status.HTTP_200_OK)
+            continue
+            # love=Facility.objects.filter(parentid=i.id)
+
+            # if(love.count()>=i.loverlevelfac):
+            #     i.loverlevelfac=love.count()+1
+            #     i.save()
+        #     if(i.id!=1):
+        #         i.delete()
+
+        return Response("done",status=status.HTTP_200_OK)
 
 
 
