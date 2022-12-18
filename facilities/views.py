@@ -524,7 +524,7 @@ class importfacilityView(APIView):
                 
 class testdb(APIView):
     def get(self,request):
-        excel_data_df = pandas.read_excel('../tfac.xlsx', sheet_name='Facilities')
+        excel_data_df = pandas.read_excel('tfac.xlsx', sheet_name='Facilities')
         counter=0
         for i in range(len(excel_data_df)):
             z=int(excel_data_df['Isdel'][i])
@@ -557,15 +557,53 @@ class testdb(APIView):
                     "working_from":excel_data_df['workingHFrom'][i],
                     "working_to":excel_data_df['workingHTo'][i],
                 }
+                print(dic)
                 if(dic['type']!=None) or dic['type']!="":
-                    new_type=facilityParamDescription.objects.filter(name__in=dic['type'])[0].id
-                    dic['type']=new_type
+                    new_type=facilityParamDescription.objects.filter(name=dic['type'])
+                    if (new_type.count()>0):
+                        dic['type']=new_type[0].id
+                    else:
+                        temp_param={
+                            "name":dic['type'],
+                            "paramid":12,
+                            "enabled":True,
+                            "order":1
+                        }
+                        ser=facilityParamDescriptionSerilizer(data=temp_param)
+                        if(ser.is_valid()):
+                            ser.save()
+                            dic['type']=ser.data["id"]
+                        
                 if(dic['ownership']!=None) or dic['ownership']!="":
-                    new_ownership=facilityParamDescription.objects.filter(name__in=dic['ownership'])[0].id
-                    dic['ownership']=new_ownership
+                    new_ownership=facilityParamDescription.objects.filter(name__in=dic['ownership'])
+                    if(new_ownership.count()>0):
+                        dic['ownership']=new_ownership[0].id
+                    else:
+                        temp_param={
+                            "name":dic['ownership'],
+                            "paramid":5,
+                            "enabled":True,
+                            "order":1
+                        }
+                        ser=facilityParamDescriptionSerilizer(data=temp_param)
+                        if(ser.is_valid()):
+                            ser.save()
+                            dic['ownership']=ser.data["id"]
                 if(dic['powersource']!=None) or dic['powersource']!="":
-                    new_powersource=facilityParamDescription.objects.filter(name__in=dic['powersource'])[0].id
-                    dic['powersource']=new_powersource
+                    new_powersource=facilityParamDescription.objects.filter(name__in=dic['powersource'])
+                    if(new_powersource.count()>0):
+                        dic['powersource']=new_powersource
+                    else:
+                        temp_param={
+                            "name":dic['powersource'],
+                            "paramid":10,
+                            "enabled":True,
+                            "order":1
+                        }
+                        ser=facilityParamDescriptionSerilizer(data=temp_param)
+                        if(ser.is_valid()):
+                            dic['powersource']=ser.data["id"]
+                        
                 if(counter==1):
                     dic['id']=1
                     dic['parent']=None
