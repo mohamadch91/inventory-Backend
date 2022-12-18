@@ -568,7 +568,10 @@ class testdb(APIView):
                     "working_from":excel_data_df['workingHFrom'][i],
                     "working_to":excel_data_df['workingHTo'][i],
                 }
-                
+                ## iterate all keys and check for  ### value
+                for i in dic.keys():
+                    if(dic[i] == "###"):
+                        del dic[i]
                 if(dic['type']!=None) or dic['type']!="":
                     new_type=facilityParamDescription.objects.filter(name=dic['type'])
                     if (new_type.count()>0):
@@ -631,6 +634,8 @@ class testdb(APIView):
                         }
                         return Response(res,status=status.HTTP_406_NOT_ACCEPTABLE)
                 else:
+                    parent=get_object_or_404(Facility,name=dic['parent'])
+                    dic['parent']=parent.id
                     ser=facilitySerializer(data=dic)
                     if(ser.is_valid()):
                         ser.save()
