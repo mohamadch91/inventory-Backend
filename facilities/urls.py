@@ -9,8 +9,7 @@ urlpatterns = [
     path('parent', facilityPArentView.as_view(), name='facility '),
     path('import', importfacilityView.as_view(), name='facility import with excel '),
     path('db', testdb.as_view(), name='facility import with excel '),
-    path('dbdel', DeletefacilityView.as_view(), name='facility import with excel '),
-
+    path('dbfix', DeletefacilityView.as_view(), name='facility import with excel '),
     path('print', facilityFieldprintView.as_view(), name='facility import with excel '),
     path('delete', facilityDeleteView.as_view(), name='facility import with excel '),
 
