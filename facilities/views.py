@@ -636,8 +636,11 @@ class testdb(APIView):
                         }
                         return Response(res,status=status.HTTP_406_NOT_ACCEPTABLE)
                 else:
-                    parent=get_object_or_404(Facility,name=dic['parent'])
-                    dic['parent']=parent.id
+                    print(dic)
+                    parent=Facility.objects.filter(name=dic['parent'])
+                    parent=parent(parent.count()-1)
+                    del dic['parent']
+                    dic['parentid']=parent.id
                     ser=facilitySerializer(data=dic)
                     if(ser.is_valid()):
                         ser.save()
