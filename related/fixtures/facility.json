@@ -852,6 +852,16 @@
           "topic": "Delete",
           "state": "delete_reason"
         }
+      },
+      {
+        "model": "related.relatedFacility",
+        "pk": 69,
+        "fields": {
+          "name": "Other code",
+          "type": "text",
+          "topic": "Other",
+          "state": "other_code"
+        }
       }
   ]
  
