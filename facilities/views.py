@@ -525,7 +525,7 @@ class importfacilityView(APIView):
                 
 class testdb(APIView):
     def get(self,request):
-        excel_data_df = pandas.read_excel('tfac.xlsx', sheet_name='Facilities')
+        excel_data_df = pandas.read_excel('../tfac.xlsx', sheet_name='Facilities')
         counter=0
         for i in range(len(excel_data_df)):
             z=int(excel_data_df['Isdel'][i])
@@ -559,7 +559,6 @@ class testdb(APIView):
                     "working_to":excel_data_df['workingHTo'][i],
                 }
 
-        # json_object = json.dumps(dic_arr,indent=1)
 
 
 class facilityFieldprintView(APIView):
