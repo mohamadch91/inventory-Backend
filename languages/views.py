@@ -99,7 +99,6 @@ class languageView(APIView):
                 else:
                     ids.append(x.id)
                     for k in lang_words:
-                        print(k)
                         dict[k.word]=k.translate
                 
                 final_ans.append(dict)
@@ -153,7 +152,6 @@ class languageView(APIView):
 
 class getlanguages(APIView):
     def get(self,request):
-        print(request)
         name=request.query_params.get('name',None)
         lang = get_object_or_404(languages,name=name)
         

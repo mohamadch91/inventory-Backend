@@ -132,7 +132,6 @@ class FacilityView(APIView):
         return Response(ser_copy)
 
     def put(self, request ):
-        print(request)
         id=request.data["id"]
         country = get_object_or_404(Facility, id=id)
         data=copy.deepcopy(request.data)
@@ -558,6 +557,41 @@ class testdb(APIView):
                     "working_from":excel_data_df['workingHFrom'][i],
                     "working_to":excel_data_df['workingHTo'][i],
                 }
+                if(dic['type']!=None) or dic['type']!="":
+                    new_type=facilityParamDescription.objects.filter(name__in=dic['type'])[0].id
+                    dic['type']=new_type
+                if(dic['ownership']!=None) or dic['ownership']!="":
+                    new_ownership=facilityParamDescription.objects.filter(name__in=dic['ownership'])[0].id
+                    dic['ownership']=new_ownership
+                if(dic['powersource']!=None) or dic['powersource']!="":
+                    new_powersource=facilityParamDescription.objects.filter(name__in=dic['powersource'])[0].id
+                    dic['powersource']=new_powersource
+                if(counter==1):
+                    dic['id']=1
+                    dic['parent']=None
+                    facility=get_object_or_404(Facility,id=1)
+                    ser=facilitySerializer(facility,data=dic)
+                    if(ser.is_valid()):
+                        ser.save()
+                    else:
+                        res={
+                            "error":ser.errors,
+                            "counter":counter
+                        }
+                        return Response(res,status=status.HTTP_406_NOT_ACCEPTABLE)
+                else:
+                    ser=facilitySerializer(data=dic)
+                    if(ser.is_valid()):
+                        ser.save()
+                    else:
+                        res={
+                            "error":ser.errors,
+                            "counter":counter
+                        }
+                        return Response(res,status=status.HTTP_406_NOT_ACCEPTABLE)
+                        
+
+
 
 
 
@@ -749,7 +783,6 @@ class facilityDeleteView(APIView):
         return Response(desc_ser.data,status=status.HTTP_200_OK)
     def post(self,request):
         data=request.data
-        print(data)
         id=data["id"]
         facility = get_object_or_404(Facility, id=id)
         below=Facility.objects.filter(parentid=facility.id)
