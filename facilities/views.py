@@ -520,7 +520,16 @@ class importfacilityView(APIView):
         return Response(ans,status=status.HTTP_200_OK)
 
 
-                    
+class DeletefacilityView(APIView):
+    def get(self,request):
+
+        fac=Facility.objects.all()
+        for i in fac:
+            if(i.id!=1):
+                i.delete()
+
+
+
                 
 class testdb(APIView):
     def get(self,request):
@@ -575,7 +584,7 @@ class testdb(APIView):
                             dic['type']=ser.data["id"]
                         
                 if(dic['ownership']!=None) or dic['ownership']!="":
-                    new_ownership=facilityParamDescription.objects.filter(name__in=dic['ownership'])
+                    new_ownership=facilityParamDescription.objects.filter(name=dic['ownership'])
                     if(new_ownership.count()>0):
                         dic['ownership']=new_ownership[0].id
                     else:
@@ -590,7 +599,7 @@ class testdb(APIView):
                             ser.save()
                             dic['ownership']=ser.data["id"]
                 if(dic['powersource']!=None) or dic['powersource']!="":
-                    new_powersource=facilityParamDescription.objects.filter(name__in=dic['powersource'])
+                    new_powersource=facilityParamDescription.objects.filter(name=dic['powersource'])
                     if(new_powersource.count()>0):
                         dic['powersource']=new_powersource
                     else:
@@ -602,6 +611,7 @@ class testdb(APIView):
                         }
                         ser=facilityParamDescriptionSerilizer(data=temp_param)
                         if(ser.is_valid()):
+                            ser.save()
                             dic['powersource']=ser.data["id"]
                         
                 if(counter==1):
