@@ -556,16 +556,16 @@ class itemdb(APIView):
 class itemdbfix(APIView):
     def get(self,request):
         count=0
-        fac=Facility.objects.all()
-        for i in fac:
+        items=item.objects.all()
+        for i in items:
+            count+=1
             # continue
-            love=Facility.objects.filter(parentid=i.id)
+            # love=Facility.objects.filter(parentid=i.id)
 
-            if(love.count()>=i.loverlevelfac):
-                i.loverlevelfac=love.count()+1
-                i.save()
-            # if(i.id!=1):
-            #     i.delete()
+            # if(love.count()>=i.loverlevelfac):
+            #     i.loverlevelfac=love.count()+1
+            #     i.save()
+            i.delete()
 
         return Response(count,status=status.HTTP_200_OK)
 
