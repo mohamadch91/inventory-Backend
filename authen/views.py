@@ -108,7 +108,6 @@ class userdb(APIView):
             del copys['facilityid']
             user=User.objects.filter(id=i['createby'])[0]
             copys['owner']=user.name
-            print(i['faciltyName'].strip())
             facility=Facility.objects.filter(name__icontains=i['faciltyName'].strip())
             if(len(facility)==0):
                 continue
