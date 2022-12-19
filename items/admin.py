@@ -7,3 +7,4 @@ from .models import *
 admin.site.register(ItemClass)
 admin.site.register(ItemType)
 admin.site.register(Itemtypelevel)
+admin.site.register(Manufacturer)

@@ -37,3 +37,6 @@ class Manufacturer(models.Model):
     active=models.BooleanField(default=True)
     order=models.IntegerField(default=1)
     itemclass=models.ForeignKey(ItemClass, on_delete=models.CASCADE)
+
+    def __str__(self) -> str:
+        return self.describe

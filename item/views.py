@@ -599,7 +599,7 @@ class itemdb(APIView):
                         dic['Manufacturer']=Manufacturers[0].id
                     else:
                         temp_param={
-                            "describe":dic['Manufacturer'],
+                            "describe":dic['Manufacturer'].strip(),
                             "enabled":True,
                             "order":1,
                             "itemclass":item_class.id,
@@ -707,13 +707,22 @@ class itemdbfix(APIView):
         items=item.objects.all()
         for i in items:
             count+=1
+            # print(i.Manufacturer)
+            if(i.Manufacturer!=None):
+                man=Manufacturer.objects.filter(id=i.Manufacturer)
+                if(man.count()==0):
+                    i.Manufacturer="100"
+                    i.save()
+
+            #     print(man.id)
+            #     print(man.describe)
             # continue
             # love=Facility.objects.filter(parentid=i.id)
 
             # if(love.count()>=i.loverlevelfac):
             #     i.loverlevelfac=love.count()+1
             #     i.save()
-            i.delete()
+            # i.delete()
 
         return Response(count,status=status.HTTP_200_OK)
 
