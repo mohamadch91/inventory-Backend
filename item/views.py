@@ -447,7 +447,7 @@ class itemdb(APIView):
                 "StorageConditions":excel_data_df['temprange'][i],
                 "EnergySource":excel_data_df['energysource'][i],
                 "Manufacturer":excel_data_df['Manufacturer'][i],
-                "TypeProduct":excel_data_df['type'][i],
+                "TypeP":excel_data_df['type'][i],
                 "Type2":excel_data_df['type2'][i],
                 "Type3":excel_data_df['type3'][i],
                 "Model":excel_data_df['model'][i],
@@ -504,10 +504,134 @@ class itemdb(APIView):
                     item_count=item.objects.filter(facility=facilty,item_class=item_class.id,item_type=item_type.id).count()
                     item_code=f"{item_count+1:03d}"    
                 dic["code"]=f"{facilty.code}{item_class.code}{item_type.code}{item_code}"
-
-                
-                
-               
+                if  'WorkingConditions' in dic   and ((dic['WorkingConditions']!=None) or dic['WorkingConditions']!=""):
+                    new_ownership=itemParamDescription.objects.filter(name__icontains=dic['WorkingConditions'])
+                    if(new_ownership.count()>0):
+                        dic['WorkingConditions']=new_ownership[0].id
+                    else:
+                        temp_param={
+                            "name":dic['WorkingConditions'],
+                            "paramid":11,
+                            "enabled":True,
+                            "order":1
+                        }
+                        ser=itemParamDescriptionSerilizer(data=temp_param)
+                        if(ser.is_valid()):
+                            ser.save()
+                            dic['WorkingConditions']=ser.data["id"]
+                if  'EnergySource' in dic   and ((dic['EnergySource']!=None) or dic['EnergySource']!=""):
+                    new_ownership=itemParamDescription.objects.filter(name__icontains=dic['EnergySource'])
+                    if(new_ownership.count()>0):
+                        dic['EnergySource']=new_ownership[0].id
+                    else:
+                        temp_param={
+                            "name":dic['EnergySource'],
+                            "paramid":12,
+                            "enabled":True,
+                            "order":1
+                        }
+                        ser=itemParamDescriptionSerilizer(data=temp_param)
+                        if(ser.is_valid()):
+                            ser.save()
+                            dic['EnergySource']=ser.data["id"]
+                if 'StorageConditions' in dic   and ((dic['StorageConditions']!=None) or dic['StorageConditions']!=""):
+                    sg=dic['StorageConditions']
+                    if(sg=='+2 & +8 C'):
+                        dic['StorageConditions']="2"
+                    elif(sg=='-20 C'):
+                        dic['StorageConditions']="3"
+                    elif(sg=='-70 C'):
+                        dic['StorageConditions']="4"
+                if 'Manufacturer' in dic   and ((dic['Manufacturer']!=None) or dic['Manufacturer']!=""):
+                    Manufacturers=Manufacturer.objects.filter(describe__icontains=dic['Manufacturer'])
+                    if(Manufacturers.count()>0):
+                        dic['Manufacturer']=Manufacturers[0].id
+                    else:
+                        temp_param={
+                            "describe":dic['Manufacturer'],
+                            "enabled":True,
+                            "order":1,
+                            "itemclass":item_class.id,
+                        }
+                        ser=ManufacturerSerializer(data=temp_param)
+                        if(ser.is_valid()):
+                            ser.save()
+                            dic['Manufacturer']=ser.data["id"]
+                if 'TypeP' in dic   and ((dic['TypeP']!=None) or dic['TypeP']!=""):
+                    type=itemParamDescription.objects.filter(name__icontains=dic['TypeP'])
+                    if(type.count()>0):
+                        dic['TypeP']=type[0].id
+                    else:
+                        temp_param={
+                            "name":dic['TypeP'],
+                            "paramid":1,
+                            "enabled":True,
+                            "order":1
+                        }
+                        ser=itemParamDescriptionSerilizer(data=temp_param)
+                        if(ser.is_valid()):
+                            ser.save()
+                            dic['TypeP']=ser.data["id"]
+                if 'Type2' in dic   and ((dic['Type2']!=None) or dic['Type2']!=""):
+                    type=itemParamDescription.objects.filter(name__icontains=dic['Type2'])
+                    if(type.count()>0):
+                        dic['Type2']=type[0].id
+                    else:
+                        temp_param={
+                            "name":dic['Type2'],
+                            "paramid":4,
+                            "enabled":True,
+                            "order":1
+                        }
+                        ser=itemParamDescriptionSerilizer(data=temp_param)
+                        if(ser.is_valid()):
+                            ser.save()
+                            dic['Type2']=ser.data["id"]
+                if 'Type3' in dic   and ((dic['Type3']!=None) or dic['Type3']!=""):
+                    type=itemParamDescription.objects.filter(name__icontains=dic['Type3'])
+                    if(type.count()>0):
+                        dic['Type3']=type[0].id
+                    else:
+                        temp_param={
+                            "name":dic['Type3'],
+                            "paramid":5,
+                            "enabled":True,
+                            "order":1
+                        }
+                        ser=itemParamDescriptionSerilizer(data=temp_param)
+                        if(ser.is_valid()):
+                            ser.save()
+                            dic['Type3']=ser.data["id"]
+                if 'ReasonsForNotFunctioning' in dic   and ((dic['ReasonsForNotFunctioning']!=None) or dic['ReasonsForNotFunctioning']!=""):
+                    type=itemParamDescription.objects.filter(name__icontains=dic['ReasonsForNotFunctioning'])
+                    if(type.count()>0):
+                        dic['ReasonsForNotFunctioning']=type[0].id
+                    else:
+                        temp_param={
+                            "name":dic['ReasonsForNotFunctioning'],
+                            "paramid":16,
+                            "enabled":True,
+                            "order":1
+                        }
+                        ser=itemParamDescriptionSerilizer(data=temp_param)
+                        if(ser.is_valid()):
+                            ser.save()
+                            dic['ReasonsForNotFunctioning']=ser.data["id"]
+                if 'FinancialSource' in dic   and ((dic['FinancialSource']!=None) or dic['FinancialSource']!=""):
+                    type=itemParamDescription.objects.filter(name__icontains=dic['FinancialSource'])
+                    if(type.count()>0):
+                        dic['FinancialSource']=type[0].id
+                    else:
+                        temp_param={
+                            "name":dic['FinancialSource'],
+                            "paramid":14,
+                            "enabled":True,
+                            "order":1
+                        }
+                        ser=itemParamDescriptionSerilizer(data=temp_param)
+                        if(ser.is_valid()):
+                            ser.save()
+                            dic['FinancialSource']=ser.data["id"]
                 ser=itemSerializer(data=dic)
                 if(ser.is_valid()):
                     ser.save()
