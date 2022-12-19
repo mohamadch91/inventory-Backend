@@ -492,11 +492,14 @@ class itemdb(APIView):
                     if(dic[i] == "###"):
                         del dic_copy[i]
                 dic=dic_copy
+                print(dic)
                 facilty=Facility.objects.filter(other_code=dic['facility'].strip())[0]
                 dic['facility']=facilty.id
-                item_class=ItemClass.objects.filter(title__icontains=dic['item_class'].strip())[0]
+                item_class_code=dic['OtherCode'].strip()[10:13]
+                print(item_class_code)
+                item_class=ItemClass.objects.filter(title__icontains=item_class_code)[0]
                 dic['item_class']=item_class.id
-                item_type=ItemType.objects.filter(title__icontains=dic['item_type'].strip())[0]
+                item_type=ItemType.objects.filter(title__icontains=dic['item_type'])[0]
                 dic['item_type']=item_type.id
                 if(item.objects.filter(facility=facilty,item_class=item_class.id,item_type=item_type.id).count()==0):
                     item_code=f"{1:03d}"    
@@ -558,9 +561,9 @@ class itemdb(APIView):
                             ser.save()
                             dic['Manufacturer']=ser.data["id"]
                 if 'TypeP' in dic   and ((dic['TypeP']!=None) or dic['TypeP']!=""):
-                    type=itemParamDescription.objects.filter(name__icontains=dic['TypeP'])
-                    if(type.count()>0):
-                        dic['TypeP']=type[0].id
+                    types=itemParamDescription.objects.filter(name__icontains=dic['TypeP'])
+                    if(types.count()>0):
+                        dic['TypeP']=types[0].id
                     else:
                         temp_param={
                             "name":dic['TypeP'],
@@ -573,9 +576,9 @@ class itemdb(APIView):
                             ser.save()
                             dic['TypeP']=ser.data["id"]
                 if 'Type2' in dic   and ((dic['Type2']!=None) or dic['Type2']!=""):
-                    type=itemParamDescription.objects.filter(name__icontains=dic['Type2'])
-                    if(type.count()>0):
-                        dic['Type2']=type[0].id
+                    types=itemParamDescription.objects.filter(name__icontains=dic['Type2'])
+                    if(types.count()>0):
+                        dic['Type2']=types[0].id
                     else:
                         temp_param={
                             "name":dic['Type2'],
@@ -588,9 +591,9 @@ class itemdb(APIView):
                             ser.save()
                             dic['Type2']=ser.data["id"]
                 if 'Type3' in dic   and ((dic['Type3']!=None) or dic['Type3']!=""):
-                    type=itemParamDescription.objects.filter(name__icontains=dic['Type3'])
-                    if(type.count()>0):
-                        dic['Type3']=type[0].id
+                    types=itemParamDescription.objects.filter(name__icontains=dic['Type3'])
+                    if(types.count()>0):
+                        dic['Type3']=types[0].id
                     else:
                         temp_param={
                             "name":dic['Type3'],
@@ -603,9 +606,9 @@ class itemdb(APIView):
                             ser.save()
                             dic['Type3']=ser.data["id"]
                 if 'ReasonsForNotFunctioning' in dic   and ((dic['ReasonsForNotFunctioning']!=None) or dic['ReasonsForNotFunctioning']!=""):
-                    type=itemParamDescription.objects.filter(name__icontains=dic['ReasonsForNotFunctioning'])
-                    if(type.count()>0):
-                        dic['ReasonsForNotFunctioning']=type[0].id
+                    types=itemParamDescription.objects.filter(name__icontains=dic['ReasonsForNotFunctioning'])
+                    if(types.count()>0):
+                        dic['ReasonsForNotFunctioning']=types[0].id
                     else:
                         temp_param={
                             "name":dic['ReasonsForNotFunctioning'],
@@ -618,9 +621,9 @@ class itemdb(APIView):
                             ser.save()
                             dic['ReasonsForNotFunctioning']=ser.data["id"]
                 if 'FinancialSource' in dic   and ((dic['FinancialSource']!=None) or dic['FinancialSource']!=""):
-                    type=itemParamDescription.objects.filter(name__icontains=dic['FinancialSource'])
-                    if(type.count()>0):
-                        dic['FinancialSource']=type[0].id
+                    types=itemParamDescription.objects.filter(name__icontains=dic['FinancialSource'])
+                    if(types.count()>0):
+                        dic['FinancialSource']=types[0].id
                     else:
                         temp_param={
                             "name":dic['FinancialSource'],
@@ -632,6 +635,10 @@ class itemdb(APIView):
                         if(ser.is_valid()):
                             ser.save()
                             dic['FinancialSource']=ser.data["id"]
+                dic['YearInstalled']=str(dic['YearInstalled'])
+                if 'NotInUseSince' in dic and type(dic['NotInUseSince'])==str:
+                    del dic['NotInUseSince']
+                print(dic)
                 ser=itemSerializer(data=dic)
                 if(ser.is_valid()):
                     ser.save()
