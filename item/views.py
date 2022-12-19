@@ -492,7 +492,7 @@ class itemdb(APIView):
                     if(dic[i] == "###"):
                         del dic_copy[i]
                 dic=dic_copy
-                print(dic)
+                # print(dic)
                 facilty=Facility.objects.filter(other_code=dic['facility'].strip())
                 if(facilty.count()==0):
                     print("not found")
