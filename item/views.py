@@ -493,7 +493,11 @@ class itemdb(APIView):
                         del dic_copy[i]
                 dic=dic_copy
                 print(dic)
-                facilty=Facility.objects.filter(other_code=dic['facility'].strip())[0]
+                facilty=Facility.objects.filter(other_code=dic['facility'].strip())
+                if(facilty.count()==0):
+                    print("not found")
+                    continue
+                facilty=facilty[0]
                 dic['facility']=facilty.id
                 item_class_code=dic['OtherCode'].strip()[10:13]
                 # print(item_class_code)
@@ -502,7 +506,7 @@ class itemdb(APIView):
                 item_type=ItemType.objects.filter(title__icontains=dic['item_type'].strip())
                 if(item_type.count()==0):
                     obj={
-                        "title":dic['item_type'],
+                        "title":dic['item_type'].strip(),
                         "active":True,
                         "havePQS":False,
                         "itemclass":item_class.id
@@ -534,8 +538,11 @@ class itemdb(APIView):
                     if serializer.is_valid():
                         serializer.save()
                         dic['item_type']=serializer.data['id']
+                        item_type=ItemType.objects.filter(id=serializer.data['id'])[0]
+                        
                 else:   
-                    dic['item_type']=item_type[0].id
+                    item_type=item_type[0]
+                    dic['item_type']=item_type.id
                 if(item.objects.filter(facility=facilty,item_class=item_class.id,item_type=item_type.id).count()==0):
                     item_code=f"{1:03d}"    
                 else:
@@ -626,7 +633,7 @@ class itemdb(APIView):
                             ser.save()
                             dic['Type2']=ser.data["id"]
                 if 'Type3' in dic   and ((dic['Type3']!=None) or dic['Type3']!=""):
-                    types=itemParamDescription.objects.filter(name__icontains=dic['Type3'])
+                    types=itemParamDescription.objects.filter(name__icontains=dic['Type3'].strip())
                     if(types.count()>0):
                         dic['Type3']=types[0].id
                     else:
