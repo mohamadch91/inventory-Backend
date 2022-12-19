@@ -83,11 +83,15 @@ class Userdata(APIView):
             if(req_user.id !=1):
                 user=user.filter(id__gt=1)
             serializer = UserSerializer(user,many=True)
-            return Response(data=serializer.data,status=status.HTTP_200_OK)
+            new_data=copy.deepcopy(serializer.data)
+            new_data=sorted(new_data,key=lambda x:x['pk'])
+            return Response(data=new_data,status=status.HTTP_200_OK)
         user = User.objects.all()
         serializer = UserSerializer(user, many=True)
+        new_data=copy.deepcopy(serializer.data)
+        new_data=sorted(new_data,key=lambda x:x['pk'])
 
-        return Response(data=serializer.data,status=status.HTTP_200_OK)
+        return Response(data=new_data,status=status.HTTP_200_OK)
    
 class UrlCheckView(APIView):
     def get(self,request):
