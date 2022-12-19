@@ -440,7 +440,7 @@ class itemdb(APIView):
                 counter+=1
                 dic={
                 "OtherCode":excel_data_df['code'][i],
-                "facility":excel_data_df['facilityname'][i],
+                "facility":excel_data_df['facilitycode'][i],
                 "item_type":excel_data_df['itemtype'][i],
                 "item_class":excel_data_df['itemclass'][i],
                 "WorkingConditions":excel_data_df['workingCondition'][i],
@@ -492,21 +492,23 @@ class itemdb(APIView):
                     if(dic[i] == "###"):
                         del dic_copy[i]
                 dic=dic_copy
-                facilty=Facility.objects.filter(name=dic['facility'].strip())[0]
+                facilty=Facility.objects.filter(other_code=dic['facility'].strip())[0]
                 dic['facility']=facilty.id
-                item_classs=ItemClass.objects.filter(name__icontains=dic['item_class'].strip())[0]
-                dic['item_class']=item_classs.id
-                item_typee=ItemType.objects.filter(name__icontains=dic['item_type'].strip())[0]
-                dic['item_type']=item_typee.id
+                item_class=ItemClass.objects.filter(name__icontains=dic['item_class'].strip())[0]
+                dic['item_class']=item_class.id
+                item_type=ItemType.objects.filter(name__icontains=dic['item_type'].strip())[0]
+                dic['item_type']=item_type.id
+                if(item.objects.filter(facility=facilty,item_class=item_class.id,item_type=item_type.id).count()==0):
+                    item_code=f"{1:03d}"    
+                else:
+                    item_count=item.objects.filter(facility=facilty,item_class=item_class.id,item_type=item_type.id).count()
+                    item_code=f"{item_count+1:03d}"    
+                dic["code"]=f"{facilty.code}{item_class.code}{item_type.code}{item_code}"
 
                 
                 
-                parent_name=dic['parent'].strip()
-                parent=Facility.objects.filter(name=parent_name)
-                parent=parent[parent.count()-1]
-                del dic['parent']
-                dic['parentid']=parent.id
-                ser=facilitySerializer(data=dic)
+               
+                ser=itemSerializer(data=dic)
                 if(ser.is_valid()):
                     ser.save()
                 else:
