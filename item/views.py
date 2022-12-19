@@ -499,8 +499,43 @@ class itemdb(APIView):
                 # print(item_class_code)
                 item_class=ItemClass.objects.filter(title__icontains=item_class_code)[0]
                 dic['item_class']=item_class.id
-                item_type=ItemType.objects.filter(title__icontains=dic['item_type'].strip())[0]
-                dic['item_type']=item_type.id
+                item_type=ItemType.objects.filter(title__icontains=dic['item_type'].strip())
+                if(item_type.count()==0):
+                    obj={
+                        "title":dic['item_type'],
+                        "active":True,
+                        "havePQS":False,
+                        "itemclass":item_class.id
+                    }
+
+                    num=item_class.itemtype_set.count()
+                    #set code for alll item classes
+                    if(item_class.id==1):
+                        obj["code"]="AC"+str(num-7+1)
+                    elif item_class.id==2 :
+                        obj["code"]="PC"+str(num-3+1)
+                    elif item_class.id==3 :
+                        obj["code"]="TM"+str(num-4+1)
+                    elif item_class.id==4 :
+                        obj["code"]="EL"+str(num-2+1)
+                    elif item_class.id==5 :
+                        obj["code"]="ET"+str(num-5+1)
+                    elif item_class.id==6 :
+                        obj["code"]="TR"+str(num-10+1)
+                    elif item_class.id==7 :
+                        obj["code"]="CA"+str(num+1)
+                    elif item_class.id==8 :
+                        obj["code"]="CB"+str(num+1)
+                    elif item_class.id==9 :
+                        obj["code"]="CC"+str(num+1)
+                    elif item_class.id==10 :
+                        obj["code"]="CD"+str(num+1)
+                    serializer =  itemtypeSerializer(data=obj)
+                    if serializer.is_valid():
+                        serializer.save()
+                        dic['item_type']=serializer.data['id']
+                else:   
+                    dic['item_type']=item_type[0].id
                 if(item.objects.filter(facility=facilty,item_class=item_class.id,item_type=item_type.id).count()==0):
                     item_code=f"{1:03d}"    
                 else:
