@@ -499,9 +499,15 @@ class itemdb(APIView):
                     continue
                 facilty=facilty[0]
                 dic['facility']=facilty.id
-                item_class_code=dic['OtherCode'].strip()[10:13]
+                # item_class_code=dic['OtherCode'].strip()[10:13]
                 # print(item_class_code)
-                item_class=ItemClass.objects.filter(title__icontains=item_class_code)[0]
+                item_class=ItemClass.objects.filter(title__icontains=dic['item_class'])
+                if(item_class.count()==0):
+                    item_class=ItemClass.objects.filter(title__icontains='Active equipment')[0]
+                else:
+                    item_class=item_class[0]
+
+
                 dic['item_class']=item_class.id
                 item_type=ItemType.objects.filter(title__icontains=dic['item_type'].strip())
                 if(item_type.count()==0):
