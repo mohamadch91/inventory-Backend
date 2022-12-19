@@ -85,7 +85,7 @@ class item(models.Model):
     SerialNumber=models.CharField(max_length=50, null=True,blank=True)
     RepairAndMaintenanceHistory=models.CharField(max_length=50, null=True,blank=True)
     MaintenanceGroup=models.CharField(max_length=50, null=True,blank=True)
-    OtherFieldsItem1=models.CharField(max_length=50, null=True,blank=True)
+    OtherFieldsItem1=models.CharField(max_length=150, null=True,blank=True)
     OtherFieldsItem2=models.BooleanField(null=True,blank=True)
     OtherFieldsItem3=models.CharField(max_length=50, null=True,blank=True)
     OtherFieldsItemParameter4=models.CharField(max_length=50, null=True,blank=True)

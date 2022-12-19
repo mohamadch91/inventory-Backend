@@ -496,10 +496,10 @@ class itemdb(APIView):
                 facilty=Facility.objects.filter(other_code=dic['facility'].strip())[0]
                 dic['facility']=facilty.id
                 item_class_code=dic['OtherCode'].strip()[10:13]
-                print(item_class_code)
+                # print(item_class_code)
                 item_class=ItemClass.objects.filter(title__icontains=item_class_code)[0]
                 dic['item_class']=item_class.id
-                item_type=ItemType.objects.filter(title__icontains=dic['item_type'])[0]
+                item_type=ItemType.objects.filter(title__icontains=dic['item_type'].strip())[0]
                 dic['item_type']=item_type.id
                 if(item.objects.filter(facility=facilty,item_class=item_class.id,item_type=item_type.id).count()==0):
                     item_code=f"{1:03d}"    
@@ -638,7 +638,7 @@ class itemdb(APIView):
                 dic['YearInstalled']=str(dic['YearInstalled'])
                 if 'NotInUseSince' in dic and type(dic['NotInUseSince'])==str:
                     del dic['NotInUseSince']
-                print(dic)
+                # print(dic)
                 ser=itemSerializer(data=dic)
                 if(ser.is_valid()):
                     ser.save()
