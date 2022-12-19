@@ -27,7 +27,6 @@ class RegisterSerializer(serializers.ModelSerializer):
         fields = ['pk','password','owner','is_active','name','facilityid','username','idnumber','position','phone','facadmin','itemadmin','reportadmin','useradmin','created_at','updated_at']
         extra_kwargs = {'password': {'write_only': True}}
     def create(self, validated_data):
-        print(validated_data)
         user = User.objects.create_user(**validated_data)
         return user
 

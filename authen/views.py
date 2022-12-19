@@ -1,5 +1,6 @@
 import json
 from os import stat
+import os
 from urllib import response
 from django.shortcuts import render
 from django.contrib.auth.hashers import make_password
@@ -19,6 +20,7 @@ from rest_framework import status
 from rest_framework_simplejwt.views import TokenObtainPairView
 from rest_framework_simplejwt.token_blacklist.models import BlacklistedToken, OutstandingToken
 import copy
+from facilities.models import Facility
 
 class RegisterView(generics.CreateAPIView):
     permission_classes = (AllowAny,)
@@ -93,4 +95,23 @@ class UrlCheckView(APIView):
 
 class userdb(APIView):
     def get(self,request):
+        f=open("./authen/Results.json","r")
+        data=json.load(f)
+        for i in data:
+            copys=i.copy()
+            del copys['ID']
+            copys['is_active']=copys['enable']
+            del copys['enable']
+            del copys['idnumber']
+            del copys['creatondate']
+            del copys['lastLogin']
+            del copys['facilityid']
+            user=User.objects.filter(id=i['createby'])[0]
+            copys['owner']=user.name
+            facility=Facility.objects.filter(name__icontains=i['faciltyName'].strip())[0]
+            copys['facilityid']=facility.id
+            ser=RegisterSerializer(data=copys)
+            if ser.is_valid():
+                ser.save()
         return Response({"message":"ok"},status=status.HTTP_200_OK)
+
