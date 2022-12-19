@@ -435,120 +435,87 @@ class itemdb(APIView):
         excel_data_df.fillna("###", inplace=True)
         counter=0
         for i in range(len(excel_data_df)): 
-            z=int(excel_data_df['Isdel'][i])
+            z=int(excel_data_df['isDel'][i])
             if(z==0):
                 counter+=1
                 dic={
-                "country": 1,
-                "parent":excel_data_df['parent'][i],
-                "name": excel_data_df['name'][i],
-                "code": excel_data_df['code'][i],
-                    "level": int(excel_data_df['level'][i]),
-                    "populationnumber": int(excel_data_df['populationNumber'][i]),
-                    "childrennumber": int(excel_data_df['childrenNumber'][i]),
-                    "gpsCordinate": "LatLng("+str(excel_data_df['gps'][i])+")",
-                    "city": excel_data_df['city'][i],
-                    "address": excel_data_df['address'][i],
-                    "havegen": excel_data_df['HaveGenerator'][i],
-                    "loverlevelfac": excel_data_df['lowerLevel'][i],
-                    "type":excel_data_df['typeval'][i],
-                    "district":excel_data_df['district'][i],
-                    "ownership":excel_data_df['ownership'][i],
-                    "powersource":excel_data_df['powersource'][i],   
-                    "total_staff":excel_data_df['staffNumber'][i], 
-                    "prof_staff":excel_data_df['NumProfStaff'][i], 
-                    "total_staff":excel_data_df['staffNumber'][i], 
-                    "drivers":excel_data_df['NumDriverStaff'][i], 
-                    "haveinternet":excel_data_df['haveInternet'][i], 
-                    "phone":excel_data_df['phone'][i], 
-                    "year":excel_data_df['year'][i],
-                    "working_from":excel_data_df['workingHFrom'][i],
-                    "working_to":excel_data_df['workingHTo'][i],
+                "OtherCode":excel_data_df['code'][i],
+                "facility":excel_data_df['facilityname'][i],
+                "item_type":excel_data_df['itemtype'][i],
+                "item_class":excel_data_df['itemclass'][i],
+                "WorkingConditions":excel_data_df['workingCondition'][i],
+                "StorageConditions":excel_data_df['temprange'][i],
+                "EnergySource":excel_data_df['energysource'][i],
+                "Manufacturer":excel_data_df['Manufacturer'][i],
+                "TypeProduct":excel_data_df['type'][i],
+                "Type2":excel_data_df['type2'][i],
+                "Type3":excel_data_df['type3'][i],
+                "Model":excel_data_df['model'][i],
+                "NetVaccineStorageCapacity":excel_data_df['netVaccCapacity'][i],
+                "RefrigerantGas":excel_data_df['refrigrationgas'][i],
+                "IsTheRefrigerantGasCFCFree":excel_data_df['CFCFree'][i],
+                "PQSPISManufacturer":excel_data_df['pqsmanufacturer'][i],
+                "PQSPISRefrigerantGas":excel_data_df['pqsrefgas'][i],
+                "PQSPISTemperatureWorkingZone":excel_data_df['pqstempzone'][i],
+                "Height":excel_data_df['height'][i],
+                "Width":excel_data_df['width'][i],
+                "GrossVolume":excel_data_df['grossVolume'][i],
+                "NetShippingVolume":excel_data_df['netShippingVolume'][i],
+                "Weightkg":excel_data_df['Weight'][i],
+                "DoesItHaveFreezingCompartment":True,
+                "NumberOfCoolingUnits":1,
+                "DoesItHaveContinuousTemperatureMonitoringDevice":True,
+                "DoesItHaveAnAlarmSystem":excel_data_df['haveAlarm'][i],
+                "DoesItHaveBuiltInThermometer":True,
+                "DoesItHaveFreezingCompartment":True,
+                "DoesItHaveAnExtraFuelTank":True,
+                "WorkingTemperatureRange":excel_data_df['tempzone'][i],
+                "Voltage":excel_data_df['voltage'][i],
+                "Phase":excel_data_df['phase'][i],
+                "IsItFunctioning":excel_data_df['inUse'][i],
+                "NotInUseSince":excel_data_df['notUseDate'][i],
+                "ReasonsForNotFunctioning":excel_data_df['notUseCouse'][i],
+                "FinancialSource":excel_data_df['FinancialSource'][i],
+                "DoesTheDryStoreHaveAdequateLighting":True,
+                "DoesTheDryStoreHaveHeating":False,
+                "DoesTheDryStoreHaveAirConditioning":False,
+                "IsTheDryStorageAreaProtectedFromDirectSunlight":True,
+                "DSHaveShelves":True,
+                "IsTheDryStorageAreaClean":True,
+                "OtherFieldsItem1":excel_data_df['description'][i],
+                "YearInstalled":excel_data_df['installYear'][i],
+                "IsThereAnAutomaticStartUpSystem":True,
                 }
                 ## iterate all keys and check for  ### value
                 dic_copy=dic.copy()
-                if( "###" in dic['gpsCordinate']):
-                    del dic_copy['gpsCordinate']
                 for i in dic.keys():
                     if(dic[i] == "###"):
                         del dic_copy[i]
                 dic=dic_copy
-                if 'type' in dic and ((dic['type']!=None) or dic['type']!=""):
-                    new_type=facilityParamDescription.objects.filter(name=dic['type'])
-                    if (new_type.count()>0):
-                        dic['type']=new_type[0].id
-                    else:
-                        temp_param={
-                            "name":dic['type'],
-                            "paramid":12,
-                            "enabled":True,
-                            "order":1
-                        }
-                        ser=facilityParamDescriptionSerilizer(data=temp_param)
-                        if(ser.is_valid()):
-                            ser.save()
-                            dic['type']=ser.data["id"]
-                        
-                if  'ownership' in dic   and ((dic['ownership']!=None) or dic['ownership']!=""):
-                    new_ownership=facilityParamDescription.objects.filter(name=dic['ownership'])
-                    if(new_ownership.count()>0):
-                        dic['ownership']=new_ownership[0].id
-                    else:
-                        temp_param={
-                            "name":dic['ownership'],
-                            "paramid":5,
-                            "enabled":True,
-                            "order":1
-                        }
-                        ser=facilityParamDescriptionSerilizer(data=temp_param)
-                        if(ser.is_valid()):
-                            ser.save()
-                            dic['ownership']=ser.data["id"]
-                if 'powersource' in dic and ((dic['powersource']!=None) or dic['powersource']!=""):
-                    new_powersource=facilityParamDescription.objects.filter(name=dic['powersource'])
-                    if(new_powersource.count()>0):
-                        dic['powersource']=new_powersource[0].id
-                    else:
-                        temp_param={
-                            "name":dic['powersource'],
-                            "paramid":10,
-                            "enabled":True,
-                            "order":1
-                        }
-                        ser=facilityParamDescriptionSerilizer(data=temp_param)
-                        if(ser.is_valid()):
-                            ser.save()
-                            dic['powersource']=ser.data["id"]
-                dic['is_suitable']=True
-                if(counter==1):
-                    dic['id']=1
-                    dic['parent']=None
-                    facility=get_object_or_404(Facility,id=1)
-                    ser=facilitySerializer(facility,data=dic)
-                    if(ser.is_valid()):
-                        ser.save()
-                    else:
-                        res={
-                            "error":ser.errors,
-                            "counter":counter
-                        }
-                        return Response(res,status=status.HTTP_406_NOT_ACCEPTABLE)
+                facilty=Facility.objects.filter(name=dic['facility'].strip())[0]
+                dic['facility']=facilty.id
+                item_classs=ItemClass.objects.filter(name__icontains=dic['item_class'].strip())[0]
+                dic['item_class']=item_classs.id
+                item_typee=ItemType.objects.filter(name__icontains=dic['item_type'].strip())[0]
+                dic['item_type']=item_typee.id
+
+                
+                
+                parent_name=dic['parent'].strip()
+                parent=Facility.objects.filter(name=parent_name)
+                parent=parent[parent.count()-1]
+                del dic['parent']
+                dic['parentid']=parent.id
+                ser=facilitySerializer(data=dic)
+                if(ser.is_valid()):
+                    ser.save()
                 else:
-                    parent_name=dic['parent'].strip()
-                    parent=Facility.objects.filter(name=parent_name)
-                    parent=parent[parent.count()-1]
-                    del dic['parent']
-                    dic['parentid']=parent.id
-                    ser=facilitySerializer(data=dic)
-                    if(ser.is_valid()):
-                        ser.save()
-                    else:
-                        res={
-                            "error":ser.errors,
-                            "counter":counter
-                        }
-                        return Response(res,status=status.HTTP_406_NOT_ACCEPTABLE)
-                        
+                    res={
+                        "error":ser.errors,
+                        "counter":counter
+                    }
+                    return Response(res,status=status.HTTP_406_NOT_ACCEPTABLE)
+                    
         return Response({"counter":counter},status=status.HTTP_200_OK)
 
 
