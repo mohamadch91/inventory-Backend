@@ -431,7 +431,7 @@ class itemPQSView(APIView):
             
 class itemdb(APIView):
     def get(self,request):
-        excel_data_df = pandas.read_excel('tfac.xlsx', sheet_name='Facilities')
+        excel_data_df = pandas.read_excel('titem.xlsx', sheet_name='Items')
         excel_data_df.fillna("###", inplace=True)
         counter=0
         for i in range(len(excel_data_df)): 
