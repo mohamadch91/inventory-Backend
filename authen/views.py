@@ -90,3 +90,7 @@ class Userdata(APIView):
 class UrlCheckView(APIView):
     def get(self,request):
         return Response({"message":"ok"},status=status.HTTP_200_OK)
+
+class userdb(APIView):
+    def get(self,request):
+        return Response({"message":"ok"},status=status.HTTP_200_OK)
