@@ -140,16 +140,16 @@ DATA_UPLOAD_MAX_NUMBER_FIELDS = 10240
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-  'default': {
-     'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'tls_db',
-        'USER': 'postgres',
-        'PASSWORD': 'fdhdkj@33443',
-        'HOST': 'localhost',
-        'PORT': '',
-}
-}
+# DATABASES = {
+#   'default': {
+#      'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'tls_db',
+#         'USER': 'postgres',
+#         'PASSWORD': 'fdhdkj@33443',
+#         'HOST': 'localhost',
+#         'PORT': '',
+# }
+# }
 # DATABASES = {
 #   'default': {
 #      'ENGINE': 'django.db.backends.postgresql',
