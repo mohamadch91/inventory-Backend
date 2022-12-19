@@ -494,9 +494,9 @@ class itemdb(APIView):
                 dic=dic_copy
                 facilty=Facility.objects.filter(other_code=dic['facility'].strip())[0]
                 dic['facility']=facilty.id
-                item_class=ItemClass.objects.filter(name__icontains=dic['item_class'].strip())[0]
+                item_class=ItemClass.objects.filter(title__icontains=dic['item_class'].strip())[0]
                 dic['item_class']=item_class.id
-                item_type=ItemType.objects.filter(name__icontains=dic['item_type'].strip())[0]
+                item_type=ItemType.objects.filter(title__icontains=dic['item_type'].strip())[0]
                 dic['item_type']=item_type.id
                 if(item.objects.filter(facility=facilty,item_class=item_class.id,item_type=item_type.id).count()==0):
                     item_code=f"{1:03d}"    
