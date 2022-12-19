@@ -370,7 +370,6 @@ class facilitymap(APIView):
             for x in all_fac:
                 try:
                     if(x.gpsCordinate is not None):
-                        print(x.gpsCordinate)
                         lat=float(x.gpsCordinate.split(",")[0].split("(")[1])
                         lang=float(x.gpsCordinate.split(",")[1].split(")")[0])
                         data={
