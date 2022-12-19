@@ -460,7 +460,7 @@ class itemdb(APIView):
                 "Height":excel_data_df['height'][i],
                 "Width":excel_data_df['width'][i],
                 "GrossVolume":excel_data_df['grossVolume'][i],
-                "NetShippingVolume":excel_data_df['netShippingVolume'][i],
+                "NetShippingVolume":excel_data_df['netVolume'][i],
                 "Weightkg":excel_data_df['Weight'][i],
                 "DoesItHaveFreezingCompartment":True,
                 "NumberOfCoolingUnits":1,
