@@ -20,7 +20,6 @@ class Help(models.Model) :
         ot = "ot"  
         es = "es"  
         ru = "ru"  
-        ch ="ch"
         uk ="uk"
         vi ="vi"
 
