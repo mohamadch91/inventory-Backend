@@ -150,16 +150,16 @@ DATA_UPLOAD_MAX_NUMBER_FIELDS = 10240
 #         'PORT': '',
 # }
 # }
-# DATABASES = {
-#   'default': {
-#      'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'inventory',
-#         'USER': 'postgres',
-#         'PASSWORD': 'mohamad',
-#         'HOST': 'localhost',
-#         'PORT': '',
-# }
-# }
+DATABASES = {
+  'default': {
+     'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'inventory',
+        'USER': 'postgres',
+        'PASSWORD': 'mohamad',
+        'HOST': 'localhost',
+        'PORT': '',
+}
+}
 
 # DATABASES = {
 #     'default': {
