@@ -141,12 +141,12 @@ DATA_UPLOAD_MAX_NUMBER_FIELDS = 10240
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-runserver.default_port= (8000)
+runserver.default_port= (8001)
 runserver.default_addr = ("0.0.0.0")
 DATABASES = {
   'default': {
      'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'invgap_db1',
+        'NAME': 'tls_db',
         'USER': 'postgres',
         'PASSWORD': 'fdhdkj@33443',
         'HOST': 'localhost',
