@@ -22,6 +22,7 @@ class Help(models.Model) :
         ru = "ru"  
         ch ="ch"
         uk ="uk"
+        vi ="vi"
 
     page = models.CharField(max_length=20 , choices=choices.choices , blank=True , null=True)
     lang = models.CharField(max_length=20  ,choices=language.choices , blank=True , null=True)
