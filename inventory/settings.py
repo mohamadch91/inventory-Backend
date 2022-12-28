@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 import os
 from datetime import timedelta
+from django.core.management.commands.runserver import Command as runserver
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -140,6 +141,8 @@ DATA_UPLOAD_MAX_NUMBER_FIELDS = 10240
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+runserver.default_port= (8000)
+runserver.default_addr = ("0.0.0.0")
 # DATABASES = {
 #   'default': {
 #      'ENGINE': 'django.db.backends.postgresql',
@@ -150,16 +153,16 @@ DATA_UPLOAD_MAX_NUMBER_FIELDS = 10240
 #         'PORT': '',
 # }
 # }
-DATABASES = {
-  'default': {
-     'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'inventory',
-        'USER': 'postgres',
-        'PASSWORD': 'mohamad',
-        'HOST': 'localhost',
-        'PORT': '',
-}
-}
+# DATABASES = {
+#   'default': {
+#      'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'inventory',
+#         'USER': 'postgres',
+#         'PASSWORD': 'mohamad',
+#         'HOST': 'localhost',
+#         'PORT': '',
+# }
+# }
 
 # DATABASES = {
 #     'default': {
