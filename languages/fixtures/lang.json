@@ -52,13 +52,6 @@
       "model": "languages.languages",
       "pk": 8,
       "fields": {
-        "name": "ch"
-      }
-    },
-    {
-      "model": "languages.languages",
-      "pk": 9,
-      "fields": {
         "name": "vi"
       }
     }
