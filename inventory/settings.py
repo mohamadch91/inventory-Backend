@@ -27,7 +27,7 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 SECRET_KEY = 'django-insecure-m!s*e^%fm3f59%i4_z+3qw!%==f$d)lc&g(q0!dstw4)9&q!c9'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 # ACCOUNT_USER_MODEL_USERNAME_FIELD = None
 # ACCOUNT_EMAIL_REQUIRED = True
 # ACCOUNT_USERNAME_REQUIRED = False
@@ -141,12 +141,12 @@ DATA_UPLOAD_MAX_NUMBER_FIELDS = 10240
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-runserver.default_port= (8004)
+runserver.default_port= (8000)
 runserver.default_addr = ("0.0.0.0")
 DATABASES = {
   'default': {
      'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'jor_db',
+        'NAME': 'invgap_db1',
         'USER': 'postgres',
         'PASSWORD': 'fdhdkj@33443',
         'HOST': 'localhost',
