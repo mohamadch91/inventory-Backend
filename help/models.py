@@ -28,4 +28,4 @@ class Help(models.Model) :
     abr = models.FileField(upload_to="help" ,null=True,blank=True)
 
     def __str__(self):
-        return self.page +"--" +self.lang + "--"+self.abr
+        return self.page +"--" +self.lang + "--"+str(self.abr)
