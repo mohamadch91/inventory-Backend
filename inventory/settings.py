@@ -141,18 +141,18 @@ DATA_UPLOAD_MAX_NUMBER_FIELDS = 10240
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-runserver.default_port= (8007)
+runserver.default_port= (8005)
 runserver.default_addr = ("0.0.0.0")
-# DATABASES = {
-#   'default': {
-#      'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'jor_db',
-#         'USER': 'postgres',
-#         'PASSWORD': 'fdhdkj@33443',
-#         'HOST': 'localhost',
-#         'PORT': '',
-# }
-# }
+DATABASES = {
+  'default': {
+     'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'tjk_db',
+        'USER': 'postgres',
+        'PASSWORD': 'fdhdkj@33443',
+        'HOST': 'localhost',
+        'PORT': '',
+}
+}
 # DATABASES = {
 #   'default': {
 #      'ENGINE': 'django.db.backends.postgresql',
@@ -164,12 +164,12 @@ runserver.default_addr = ("0.0.0.0")
 # }
 # }
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': str(BASE_DIR / 'db.sqlite3'),
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': str(BASE_DIR / 'db.sqlite3'),
+#     }
+# }
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
