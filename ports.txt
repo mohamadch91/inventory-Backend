@@ -1,0 +1,10 @@
+
+# invgap 0
+# tls 1
+# ukr 2 
+# phl 3 
+# jor 4 
+# mobile 7 
+# tjk 5
+# aze 6
+# geo 8
