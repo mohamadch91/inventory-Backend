@@ -8,3 +8,5 @@
 # tjk 5
 # aze 6
 # geo 8
+
+screen -S tls python3 manage.py runserver
