@@ -227,7 +227,6 @@ CSRF_TRUSTED_ORIGINS = [
     'https://phlapi.invgap.org','https://tjkapi.invgap.org','https://geoapi.invgap.org','https://azeapi.invgap.org'
 ]
 
-lo = True
 REST_FRAMEWORK = {
     'DEFAULT_FILTER_BACKENDS': [
         'django_filters.rest_framework.DjangoFilterBackend'
