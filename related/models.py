@@ -59,7 +59,7 @@ class facilityParam(models.Model):
 
 class facilityParamDescription(models.Model):
     id=models.AutoField(primary_key=True)
-    name=models.CharField(max_length=100)
+    name=models.CharField(max_length=200)
     order=models.IntegerField(default=1)
     enabled=models.BooleanField(default=True)
     paramid=models.ForeignKey(facilityParam, on_delete=models.CASCADE,related_name='facparamid')
@@ -76,7 +76,7 @@ class itemParam(models.Model):
      
 class itemParamDescription(models.Model):
     id=models.AutoField(primary_key=True)
-    name=models.CharField(max_length=100)
+    name=models.CharField(max_length=200)
     order=models.IntegerField(default=1)
     enabled=models.BooleanField(default=True)
     paramid=models.ForeignKey(itemParam, on_delete=models.CASCADE,related_name='itemparamid')

@@ -663,21 +663,69 @@ class testdb(APIView):
                         if(ser.is_valid()):
                             ser.save()
                             dic['powersource']=ser.data["id"]
-                if 'powersource' in dic and ((dic['powersource']!=None) or dic['powersource']!=""):
-                    new_powersource=facilityParamDescription.objects.filter(name=dic['powersource'])
+                if 'province' in dic and ((dic['province']!=None) or dic['province']!=""):
+                    print("salam")
+                    new_powersource=facilityParamDescription.objects.filter(name=dic['province'])
                     if(new_powersource.count()>0):
-                        dic['powersource']=new_powersource[0].id
+                        dic['province']=new_powersource[0].id
                     else:
                         temp_param={
-                            "name":dic['powersource'],
-                            "paramid":10,
+                            "name":dic['province'],
+                            "paramid":3,
                             "enabled":True,
                             "order":1
                         }
                         ser=facilityParamDescriptionSerilizer(data=temp_param)
                         if(ser.is_valid()):
                             ser.save()
-                            dic['powersource']=ser.data["id"]
+                            dic['province']=ser.data["id"]
+                        else:
+                            return Response(ser.errors)
+                if 'typeimmservice' in dic and ((dic['typeimmservice']!=None) or dic['typeimmservice']!=""):
+                    new_powersource=facilityParamDescription.objects.filter(name=dic['typeimmservice'])
+                    if(new_powersource.count()>0):
+                        dic['typeimmservice']=new_powersource[0].id
+                    else:
+                        temp_param={
+                            "name":dic['typeimmservice'],
+                            "paramid":11,
+                            "enabled":True,
+                            "order":1
+                        }
+                        ser=facilityParamDescriptionSerilizer(data=temp_param)
+                        if(ser.is_valid()):
+                            ser.save()
+                            dic['typeimmservice']=ser.data["id"]
+                if 'recieve_mode' in dic and ((dic['recieve_mode']!=None) or dic['recieve_mode']!=""):
+                    new_powersource=facilityParamDescription.objects.filter(name=dic['recieve_mode'])
+                    if(new_powersource.count()>0):
+                        dic['recieve_mode']=new_powersource[0].id
+                    else:
+                        temp_param={
+                            "name":dic['recieve_mode'],
+                            "paramid":7,
+                            "enabled":True,
+                            "order":1
+                        }
+                        ser=facilityParamDescriptionSerilizer(data=temp_param)
+                        if(ser.is_valid()):
+                            ser.save()
+                            dic['recieve_mode']=ser.data["id"]
+                if 'transport_mode' in dic and ((dic['transport_mode']!=None) or dic['transport_mode']!=""):
+                    new_powersource=facilityParamDescription.objects.filter(name=dic['transport_mode'])
+                    if(new_powersource.count()>0):
+                        dic['transport_mode']=new_powersource[0].id
+                    else:
+                        temp_param={
+                            "name":dic['transport_mode'],
+                            "paramid":8,
+                            "enabled":True,
+                            "order":1
+                        }
+                        ser=facilityParamDescriptionSerilizer(data=temp_param)
+                        if(ser.is_valid()):
+                            ser.save()
+                            dic['transport_mode']=ser.data["id"]
                 dic['is_suitable']=True
                 if(counter==1):
                     dic['id']=1
@@ -693,6 +741,7 @@ class testdb(APIView):
                         }
                         return Response(res,status=status.HTTP_406_NOT_ACCEPTABLE)
                 else:
+                    print(dic)
                     parent_name=dic['parent'].strip()
                     parent=Facility.objects.filter(name=parent_name)
                     parent=parent[parent.count()-1]
