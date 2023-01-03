@@ -569,6 +569,7 @@ class testdb(APIView):
                     "type":excel_data_df['typeval'][i],
                     "district":excel_data_df['district'][i],
                     "ownership":excel_data_df['ownership'][i],
+                    "province":excel_data_df['provinceval'][i],
                     "powersource":excel_data_df['powersource'][i],   
                     "total_staff":excel_data_df['staffNumber'][i], 
                     "prof_staff":excel_data_df['NumProfStaff'][i], 
@@ -579,6 +580,21 @@ class testdb(APIView):
                     "year":excel_data_df['year'][i],
                     "working_from":excel_data_df['workingHFrom'][i],
                     "working_to":excel_data_df['workingHTo'][i],
+                    "haveimmservice":excel_data_df['HaveImmService'][i],
+                    "typeimmservice":excel_data_df['typeimmservice'][i],
+                    "numimmperweek":excel_data_df['number of immunizationperweek'][i],
+                    "distancefromparent":excel_data_df['distanceFromParent'][i],
+                    "recieve_mode":excel_data_df['RcvVacMode'][i],
+                    "transport_mode":excel_data_df['transportmode'][i],
+                    "other1":excel_data_df['other1'][i],
+                    "other2":excel_data_df['other2'][i],
+                    "other3":excel_data_df['other3'][i],
+                    "other4":excel_data_df['other4'][i],
+                    "other6":excel_data_df['other6'][i],
+                    "other5":excel_data_df['other5'][i],
+
+
+
                 }
                 country=CountryConfig.objects.all()[0]
                 country_code=country.codecountry
@@ -632,6 +648,21 @@ class testdb(APIView):
                         if(ser.is_valid()):
                             ser.save()
                             dic['ownership']=ser.data["id"]
+                if 'powersource' in dic and ((dic['powersource']!=None) or dic['powersource']!=""):
+                    new_powersource=facilityParamDescription.objects.filter(name=dic['powersource'])
+                    if(new_powersource.count()>0):
+                        dic['powersource']=new_powersource[0].id
+                    else:
+                        temp_param={
+                            "name":dic['powersource'],
+                            "paramid":10,
+                            "enabled":True,
+                            "order":1
+                        }
+                        ser=facilityParamDescriptionSerilizer(data=temp_param)
+                        if(ser.is_valid()):
+                            ser.save()
+                            dic['powersource']=ser.data["id"]
                 if 'powersource' in dic and ((dic['powersource']!=None) or dic['powersource']!=""):
                     new_powersource=facilityParamDescription.objects.filter(name=dic['powersource'])
                     if(new_powersource.count()>0):
