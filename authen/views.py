@@ -99,6 +99,7 @@ class UrlCheckView(APIView):
 
 class userdb(APIView):
     def get(self,request):
+        print(User.objects.all()[0].pk)
         f=open("./authen/Results.json","r")
         data=json.load(f)
         for i in data:
@@ -106,13 +107,13 @@ class userdb(APIView):
             del copys['ID']
             copys['is_active']=copys['enable']
             del copys['enable']
-            del copys['idnumber']
             del copys['creatondate']
             del copys['lastLogin']
-            del copys['facilityid']
-            user=User.objects.filter(id=i['createby'])[0]
+            del copys['idnumber']
+            del copys['facilityID']
+            user=User.objects.filter(pk=i['createby'])[0]
             copys['owner']=user.name
-            facility=Facility.objects.filter(name__icontains=i['faciltyName'].strip())
+            facility=Facility.objects.filter(name__icontains=i['facilityName'].strip())
             if(len(facility)==0):
                 continue
             facility=facility[0]
@@ -120,5 +121,7 @@ class userdb(APIView):
             ser=RegisterSerializer(data=copys)
             if ser.is_valid():
                 ser.save()
+            else:
+                print(ser.errors)
         return Response({"message":"ok"},status=status.HTTP_200_OK)
 

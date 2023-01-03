@@ -10,10 +10,10 @@ from authen.models import User
 @admin.register(User)
 class CustomUserAdmin(BaseUserAdmin):
     model = User
-    list_display = ( 'name','password','facilityid','username','idnumber','position','phone','facadmin','itemadmin','reportadmin','useradmin','created_at','updated_at')
-    list_filter = ( 'name','password','facilityid','username','idnumber','position','phone','facadmin','itemadmin','reportadmin','useradmin','created_at','updated_at')
+    list_display = ( 'name','facilityid','username','idnumber','position','phone','facadmin','itemadmin','reportadmin','useradmin','created_at','updated_at')
+    list_filter = ( 'name','facilityid','username','idnumber','position','phone','facadmin','itemadmin','reportadmin','useradmin','created_at','updated_at')
     fieldsets = (
-        ('infos', {'fields': ('name','password','facilityid','username','idnumber','position','phone','facadmin','itemadmin','reportadmin','useradmin')}),
+        ('infos', {'fields': ('name','facilityid','username','idnumber','position','phone','facadmin','itemadmin','reportadmin','useradmin')}),
         ('Permissions', {
          'fields': ('is_staff', 'is_active', 'user_permissions')}),
     )
