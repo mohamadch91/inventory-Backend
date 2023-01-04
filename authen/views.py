@@ -105,6 +105,7 @@ class userdb(APIView):
         for i in data:
             copys=i.copy()
             del copys['ID']
+            copys['username']=copys['username'].lower().replace(" ","")
             copys['is_active']=copys['enable']
             del copys['enable']
             del copys['creatondate']
