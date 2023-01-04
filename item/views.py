@@ -515,8 +515,6 @@ class itemdb(APIView):
                 facilty=facilty[0]
                 dic['facility']=facilty.id
                 item_class_code=dic['OtherCode'].strip()[10:13]
-                print(item_class_code)
-                print(dic)
                 item_class=ItemClass.objects.filter(title__icontains=item_class_code)
                 if(item_class.count()==0):
                     item_class_code=dic['OtherCode'].strip()[10:12]
