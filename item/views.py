@@ -434,7 +434,7 @@ class itemdb(APIView):
         excel_data_df = pandas.read_excel('titem.xlsx', sheet_name='Items')
         excel_data_df.fillna("###", inplace=True)
         counter=0
-        for i in range(1000): 
+        for i in range(len(excel_data_df)): 
             z=int(excel_data_df['isDel'][i])
             if(z==0):
                 counter+=1
@@ -591,7 +591,6 @@ class itemdb(APIView):
                         dic['EnergySource']="Electricity"
                     elif dic['EnergySource']==106:
                         dic['EnergySource']="Solar"
-                    print(dic["EnergySource"])
                     new_ownership=itemParamDescription.objects.filter(name__icontains=dic['EnergySource'].strip())
                     if(new_ownership.count()>0):
                         dic['EnergySource']=new_ownership[0].id
@@ -786,13 +785,13 @@ class itemdbfix(APIView):
         count=0
         items=item.objects.all()
         for i in items:
-            count+=1
-            # print(i.Manufacturer)
-            if(i.Manufacturer!=None):
-                man=Manufacturer.objects.filter(id=i.Manufacturer)
-                if(man.count()==0):
-                    i.Manufacturer="100"
-                    i.save()
+            # count+=1
+            # # print(i.Manufacturer)
+            # if(i.Manufacturer!=None):
+            #     man=Manufacturer.objects.filter(id=i.Manufacturer)
+            #     if(man.count()==0):
+            #         i.Manufacturer="100"
+            #         i.save()
 
             #     print(man.id)
             #     print(man.describe)
@@ -802,7 +801,7 @@ class itemdbfix(APIView):
             # if(love.count()>=i.loverlevelfac):
             #     i.loverlevelfac=love.count()+1
             #     i.save()
-            # i.delete()
+            i.delete()
 
         return Response(count,status=status.HTTP_200_OK)
 
