@@ -141,28 +141,28 @@ DATA_UPLOAD_MAX_NUMBER_FIELDS = 10240
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-runserver.default_port= (8000)
+runserver.default_port= (8006)
 runserver.default_addr = ("0.0.0.0")
-# DATABASES = {
-#   'default': {
-#      'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'jor_db',
-#         'USER': 'postgres',
-#         'PASSWORD': 'fdhdkj@33443',
-#         'HOST': 'localhost',
-#         'PORT': '',
-# }
-# }
 DATABASES = {
   'default': {
      'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'inventory',
+        'NAME': 'aze_db',
         'USER': 'postgres',
-        'PASSWORD': 'mohamad',
+        'PASSWORD': 'fdhdkj@33443',
         'HOST': 'localhost',
         'PORT': '',
 }
 }
+# DATABASES = {
+#   'default': {
+#      'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'inventory',
+#         'USER': 'postgres',
+#         'PASSWORD': 'mohamad',
+#         'HOST': 'localhost',
+#         'PORT': '',
+# }
+# }
 
 # DATABASES = {
 #     'default': {
