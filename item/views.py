@@ -497,10 +497,15 @@ class itemdb(APIView):
                 "TechnicalConditions":excel_data_df['TechnicalCondition'][i],
                 "OriginalCost":excel_data_df['originalCost'][i],
                 "IsThereAnAutomaticStartUpSystem":excel_data_df['autoStart'][i],
+                "CoolantPackNominalCapacity":excel_data_df['CoolantPackNominalCapacity'][i],
+                "NumberOfCoolantPacksRequired":excel_data_df['coolantpacknumber'][i],
                 }
                 ## iterate all keys and check for  ### value
+                del dic['EnergySource']
+
                 dic_copy=dic.copy()
                 for i in dic.keys():
+                    print(dic[i])
                     if(dic[i] == "###"):
                         del dic_copy[i]
                 dic=dic_copy
@@ -769,6 +774,12 @@ class itemdb(APIView):
                 if 'NetVaccineStorageCapacity' in dic   and ((dic['NetVaccineStorageCapacity']!=None) or dic['NetVaccineStorageCapacity']!=""):
                     dic['NetVaccineStorageCapacity']=dic['NetVaccineStorageCapacity'].replace(",",".")
                     dic["NetVaccineStorageCapacity"]=(float(dic["NetVaccineStorageCapacity"]))
+                if 'NumberOfCoolantPacksRequired' in dic   and ((dic['NumberOfCoolantPacksRequired']!=None) or dic['NumberOfCoolantPacksRequired']!=""):
+                    dic['NumberOfCoolantPacksRequired']=dic['NumberOfCoolantPacksRequired'].replace(",",".")
+                    dic["NumberOfCoolantPacksRequired"]=(int(dic["NumberOfCoolantPacksRequired"]))
+                if 'CoolantPackNominalCapacity' in dic   and ((dic['CoolantPackNominalCapacity']!=None) or dic['CoolantPackNominalCapacity']!=""):
+                    dic['CoolantPackNominalCapacity']=dic['CoolantPackNominalCapacity'].replace(",",".")
+                    dic["CoolantPackNominalCapacity"]=(float(dic["CoolantPackNominalCapacity"]))
                          
                 dic['YearInstalled']=str(dic['YearInstalled'])
 
