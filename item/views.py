@@ -710,7 +710,7 @@ class itemdb(APIView):
                     else:
                         temp_param={
                             "name":dic['EnergySource_generator'],
-                            "paramid":14,
+                            "paramid":13,
                             "enabled":True,
                             "order":1
                         }
@@ -718,6 +718,36 @@ class itemdb(APIView):
                         if(ser.is_valid()):
                             ser.save()
                             dic['EnergySource_generator']=ser.data["id"]
+                if 'PhysicalConditions' in dic   and ((dic['PhysicalConditions']!=None) or dic['PhysicalConditions']!=""):
+                    types=itemParamDescription.objects.filter(name__icontains=dic['PhysicalConditions'].strip())
+                    if(types.count()>0):
+                        dic['PhysicalConditions']=types[0].id
+                    else:
+                        temp_param={
+                            "name":dic['PhysicalConditions'],
+                            "paramid":9,
+                            "enabled":True,
+                            "order":1
+                        }
+                        ser=itemParamDescriptionSerilizer(data=temp_param)
+                        if(ser.is_valid()):
+                            ser.save()
+                            dic['PhysicalConditions']=ser.data["id"]
+                if 'PhysicalConditions' in dic   and ((dic['PhysicalConditions']!=None) or dic['PhysicalConditions']!=""):
+                    types=itemParamDescription.objects.filter(name__icontains=dic['PhysicalConditions'].strip())
+                    if(types.count()>0):
+                        dic['PhysicalConditions']=types[0].id
+                    else:
+                        temp_param={
+                            "name":dic['PhysicalConditions'],
+                            "paramid":9,
+                            "enabled":True,
+                            "order":1
+                        }
+                        ser=itemParamDescriptionSerilizer(data=temp_param)
+                        if(ser.is_valid()):
+                            ser.save()
+                            dic['PhysicalConditions']=ser.data["id"]
                             
                 dic['YearInstalled']=str(dic['YearInstalled'])
                 if 'NotInUseSince' in dic and type(dic['NotInUseSince'])==str:
