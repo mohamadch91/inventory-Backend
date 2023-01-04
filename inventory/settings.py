@@ -146,7 +146,7 @@ runserver.default_addr = ("0.0.0.0")
 DATABASES = {
   'default': {
      'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'geo_db',
+        'NAME': 'jor_db',
         'USER': 'postgres',
         'PASSWORD': 'fdhdkj@33443',
         'HOST': 'localhost',
