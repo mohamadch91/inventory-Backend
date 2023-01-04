@@ -659,7 +659,7 @@ class itemdb(APIView):
                             ser.save()
                             dic['Type2']=ser.data["id"]
                 if 'Type3' in dic   and ((dic['Type3']!=None) or dic['Type3']!=""):
-                    types=itemParamDescription.objects.filter(name__icontains=dic['Type3'].strip().strip())
+                    types=itemParamDescription.objects.filter(name__icontains=dic['Type3'].strip())
                     if(types.count()>0):
                         dic['Type3']=types[0].id
                     else:
@@ -703,6 +703,22 @@ class itemdb(APIView):
                         if(ser.is_valid()):
                             ser.save()
                             dic['FinancialSource']=ser.data["id"]
+                if 'EnergySource_generator' in dic   and ((dic['EnergySource_generator']!=None) or dic['EnergySource_generator']!=""):
+                    types=itemParamDescription.objects.filter(name__icontains=dic['EnergySource_generator'].strip())
+                    if(types.count()>0):
+                        dic['EnergySource_generator']=types[0].id
+                    else:
+                        temp_param={
+                            "name":dic['EnergySource_generator'],
+                            "paramid":14,
+                            "enabled":True,
+                            "order":1
+                        }
+                        ser=itemParamDescriptionSerilizer(data=temp_param)
+                        if(ser.is_valid()):
+                            ser.save()
+                            dic['EnergySource_generator']=ser.data["id"]
+                            
                 dic['YearInstalled']=str(dic['YearInstalled'])
                 if 'NotInUseSince' in dic and type(dic['NotInUseSince'])==str:
                     del dic['NotInUseSince']
