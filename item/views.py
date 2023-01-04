@@ -613,6 +613,8 @@ class itemdb(APIView):
                         dic['StorageConditions']="3"
                     elif(sg=='-70 C'):
                         dic['StorageConditions']="4"
+                    else:
+                        dic['StorageConditions']=""
                 if 'Manufacturer' in dic   and ((dic['Manufacturer']!=None) or dic['Manufacturer']!=""):
                     Manufacturers=Manufacturer.objects.filter(describe__icontains=dic['Manufacturer'].strip())
                     if(Manufacturers.count()>0):
@@ -760,7 +762,14 @@ class itemdb(APIView):
                 if 'OriginalCost' in dic   and ((dic['OriginalCost']!=None) or dic['OriginalCost']!=""):
                     dic['OriginalCost']=dic['OriginalCost'].replace(",",".")
                     dic["OriginalCost"]=int(float(dic["OriginalCost"]))
-                        
+
+                if 'FreezerNetCapacity' in dic   and ((dic['FreezerNetCapacity']!=None) or dic['FreezerNetCapacity']!=""):
+                    dic['FreezerNetCapacity']=dic['FreezerNetCapacity'].replace(",",".")
+                    dic["FreezerNetCapacity"]=(float(dic["FreezerNetCapacity"]))
+                if 'NetVaccineStorageCapacity' in dic   and ((dic['NetVaccineStorageCapacity']!=None) or dic['NetVaccineStorageCapacity']!=""):
+                    dic['NetVaccineStorageCapacity']=dic['NetVaccineStorageCapacity'].replace(",",".")
+                    dic["NetVaccineStorageCapacity"]=(float(dic["NetVaccineStorageCapacity"]))
+                         
                 dic['YearInstalled']=str(dic['YearInstalled'])
 
                 if 'NotInUseSince' in dic and type(dic['NotInUseSince'])==str:
