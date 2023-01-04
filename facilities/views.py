@@ -542,6 +542,7 @@ class DeletefacilityView(APIView):
             #     i.loverlevelfac=love.count()+1
             #     i.save()
             if(i.id!=1):
+                count+=1
                 i.delete()
 
         return Response(count,status=status.HTTP_200_OK)
@@ -760,6 +761,12 @@ class testdb(APIView):
                         }
                         return Response(res,status=status.HTTP_406_NOT_ACCEPTABLE)
                 else:
+                    if('parent' not in dic):
+                        founded_parent=Facility.objects.filter(name__icontains=dic['name'].strip())
+                        if(founded_parent.count()>0):
+                            continue
+                        else:
+                            dic['parent']=1
                     parent_name=dic['parent'].strip()
                     parent=Facility.objects.filter(name=parent_name)
                     parent=parent[parent.count()-1]
