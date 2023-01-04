@@ -751,7 +751,11 @@ class itemdb(APIView):
                 if 'IceMakingCapacity' in dic   and ((dic['IceMakingCapacity']!=None) or dic['IceMakingCapacity']!=""):
                     dic['IceMakingCapacity']=dic['IceMakingCapacity'].replace(",",".")
                 
-                    
+                if 'CoolWaterProductionCapacity' in dic   and ((dic['CoolWaterProductionCapacity']!=None) or dic['CoolWaterProductionCapacity']!=""):
+                    dic['CoolWaterProductionCapacity']=dic['CoolWaterProductionCapacity'].replace(",",".")
+                if 'OriginalCost' in dic   and ((dic['OriginalCost']!=None) or dic['OriginalCost']!=""):
+                    dic['OriginalCost']=dic['OriginalCost'].replace(",",".")
+                        
                 dic['YearInstalled']=str(dic['YearInstalled'])
 
                 if 'NotInUseSince' in dic and type(dic['NotInUseSince'])==str:
