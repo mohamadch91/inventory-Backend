@@ -748,8 +748,12 @@ class itemdb(APIView):
                         if(ser.is_valid()):
                             ser.save()
                             dic['TechnicalConditions']=ser.data["id"]
-                            
+                if 'IceMakingCapacity' in dic   and ((dic['IceMakingCapacity']!=None) or dic['IceMakingCapacity']!=""):
+                    dic['IceMakingCapacity']=dic['IceMakingCapacity'].replace(",",".")
+                
+                    
                 dic['YearInstalled']=str(dic['YearInstalled'])
+
                 if 'NotInUseSince' in dic and type(dic['NotInUseSince'])==str:
                     del dic['NotInUseSince']
                 # print(dic)
