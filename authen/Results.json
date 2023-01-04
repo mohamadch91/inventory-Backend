@@ -2,7 +2,7 @@
   {
     "ID": 1,
     "name": "administrator",
-    "username": "admin",
+    "username": "admin_geo",
     "password": "123",
     "facilityID": 1,
     "createby": 1,
