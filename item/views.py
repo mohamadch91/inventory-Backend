@@ -515,10 +515,14 @@ class itemdb(APIView):
                 facilty=facilty[0]
                 dic['facility']=facilty.id
                 item_class_code=dic['OtherCode'].strip()[10:13]
-                # print(item_class_code)
+                print(item_class_code)
+                print(dic)
                 item_class=ItemClass.objects.filter(title__icontains=item_class_code)
-                # if(item_class.count()==0):
-                #     item_class=ItemClass.objects.filter(title__icontains='Active equipment')[0]
+                if(item_class.count()==0):
+                    item_class_code=dic['OtherCode'].strip()[10:12]
+                    item_class=ItemClass.objects.filter(title__icontains=item_class_code)
+                    
+
                 # else:
                 item_class=item_class[0]
 
@@ -776,7 +780,7 @@ class itemdb(APIView):
                     dic["NetVaccineStorageCapacity"]=(float(dic["NetVaccineStorageCapacity"]))
                 if 'NumberOfCoolantPacksRequired' in dic   and ((dic['NumberOfCoolantPacksRequired']!=None) or dic['NumberOfCoolantPacksRequired']!=""):
                     dic['NumberOfCoolantPacksRequired']=str(dic['NumberOfCoolantPacksRequired']).replace(",",".")
-                    dic["NumberOfCoolantPacksRequired"]=(int(dic["NumberOfCoolantPacksRequired"]))
+                    dic["NumberOfCoolantPacksRequired"]=(int(float(dic["NumberOfCoolantPacksRequired"])))
                 if 'CoolantPackNominalCapacity' in dic   and ((dic['CoolantPackNominalCapacity']!=None) or dic['CoolantPackNominalCapacity']!=""):
                     dic['CoolantPackNominalCapacity']=str(dic['CoolantPackNominalCapacity']).replace(",",".")
                     dic["CoolantPackNominalCapacity"]=(float(dic["CoolantPackNominalCapacity"]))
