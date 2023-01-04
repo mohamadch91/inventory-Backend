@@ -513,7 +513,7 @@ class itemdb(APIView):
                 dic['facility']=facilty.id
                 item_class_code=dic['OtherCode'].strip()[10:13]
                 # print(item_class_code)
-                item_class=ItemClass.objects.filter(title__icontains=dic['item_class'])
+                item_class=ItemClass.objects.filter(title__icontains=item_class_code)
                 # if(item_class.count()==0):
                 #     item_class=ItemClass.objects.filter(title__icontains='Active equipment')[0]
                 # else:
@@ -585,12 +585,13 @@ class itemdb(APIView):
                             dic['WorkingConditions']=ser.data["id"]
                 
                 if  'EnergySource' in dic   and ((dic['EnergySource']!=None) or dic['EnergySource']!=""):
-                    if(dic['EnergySource']=="-1"):
+                    if(dic['EnergySource']==-1):
                         dic['EnergySource']="EG"
-                    elif dic['EnergySource']=="105":
+                    elif dic['EnergySource']==105:
                         dic['EnergySource']="Electricity"
-                    elif dic['EnergySource']=="106":
+                    elif dic['EnergySource']==106:
                         dic['EnergySource']="Solar"
+                    print(dic["EnergySource"])
                     new_ownership=itemParamDescription.objects.filter(name__icontains=dic['EnergySource'].strip())
                     if(new_ownership.count()>0):
                         dic['EnergySource']=new_ownership[0].id
