@@ -112,7 +112,6 @@ class userdb(APIView):
             del copys['lastLogin']
             del copys['idnumber']
             del copys['facilityID']
-            print(copys['username'])
             for j in data:
                 if(i['createby']==j['ID']):     
                     if(j['ID']==1):
@@ -129,7 +128,6 @@ class userdb(APIView):
             if ser.is_valid():
                 ser.save()
             else:
-                print(copys['username'])
                 print(ser.errors)
         return Response({"message":"ok"},status=status.HTTP_200_OK)
 
