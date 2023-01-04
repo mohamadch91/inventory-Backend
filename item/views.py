@@ -470,7 +470,7 @@ class itemdb(APIView):
                 "NetShippingVolume":excel_data_df['netVolume'][i],
                 "Weightkg":excel_data_df['Weight'][i],
                 "DoesItHaveFreezingCompartment":True,
-                "NumberOfCoolingUnits":1,
+                "NumberOfCoolingUnits":excel_data_df['coolingUnitNumber'][i],
                 "DoesItHaveContinuousTemperatureMonitoringDevice":True,
                 "DoesItHaveAnAlarmSystem":excel_data_df['haveAlarm'][i],
                 "DoesItHaveBuiltInThermometer":True,
@@ -501,7 +501,6 @@ class itemdb(APIView):
                 "NumberOfCoolantPacksRequired":excel_data_df['coolantpacknumber'][i],
                 }
                 ## iterate all keys and check for  ### value
-                del dic['EnergySource']
 
                 dic_copy=dic.copy()
                 for i in dic.keys():
@@ -591,10 +590,10 @@ class itemdb(APIView):
                 if  'EnergySource' in dic   and ((dic['EnergySource']!=None) or dic['EnergySource']!=""):
                     if(dic['EnergySource']==-1):
                         dic['EnergySource']="EG"
-                    elif dic['EnergySource']==105:
-                        dic['EnergySource']="Electricity"
-                    elif dic['EnergySource']==106:
-                        dic['EnergySource']="Solar"
+                    elif dic['EnergySource']==154:
+                        dic['EnergySource']="დიზელი"
+                    elif dic['EnergySource']==155:
+                        dic['EnergySource']="ბენზინი"
                     new_ownership=itemParamDescription.objects.filter(name__icontains=dic['EnergySource'].strip())
                     if(new_ownership.count()>0):
                         dic['EnergySource']=new_ownership[0].id
@@ -757,29 +756,29 @@ class itemdb(APIView):
                             ser.save()
                             dic['TechnicalConditions']=ser.data["id"]
                 if 'IceMakingCapacity' in dic   and ((dic['IceMakingCapacity']!=None) or dic['IceMakingCapacity']!=""):
-                    dic['IceMakingCapacity']=dic['IceMakingCapacity'].replace(",",".")
+                    dic['IceMakingCapacity']=str(dic['IceMakingCapacity']).replace(",",".")
                     dic['IceMakingCapacity']=float(dic['IceMakingCapacity'])
 
                 
                 if 'CoolWaterProductionCapacity' in dic   and ((dic['CoolWaterProductionCapacity']!=None) or dic['CoolWaterProductionCapacity']!=""):
-                    dic['CoolWaterProductionCapacity']=dic['CoolWaterProductionCapacity'].replace(",",".")
+                    dic['CoolWaterProductionCapacity']=str(dic['CoolWaterProductionCapacity']).replace(",",".")
                     dic['CoolWaterProductionCapacity']=float(dic['CoolWaterProductionCapacity'])
 
                 if 'OriginalCost' in dic   and ((dic['OriginalCost']!=None) or dic['OriginalCost']!=""):
-                    dic['OriginalCost']=dic['OriginalCost'].replace(",",".")
+                    dic['OriginalCost']=str(dic['OriginalCost']).replace(",",".")
                     dic["OriginalCost"]=int(float(dic["OriginalCost"]))
 
                 if 'FreezerNetCapacity' in dic   and ((dic['FreezerNetCapacity']!=None) or dic['FreezerNetCapacity']!=""):
-                    dic['FreezerNetCapacity']=dic['FreezerNetCapacity'].replace(",",".")
+                    dic['FreezerNetCapacity']=str(dic['FreezerNetCapacity']).replace(",",".")
                     dic["FreezerNetCapacity"]=(float(dic["FreezerNetCapacity"]))
                 if 'NetVaccineStorageCapacity' in dic   and ((dic['NetVaccineStorageCapacity']!=None) or dic['NetVaccineStorageCapacity']!=""):
-                    dic['NetVaccineStorageCapacity']=dic['NetVaccineStorageCapacity'].replace(",",".")
+                    dic['NetVaccineStorageCapacity']=str(dic['NetVaccineStorageCapacity']).replace(",",".")
                     dic["NetVaccineStorageCapacity"]=(float(dic["NetVaccineStorageCapacity"]))
                 if 'NumberOfCoolantPacksRequired' in dic   and ((dic['NumberOfCoolantPacksRequired']!=None) or dic['NumberOfCoolantPacksRequired']!=""):
-                    dic['NumberOfCoolantPacksRequired']=dic['NumberOfCoolantPacksRequired'].replace(",",".")
+                    dic['NumberOfCoolantPacksRequired']=str(dic['NumberOfCoolantPacksRequired']).replace(",",".")
                     dic["NumberOfCoolantPacksRequired"]=(int(dic["NumberOfCoolantPacksRequired"]))
                 if 'CoolantPackNominalCapacity' in dic   and ((dic['CoolantPackNominalCapacity']!=None) or dic['CoolantPackNominalCapacity']!=""):
-                    dic['CoolantPackNominalCapacity']=dic['CoolantPackNominalCapacity'].replace(",",".")
+                    dic['CoolantPackNominalCapacity']=str(dic['CoolantPackNominalCapacity']).replace(",",".")
                     dic["CoolantPackNominalCapacity"]=(float(dic["CoolantPackNominalCapacity"]))
                          
                 dic['YearInstalled']=str(dic['YearInstalled'])
@@ -823,6 +822,7 @@ class itemdbfix(APIView):
             #     i.loverlevelfac=love.count()+1
             #     i.save()
             i.delete()
+            count+=1
 
         return Response(count,status=status.HTTP_200_OK)
 
