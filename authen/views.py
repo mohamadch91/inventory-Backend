@@ -105,15 +105,21 @@ class userdb(APIView):
         for i in data:
             copys=i.copy()
             del copys['ID']
-            copys['username']=copys['username'].lower().replace(" ","")
+            copys['username']=copys['username'].strip().replace(" ","")
             copys['is_active']=copys['enable']
             del copys['enable']
             del copys['creatondate']
             del copys['lastLogin']
             del copys['idnumber']
             del copys['facilityID']
-            user=User.objects.filter(pk=i['createby'])[0]
-            copys['owner']=user.name
+            print(copys['username'])
+            for j in data:
+                if(i['createby']==j['ID']):     
+                    if(j['ID']==1):
+                        copys['owner']="admin"
+                        break   
+                    user=User.objects.filter(username=j['username'])[0]
+                    copys['owner']=user.name
             facility=Facility.objects.filter(name__icontains=i['facilityName'].strip())
             if(len(facility)==0):
                 continue
@@ -123,6 +129,7 @@ class userdb(APIView):
             if ser.is_valid():
                 ser.save()
             else:
+                print(copys['username'])
                 print(ser.errors)
         return Response({"message":"ok"},status=status.HTTP_200_OK)
 
