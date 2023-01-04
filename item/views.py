@@ -615,8 +615,10 @@ class itemdb(APIView):
                         dic['StorageConditions']="2"
                     elif(sg=='-20 C'):
                         dic['StorageConditions']="3"
-                    elif(sg=='-70 C'):
+                    elif(sg=='-80 C'):
                         dic['StorageConditions']="4"
+                    elif(sg=='+25 C'):
+                        dic['StorageConditions']="1"
                     else:
                         dic['StorageConditions']=""
                 if 'Manufacturer' in dic   and ((dic['Manufacturer']!=None) or dic['Manufacturer']!=""):
