@@ -756,6 +756,7 @@ class itemdb(APIView):
                     dic['CoolWaterProductionCapacity']=dic['CoolWaterProductionCapacity'].replace(",",".")
                 if 'OriginalCost' in dic   and ((dic['OriginalCost']!=None) or dic['OriginalCost']!=""):
                     dic['OriginalCost']=dic['OriginalCost'].replace(",",".")
+                    dic["OriginalCost"]=int(float(dic["OriginalCost"]))
                         
                 dic['YearInstalled']=str(dic['YearInstalled'])
 
