@@ -556,6 +556,8 @@ class testdb(APIView):
         excel_data_df.fillna("###", inplace=True)
         counter=0
         for i in range(len(excel_data_df)): 
+            if(excel_data_df['Isdel'][i] == "###"):
+                continue
             z=int(excel_data_df['Isdel'][i])
             if(z==0):
                 counter+=1
@@ -766,7 +768,7 @@ class testdb(APIView):
                         if(founded_parent.count()>0):
                             continue
                         else:
-                            dic['parent']=1
+                            dic['parent']="დკსჯეც - ცენტრალური საწყობი"
                     parent_name=dic['parent'].strip()
                     parent=Facility.objects.filter(name=parent_name)
                     parent=parent[parent.count()-1]
