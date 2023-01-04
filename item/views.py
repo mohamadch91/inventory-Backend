@@ -434,7 +434,7 @@ class itemdb(APIView):
         excel_data_df = pandas.read_excel('titem.xlsx', sheet_name='Items')
         excel_data_df.fillna("###", inplace=True)
         counter=0
-        for i in range(len(excel_data_df)): 
+        for i in range(1000): 
             z=int(excel_data_df['isDel'][i])
             if(z==0):
                 counter+=1
@@ -445,20 +445,27 @@ class itemdb(APIView):
                 "item_class":excel_data_df['itemclass'][i],
                 "WorkingConditions":excel_data_df['workingCondition'][i],
                 "StorageConditions":excel_data_df['temprange'][i],
-                "EnergySource":excel_data_df['energysource'][i],
+                "EnergySource_generator":excel_data_df['energysource'][i],
                 "Manufacturer":excel_data_df['Manufacturer'][i],
                 "TypeP":excel_data_df['type'][i],
                 "Type2":excel_data_df['type2'][i],
                 "Type3":excel_data_df['type3'][i],
                 "Model":excel_data_df['model'][i],
                 "NetVaccineStorageCapacity":excel_data_df['netVaccCapacity'][i],
+                "FreezerNetCapacity":excel_data_df['capacity'][i],
+                "IceMakingCapacity":excel_data_df['iceCapacity'][i],
+                "CoolWaterProductionCapacity":excel_data_df['coolWaterCapacity'][i],
                 "RefrigerantGas":excel_data_df['refrigrationgas'][i],
                 "IsTheRefrigerantGasCFCFree":excel_data_df['CFCFree'][i],
                 "PQSPISManufacturer":excel_data_df['pqsmanufacturer'][i],
                 "PQSPISRefrigerantGas":excel_data_df['pqsrefgas'][i],
                 "PQSPISTemperatureWorkingZone":excel_data_df['pqstempzone'][i],
+                "PQSPISCode":excel_data_df['PQSCode'][i],
+                "PQSPISType":excel_data_df['pqstype'][i],
                 "Height":excel_data_df['height'][i],
                 "Width":excel_data_df['width'][i],
+                "Length":excel_data_df['length'][i],
+                "Weightkg":excel_data_df['Weight'][i],
                 "GrossVolume":excel_data_df['grossVolume'][i],
                 "NetShippingVolume":excel_data_df['netVolume'][i],
                 "Weightkg":excel_data_df['Weight'][i],
@@ -485,6 +492,11 @@ class itemdb(APIView):
                 "OtherFieldsItem1":excel_data_df['description'][i],
                 "YearInstalled":excel_data_df['installYear'][i],
                 "IsThereAnAutomaticStartUpSystem":True,
+                "EnergySource":excel_data_df['powerGeneration'][i],
+                "PhysicalConditions":excel_data_df['physicalCondition'][i],
+                "TechnicalConditions":excel_data_df['TechnicalCondition'][i],
+                "OriginalCost":excel_data_df['originalCost'][i],
+                "IsThereAnAutomaticStartUpSystem":excel_data_df['autoStart'][i],
                 }
                 ## iterate all keys and check for  ### value
                 dic_copy=dic.copy()
@@ -499,13 +511,13 @@ class itemdb(APIView):
                     continue
                 facilty=facilty[0]
                 dic['facility']=facilty.id
-                # item_class_code=dic['OtherCode'].strip()[10:13]
+                item_class_code=dic['OtherCode'].strip()[10:13]
                 # print(item_class_code)
                 item_class=ItemClass.objects.filter(title__icontains=dic['item_class'])
-                if(item_class.count()==0):
-                    item_class=ItemClass.objects.filter(title__icontains='Active equipment')[0]
-                else:
-                    item_class=item_class[0]
+                # if(item_class.count()==0):
+                #     item_class=ItemClass.objects.filter(title__icontains='Active equipment')[0]
+                # else:
+                item_class=item_class[0]
 
 
                 dic['item_class']=item_class.id
@@ -555,8 +567,9 @@ class itemdb(APIView):
                     item_count=item.objects.filter(facility=facilty,item_class=item_class.id,item_type=item_type.id).count()
                     item_code=f"{item_count+1:03d}"    
                 dic["code"]=f"{facilty.code}{item_class.code}{item_type.code}{item_code}"
+
                 if  'WorkingConditions' in dic   and ((dic['WorkingConditions']!=None) or dic['WorkingConditions']!=""):
-                    new_ownership=itemParamDescription.objects.filter(name__icontains=dic['WorkingConditions'])
+                    new_ownership=itemParamDescription.objects.filter(name__icontains=dic['WorkingConditions'].strip())
                     if(new_ownership.count()>0):
                         dic['WorkingConditions']=new_ownership[0].id
                     else:
@@ -570,8 +583,15 @@ class itemdb(APIView):
                         if(ser.is_valid()):
                             ser.save()
                             dic['WorkingConditions']=ser.data["id"]
+                
                 if  'EnergySource' in dic   and ((dic['EnergySource']!=None) or dic['EnergySource']!=""):
-                    new_ownership=itemParamDescription.objects.filter(name__icontains=dic['EnergySource'])
+                    if(dic['EnergySource']=="-1"):
+                        dic['EnergySource']="EG"
+                    elif dic['EnergySource']=="105":
+                        dic['EnergySource']="Electricity"
+                    elif dic['EnergySource']=="106":
+                        dic['EnergySource']="Solar"
+                    new_ownership=itemParamDescription.objects.filter(name__icontains=dic['EnergySource'].strip())
                     if(new_ownership.count()>0):
                         dic['EnergySource']=new_ownership[0].id
                     else:
@@ -587,14 +607,14 @@ class itemdb(APIView):
                             dic['EnergySource']=ser.data["id"]
                 if 'StorageConditions' in dic   and ((dic['StorageConditions']!=None) or dic['StorageConditions']!=""):
                     sg=dic['StorageConditions']
-                    if(sg=='+2 & +8 C'):
+                    if(sg=='2-8 C'):
                         dic['StorageConditions']="2"
                     elif(sg=='-20 C'):
                         dic['StorageConditions']="3"
                     elif(sg=='-70 C'):
                         dic['StorageConditions']="4"
                 if 'Manufacturer' in dic   and ((dic['Manufacturer']!=None) or dic['Manufacturer']!=""):
-                    Manufacturers=Manufacturer.objects.filter(describe__icontains=dic['Manufacturer'])
+                    Manufacturers=Manufacturer.objects.filter(describe__icontains=dic['Manufacturer'].strip())
                     if(Manufacturers.count()>0):
                         dic['Manufacturer']=Manufacturers[0].id
                     else:
@@ -609,7 +629,7 @@ class itemdb(APIView):
                             ser.save()
                             dic['Manufacturer']=ser.data["id"]
                 if 'TypeP' in dic   and ((dic['TypeP']!=None) or dic['TypeP']!=""):
-                    types=itemParamDescription.objects.filter(name__icontains=dic['TypeP'])
+                    types=itemParamDescription.objects.filter(name__icontains=dic['TypeP'].strip())
                     if(types.count()>0):
                         dic['TypeP']=types[0].id
                     else:
@@ -624,7 +644,7 @@ class itemdb(APIView):
                             ser.save()
                             dic['TypeP']=ser.data["id"]
                 if 'Type2' in dic   and ((dic['Type2']!=None) or dic['Type2']!=""):
-                    types=itemParamDescription.objects.filter(name__icontains=dic['Type2'])
+                    types=itemParamDescription.objects.filter(name__icontains=dic['Type2'].strip())
                     if(types.count()>0):
                         dic['Type2']=types[0].id
                     else:
@@ -639,7 +659,7 @@ class itemdb(APIView):
                             ser.save()
                             dic['Type2']=ser.data["id"]
                 if 'Type3' in dic   and ((dic['Type3']!=None) or dic['Type3']!=""):
-                    types=itemParamDescription.objects.filter(name__icontains=dic['Type3'].strip())
+                    types=itemParamDescription.objects.filter(name__icontains=dic['Type3'].strip().strip())
                     if(types.count()>0):
                         dic['Type3']=types[0].id
                     else:
@@ -654,7 +674,7 @@ class itemdb(APIView):
                             ser.save()
                             dic['Type3']=ser.data["id"]
                 if 'ReasonsForNotFunctioning' in dic   and ((dic['ReasonsForNotFunctioning']!=None) or dic['ReasonsForNotFunctioning']!=""):
-                    types=itemParamDescription.objects.filter(name__icontains=dic['ReasonsForNotFunctioning'])
+                    types=itemParamDescription.objects.filter(name__icontains=dic['ReasonsForNotFunctioning'].strip())
                     if(types.count()>0):
                         dic['ReasonsForNotFunctioning']=types[0].id
                     else:
@@ -669,7 +689,7 @@ class itemdb(APIView):
                             ser.save()
                             dic['ReasonsForNotFunctioning']=ser.data["id"]
                 if 'FinancialSource' in dic   and ((dic['FinancialSource']!=None) or dic['FinancialSource']!=""):
-                    types=itemParamDescription.objects.filter(name__icontains=dic['FinancialSource'])
+                    types=itemParamDescription.objects.filter(name__icontains=dic['FinancialSource'].strip())
                     if(types.count()>0):
                         dic['FinancialSource']=types[0].id
                     else:
