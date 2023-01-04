@@ -738,6 +738,12 @@ class testdb(APIView):
                         if(ser.is_valid()):
                             ser.save()
                             dic['transport_mode']=ser.data["id"]
+                if 'is_functioning' in dic and ((dic['is_functioning']!=None) or dic['is_functioning']!=""):
+                    if(dic['is_functioning'].strip()=="İşlək vəziyyətdədir"):
+                        dic['is_functioning']=True
+                    else:
+                        dic['is_functioning']=False
+                
                 dic['is_suitable']=True
                 if(counter==1):
                     dic['id']=1
