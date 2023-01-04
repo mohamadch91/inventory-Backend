@@ -751,9 +751,13 @@ class itemdb(APIView):
                             dic['TechnicalConditions']=ser.data["id"]
                 if 'IceMakingCapacity' in dic   and ((dic['IceMakingCapacity']!=None) or dic['IceMakingCapacity']!=""):
                     dic['IceMakingCapacity']=dic['IceMakingCapacity'].replace(",",".")
+                    dic['IceMakingCapacity']=float(dic['IceMakingCapacity'])
+
                 
                 if 'CoolWaterProductionCapacity' in dic   and ((dic['CoolWaterProductionCapacity']!=None) or dic['CoolWaterProductionCapacity']!=""):
                     dic['CoolWaterProductionCapacity']=dic['CoolWaterProductionCapacity'].replace(",",".")
+                    dic['CoolWaterProductionCapacity']=float(dic['CoolWaterProductionCapacity'])
+
                 if 'OriginalCost' in dic   and ((dic['OriginalCost']!=None) or dic['OriginalCost']!=""):
                     dic['OriginalCost']=dic['OriginalCost'].replace(",",".")
                     dic["OriginalCost"]=int(float(dic["OriginalCost"]))
