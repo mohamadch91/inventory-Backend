@@ -505,7 +505,6 @@ class itemdb(APIView):
 
                 dic_copy=dic.copy()
                 for i in dic.keys():
-                    print(dic[i])
                     if(dic[i] == "###"):
                         del dic_copy[i]
                 dic=dic_copy
