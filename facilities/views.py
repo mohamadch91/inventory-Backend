@@ -597,6 +597,14 @@ class testdb(APIView):
                     "other4":excel_data_df['other4'][i],
                     "other6":excel_data_df['other6'][i],
                     "other5":excel_data_df['other5'][i],
+                    "is_functioning":excel_data_df["funcstatus"][i],
+                    "individualsX1":excel_data_df["countVacc1"][i],
+                    "individualsX2":excel_data_df["countVacc2"][i],
+                    "individualsX3":excel_data_df["countVacc3"][i],
+                    "havecovid19service":excel_data_df["HaveCovid"][i],
+                    "timetoparent":excel_data_df["timeToParent"][i],
+                    "remark":excel_data_df["remark"][i],
+
 
 
 
