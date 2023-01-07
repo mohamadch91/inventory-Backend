@@ -805,26 +805,30 @@ class itemdb(APIView):
 class itemdbfix(APIView):
     def get(self,request):
         count=0
-        items=item.objects.all()
-        for i in items:
-            # count+=1
-            # # print(i.Manufacturer)
-            # if(i.Manufacturer!=None):
-            #     man=Manufacturer.objects.filter(id=i.Manufacturer)
-            #     if(man.count()==0):
-            #         i.Manufacturer="100"
-            #         i.save()
+        desc=ItemType.objects.all()
+        count=itemtypeSerializer(desc,many=True).data
+        items=item.objects.filter(item_type=34).count()
+        count=items
+        # items=item.objects.all()
+        # for i in items:
+        #     # count+=1
+        #     # # print(i.Manufacturer)
+        #     # if(i.Manufacturer!=None):
+        #     #     man=Manufacturer.objects.filter(id=i.Manufacturer)
+        #     #     if(man.count()==0):
+        #     #         i.Manufacturer="100"
+        #     #         i.save()
 
-            #     print(man.id)
-            #     print(man.describe)
-            # continue
-            # love=Facility.objects.filter(parentid=i.id)
+        #     #     print(man.id)
+        #     #     print(man.describe)
+        #     # continue
+        #     # love=Facility.objects.filter(parentid=i.id)
 
-            # if(love.count()>=i.loverlevelfac):
-            #     i.loverlevelfac=love.count()+1
-            #     i.save()
-            i.delete()
-            count+=1
+        #     # if(love.count()>=i.loverlevelfac):
+        #     #     i.loverlevelfac=love.count()+1
+        #     #     i.save()
+        #     i.delete()
+        #     count+=1
 
         return Response(count,status=status.HTTP_200_OK)
 

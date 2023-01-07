@@ -1,0 +1,212 @@
+id,pid,title,enable,imagefile,orderid,type
+1,0,Type,1,NULL,1,2
+2,0,delreason,1,,12,2
+3,0,Ownership,1,NULL,8,1
+5,0,refGass,1,NULL,8,2
+7,0,finSource,1,,4,2
+8,0,PhysiclCondition,1,NULL,10,2
+9,0,TechnicalCondition,1,NULL,10,2
+10,0,reason,1,NULL,10,2
+11,0,Manufacture,1,NULL,10,3
+12,0,tempZone,1,NULL,10,2
+13,0,energySource,1,NULL,10,2
+14,0,FacilityDeleteReason,1,NULL,13,1
+15,0,OtherService,1,NULL,14,1
+16,0,TypeImmService,1,NULL,12,1
+17,99,Ambient temperatures,1,NULL,5,NULL
+18,0,buildingSuitableReason,1,NULL,15,1
+21,0,TypeParam1,1,,16,2
+22,0,TypeParam2,1,,17,2
+23,0,TypeParam3,1,,18,2
+24,0,TypeParam4,1,,19,2
+25,0,TypeParam5,1,,20,2
+44,0,situation,1,NULL,1,1
+48,0,User types,1,NULL,11,NULL
+53,0,workingCondition,1,NULL,9,2
+58,0,Facilitytype,1,NULL,1,1
+61,0,Climate,1,NULL,2,1
+64,0,receivingVacMode,1,NULL,3,1
+65,0,transportMode,1,NULL,4,1
+71,0,powerSource,1,NULL,1,1
+73,0,Country,1,NULL,1,3
+99,0,tempRange,1,NULL,2,2
+100,99,+2 & +8 C,1,NULL,1,NULL
+101,99,-20 C,1,NULL,2,NULL
+102,99,+25 C,1,NULL,3,NULL
+103,99,-70 C,1,NULL,4,NULL
+104,0,powerSource,1,NULL,4,2
+108,0,functionstatus,1,NULL,3,1
+111,0,HR_EduType,1,NULL,10,1
+112,0,HR_Positions,1,NULL,11,1
+113,111,Diploma,0,NULL,1,NULL
+114,112,Technician,1,NULL,1,NULL
+115,58,Warehouse (Armazen),1,NULL,5,NULL
+116,58,National Health Service MoH (Ministerio da Saude/MdS),1,NULL,7,NULL
+119,58,Municipality Health Service (Servisu Municipal da Saude/SMS),1,NULL,3,NULL
+120,58,Community Health Centre (Servisu Saude Komunitaria),1,NULL,2,NULL
+125,8,2010,1,NULL,1,NULL
+126,8,2012,1,NULL,3,NULL
+127,8,2011,1,NULL,2,NULL
+128,9,2010,1,NULL,1,NULL
+129,9,2011,1,NULL,2,NULL
+130,73,საქართველო,1,NULL,1,NULL
+131,108,Functioning,1,NULL,1,NULL
+132,108,Temporarily not functioning,1,NULL,2,NULL
+133,108,Not functioning,1,NULL,3,NULL
+134,64,Receiving,1,NULL,1,NULL
+135,64,Collecting,1,NULL,2,NULL
+136,64,Both: receiving and collecting,1,NULL,3,NULL
+137,65,Refrigerated vehicle,1,NULL,1,NULL
+138,65,Cold box,1,NULL,2,NULL
+139,65,Other means,0,NULL,3,NULL
+140,3,MoH (Miniterio da Saude/MdS),1,NULL,1,NULL
+141,3,Agency,1,NULL,2,NULL
+142,3,NGO,1,NULL,3,NULL
+143,3,Donation,1,NULL,4,NULL
+144,112,Specialist,1,NULL,2,NULL
+147,53,In operation,1,NULL,1,NULL
+148,53,Working/ not in operation,1,NULL,2,NULL
+149,53,Not in working condition,1,NULL,3,NULL
+150,10,Spare part ot available,1,NULL,1,NULL
+151,10,No budget for reapir,1,NULL,2,NULL
+152,10,Fault not found,1,NULL,3,NULL
+154,104,Diesel,1,NULL,1,NULL
+155,104,Petrol,1,NULL,2,NULL
+156,58,Health Post (Postu Saude),1,NULL,1,NULL
+157,58,Regional & Referral Hospital (Regional & Hospital Referal),1,NULL,4,NULL
+159,44,Tibilisi,1,NULL,1,NULL
+166,10,No budget for repair,1,NULL,4,NULL
+167,104,Electrical (batteries),1,NULL,3,NULL
+168,5,R134a,1,NULL,1,NULL
+169,5,R600a,1,NULL,2,NULL
+170,5,#R290,1,NULL,5,NULL
+171,5,R452A,1,NULL,3,NULL
+172,5,R407A,1,NULL,4,NULL
+173,5,R-22,1,NULL,6,NULL
+174,5,Other,1,NULL,8,NULL
+175,5,HC,1,NULL,7,NULL
+176,7,MoH,1,NULL,1,NULL
+177,7,WHO,1,NULL,2,NULL
+178,7,USAID,1,NULL,3,NULL
+179,7,Agency,1,NULL,5,NULL
+180,7,Unicef,1,NULL,4,NULL
+181,7,2nd hand donation,1,NULL,7,NULL
+182,7,Company,1,NULL,6,NULL
+183,13,Electricity,1,NULL,1,NULL
+184,13,Solar,1,NULL,2,NULL
+185,13,Battery,1,NULL,3,NULL
+186,12,+2°C & +8°C,1,NULL,5,NULL
+187,12,–25°C & -55°C,1,NULL,2,NULL
+188,12,-85°C & -150°C,1,NULL,3,NULL
+189,12,-90°C  &  -105°C,1,NULL,4,NULL
+190,2,Added by mistake,1,NULL,1,NULL
+191,2,Removed due to damage,1,NULL,2,NULL
+192,2,Transferred to anohter facility,1,NULL,3,NULL
+193,2,Written off,1,NULL,4,NULL
+194,-1,TypeImmService,0,NULL,12,1
+195,3,Private,1,NULL,5,NULL
+196,16,Routine,1,NULL,1,NULL
+197,16,Only COVID-19,1,NULL,2,NULL
+198,16,Routine + COVID-19,1,NULL,3,NULL
+199,16,Strategic vaccines/ sera,1,NULL,4,NULL
+200,16,Epidemiologically,1,NULL,5,NULL
+201,16,Non-routine + COVID-19,1,NULL,6,NULL
+202,58,Immunization point- Campaign,1,NULL,6,NULL
+203,16,All,1,NULL,7,NULL
+204,16,With planned + epidurals,0,NULL,8,NULL
+205,10,No technician available,1,NULL,5,NULL
+206,18,Roof is leaking,1,NULL,1,NULL
+207,15,Pre-natal care,1,NULL,1,NULL
+208,15,Haj immunization services,1,NULL,2,NULL
+209,21,Routine/Daily,1,NULL,1,NULL
+210,21,Monthly,1,NULL,2,NULL
+211,21,Weekly,1,NULL,3,NULL
+212,21,Annually,1,NULL,4,NULL
+213,1,Front opening,1,NULL,1,NULL
+214,1,Top openning,1,NULL,2,NULL
+215,71,Electricity,1,NULL,1,NULL
+216,71,Solar Pannel,1,NULL,2,NULL
+217,71,Battery,1,NULL,3,NULL
+218,108,Suction Pump,0,NULL,1,NULL
+219,22,Maternidade,1,NULL,1,NULL
+220,22,Intensive & Intermediate Care Unit (ICU),1,NULL,2,NULL
+221,22,Emergency & Trauma Care,1,NULL,3,NULL
+222,22,Surgery & Operating Theatre (OT),1,NULL,4,NULL
+223,22,Paediatrics,1,NULL,5,NULL
+224,22,Internamentu Homem,1,NULL,6,NULL
+225,22,Internamentu Mulher,1,NULL,7,NULL
+226,22,Haematology,1,NULL,8,NULL
+227,22,Izolamentu,1,NULL,9,NULL
+228,22,Laboratoriu,1,NULL,10,NULL
+229,22,VIP,1,NULL,11,NULL
+230,22,"Rahabilitation/Physiotheraoy ",1,NULL,12,NULL
+231,14,Added by mistake,1,NULL,1,NULL
+232,14,Transferred to another facility,1,NULL,2,NULL
+233,14,Written off,1,NULL,3,NULL
+234,58,National Hospital (HNGV),1,NULL,8,NULL
+235,58,INS,1,NULL,9,NULL
+236,58,SAMES Store (Armazen SAMES),1,NULL,10,NULL
+237,14,Removed due to damage,1,NULL,4,NULL
+238,22,"Radiology ",1,NULL,13,NULL
+239,9,2012,1,NULL,3,NULL
+240,9,2013,1,NULL,4,NULL
+241,9,2014,1,NULL,5,NULL
+242,9,2015,1,NULL,6,NULL
+243,9,2016,1,NULL,7,NULL
+244,9,2017,1,NULL,8,NULL
+245,9,2018,1,NULL,9,NULL
+246,9,2019,1,NULL,10,NULL
+247,9,2020,1,NULL,11,NULL
+248,9,2021,1,NULL,12,NULL
+249,9,2022,1,NULL,13,NULL
+250,8,2013,1,NULL,4,NULL
+251,8,2014,1,NULL,5,NULL
+252,8,2015,1,NULL,6,NULL
+253,8,2016,1,NULL,7,NULL
+254,8,2017,1,NULL,8,NULL
+255,8,2018,1,NULL,9,NULL
+256,8,2019,1,NULL,10,NULL
+257,8,2020,1,NULL,11,NULL
+258,8,2021,1,NULL,12,NULL
+259,8,2022,1,NULL,13,NULL
+260,8,None,1,NULL,14,NULL
+261,9,None,1,NULL,14,NULL
+262,22,Internamentu Homem,1,NULL,14,NULL
+263,22,Internamentu Mulher,1,NULL,15,NULL
+264,22,OPD,1,NULL,16,NULL
+265,22,NIVAS (Post Natal),1,NULL,17,NULL
+266,22,Cardiology,1,NULL,18,NULL
+267,112,Engineer,1,NULL,3,NULL
+268,112,Doutor,1,NULL,4,NULL
+269,7,UNDP,1,NULL,8,NULL
+270,7,NGO,1,NULL,9,NULL
+271,22,Fisiotherapy,1,NULL,19,NULL
+272,22,Ophthalmology,1,NULL,20,NULL
+273,22,Izolamentu,1,NULL,21,NULL
+274,22,Cerugia Mulher,1,NULL,22,NULL
+275,22,Medecina Mulher,1,NULL,23,NULL
+276,3,Others,1,NULL,6,NULL
+277,21,None,1,NULL,5,NULL
+278,22,Dentistry,1,NULL,24,NULL
+279,22,Otorhinolaryngology,1,NULL,25,NULL
+280,22,Pathology & Forensic Medicine,1,NULL,26,NULL
+281,22,Pharmacy,1,NULL,27,NULL
+282,22,Dermatology,1,NULL,28,NULL
+283,22,Psychiatry,1,NULL,29,NULL
+284,22,Obstetrics & Gynecology,1,NULL,30,NULL
+285,22,Oncology,1,NULL,31,NULL
+286,22,Neurology,1,NULL,32,NULL
+287,22,Pneumology,1,NULL,33,NULL
+288,22,Nephrology/Dialysis,1,NULL,34,NULL
+289,22,General Internal Medicine,1,NULL,35,NULL
+290,22,Paediatric Intensive Care Unit (PICU),1,NULL,36,NULL
+291,22,Neonatal Intensive Care Unit (NICU),1,NULL,37,NULL
+292,22,Imunizasaun,1,NULL,38,NULL
+293,22,Sala Seluk (Fatin Seluk),1,NULL,39,NULL
+294,99,-15 & -25 C,1,NULL,6,NULL
+295,99,-15 C,1,NULL,7,NULL
+296,99,-25 C,1,NULL,8,NULL
+297,71,Adaptor (karegador),1,NULL,4,NULL
+298,1,Others (Seluk),1,NULL,3,NULL
+299,13,Adaptor (Karegador),1,NULL,4,NULL
+300,12,–15°C & -25°C,1,NULL,1,NULL
