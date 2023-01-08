@@ -517,7 +517,7 @@ class dbView(APIView):
                     if(fieldName.strip() in  converted_item):
                         field=Field.objects.filter(state=converted_item[fieldName.strip()])
                         data={
-                            "itemtype":founded_item_type,
+                            "itemtype":founded_item_type[0].id,
                             "field":field[0].id,
                             "required":req                            
                         }
@@ -532,7 +532,7 @@ class dbView(APIView):
                 else:
                     field=field[0]
                     data={
-                            "itemtype":founded_item_type,
+                            "itemtype":founded_item_type[0].id,
                             "field":field.id,
                             "required":req                            
                         }
