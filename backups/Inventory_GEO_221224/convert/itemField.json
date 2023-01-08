@@ -1,0 +1,1962 @@
+[
+  {
+    "ID": 470,
+    "itemTypeID": 11,
+    "fieldID": 61,
+    "req": "1",
+    "fildName": "manufacture",
+    "name": "ელ. გენერატორი (El. Generator)"
+  },
+  {
+    "ID": 471,
+    "itemTypeID": 11,
+    "fieldID": 46,
+    "req": "0",
+    "fildName": "model",
+    "name": "ელ. გენერატორი (El. Generator)"
+  },
+  {
+    "ID": 472,
+    "itemTypeID": 11,
+    "fieldID": 28,
+    "req": "0",
+    "fildName": "physicalCondition",
+    "name": "ელ. გენერატორი (El. Generator)"
+  },
+  {
+    "ID": 473,
+    "itemTypeID": 11,
+    "fieldID": 58,
+    "req": "0",
+    "fildName": "workingConditionID",
+    "name": "ელ. გენერატორი (El. Generator)"
+  },
+  {
+    "ID": 474,
+    "itemTypeID": 11,
+    "fieldID": 30,
+    "req": "1",
+    "fildName": "inUse",
+    "name": "ელ. გენერატორი (El. Generator)"
+  },
+  {
+    "ID": 475,
+    "itemTypeID": 11,
+    "fieldID": 32,
+    "req": "0",
+    "fildName": "notUseCause",
+    "name": "ელ. გენერატორი (El. Generator)"
+  },
+  {
+    "ID": 476,
+    "itemTypeID": 11,
+    "fieldID": 26,
+    "req": "0",
+    "fildName": "haveFuelTank",
+    "name": "ელ. გენერატორი (El. Generator)"
+  },
+  {
+    "ID": 477,
+    "itemTypeID": 11,
+    "fieldID": 38,
+    "req": "1",
+    "fildName": "energySourceID",
+    "name": "ელ. გენერატორი (El. Generator)"
+  },
+  {
+    "ID": 478,
+    "itemTypeID": 11,
+    "fieldID": 55,
+    "req": "0",
+    "fildName": "powerConsum",
+    "name": "ელ. გენერატორი (El. Generator)"
+  },
+  {
+    "ID": 479,
+    "itemTypeID": 11,
+    "fieldID": 40,
+    "req": "1",
+    "fildName": "powerGeneration",
+    "name": "ელ. გენერატორი (El. Generator)"
+  },
+  {
+    "ID": 480,
+    "itemTypeID": 11,
+    "fieldID": 21,
+    "req": "0",
+    "fildName": "financialSourceID",
+    "name": "ელ. გენერატორი (El. Generator)"
+  },
+  {
+    "ID": 481,
+    "itemTypeID": 11,
+    "fieldID": 41,
+    "req": "0",
+    "fildName": "otherField1",
+    "name": "ელ. გენერატორი (El. Generator)"
+  },
+  {
+    "ID": 482,
+    "itemTypeID": 12,
+    "fieldID": 61,
+    "req": "1",
+    "fildName": "manufacture",
+    "name": "ავტომობილი (Automobile)"
+  },
+  {
+    "ID": 483,
+    "itemTypeID": 12,
+    "fieldID": 46,
+    "req": "0",
+    "fildName": "model",
+    "name": "ავტომობილი (Automobile)"
+  },
+  {
+    "ID": 484,
+    "itemTypeID": 12,
+    "fieldID": 9,
+    "req": "0",
+    "fildName": "grossVolume",
+    "name": "ავტომობილი (Automobile)"
+  },
+  {
+    "ID": 485,
+    "itemTypeID": 12,
+    "fieldID": 28,
+    "req": "0",
+    "fildName": "physicalCondition",
+    "name": "ავტომობილი (Automobile)"
+  },
+  {
+    "ID": 486,
+    "itemTypeID": 12,
+    "fieldID": 58,
+    "req": "1",
+    "fildName": "workingConditionID",
+    "name": "ავტომობილი (Automobile)"
+  },
+  {
+    "ID": 487,
+    "itemTypeID": 12,
+    "fieldID": 30,
+    "req": "1",
+    "fildName": "inUse",
+    "name": "ავტომობილი (Automobile)"
+  },
+  {
+    "ID": 488,
+    "itemTypeID": 12,
+    "fieldID": 32,
+    "req": "0",
+    "fildName": "notUseCause",
+    "name": "ავტომობილი (Automobile)"
+  },
+  {
+    "ID": 489,
+    "itemTypeID": 12,
+    "fieldID": 57,
+    "req": "0",
+    "fildName": "runningTime_Km",
+    "name": "ავტომობილი (Automobile)"
+  },
+  {
+    "ID": 490,
+    "itemTypeID": 12,
+    "fieldID": 55,
+    "req": "0",
+    "fildName": "powerConsum",
+    "name": "ავტომობილი (Automobile)"
+  },
+  {
+    "ID": 491,
+    "itemTypeID": 12,
+    "fieldID": 21,
+    "req": "0",
+    "fildName": "financialSourceID",
+    "name": "ავტომობილი (Automobile)"
+  },
+  {
+    "ID": 492,
+    "itemTypeID": 12,
+    "fieldID": 41,
+    "req": "0",
+    "fildName": "otherField1",
+    "name": "ავტომობილი (Automobile)"
+  },
+  {
+    "ID": 1538,
+    "itemTypeID": 4,
+    "fieldID": 61,
+    "req": "1",
+    "fildName": "manufacture",
+    "name": "საყინულე (-20 Freezer)"
+  },
+  {
+    "ID": 1539,
+    "itemTypeID": 4,
+    "fieldID": 46,
+    "req": "1",
+    "fildName": "model",
+    "name": "საყინულე (-20 Freezer)"
+  },
+  {
+    "ID": 1540,
+    "itemTypeID": 4,
+    "fieldID": 9,
+    "req": "1",
+    "fildName": "grossVolume",
+    "name": "საყინულე (-20 Freezer)"
+  },
+  {
+    "ID": 1541,
+    "itemTypeID": 4,
+    "fieldID": 18,
+    "req": "1",
+    "fildName": "haveAlarm",
+    "name": "საყინულე (-20 Freezer)"
+  },
+  {
+    "ID": 1542,
+    "itemTypeID": 4,
+    "fieldID": 14,
+    "req": "1",
+    "fildName": "shelvesOK",
+    "name": "საყინულე (-20 Freezer)"
+  },
+  {
+    "ID": 1543,
+    "itemTypeID": 4,
+    "fieldID": 28,
+    "req": "0",
+    "fildName": "physicalCondition",
+    "name": "საყინულე (-20 Freezer)"
+  },
+  {
+    "ID": 1544,
+    "itemTypeID": 4,
+    "fieldID": 29,
+    "req": "1",
+    "fildName": "techCondition",
+    "name": "საყინულე (-20 Freezer)"
+  },
+  {
+    "ID": 1545,
+    "itemTypeID": 4,
+    "fieldID": 30,
+    "req": "1",
+    "fildName": "inUse",
+    "name": "საყინულე (-20 Freezer)"
+  },
+  {
+    "ID": 1546,
+    "itemTypeID": 4,
+    "fieldID": 31,
+    "req": "0",
+    "fildName": "notUseDate",
+    "name": "საყინულე (-20 Freezer)"
+  },
+  {
+    "ID": 1547,
+    "itemTypeID": 4,
+    "fieldID": 32,
+    "req": "1",
+    "fildName": "notUseCause",
+    "name": "საყინულე (-20 Freezer)"
+  },
+  {
+    "ID": 1548,
+    "itemTypeID": 4,
+    "fieldID": 27,
+    "req": "0",
+    "fildName": "installYear",
+    "name": "საყინულე (-20 Freezer)"
+  },
+  {
+    "ID": 1549,
+    "itemTypeID": 4,
+    "fieldID": 36,
+    "req": "1",
+    "fildName": "tempRange",
+    "name": "საყინულე (-20 Freezer)"
+  },
+  {
+    "ID": 1550,
+    "itemTypeID": 4,
+    "fieldID": 12,
+    "req": "0",
+    "fildName": "refrigeranGas",
+    "name": "საყინულე (-20 Freezer)"
+  },
+  {
+    "ID": 1551,
+    "itemTypeID": 4,
+    "fieldID": 17,
+    "req": "1",
+    "fildName": "haveTempMonitor",
+    "name": "საყინულე (-20 Freezer)"
+  },
+  {
+    "ID": 1552,
+    "itemTypeID": 4,
+    "fieldID": 24,
+    "req": "1",
+    "fildName": "haveThermometer",
+    "name": "საყინულე (-20 Freezer)"
+  },
+  {
+    "ID": 1553,
+    "itemTypeID": 4,
+    "fieldID": 39,
+    "req": "1",
+    "fildName": "FreezerCapacity",
+    "name": "საყინულე (-20 Freezer)"
+  },
+  {
+    "ID": 1554,
+    "itemTypeID": 4,
+    "fieldID": 51,
+    "req": "0",
+    "fildName": "netVaccCapacity",
+    "name": "საყინულე (-20 Freezer)"
+  },
+  {
+    "ID": 1555,
+    "itemTypeID": 4,
+    "fieldID": 15,
+    "req": "1",
+    "fildName": "voltageOK",
+    "name": "საყინულე (-20 Freezer)"
+  },
+  {
+    "ID": 1556,
+    "itemTypeID": 4,
+    "fieldID": 21,
+    "req": "0",
+    "fildName": "financialSourceID",
+    "name": "საყინულე (-20 Freezer)"
+  },
+  {
+    "ID": 1557,
+    "itemTypeID": 4,
+    "fieldID": 41,
+    "req": "0",
+    "fildName": "otherField1",
+    "name": "საყინულე (-20 Freezer)"
+  },
+  {
+    "ID": 1558,
+    "itemTypeID": 4,
+    "fieldID": 4,
+    "req": "1",
+    "fildName": "PQSCode",
+    "name": "საყინულე (-20 Freezer)"
+  },
+  {
+    "ID": 1559,
+    "itemTypeID": 4,
+    "fieldID": 62,
+    "req": "0",
+    "fildName": "pqstype",
+    "name": "საყინულე (-20 Freezer)"
+  },
+  {
+    "ID": 1560,
+    "itemTypeID": 4,
+    "fieldID": 63,
+    "req": "0",
+    "fildName": "pqsmanufacturer",
+    "name": "საყინულე (-20 Freezer)"
+  },
+  {
+    "ID": 1561,
+    "itemTypeID": 4,
+    "fieldID": 64,
+    "req": "0",
+    "fildName": "pqsrefgas",
+    "name": "საყინულე (-20 Freezer)"
+  },
+  {
+    "ID": 1562,
+    "itemTypeID": 4,
+    "fieldID": 65,
+    "req": "0",
+    "fildName": "pqstempzone",
+    "name": "საყინულე (-20 Freezer)"
+  },
+  {
+    "ID": 1604,
+    "itemTypeID": 7,
+    "fieldID": 61,
+    "req": "0",
+    "fildName": "manufacture",
+    "name": "უწყვეტი კვების ბლოკი (UPS)"
+  },
+  {
+    "ID": 1605,
+    "itemTypeID": 7,
+    "fieldID": 46,
+    "req": "0",
+    "fildName": "model",
+    "name": "უწყვეტი კვების ბლოკი (UPS)"
+  },
+  {
+    "ID": 1606,
+    "itemTypeID": 7,
+    "fieldID": 28,
+    "req": "1",
+    "fildName": "physicalCondition",
+    "name": "უწყვეტი კვების ბლოკი (UPS)"
+  },
+  {
+    "ID": 1607,
+    "itemTypeID": 7,
+    "fieldID": 58,
+    "req": "1",
+    "fildName": "workingConditionID",
+    "name": "უწყვეტი კვების ბლოკი (UPS)"
+  },
+  {
+    "ID": 1608,
+    "itemTypeID": 7,
+    "fieldID": 30,
+    "req": "1",
+    "fildName": "inUse",
+    "name": "უწყვეტი კვების ბლოკი (UPS)"
+  },
+  {
+    "ID": 1609,
+    "itemTypeID": 7,
+    "fieldID": 32,
+    "req": "0",
+    "fildName": "notUseCause",
+    "name": "უწყვეტი კვების ბლოკი (UPS)"
+  },
+  {
+    "ID": 1610,
+    "itemTypeID": 7,
+    "fieldID": 27,
+    "req": "0",
+    "fildName": "installYear",
+    "name": "უწყვეტი კვების ბლოკი (UPS)"
+  },
+  {
+    "ID": 1611,
+    "itemTypeID": 7,
+    "fieldID": 21,
+    "req": "0",
+    "fildName": "financialSourceID",
+    "name": "უწყვეტი კვების ბლოკი (UPS)"
+  },
+  {
+    "ID": 1612,
+    "itemTypeID": 7,
+    "fieldID": 41,
+    "req": "0",
+    "fildName": "otherField1",
+    "name": "უწყვეტი კვების ბლოკი (UPS)"
+  },
+  {
+    "ID": 1613,
+    "itemTypeID": 8,
+    "fieldID": 61,
+    "req": "1",
+    "fildName": "manufacture",
+    "name": "ვაქცინმზიდი (Vaccine carrier Truck)"
+  },
+  {
+    "ID": 1614,
+    "itemTypeID": 8,
+    "fieldID": 46,
+    "req": "0",
+    "fildName": "model",
+    "name": "ვაქცინმზიდი (Vaccine carrier Truck)"
+  },
+  {
+    "ID": 1615,
+    "itemTypeID": 8,
+    "fieldID": 6,
+    "req": "1",
+    "fildName": "height",
+    "name": "ვაქცინმზიდი (Vaccine carrier Truck)"
+  },
+  {
+    "ID": 1616,
+    "itemTypeID": 8,
+    "fieldID": 7,
+    "req": "1",
+    "fildName": "width",
+    "name": "ვაქცინმზიდი (Vaccine carrier Truck)"
+  },
+  {
+    "ID": 1617,
+    "itemTypeID": 8,
+    "fieldID": 8,
+    "req": "1",
+    "fildName": "length",
+    "name": "ვაქცინმზიდი (Vaccine carrier Truck)"
+  },
+  {
+    "ID": 1618,
+    "itemTypeID": 8,
+    "fieldID": 9,
+    "req": "1",
+    "fildName": "grossVolume",
+    "name": "ვაქცინმზიდი (Vaccine carrier Truck)"
+  },
+  {
+    "ID": 1619,
+    "itemTypeID": 8,
+    "fieldID": 60,
+    "req": "0",
+    "fildName": "doorNumber",
+    "name": "ვაქცინმზიდი (Vaccine carrier Truck)"
+  },
+  {
+    "ID": 1620,
+    "itemTypeID": 8,
+    "fieldID": 18,
+    "req": "1",
+    "fildName": "haveAlarm",
+    "name": "ვაქცინმზიდი (Vaccine carrier Truck)"
+  },
+  {
+    "ID": 1621,
+    "itemTypeID": 8,
+    "fieldID": 28,
+    "req": "1",
+    "fildName": "physicalCondition",
+    "name": "ვაქცინმზიდი (Vaccine carrier Truck)"
+  },
+  {
+    "ID": 1622,
+    "itemTypeID": 8,
+    "fieldID": 58,
+    "req": "1",
+    "fildName": "workingConditionID",
+    "name": "ვაქცინმზიდი (Vaccine carrier Truck)"
+  },
+  {
+    "ID": 1623,
+    "itemTypeID": 8,
+    "fieldID": 30,
+    "req": "0",
+    "fildName": "inUse",
+    "name": "ვაქცინმზიდი (Vaccine carrier Truck)"
+  },
+  {
+    "ID": 1624,
+    "itemTypeID": 8,
+    "fieldID": 32,
+    "req": "0",
+    "fildName": "notUseCause",
+    "name": "ვაქცინმზიდი (Vaccine carrier Truck)"
+  },
+  {
+    "ID": 1625,
+    "itemTypeID": 8,
+    "fieldID": 57,
+    "req": "0",
+    "fildName": "runningTime_Km",
+    "name": "ვაქცინმზიდი (Vaccine carrier Truck)"
+  },
+  {
+    "ID": 1626,
+    "itemTypeID": 8,
+    "fieldID": 12,
+    "req": "0",
+    "fildName": "refrigeranGas",
+    "name": "ვაქცინმზიდი (Vaccine carrier Truck)"
+  },
+  {
+    "ID": 1627,
+    "itemTypeID": 8,
+    "fieldID": 17,
+    "req": "1",
+    "fildName": "haveTempMonitor",
+    "name": "ვაქცინმზიდი (Vaccine carrier Truck)"
+  },
+  {
+    "ID": 1628,
+    "itemTypeID": 8,
+    "fieldID": 24,
+    "req": "1",
+    "fildName": "haveThermometer",
+    "name": "ვაქცინმზიდი (Vaccine carrier Truck)"
+  },
+  {
+    "ID": 1629,
+    "itemTypeID": 8,
+    "fieldID": 51,
+    "req": "1",
+    "fildName": "netVaccCapacity",
+    "name": "ვაქცინმზიდი (Vaccine carrier Truck)"
+  },
+  {
+    "ID": 1630,
+    "itemTypeID": 8,
+    "fieldID": 38,
+    "req": "1",
+    "fildName": "energySourceID",
+    "name": "ვაქცინმზიდი (Vaccine carrier Truck)"
+  },
+  {
+    "ID": 1631,
+    "itemTypeID": 8,
+    "fieldID": 21,
+    "req": "0",
+    "fildName": "financialSourceID",
+    "name": "ვაქცინმზიდი (Vaccine carrier Truck)"
+  },
+  {
+    "ID": 1632,
+    "itemTypeID": 8,
+    "fieldID": 41,
+    "req": "1",
+    "fildName": "otherField1",
+    "name": "ვაქცინმზიდი (Vaccine carrier Truck)"
+  },
+  {
+    "ID": 1681,
+    "itemTypeID": 9,
+    "fieldID": 61,
+    "req": "1",
+    "fildName": "manufacture",
+    "name": "საყინულე (-80 freezer ULT)"
+  },
+  {
+    "ID": 1682,
+    "itemTypeID": 9,
+    "fieldID": 46,
+    "req": "1",
+    "fildName": "model",
+    "name": "საყინულე (-80 freezer ULT)"
+  },
+  {
+    "ID": 1683,
+    "itemTypeID": 9,
+    "fieldID": 60,
+    "req": "0",
+    "fildName": "doorNumber",
+    "name": "საყინულე (-80 freezer ULT)"
+  },
+  {
+    "ID": 1684,
+    "itemTypeID": 9,
+    "fieldID": 16,
+    "req": "1",
+    "fildName": "insideDoor",
+    "name": "საყინულე (-80 freezer ULT)"
+  },
+  {
+    "ID": 1685,
+    "itemTypeID": 9,
+    "fieldID": 18,
+    "req": "1",
+    "fildName": "haveAlarm",
+    "name": "საყინულე (-80 freezer ULT)"
+  },
+  {
+    "ID": 1686,
+    "itemTypeID": 9,
+    "fieldID": 14,
+    "req": "1",
+    "fildName": "shelvesOK",
+    "name": "საყინულე (-80 freezer ULT)"
+  },
+  {
+    "ID": 1687,
+    "itemTypeID": 9,
+    "fieldID": 28,
+    "req": "1",
+    "fildName": "physicalCondition",
+    "name": "საყინულე (-80 freezer ULT)"
+  },
+  {
+    "ID": 1688,
+    "itemTypeID": 9,
+    "fieldID": 58,
+    "req": "1",
+    "fildName": "workingConditionID",
+    "name": "საყინულე (-80 freezer ULT)"
+  },
+  {
+    "ID": 1689,
+    "itemTypeID": 9,
+    "fieldID": 30,
+    "req": "1",
+    "fildName": "inUse",
+    "name": "საყინულე (-80 freezer ULT)"
+  },
+  {
+    "ID": 1690,
+    "itemTypeID": 9,
+    "fieldID": 32,
+    "req": "1",
+    "fildName": "notUseCause",
+    "name": "საყინულე (-80 freezer ULT)"
+  },
+  {
+    "ID": 1691,
+    "itemTypeID": 9,
+    "fieldID": 27,
+    "req": "0",
+    "fildName": "installYear",
+    "name": "საყინულე (-80 freezer ULT)"
+  },
+  {
+    "ID": 1692,
+    "itemTypeID": 9,
+    "fieldID": 36,
+    "req": "1",
+    "fildName": "tempRange",
+    "name": "საყინულე (-80 freezer ULT)"
+  },
+  {
+    "ID": 1693,
+    "itemTypeID": 9,
+    "fieldID": 12,
+    "req": "0",
+    "fildName": "refrigeranGas",
+    "name": "საყინულე (-80 freezer ULT)"
+  },
+  {
+    "ID": 1694,
+    "itemTypeID": 9,
+    "fieldID": 17,
+    "req": "1",
+    "fildName": "haveTempMonitor",
+    "name": "საყინულე (-80 freezer ULT)"
+  },
+  {
+    "ID": 1695,
+    "itemTypeID": 9,
+    "fieldID": 24,
+    "req": "1",
+    "fildName": "haveThermometer",
+    "name": "საყინულე (-80 freezer ULT)"
+  },
+  {
+    "ID": 1696,
+    "itemTypeID": 9,
+    "fieldID": 51,
+    "req": "0",
+    "fildName": "netVaccCapacity",
+    "name": "საყინულე (-80 freezer ULT)"
+  },
+  {
+    "ID": 1697,
+    "itemTypeID": 9,
+    "fieldID": 15,
+    "req": "1",
+    "fildName": "voltageOK",
+    "name": "საყინულე (-80 freezer ULT)"
+  },
+  {
+    "ID": 1698,
+    "itemTypeID": 9,
+    "fieldID": 21,
+    "req": "0",
+    "fildName": "financialSourceID",
+    "name": "საყინულე (-80 freezer ULT)"
+  },
+  {
+    "ID": 1699,
+    "itemTypeID": 9,
+    "fieldID": 41,
+    "req": "0",
+    "fildName": "otherField1",
+    "name": "საყინულე (-80 freezer ULT)"
+  },
+  {
+    "ID": 1700,
+    "itemTypeID": 9,
+    "fieldID": 4,
+    "req": "1",
+    "fildName": "PQSCode",
+    "name": "საყინულე (-80 freezer ULT)"
+  },
+  {
+    "ID": 1701,
+    "itemTypeID": 9,
+    "fieldID": 62,
+    "req": "0",
+    "fildName": "pqstype",
+    "name": "საყინულე (-80 freezer ULT)"
+  },
+  {
+    "ID": 1702,
+    "itemTypeID": 9,
+    "fieldID": 63,
+    "req": "0",
+    "fildName": "pqsmanufacturer",
+    "name": "საყინულე (-80 freezer ULT)"
+  },
+  {
+    "ID": 1703,
+    "itemTypeID": 9,
+    "fieldID": 64,
+    "req": "0",
+    "fildName": "pqsrefgas",
+    "name": "საყინულე (-80 freezer ULT)"
+  },
+  {
+    "ID": 1704,
+    "itemTypeID": 9,
+    "fieldID": 65,
+    "req": "0",
+    "fildName": "pqstempzone",
+    "name": "საყინულე (-80 freezer ULT)"
+  },
+  {
+    "ID": 1713,
+    "itemTypeID": 23,
+    "fieldID": 61,
+    "req": "0",
+    "fildName": "manufacture",
+    "name": "ყინულის ელემენტი (ice pack)"
+  },
+  {
+    "ID": 1714,
+    "itemTypeID": 23,
+    "fieldID": 9,
+    "req": "0",
+    "fildName": "grossVolume",
+    "name": "ყინულის ელემენტი (ice pack)"
+  },
+  {
+    "ID": 1715,
+    "itemTypeID": 23,
+    "fieldID": 28,
+    "req": "1",
+    "fildName": "physicalCondition",
+    "name": "ყინულის ელემენტი (ice pack)"
+  },
+  {
+    "ID": 1730,
+    "itemTypeID": 19,
+    "fieldID": 61,
+    "req": "0",
+    "fildName": "manufacture",
+    "name": "თერმომეტრი (Thermometer)"
+  },
+  {
+    "ID": 1731,
+    "itemTypeID": 19,
+    "fieldID": 46,
+    "req": "0",
+    "fildName": "model",
+    "name": "თერმომეტრი (Thermometer)"
+  },
+  {
+    "ID": 1732,
+    "itemTypeID": 19,
+    "fieldID": 28,
+    "req": "0",
+    "fildName": "physicalCondition",
+    "name": "თერმომეტრი (Thermometer)"
+  },
+  {
+    "ID": 1733,
+    "itemTypeID": 19,
+    "fieldID": 30,
+    "req": "1",
+    "fildName": "inUse",
+    "name": "თერმომეტრი (Thermometer)"
+  },
+  {
+    "ID": 1734,
+    "itemTypeID": 19,
+    "fieldID": 32,
+    "req": "0",
+    "fildName": "notUseCause",
+    "name": "თერმომეტრი (Thermometer)"
+  },
+  {
+    "ID": 1735,
+    "itemTypeID": 19,
+    "fieldID": 36,
+    "req": "1",
+    "fildName": "tempRange",
+    "name": "თერმომეტრი (Thermometer)"
+  },
+  {
+    "ID": 1736,
+    "itemTypeID": 19,
+    "fieldID": 35,
+    "req": "0",
+    "fildName": "tempZone",
+    "name": "თერმომეტრი (Thermometer)"
+  },
+  {
+    "ID": 1737,
+    "itemTypeID": 19,
+    "fieldID": 21,
+    "req": "0",
+    "fildName": "financialSourceID",
+    "name": "თერმომეტრი (Thermometer)"
+  },
+  {
+    "ID": 1738,
+    "itemTypeID": 19,
+    "fieldID": 4,
+    "req": "1",
+    "fildName": "PQSCode",
+    "name": "თერმომეტრი (Thermometer)"
+  },
+  {
+    "ID": 1739,
+    "itemTypeID": 19,
+    "fieldID": 62,
+    "req": "0",
+    "fildName": "pqstype",
+    "name": "თერმომეტრი (Thermometer)"
+  },
+  {
+    "ID": 1740,
+    "itemTypeID": 19,
+    "fieldID": 63,
+    "req": "0",
+    "fildName": "pqsmanufacturer",
+    "name": "თერმომეტრი (Thermometer)"
+  },
+  {
+    "ID": 1741,
+    "itemTypeID": 19,
+    "fieldID": 64,
+    "req": "0",
+    "fildName": "pqsrefgas",
+    "name": "თერმომეტრი (Thermometer)"
+  },
+  {
+    "ID": 1742,
+    "itemTypeID": 19,
+    "fieldID": 65,
+    "req": "0",
+    "fildName": "pqstempzone",
+    "name": "თერმომეტრი (Thermometer)"
+  },
+  {
+    "ID": 1743,
+    "itemTypeID": 20,
+    "fieldID": 6,
+    "req": "1",
+    "fildName": "height",
+    "name": "მშრალი საწყობი (Dry storage)"
+  },
+  {
+    "ID": 1744,
+    "itemTypeID": 20,
+    "fieldID": 7,
+    "req": "1",
+    "fildName": "width",
+    "name": "მშრალი საწყობი (Dry storage)"
+  },
+  {
+    "ID": 1745,
+    "itemTypeID": 20,
+    "fieldID": 8,
+    "req": "1",
+    "fildName": "length",
+    "name": "მშრალი საწყობი (Dry storage)"
+  },
+  {
+    "ID": 1746,
+    "itemTypeID": 20,
+    "fieldID": 9,
+    "req": "1",
+    "fildName": "grossVolume",
+    "name": "მშრალი საწყობი (Dry storage)"
+  },
+  {
+    "ID": 1747,
+    "itemTypeID": 20,
+    "fieldID": 18,
+    "req": "0",
+    "fildName": "haveAlarm",
+    "name": "მშრალი საწყობი (Dry storage)"
+  },
+  {
+    "ID": 1748,
+    "itemTypeID": 20,
+    "fieldID": 14,
+    "req": "0",
+    "fildName": "shelvesOK",
+    "name": "მშრალი საწყობი (Dry storage)"
+  },
+  {
+    "ID": 1749,
+    "itemTypeID": 20,
+    "fieldID": 71,
+    "req": "1",
+    "fildName": "DSProtSun",
+    "name": "მშრალი საწყობი (Dry storage)"
+  },
+  {
+    "ID": 1750,
+    "itemTypeID": 20,
+    "fieldID": 72,
+    "req": "1",
+    "fildName": "DSHaveShelve",
+    "name": "მშრალი საწყობი (Dry storage)"
+  },
+  {
+    "ID": 1751,
+    "itemTypeID": 20,
+    "fieldID": 73,
+    "req": "0",
+    "fildName": "DSIsClean",
+    "name": "მშრალი საწყობი (Dry storage)"
+  },
+  {
+    "ID": 1752,
+    "itemTypeID": 20,
+    "fieldID": 74,
+    "req": "1",
+    "fildName": "DSProtMois",
+    "name": "მშრალი საწყობი (Dry storage)"
+  },
+  {
+    "ID": 1753,
+    "itemTypeID": 20,
+    "fieldID": 76,
+    "req": "0",
+    "fildName": "DSHeight",
+    "name": "მშრალი საწყობი (Dry storage)"
+  },
+  {
+    "ID": 1781,
+    "itemTypeID": 3,
+    "fieldID": 61,
+    "req": "1",
+    "fildName": "manufacture",
+    "name": "მაცივარი (Ref.)"
+  },
+  {
+    "ID": 1782,
+    "itemTypeID": 3,
+    "fieldID": 46,
+    "req": "0",
+    "fildName": "model",
+    "name": "მაცივარი (Ref.)"
+  },
+  {
+    "ID": 1783,
+    "itemTypeID": 3,
+    "fieldID": 9,
+    "req": "0",
+    "fildName": "grossVolume",
+    "name": "მაცივარი (Ref.)"
+  },
+  {
+    "ID": 1784,
+    "itemTypeID": 3,
+    "fieldID": 18,
+    "req": "0",
+    "fildName": "haveAlarm",
+    "name": "მაცივარი (Ref.)"
+  },
+  {
+    "ID": 1785,
+    "itemTypeID": 3,
+    "fieldID": 14,
+    "req": "1",
+    "fildName": "shelvesOK",
+    "name": "მაცივარი (Ref.)"
+  },
+  {
+    "ID": 1786,
+    "itemTypeID": 3,
+    "fieldID": 29,
+    "req": "1",
+    "fildName": "techCondition",
+    "name": "მაცივარი (Ref.)"
+  },
+  {
+    "ID": 1787,
+    "itemTypeID": 3,
+    "fieldID": 30,
+    "req": "1",
+    "fildName": "inUse",
+    "name": "მაცივარი (Ref.)"
+  },
+  {
+    "ID": 1788,
+    "itemTypeID": 3,
+    "fieldID": 31,
+    "req": "0",
+    "fildName": "notUseDate",
+    "name": "მაცივარი (Ref.)"
+  },
+  {
+    "ID": 1789,
+    "itemTypeID": 3,
+    "fieldID": 32,
+    "req": "0",
+    "fildName": "notUseCause",
+    "name": "მაცივარი (Ref.)"
+  },
+  {
+    "ID": 1790,
+    "itemTypeID": 3,
+    "fieldID": 27,
+    "req": "0",
+    "fildName": "installYear",
+    "name": "მაცივარი (Ref.)"
+  },
+  {
+    "ID": 1791,
+    "itemTypeID": 3,
+    "fieldID": 36,
+    "req": "1",
+    "fildName": "tempRange",
+    "name": "მაცივარი (Ref.)"
+  },
+  {
+    "ID": 1792,
+    "itemTypeID": 3,
+    "fieldID": 12,
+    "req": "0",
+    "fildName": "refrigeranGas",
+    "name": "მაცივარი (Ref.)"
+  },
+  {
+    "ID": 1793,
+    "itemTypeID": 3,
+    "fieldID": 23,
+    "req": "1",
+    "fildName": "haveFreezing",
+    "name": "მაცივარი (Ref.)"
+  },
+  {
+    "ID": 1794,
+    "itemTypeID": 3,
+    "fieldID": 54,
+    "req": "1",
+    "fildName": "sepFreez",
+    "name": "მაცივარი (Ref.)"
+  },
+  {
+    "ID": 1795,
+    "itemTypeID": 3,
+    "fieldID": 17,
+    "req": "1",
+    "fildName": "haveTempMonitor",
+    "name": "მაცივარი (Ref.)"
+  },
+  {
+    "ID": 1796,
+    "itemTypeID": 3,
+    "fieldID": 24,
+    "req": "1",
+    "fildName": "haveThermometer",
+    "name": "მაცივარი (Ref.)"
+  },
+  {
+    "ID": 1797,
+    "itemTypeID": 3,
+    "fieldID": 39,
+    "req": "0",
+    "fildName": "FreezerCapacity",
+    "name": "მაცივარი (Ref.)"
+  },
+  {
+    "ID": 1798,
+    "itemTypeID": 3,
+    "fieldID": 51,
+    "req": "1",
+    "fildName": "netVaccCapacity",
+    "name": "მაცივარი (Ref.)"
+  },
+  {
+    "ID": 1799,
+    "itemTypeID": 3,
+    "fieldID": 15,
+    "req": "1",
+    "fildName": "voltageOK",
+    "name": "მაცივარი (Ref.)"
+  },
+  {
+    "ID": 1800,
+    "itemTypeID": 3,
+    "fieldID": 21,
+    "req": "0",
+    "fildName": "financialSourceID",
+    "name": "მაცივარი (Ref.)"
+  },
+  {
+    "ID": 1801,
+    "itemTypeID": 3,
+    "fieldID": 41,
+    "req": "0",
+    "fildName": "otherField1",
+    "name": "მაცივარი (Ref.)"
+  },
+  {
+    "ID": 1802,
+    "itemTypeID": 3,
+    "fieldID": 4,
+    "req": "1",
+    "fildName": "PQSCode",
+    "name": "მაცივარი (Ref.)"
+  },
+  {
+    "ID": 1803,
+    "itemTypeID": 3,
+    "fieldID": 62,
+    "req": "0",
+    "fildName": "pqstype",
+    "name": "მაცივარი (Ref.)"
+  },
+  {
+    "ID": 1804,
+    "itemTypeID": 3,
+    "fieldID": 63,
+    "req": "0",
+    "fildName": "pqsmanufacturer",
+    "name": "მაცივარი (Ref.)"
+  },
+  {
+    "ID": 1805,
+    "itemTypeID": 3,
+    "fieldID": 64,
+    "req": "0",
+    "fildName": "pqsrefgas",
+    "name": "მაცივარი (Ref.)"
+  },
+  {
+    "ID": 1806,
+    "itemTypeID": 3,
+    "fieldID": 65,
+    "req": "0",
+    "fildName": "pqstempzone",
+    "name": "მაცივარი (Ref.)"
+  },
+  {
+    "ID": 1816,
+    "itemTypeID": 10,
+    "fieldID": 61,
+    "req": "1",
+    "fildName": "manufacture",
+    "name": "ელ. სტაბილიზატორი (El. stabilizer)"
+  },
+  {
+    "ID": 1817,
+    "itemTypeID": 10,
+    "fieldID": 46,
+    "req": "0",
+    "fildName": "model",
+    "name": "ელ. სტაბილიზატორი (El. stabilizer)"
+  },
+  {
+    "ID": 1818,
+    "itemTypeID": 10,
+    "fieldID": 28,
+    "req": "0",
+    "fildName": "physicalCondition",
+    "name": "ელ. სტაბილიზატორი (El. stabilizer)"
+  },
+  {
+    "ID": 1819,
+    "itemTypeID": 10,
+    "fieldID": 58,
+    "req": "0",
+    "fildName": "workingConditionID",
+    "name": "ელ. სტაბილიზატორი (El. stabilizer)"
+  },
+  {
+    "ID": 1820,
+    "itemTypeID": 10,
+    "fieldID": 30,
+    "req": "1",
+    "fildName": "inUse",
+    "name": "ელ. სტაბილიზატორი (El. stabilizer)"
+  },
+  {
+    "ID": 1821,
+    "itemTypeID": 10,
+    "fieldID": 32,
+    "req": "0",
+    "fildName": "notUseCause",
+    "name": "ელ. სტაბილიზატორი (El. stabilizer)"
+  },
+  {
+    "ID": 1822,
+    "itemTypeID": 10,
+    "fieldID": 27,
+    "req": "0",
+    "fildName": "installYear",
+    "name": "ელ. სტაბილიზატორი (El. stabilizer)"
+  },
+  {
+    "ID": 1823,
+    "itemTypeID": 10,
+    "fieldID": 21,
+    "req": "0",
+    "fildName": "financialSourceID",
+    "name": "ელ. სტაბილიზატორი (El. stabilizer)"
+  },
+  {
+    "ID": 1824,
+    "itemTypeID": 21,
+    "fieldID": 61,
+    "req": "1",
+    "fildName": "manufacture",
+    "name": "ტემპერატურის მონიტორი (Data Logger)"
+  },
+  {
+    "ID": 1825,
+    "itemTypeID": 21,
+    "fieldID": 46,
+    "req": "0",
+    "fildName": "model",
+    "name": "ტემპერატურის მონიტორი (Data Logger)"
+  },
+  {
+    "ID": 1826,
+    "itemTypeID": 21,
+    "fieldID": 18,
+    "req": "1",
+    "fildName": "haveAlarm",
+    "name": "ტემპერატურის მონიტორი (Data Logger)"
+  },
+  {
+    "ID": 1827,
+    "itemTypeID": 21,
+    "fieldID": 58,
+    "req": "0",
+    "fildName": "workingConditionID",
+    "name": "ტემპერატურის მონიტორი (Data Logger)"
+  },
+  {
+    "ID": 1828,
+    "itemTypeID": 21,
+    "fieldID": 30,
+    "req": "1",
+    "fildName": "inUse",
+    "name": "ტემპერატურის მონიტორი (Data Logger)"
+  },
+  {
+    "ID": 1829,
+    "itemTypeID": 21,
+    "fieldID": 32,
+    "req": "0",
+    "fildName": "notUseCause",
+    "name": "ტემპერატურის მონიტორი (Data Logger)"
+  },
+  {
+    "ID": 1830,
+    "itemTypeID": 21,
+    "fieldID": 36,
+    "req": "1",
+    "fildName": "tempRange",
+    "name": "ტემპერატურის მონიტორი (Data Logger)"
+  },
+  {
+    "ID": 1831,
+    "itemTypeID": 21,
+    "fieldID": 35,
+    "req": "1",
+    "fildName": "tempZone",
+    "name": "ტემპერატურის მონიტორი (Data Logger)"
+  },
+  {
+    "ID": 1832,
+    "itemTypeID": 21,
+    "fieldID": 21,
+    "req": "0",
+    "fildName": "financialSourceID",
+    "name": "ტემპერატურის მონიტორი (Data Logger)"
+  },
+  {
+    "ID": 1833,
+    "itemTypeID": 21,
+    "fieldID": 4,
+    "req": "1",
+    "fildName": "PQSCode",
+    "name": "ტემპერატურის მონიტორი (Data Logger)"
+  },
+  {
+    "ID": 1834,
+    "itemTypeID": 21,
+    "fieldID": 62,
+    "req": "0",
+    "fildName": "pqstype",
+    "name": "ტემპერატურის მონიტორი (Data Logger)"
+  },
+  {
+    "ID": 1835,
+    "itemTypeID": 21,
+    "fieldID": 63,
+    "req": "0",
+    "fildName": "pqsmanufacturer",
+    "name": "ტემპერატურის მონიტორი (Data Logger)"
+  },
+  {
+    "ID": 1836,
+    "itemTypeID": 21,
+    "fieldID": 64,
+    "req": "0",
+    "fildName": "pqsrefgas",
+    "name": "ტემპერატურის მონიტორი (Data Logger)"
+  },
+  {
+    "ID": 1837,
+    "itemTypeID": 21,
+    "fieldID": 65,
+    "req": "0",
+    "fildName": "pqstempzone",
+    "name": "ტემპერატურის მონიტორი (Data Logger)"
+  },
+  {
+    "ID": 1866,
+    "itemTypeID": 1,
+    "fieldID": 61,
+    "req": "0",
+    "fildName": "manufacture",
+    "name": "ოთახი მაცივარი (cold room)"
+  },
+  {
+    "ID": 1867,
+    "itemTypeID": 1,
+    "fieldID": 46,
+    "req": "0",
+    "fildName": "model",
+    "name": "ოთახი მაცივარი (cold room)"
+  },
+  {
+    "ID": 1868,
+    "itemTypeID": 1,
+    "fieldID": 6,
+    "req": "1",
+    "fildName": "height",
+    "name": "ოთახი მაცივარი (cold room)"
+  },
+  {
+    "ID": 1869,
+    "itemTypeID": 1,
+    "fieldID": 7,
+    "req": "1",
+    "fildName": "width",
+    "name": "ოთახი მაცივარი (cold room)"
+  },
+  {
+    "ID": 1870,
+    "itemTypeID": 1,
+    "fieldID": 8,
+    "req": "1",
+    "fildName": "length",
+    "name": "ოთახი მაცივარი (cold room)"
+  },
+  {
+    "ID": 1871,
+    "itemTypeID": 1,
+    "fieldID": 9,
+    "req": "1",
+    "fildName": "grossVolume",
+    "name": "ოთახი მაცივარი (cold room)"
+  },
+  {
+    "ID": 1872,
+    "itemTypeID": 1,
+    "fieldID": 18,
+    "req": "1",
+    "fildName": "haveAlarm",
+    "name": "ოთახი მაცივარი (cold room)"
+  },
+  {
+    "ID": 1873,
+    "itemTypeID": 1,
+    "fieldID": 14,
+    "req": "0",
+    "fildName": "shelvesOK",
+    "name": "ოთახი მაცივარი (cold room)"
+  },
+  {
+    "ID": 1874,
+    "itemTypeID": 1,
+    "fieldID": 28,
+    "req": "0",
+    "fildName": "physicalCondition",
+    "name": "ოთახი მაცივარი (cold room)"
+  },
+  {
+    "ID": 1875,
+    "itemTypeID": 1,
+    "fieldID": 58,
+    "req": "0",
+    "fildName": "workingConditionID",
+    "name": "ოთახი მაცივარი (cold room)"
+  },
+  {
+    "ID": 1876,
+    "itemTypeID": 1,
+    "fieldID": 30,
+    "req": "1",
+    "fildName": "inUse",
+    "name": "ოთახი მაცივარი (cold room)"
+  },
+  {
+    "ID": 1877,
+    "itemTypeID": 1,
+    "fieldID": 31,
+    "req": "0",
+    "fildName": "notUseDate",
+    "name": "ოთახი მაცივარი (cold room)"
+  },
+  {
+    "ID": 1878,
+    "itemTypeID": 1,
+    "fieldID": 32,
+    "req": "0",
+    "fildName": "notUseCause",
+    "name": "ოთახი მაცივარი (cold room)"
+  },
+  {
+    "ID": 1879,
+    "itemTypeID": 1,
+    "fieldID": 27,
+    "req": "0",
+    "fildName": "installYear",
+    "name": "ოთახი მაცივარი (cold room)"
+  },
+  {
+    "ID": 1880,
+    "itemTypeID": 1,
+    "fieldID": 36,
+    "req": "1",
+    "fildName": "tempRange",
+    "name": "ოთახი მაცივარი (cold room)"
+  },
+  {
+    "ID": 1881,
+    "itemTypeID": 1,
+    "fieldID": 11,
+    "req": "1",
+    "fildName": "coolingUnitNumber",
+    "name": "ოთახი მაცივარი (cold room)"
+  },
+  {
+    "ID": 1882,
+    "itemTypeID": 1,
+    "fieldID": 12,
+    "req": "0",
+    "fildName": "refrigeranGas",
+    "name": "ოთახი მაცივარი (cold room)"
+  },
+  {
+    "ID": 1883,
+    "itemTypeID": 1,
+    "fieldID": 17,
+    "req": "1",
+    "fildName": "haveTempMonitor",
+    "name": "ოთახი მაცივარი (cold room)"
+  },
+  {
+    "ID": 1884,
+    "itemTypeID": 1,
+    "fieldID": 24,
+    "req": "1",
+    "fildName": "haveThermometer",
+    "name": "ოთახი მაცივარი (cold room)"
+  },
+  {
+    "ID": 1885,
+    "itemTypeID": 1,
+    "fieldID": 51,
+    "req": "1",
+    "fildName": "netVaccCapacity",
+    "name": "ოთახი მაცივარი (cold room)"
+  },
+  {
+    "ID": 1886,
+    "itemTypeID": 1,
+    "fieldID": 21,
+    "req": "0",
+    "fildName": "financialSourceID",
+    "name": "ოთახი მაცივარი (cold room)"
+  },
+  {
+    "ID": 1887,
+    "itemTypeID": 1,
+    "fieldID": 50,
+    "req": "0",
+    "fildName": "otherCode",
+    "name": "ოთახი მაცივარი (cold room)"
+  },
+  {
+    "ID": 1888,
+    "itemTypeID": 1,
+    "fieldID": 41,
+    "req": "0",
+    "fildName": "otherField1",
+    "name": "ოთახი მაცივარი (cold room)"
+  },
+  {
+    "ID": 1889,
+    "itemTypeID": 1,
+    "fieldID": 42,
+    "req": "1",
+    "fildName": "otherField2",
+    "name": "ოთახი მაცივარი (cold room)"
+  },
+  {
+    "ID": 1890,
+    "itemTypeID": 1,
+    "fieldID": 4,
+    "req": "0",
+    "fildName": "PQSCode",
+    "name": "ოთახი მაცივარი (cold room)"
+  },
+  {
+    "ID": 1891,
+    "itemTypeID": 1,
+    "fieldID": 62,
+    "req": "0",
+    "fildName": "pqstype",
+    "name": "ოთახი მაცივარი (cold room)"
+  },
+  {
+    "ID": 1892,
+    "itemTypeID": 1,
+    "fieldID": 63,
+    "req": "0",
+    "fildName": "pqsmanufacturer",
+    "name": "ოთახი მაცივარი (cold room)"
+  },
+  {
+    "ID": 1893,
+    "itemTypeID": 1,
+    "fieldID": 64,
+    "req": "0",
+    "fildName": "pqsrefgas",
+    "name": "ოთახი მაცივარი (cold room)"
+  },
+  {
+    "ID": 1894,
+    "itemTypeID": 1,
+    "fieldID": 65,
+    "req": "0",
+    "fildName": "pqstempzone",
+    "name": "ოთახი მაცივარი (cold room)"
+  },
+  {
+    "ID": 1975,
+    "itemTypeID": 24,
+    "fieldID": 5,
+    "req": "1",
+    "fildName": "type",
+    "name": "კომბინირებული მაც/საყ (Comb. Ref/Fre)"
+  },
+  {
+    "ID": 1976,
+    "itemTypeID": 24,
+    "fieldID": 61,
+    "req": "0",
+    "fildName": "manufacture",
+    "name": "კომბინირებული მაც/საყ (Comb. Ref/Fre)"
+  },
+  {
+    "ID": 1977,
+    "itemTypeID": 24,
+    "fieldID": 46,
+    "req": "0",
+    "fildName": "model",
+    "name": "კომბინირებული მაც/საყ (Comb. Ref/Fre)"
+  },
+  {
+    "ID": 1978,
+    "itemTypeID": 24,
+    "fieldID": 60,
+    "req": "0",
+    "fildName": "doorNumber",
+    "name": "კომბინირებული მაც/საყ (Comb. Ref/Fre)"
+  },
+  {
+    "ID": 1979,
+    "itemTypeID": 24,
+    "fieldID": 18,
+    "req": "0",
+    "fildName": "haveAlarm",
+    "name": "კომბინირებული მაც/საყ (Comb. Ref/Fre)"
+  },
+  {
+    "ID": 1980,
+    "itemTypeID": 24,
+    "fieldID": 14,
+    "req": "0",
+    "fildName": "shelvesOK",
+    "name": "კომბინირებული მაც/საყ (Comb. Ref/Fre)"
+  },
+  {
+    "ID": 1981,
+    "itemTypeID": 24,
+    "fieldID": 28,
+    "req": "1",
+    "fildName": "physicalCondition",
+    "name": "კომბინირებული მაც/საყ (Comb. Ref/Fre)"
+  },
+  {
+    "ID": 1982,
+    "itemTypeID": 24,
+    "fieldID": 58,
+    "req": "1",
+    "fildName": "workingConditionID",
+    "name": "კომბინირებული მაც/საყ (Comb. Ref/Fre)"
+  },
+  {
+    "ID": 1983,
+    "itemTypeID": 24,
+    "fieldID": 31,
+    "req": "0",
+    "fildName": "notUseDate",
+    "name": "კომბინირებული მაც/საყ (Comb. Ref/Fre)"
+  },
+  {
+    "ID": 1984,
+    "itemTypeID": 24,
+    "fieldID": 32,
+    "req": "0",
+    "fildName": "notUseCause",
+    "name": "კომბინირებული მაც/საყ (Comb. Ref/Fre)"
+  },
+  {
+    "ID": 1985,
+    "itemTypeID": 24,
+    "fieldID": 27,
+    "req": "0",
+    "fildName": "installYear",
+    "name": "კომბინირებული მაც/საყ (Comb. Ref/Fre)"
+  },
+  {
+    "ID": 1986,
+    "itemTypeID": 24,
+    "fieldID": 12,
+    "req": "0",
+    "fildName": "refrigeranGas",
+    "name": "კომბინირებული მაც/საყ (Comb. Ref/Fre)"
+  },
+  {
+    "ID": 1987,
+    "itemTypeID": 24,
+    "fieldID": 23,
+    "req": "0",
+    "fildName": "haveFreezing",
+    "name": "კომბინირებული მაც/საყ (Comb. Ref/Fre)"
+  },
+  {
+    "ID": 1988,
+    "itemTypeID": 24,
+    "fieldID": 54,
+    "req": "0",
+    "fildName": "sepFreez",
+    "name": "კომბინირებული მაც/საყ (Comb. Ref/Fre)"
+  },
+  {
+    "ID": 1989,
+    "itemTypeID": 24,
+    "fieldID": 17,
+    "req": "0",
+    "fildName": "haveTempMonitor",
+    "name": "კომბინირებული მაც/საყ (Comb. Ref/Fre)"
+  },
+  {
+    "ID": 1990,
+    "itemTypeID": 24,
+    "fieldID": 24,
+    "req": "0",
+    "fildName": "haveThermometer",
+    "name": "კომბინირებული მაც/საყ (Comb. Ref/Fre)"
+  },
+  {
+    "ID": 1991,
+    "itemTypeID": 24,
+    "fieldID": 39,
+    "req": "1",
+    "fildName": "FreezerCapacity",
+    "name": "კომბინირებული მაც/საყ (Comb. Ref/Fre)"
+  },
+  {
+    "ID": 1992,
+    "itemTypeID": 24,
+    "fieldID": 51,
+    "req": "1",
+    "fildName": "netVaccCapacity",
+    "name": "კომბინირებული მაც/საყ (Comb. Ref/Fre)"
+  },
+  {
+    "ID": 1993,
+    "itemTypeID": 24,
+    "fieldID": 52,
+    "req": "0",
+    "fildName": "iceCapacity",
+    "name": "კომბინირებული მაც/საყ (Comb. Ref/Fre)"
+  },
+  {
+    "ID": 1994,
+    "itemTypeID": 24,
+    "fieldID": 15,
+    "req": "1",
+    "fildName": "voltageOK",
+    "name": "კომბინირებული მაც/საყ (Comb. Ref/Fre)"
+  },
+  {
+    "ID": 1995,
+    "itemTypeID": 24,
+    "fieldID": 4,
+    "req": "1",
+    "fildName": "PQSCode",
+    "name": "კომბინირებული მაც/საყ (Comb. Ref/Fre)"
+  },
+  {
+    "ID": 1996,
+    "itemTypeID": 24,
+    "fieldID": 62,
+    "req": "0",
+    "fildName": "pqstype",
+    "name": "კომბინირებული მაც/საყ (Comb. Ref/Fre)"
+  },
+  {
+    "ID": 1997,
+    "itemTypeID": 24,
+    "fieldID": 63,
+    "req": "0",
+    "fildName": "pqsmanufacturer",
+    "name": "კომბინირებული მაც/საყ (Comb. Ref/Fre)"
+  },
+  {
+    "ID": 1998,
+    "itemTypeID": 24,
+    "fieldID": 64,
+    "req": "0",
+    "fildName": "pqsrefgas",
+    "name": "კომბინირებული მაც/საყ (Comb. Ref/Fre)"
+  },
+  {
+    "ID": 1999,
+    "itemTypeID": 24,
+    "fieldID": 65,
+    "req": "0",
+    "fildName": "pqstempzone",
+    "name": "კომბინირებული მაც/საყ (Comb. Ref/Fre)"
+  },
+  {
+    "ID": 2000,
+    "itemTypeID": 5,
+    "fieldID": 61,
+    "req": "0",
+    "fildName": "manufacture",
+    "name": "ცივი ყუთი (cold box)"
+  },
+  {
+    "ID": 2001,
+    "itemTypeID": 5,
+    "fieldID": 46,
+    "req": "0",
+    "fildName": "model",
+    "name": "ცივი ყუთი (cold box)"
+  },
+  {
+    "ID": 2002,
+    "itemTypeID": 5,
+    "fieldID": 9,
+    "req": "1",
+    "fildName": "grossVolume",
+    "name": "ცივი ყუთი (cold box)"
+  },
+  {
+    "ID": 2003,
+    "itemTypeID": 5,
+    "fieldID": 49,
+    "req": "0",
+    "fildName": "weight",
+    "name": "ცივი ყუთი (cold box)"
+  },
+  {
+    "ID": 2004,
+    "itemTypeID": 5,
+    "fieldID": 28,
+    "req": "1",
+    "fildName": "physicalCondition",
+    "name": "ცივი ყუთი (cold box)"
+  },
+  {
+    "ID": 2005,
+    "itemTypeID": 5,
+    "fieldID": 30,
+    "req": "1",
+    "fildName": "inUse",
+    "name": "ცივი ყუთი (cold box)"
+  },
+  {
+    "ID": 2006,
+    "itemTypeID": 5,
+    "fieldID": 36,
+    "req": "0",
+    "fildName": "tempRange",
+    "name": "ცივი ყუთი (cold box)"
+  },
+  {
+    "ID": 2007,
+    "itemTypeID": 5,
+    "fieldID": 17,
+    "req": "1",
+    "fildName": "haveTempMonitor",
+    "name": "ცივი ყუთი (cold box)"
+  },
+  {
+    "ID": 2008,
+    "itemTypeID": 5,
+    "fieldID": 24,
+    "req": "1",
+    "fildName": "haveThermometer",
+    "name": "ცივი ყუთი (cold box)"
+  },
+  {
+    "ID": 2009,
+    "itemTypeID": 5,
+    "fieldID": 51,
+    "req": "1",
+    "fildName": "netVaccCapacity",
+    "name": "ცივი ყუთი (cold box)"
+  },
+  {
+    "ID": 2010,
+    "itemTypeID": 5,
+    "fieldID": 67,
+    "req": "0",
+    "fildName": "NumberCoolantPacks",
+    "name": "ცივი ყუთი (cold box)"
+  },
+  {
+    "ID": 2011,
+    "itemTypeID": 5,
+    "fieldID": 21,
+    "req": "0",
+    "fildName": "financialSourceID",
+    "name": "ცივი ყუთი (cold box)"
+  },
+  {
+    "ID": 2012,
+    "itemTypeID": 5,
+    "fieldID": 4,
+    "req": "1",
+    "fildName": "PQSCode",
+    "name": "ცივი ყუთი (cold box)"
+  },
+  {
+    "ID": 2013,
+    "itemTypeID": 5,
+    "fieldID": 62,
+    "req": "0",
+    "fildName": "pqstype",
+    "name": "ცივი ყუთი (cold box)"
+  },
+  {
+    "ID": 2014,
+    "itemTypeID": 5,
+    "fieldID": 63,
+    "req": "0",
+    "fildName": "pqsmanufacturer",
+    "name": "ცივი ყუთი (cold box)"
+  }
+]

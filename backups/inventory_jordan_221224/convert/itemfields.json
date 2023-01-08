@@ -1,0 +1,1474 @@
+[
+  {
+    "ID": 1236,
+    "itemTypeID": 11,
+    "fieldID": 1,
+    "req": "1",
+    "fildName": "itemtypeID",
+    "name": "Generators"
+  },
+  {
+    "ID": 1237,
+    "itemTypeID": 11,
+    "fieldID": 46,
+    "req": "1",
+    "fildName": "model",
+    "name": "Generators"
+  },
+  {
+    "ID": 1238,
+    "itemTypeID": 11,
+    "fieldID": 61,
+    "req": "1",
+    "fildName": "manufacture",
+    "name": "Generators"
+  },
+  {
+    "ID": 1239,
+    "itemTypeID": 11,
+    "fieldID": 3,
+    "req": "1",
+    "fildName": "code",
+    "name": "Generators"
+  },
+  {
+    "ID": 1240,
+    "itemTypeID": 11,
+    "fieldID": 50,
+    "req": "0",
+    "fildName": "otherCode",
+    "name": "Generators"
+  },
+  {
+    "ID": 1241,
+    "itemTypeID": 11,
+    "fieldID": 4,
+    "req": "0",
+    "fildName": "PQSCode",
+    "name": "Generators"
+  },
+  {
+    "ID": 1242,
+    "itemTypeID": 11,
+    "fieldID": 31,
+    "req": "0",
+    "fildName": "notUseDate",
+    "name": "Generators"
+  },
+  {
+    "ID": 1243,
+    "itemTypeID": 11,
+    "fieldID": 32,
+    "req": "0",
+    "fildName": "notUseCause",
+    "name": "Generators"
+  },
+  {
+    "ID": 3135,
+    "itemTypeID": 7,
+    "fieldID": 61,
+    "req": "1",
+    "fildName": "manufacture",
+    "name": "Stand-by generator"
+  },
+  {
+    "ID": 3136,
+    "itemTypeID": 7,
+    "fieldID": 46,
+    "req": "0",
+    "fildName": "model",
+    "name": "Stand-by generator"
+  },
+  {
+    "ID": 3137,
+    "itemTypeID": 7,
+    "fieldID": 28,
+    "req": "0",
+    "fildName": "physicalCondition",
+    "name": "Stand-by generator"
+  },
+  {
+    "ID": 3138,
+    "itemTypeID": 7,
+    "fieldID": 30,
+    "req": "1",
+    "fildName": "inUse",
+    "name": "Stand-by generator"
+  },
+  {
+    "ID": 3139,
+    "itemTypeID": 7,
+    "fieldID": 32,
+    "req": "1",
+    "fildName": "notUseCause",
+    "name": "Stand-by generator"
+  },
+  {
+    "ID": 3140,
+    "itemTypeID": 7,
+    "fieldID": 19,
+    "req": "1",
+    "fildName": "voltage",
+    "name": "Stand-by generator"
+  },
+  {
+    "ID": 3141,
+    "itemTypeID": 7,
+    "fieldID": 20,
+    "req": "1",
+    "fildName": "phase",
+    "name": "Stand-by generator"
+  },
+  {
+    "ID": 3142,
+    "itemTypeID": 7,
+    "fieldID": 25,
+    "req": "0",
+    "fildName": "netGeneratedPower",
+    "name": "Stand-by generator"
+  },
+  {
+    "ID": 3143,
+    "itemTypeID": 7,
+    "fieldID": 26,
+    "req": "1",
+    "fildName": "haveFuelTank",
+    "name": "Stand-by generator"
+  },
+  {
+    "ID": 3144,
+    "itemTypeID": 7,
+    "fieldID": 38,
+    "req": "1",
+    "fildName": "energySourceID",
+    "name": "Stand-by generator"
+  },
+  {
+    "ID": 3145,
+    "itemTypeID": 7,
+    "fieldID": 55,
+    "req": "0",
+    "fildName": "powerConsum",
+    "name": "Stand-by generator"
+  },
+  {
+    "ID": 3146,
+    "itemTypeID": 7,
+    "fieldID": 40,
+    "req": "0",
+    "fildName": "powerGeneration",
+    "name": "Stand-by generator"
+  },
+  {
+    "ID": 3147,
+    "itemTypeID": 7,
+    "fieldID": 21,
+    "req": "0",
+    "fildName": "financialSourceID",
+    "name": "Stand-by generator"
+  },
+  {
+    "ID": 3148,
+    "itemTypeID": 7,
+    "fieldID": 41,
+    "req": "0",
+    "fildName": "otherField1",
+    "name": "Stand-by generator"
+  },
+  {
+    "ID": 3318,
+    "itemTypeID": 1,
+    "fieldID": 61,
+    "req": "1",
+    "fildName": "manufacture",
+    "name": "Cold Room"
+  },
+  {
+    "ID": 3319,
+    "itemTypeID": 1,
+    "fieldID": 46,
+    "req": "0",
+    "fildName": "model",
+    "name": "Cold Room"
+  },
+  {
+    "ID": 3320,
+    "itemTypeID": 1,
+    "fieldID": 6,
+    "req": "1",
+    "fildName": "height",
+    "name": "Cold Room"
+  },
+  {
+    "ID": 3321,
+    "itemTypeID": 1,
+    "fieldID": 7,
+    "req": "1",
+    "fildName": "width",
+    "name": "Cold Room"
+  },
+  {
+    "ID": 3322,
+    "itemTypeID": 1,
+    "fieldID": 8,
+    "req": "1",
+    "fildName": "length",
+    "name": "Cold Room"
+  },
+  {
+    "ID": 3323,
+    "itemTypeID": 1,
+    "fieldID": 9,
+    "req": "1",
+    "fildName": "grossVolume",
+    "name": "Cold Room"
+  },
+  {
+    "ID": 3324,
+    "itemTypeID": 1,
+    "fieldID": 18,
+    "req": "1",
+    "fildName": "haveAlarm",
+    "name": "Cold Room"
+  },
+  {
+    "ID": 3325,
+    "itemTypeID": 1,
+    "fieldID": 14,
+    "req": "1",
+    "fildName": "shelvesOK",
+    "name": "Cold Room"
+  },
+  {
+    "ID": 3326,
+    "itemTypeID": 1,
+    "fieldID": 30,
+    "req": "1",
+    "fildName": "inUse",
+    "name": "Cold Room"
+  },
+  {
+    "ID": 3327,
+    "itemTypeID": 1,
+    "fieldID": 32,
+    "req": "0",
+    "fildName": "notUseCause",
+    "name": "Cold Room"
+  },
+  {
+    "ID": 3328,
+    "itemTypeID": 1,
+    "fieldID": 27,
+    "req": "1",
+    "fildName": "installYear",
+    "name": "Cold Room"
+  },
+  {
+    "ID": 3329,
+    "itemTypeID": 1,
+    "fieldID": 36,
+    "req": "1",
+    "fildName": "tempRange",
+    "name": "Cold Room"
+  },
+  {
+    "ID": 3330,
+    "itemTypeID": 1,
+    "fieldID": 11,
+    "req": "0",
+    "fildName": "coolingUnitNumber",
+    "name": "Cold Room"
+  },
+  {
+    "ID": 3331,
+    "itemTypeID": 1,
+    "fieldID": 12,
+    "req": "0",
+    "fildName": "refrigeranGas",
+    "name": "Cold Room"
+  },
+  {
+    "ID": 3332,
+    "itemTypeID": 1,
+    "fieldID": 17,
+    "req": "1",
+    "fildName": "haveTempMonitor",
+    "name": "Cold Room"
+  },
+  {
+    "ID": 3333,
+    "itemTypeID": 1,
+    "fieldID": 51,
+    "req": "1",
+    "fildName": "netVaccCapacity",
+    "name": "Cold Room"
+  },
+  {
+    "ID": 3334,
+    "itemTypeID": 1,
+    "fieldID": 19,
+    "req": "1",
+    "fildName": "voltage",
+    "name": "Cold Room"
+  },
+  {
+    "ID": 3335,
+    "itemTypeID": 1,
+    "fieldID": 20,
+    "req": "0",
+    "fildName": "phase",
+    "name": "Cold Room"
+  },
+  {
+    "ID": 3336,
+    "itemTypeID": 1,
+    "fieldID": 15,
+    "req": "1",
+    "fildName": "voltageOK",
+    "name": "Cold Room"
+  },
+  {
+    "ID": 3337,
+    "itemTypeID": 1,
+    "fieldID": 21,
+    "req": "0",
+    "fildName": "financialSourceID",
+    "name": "Cold Room"
+  },
+  {
+    "ID": 3338,
+    "itemTypeID": 1,
+    "fieldID": 22,
+    "req": "0",
+    "fildName": "unitCost",
+    "name": "Cold Room"
+  },
+  {
+    "ID": 3339,
+    "itemTypeID": 1,
+    "fieldID": 41,
+    "req": "0",
+    "fildName": "otherField1",
+    "name": "Cold Room"
+  },
+  {
+    "ID": 3340,
+    "itemTypeID": 1,
+    "fieldID": 4,
+    "req": "0",
+    "fildName": "PQSCode",
+    "name": "Cold Room"
+  },
+  {
+    "ID": 3341,
+    "itemTypeID": 1,
+    "fieldID": 62,
+    "req": "0",
+    "fildName": "pqstype",
+    "name": "Cold Room"
+  },
+  {
+    "ID": 3342,
+    "itemTypeID": 1,
+    "fieldID": 63,
+    "req": "0",
+    "fildName": "pqsmanufacturer",
+    "name": "Cold Room"
+  },
+  {
+    "ID": 3343,
+    "itemTypeID": 1,
+    "fieldID": 64,
+    "req": "0",
+    "fildName": "pqsrefgas",
+    "name": "Cold Room"
+  },
+  {
+    "ID": 3344,
+    "itemTypeID": 1,
+    "fieldID": 65,
+    "req": "0",
+    "fildName": "pqstempzone",
+    "name": "Cold Room"
+  },
+  {
+    "ID": 3529,
+    "itemTypeID": 5,
+    "fieldID": 61,
+    "req": "0",
+    "fildName": "manufacture",
+    "name": "Cold box"
+  },
+  {
+    "ID": 3530,
+    "itemTypeID": 5,
+    "fieldID": 46,
+    "req": "0",
+    "fildName": "model",
+    "name": "Cold box"
+  },
+  {
+    "ID": 3531,
+    "itemTypeID": 5,
+    "fieldID": 6,
+    "req": "0",
+    "fildName": "height",
+    "name": "Cold box"
+  },
+  {
+    "ID": 3532,
+    "itemTypeID": 5,
+    "fieldID": 7,
+    "req": "0",
+    "fildName": "width",
+    "name": "Cold box"
+  },
+  {
+    "ID": 3533,
+    "itemTypeID": 5,
+    "fieldID": 8,
+    "req": "0",
+    "fildName": "length",
+    "name": "Cold box"
+  },
+  {
+    "ID": 3534,
+    "itemTypeID": 5,
+    "fieldID": 9,
+    "req": "1",
+    "fildName": "grossVolume",
+    "name": "Cold box"
+  },
+  {
+    "ID": 3535,
+    "itemTypeID": 5,
+    "fieldID": 30,
+    "req": "1",
+    "fildName": "inUse",
+    "name": "Cold box"
+  },
+  {
+    "ID": 3536,
+    "itemTypeID": 5,
+    "fieldID": 32,
+    "req": "1",
+    "fildName": "notUseCause",
+    "name": "Cold box"
+  },
+  {
+    "ID": 3537,
+    "itemTypeID": 5,
+    "fieldID": 51,
+    "req": "1",
+    "fildName": "netVaccCapacity",
+    "name": "Cold box"
+  },
+  {
+    "ID": 3538,
+    "itemTypeID": 5,
+    "fieldID": 4,
+    "req": "0",
+    "fildName": "PQSCode",
+    "name": "Cold box"
+  },
+  {
+    "ID": 3539,
+    "itemTypeID": 5,
+    "fieldID": 62,
+    "req": "0",
+    "fildName": "pqstype",
+    "name": "Cold box"
+  },
+  {
+    "ID": 3540,
+    "itemTypeID": 5,
+    "fieldID": 63,
+    "req": "0",
+    "fildName": "pqsmanufacturer",
+    "name": "Cold box"
+  },
+  {
+    "ID": 3541,
+    "itemTypeID": 5,
+    "fieldID": 64,
+    "req": "0",
+    "fildName": "pqsrefgas",
+    "name": "Cold box"
+  },
+  {
+    "ID": 3542,
+    "itemTypeID": 5,
+    "fieldID": 65,
+    "req": "0",
+    "fildName": "pqstempzone",
+    "name": "Cold box"
+  },
+  {
+    "ID": 3543,
+    "itemTypeID": 2,
+    "fieldID": 61,
+    "req": "1",
+    "fildName": "manufacture",
+    "name": "Freezer Room"
+  },
+  {
+    "ID": 3544,
+    "itemTypeID": 2,
+    "fieldID": 46,
+    "req": "0",
+    "fildName": "model",
+    "name": "Freezer Room"
+  },
+  {
+    "ID": 3545,
+    "itemTypeID": 2,
+    "fieldID": 6,
+    "req": "1",
+    "fildName": "height",
+    "name": "Freezer Room"
+  },
+  {
+    "ID": 3546,
+    "itemTypeID": 2,
+    "fieldID": 7,
+    "req": "1",
+    "fildName": "width",
+    "name": "Freezer Room"
+  },
+  {
+    "ID": 3547,
+    "itemTypeID": 2,
+    "fieldID": 8,
+    "req": "1",
+    "fildName": "length",
+    "name": "Freezer Room"
+  },
+  {
+    "ID": 3548,
+    "itemTypeID": 2,
+    "fieldID": 9,
+    "req": "1",
+    "fildName": "grossVolume",
+    "name": "Freezer Room"
+  },
+  {
+    "ID": 3549,
+    "itemTypeID": 2,
+    "fieldID": 18,
+    "req": "1",
+    "fildName": "haveAlarm",
+    "name": "Freezer Room"
+  },
+  {
+    "ID": 3550,
+    "itemTypeID": 2,
+    "fieldID": 14,
+    "req": "0",
+    "fildName": "shelvesOK",
+    "name": "Freezer Room"
+  },
+  {
+    "ID": 3551,
+    "itemTypeID": 2,
+    "fieldID": 30,
+    "req": "1",
+    "fildName": "inUse",
+    "name": "Freezer Room"
+  },
+  {
+    "ID": 3552,
+    "itemTypeID": 2,
+    "fieldID": 31,
+    "req": "0",
+    "fildName": "notUseDate",
+    "name": "Freezer Room"
+  },
+  {
+    "ID": 3553,
+    "itemTypeID": 2,
+    "fieldID": 32,
+    "req": "1",
+    "fildName": "notUseCause",
+    "name": "Freezer Room"
+  },
+  {
+    "ID": 3554,
+    "itemTypeID": 2,
+    "fieldID": 27,
+    "req": "0",
+    "fildName": "installYear",
+    "name": "Freezer Room"
+  },
+  {
+    "ID": 3555,
+    "itemTypeID": 2,
+    "fieldID": 36,
+    "req": "0",
+    "fildName": "tempRange",
+    "name": "Freezer Room"
+  },
+  {
+    "ID": 3556,
+    "itemTypeID": 2,
+    "fieldID": 11,
+    "req": "0",
+    "fildName": "coolingUnitNumber",
+    "name": "Freezer Room"
+  },
+  {
+    "ID": 3557,
+    "itemTypeID": 2,
+    "fieldID": 12,
+    "req": "0",
+    "fildName": "refrigeranGas",
+    "name": "Freezer Room"
+  },
+  {
+    "ID": 3558,
+    "itemTypeID": 2,
+    "fieldID": 17,
+    "req": "1",
+    "fildName": "haveTempMonitor",
+    "name": "Freezer Room"
+  },
+  {
+    "ID": 3559,
+    "itemTypeID": 2,
+    "fieldID": 39,
+    "req": "1",
+    "fildName": "FreezerCapacity",
+    "name": "Freezer Room"
+  },
+  {
+    "ID": 3560,
+    "itemTypeID": 2,
+    "fieldID": 19,
+    "req": "1",
+    "fildName": "voltage",
+    "name": "Freezer Room"
+  },
+  {
+    "ID": 3561,
+    "itemTypeID": 2,
+    "fieldID": 20,
+    "req": "0",
+    "fildName": "phase",
+    "name": "Freezer Room"
+  },
+  {
+    "ID": 3562,
+    "itemTypeID": 2,
+    "fieldID": 15,
+    "req": "0",
+    "fildName": "voltageOK",
+    "name": "Freezer Room"
+  },
+  {
+    "ID": 3563,
+    "itemTypeID": 2,
+    "fieldID": 21,
+    "req": "0",
+    "fildName": "financialSourceID",
+    "name": "Freezer Room"
+  },
+  {
+    "ID": 3564,
+    "itemTypeID": 2,
+    "fieldID": 22,
+    "req": "0",
+    "fildName": "unitCost",
+    "name": "Freezer Room"
+  },
+  {
+    "ID": 3565,
+    "itemTypeID": 2,
+    "fieldID": 41,
+    "req": "0",
+    "fildName": "otherField1",
+    "name": "Freezer Room"
+  },
+  {
+    "ID": 3566,
+    "itemTypeID": 2,
+    "fieldID": 4,
+    "req": "0",
+    "fildName": "PQSCode",
+    "name": "Freezer Room"
+  },
+  {
+    "ID": 3567,
+    "itemTypeID": 2,
+    "fieldID": 62,
+    "req": "0",
+    "fildName": "pqstype",
+    "name": "Freezer Room"
+  },
+  {
+    "ID": 3568,
+    "itemTypeID": 2,
+    "fieldID": 63,
+    "req": "0",
+    "fildName": "pqsmanufacturer",
+    "name": "Freezer Room"
+  },
+  {
+    "ID": 3569,
+    "itemTypeID": 2,
+    "fieldID": 64,
+    "req": "0",
+    "fildName": "pqsrefgas",
+    "name": "Freezer Room"
+  },
+  {
+    "ID": 3570,
+    "itemTypeID": 2,
+    "fieldID": 65,
+    "req": "0",
+    "fildName": "pqstempzone",
+    "name": "Freezer Room"
+  },
+  {
+    "ID": 3571,
+    "itemTypeID": 6,
+    "fieldID": 5,
+    "req": "0",
+    "fildName": "type",
+    "name": "Vaccine Carrier"
+  },
+  {
+    "ID": 3572,
+    "itemTypeID": 6,
+    "fieldID": 61,
+    "req": "0",
+    "fildName": "manufacture",
+    "name": "Vaccine Carrier"
+  },
+  {
+    "ID": 3573,
+    "itemTypeID": 6,
+    "fieldID": 46,
+    "req": "0",
+    "fildName": "model",
+    "name": "Vaccine Carrier"
+  },
+  {
+    "ID": 3574,
+    "itemTypeID": 6,
+    "fieldID": 28,
+    "req": "1",
+    "fildName": "physicalCondition",
+    "name": "Vaccine Carrier"
+  },
+  {
+    "ID": 3575,
+    "itemTypeID": 6,
+    "fieldID": 30,
+    "req": "1",
+    "fildName": "inUse",
+    "name": "Vaccine Carrier"
+  },
+  {
+    "ID": 3576,
+    "itemTypeID": 6,
+    "fieldID": 32,
+    "req": "1",
+    "fildName": "notUseCause",
+    "name": "Vaccine Carrier"
+  },
+  {
+    "ID": 3577,
+    "itemTypeID": 6,
+    "fieldID": 4,
+    "req": "0",
+    "fildName": "PQSCode",
+    "name": "Vaccine Carrier"
+  },
+  {
+    "ID": 3578,
+    "itemTypeID": 6,
+    "fieldID": 62,
+    "req": "0",
+    "fildName": "pqstype",
+    "name": "Vaccine Carrier"
+  },
+  {
+    "ID": 3579,
+    "itemTypeID": 6,
+    "fieldID": 63,
+    "req": "0",
+    "fildName": "pqsmanufacturer",
+    "name": "Vaccine Carrier"
+  },
+  {
+    "ID": 3580,
+    "itemTypeID": 6,
+    "fieldID": 64,
+    "req": "0",
+    "fildName": "pqsrefgas",
+    "name": "Vaccine Carrier"
+  },
+  {
+    "ID": 3581,
+    "itemTypeID": 6,
+    "fieldID": 65,
+    "req": "0",
+    "fildName": "pqstempzone",
+    "name": "Vaccine Carrier"
+  },
+  {
+    "ID": 3582,
+    "itemTypeID": 8,
+    "fieldID": 61,
+    "req": "0",
+    "fildName": "manufacture",
+    "name": "Refrigerated vehicles"
+  },
+  {
+    "ID": 3583,
+    "itemTypeID": 8,
+    "fieldID": 46,
+    "req": "0",
+    "fildName": "model",
+    "name": "Refrigerated vehicles"
+  },
+  {
+    "ID": 3584,
+    "itemTypeID": 8,
+    "fieldID": 6,
+    "req": "1",
+    "fildName": "height",
+    "name": "Refrigerated vehicles"
+  },
+  {
+    "ID": 3585,
+    "itemTypeID": 8,
+    "fieldID": 7,
+    "req": "1",
+    "fildName": "width",
+    "name": "Refrigerated vehicles"
+  },
+  {
+    "ID": 3586,
+    "itemTypeID": 8,
+    "fieldID": 8,
+    "req": "1",
+    "fildName": "length",
+    "name": "Refrigerated vehicles"
+  },
+  {
+    "ID": 3587,
+    "itemTypeID": 8,
+    "fieldID": 9,
+    "req": "1",
+    "fildName": "grossVolume",
+    "name": "Refrigerated vehicles"
+  },
+  {
+    "ID": 3588,
+    "itemTypeID": 8,
+    "fieldID": 60,
+    "req": "1",
+    "fildName": "doorNumber",
+    "name": "Refrigerated vehicles"
+  },
+  {
+    "ID": 3589,
+    "itemTypeID": 8,
+    "fieldID": 28,
+    "req": "1",
+    "fildName": "physicalCondition",
+    "name": "Refrigerated vehicles"
+  },
+  {
+    "ID": 3590,
+    "itemTypeID": 8,
+    "fieldID": 30,
+    "req": "1",
+    "fildName": "inUse",
+    "name": "Refrigerated vehicles"
+  },
+  {
+    "ID": 3591,
+    "itemTypeID": 8,
+    "fieldID": 32,
+    "req": "1",
+    "fildName": "notUseCause",
+    "name": "Refrigerated vehicles"
+  },
+  {
+    "ID": 3592,
+    "itemTypeID": 8,
+    "fieldID": 51,
+    "req": "1",
+    "fildName": "netVaccCapacity",
+    "name": "Refrigerated vehicles"
+  },
+  {
+    "ID": 3593,
+    "itemTypeID": 8,
+    "fieldID": 21,
+    "req": "0",
+    "fildName": "financialSourceID",
+    "name": "Refrigerated vehicles"
+  },
+  {
+    "ID": 3594,
+    "itemTypeID": 8,
+    "fieldID": 42,
+    "req": "1",
+    "fildName": "otherField2",
+    "name": "Refrigerated vehicles"
+  },
+  {
+    "ID": 3741,
+    "itemTypeID": 20,
+    "fieldID": 5,
+    "req": "1",
+    "fildName": "type",
+    "name": "Refrigerator/Freezer combined"
+  },
+  {
+    "ID": 3742,
+    "itemTypeID": 20,
+    "fieldID": 61,
+    "req": "1",
+    "fildName": "manufacture",
+    "name": "Refrigerator/Freezer combined"
+  },
+  {
+    "ID": 3743,
+    "itemTypeID": 20,
+    "fieldID": 46,
+    "req": "0",
+    "fildName": "model",
+    "name": "Refrigerator/Freezer combined"
+  },
+  {
+    "ID": 3744,
+    "itemTypeID": 20,
+    "fieldID": 6,
+    "req": "0",
+    "fildName": "height",
+    "name": "Refrigerator/Freezer combined"
+  },
+  {
+    "ID": 3745,
+    "itemTypeID": 20,
+    "fieldID": 7,
+    "req": "0",
+    "fildName": "width",
+    "name": "Refrigerator/Freezer combined"
+  },
+  {
+    "ID": 3746,
+    "itemTypeID": 20,
+    "fieldID": 8,
+    "req": "0",
+    "fildName": "length",
+    "name": "Refrigerator/Freezer combined"
+  },
+  {
+    "ID": 3747,
+    "itemTypeID": 20,
+    "fieldID": 9,
+    "req": "0",
+    "fildName": "grossVolume",
+    "name": "Refrigerator/Freezer combined"
+  },
+  {
+    "ID": 3748,
+    "itemTypeID": 20,
+    "fieldID": 60,
+    "req": "0",
+    "fildName": "doorNumber",
+    "name": "Refrigerator/Freezer combined"
+  },
+  {
+    "ID": 3749,
+    "itemTypeID": 20,
+    "fieldID": 28,
+    "req": "1",
+    "fildName": "physicalCondition",
+    "name": "Refrigerator/Freezer combined"
+  },
+  {
+    "ID": 3750,
+    "itemTypeID": 20,
+    "fieldID": 30,
+    "req": "1",
+    "fildName": "inUse",
+    "name": "Refrigerator/Freezer combined"
+  },
+  {
+    "ID": 3751,
+    "itemTypeID": 20,
+    "fieldID": 32,
+    "req": "1",
+    "fildName": "notUseCause",
+    "name": "Refrigerator/Freezer combined"
+  },
+  {
+    "ID": 3752,
+    "itemTypeID": 20,
+    "fieldID": 27,
+    "req": "1",
+    "fildName": "installYear",
+    "name": "Refrigerator/Freezer combined"
+  },
+  {
+    "ID": 3753,
+    "itemTypeID": 20,
+    "fieldID": 36,
+    "req": "1",
+    "fildName": "tempRange",
+    "name": "Refrigerator/Freezer combined"
+  },
+  {
+    "ID": 3754,
+    "itemTypeID": 20,
+    "fieldID": 13,
+    "req": "0",
+    "fildName": "CFCFree",
+    "name": "Refrigerator/Freezer combined"
+  },
+  {
+    "ID": 3755,
+    "itemTypeID": 20,
+    "fieldID": 23,
+    "req": "1",
+    "fildName": "haveFreezing",
+    "name": "Refrigerator/Freezer combined"
+  },
+  {
+    "ID": 3756,
+    "itemTypeID": 20,
+    "fieldID": 54,
+    "req": "1",
+    "fildName": "sepFreez",
+    "name": "Refrigerator/Freezer combined"
+  },
+  {
+    "ID": 3757,
+    "itemTypeID": 20,
+    "fieldID": 39,
+    "req": "1",
+    "fildName": "FreezerCapacity",
+    "name": "Refrigerator/Freezer combined"
+  },
+  {
+    "ID": 3758,
+    "itemTypeID": 20,
+    "fieldID": 51,
+    "req": "1",
+    "fildName": "netVaccCapacity",
+    "name": "Refrigerator/Freezer combined"
+  },
+  {
+    "ID": 3759,
+    "itemTypeID": 20,
+    "fieldID": 52,
+    "req": "0",
+    "fildName": "iceCapacity",
+    "name": "Refrigerator/Freezer combined"
+  },
+  {
+    "ID": 3760,
+    "itemTypeID": 20,
+    "fieldID": 38,
+    "req": "1",
+    "fildName": "energySourceID",
+    "name": "Refrigerator/Freezer combined"
+  },
+  {
+    "ID": 3761,
+    "itemTypeID": 20,
+    "fieldID": 21,
+    "req": "0",
+    "fildName": "financialSourceID",
+    "name": "Refrigerator/Freezer combined"
+  },
+  {
+    "ID": 3762,
+    "itemTypeID": 20,
+    "fieldID": 50,
+    "req": "0",
+    "fildName": "otherCode",
+    "name": "Refrigerator/Freezer combined"
+  },
+  {
+    "ID": 3763,
+    "itemTypeID": 20,
+    "fieldID": 41,
+    "req": "0",
+    "fildName": "otherField1",
+    "name": "Refrigerator/Freezer combined"
+  },
+  {
+    "ID": 3790,
+    "itemTypeID": 3,
+    "fieldID": 5,
+    "req": "1",
+    "fildName": "type",
+    "name": "Refrigerator"
+  },
+  {
+    "ID": 3791,
+    "itemTypeID": 3,
+    "fieldID": 61,
+    "req": "1",
+    "fildName": "manufacture",
+    "name": "Refrigerator"
+  },
+  {
+    "ID": 3792,
+    "itemTypeID": 3,
+    "fieldID": 46,
+    "req": "0",
+    "fildName": "model",
+    "name": "Refrigerator"
+  },
+  {
+    "ID": 3793,
+    "itemTypeID": 3,
+    "fieldID": 6,
+    "req": "0",
+    "fildName": "height",
+    "name": "Refrigerator"
+  },
+  {
+    "ID": 3794,
+    "itemTypeID": 3,
+    "fieldID": 7,
+    "req": "0",
+    "fildName": "width",
+    "name": "Refrigerator"
+  },
+  {
+    "ID": 3795,
+    "itemTypeID": 3,
+    "fieldID": 8,
+    "req": "0",
+    "fildName": "length",
+    "name": "Refrigerator"
+  },
+  {
+    "ID": 3796,
+    "itemTypeID": 3,
+    "fieldID": 9,
+    "req": "1",
+    "fildName": "grossVolume",
+    "name": "Refrigerator"
+  },
+  {
+    "ID": 3797,
+    "itemTypeID": 3,
+    "fieldID": 60,
+    "req": "0",
+    "fildName": "doorNumber",
+    "name": "Refrigerator"
+  },
+  {
+    "ID": 3798,
+    "itemTypeID": 3,
+    "fieldID": 30,
+    "req": "1",
+    "fildName": "inUse",
+    "name": "Refrigerator"
+  },
+  {
+    "ID": 3799,
+    "itemTypeID": 3,
+    "fieldID": 32,
+    "req": "1",
+    "fildName": "notUseCause",
+    "name": "Refrigerator"
+  },
+  {
+    "ID": 3800,
+    "itemTypeID": 3,
+    "fieldID": 27,
+    "req": "1",
+    "fildName": "installYear",
+    "name": "Refrigerator"
+  },
+  {
+    "ID": 3801,
+    "itemTypeID": 3,
+    "fieldID": 36,
+    "req": "1",
+    "fildName": "tempRange",
+    "name": "Refrigerator"
+  },
+  {
+    "ID": 3802,
+    "itemTypeID": 3,
+    "fieldID": 51,
+    "req": "1",
+    "fildName": "netVaccCapacity",
+    "name": "Refrigerator"
+  },
+  {
+    "ID": 3803,
+    "itemTypeID": 3,
+    "fieldID": 52,
+    "req": "0",
+    "fildName": "iceCapacity",
+    "name": "Refrigerator"
+  },
+  {
+    "ID": 3804,
+    "itemTypeID": 3,
+    "fieldID": 38,
+    "req": "1",
+    "fildName": "energySourceID",
+    "name": "Refrigerator"
+  },
+  {
+    "ID": 3805,
+    "itemTypeID": 3,
+    "fieldID": 15,
+    "req": "1",
+    "fildName": "voltageOK",
+    "name": "Refrigerator"
+  },
+  {
+    "ID": 3806,
+    "itemTypeID": 3,
+    "fieldID": 21,
+    "req": "0",
+    "fildName": "financialSourceID",
+    "name": "Refrigerator"
+  },
+  {
+    "ID": 3807,
+    "itemTypeID": 3,
+    "fieldID": 41,
+    "req": "0",
+    "fildName": "otherField1",
+    "name": "Refrigerator"
+  },
+  {
+    "ID": 3808,
+    "itemTypeID": 3,
+    "fieldID": 43,
+    "req": "1",
+    "fildName": "otherField3",
+    "name": "Refrigerator"
+  },
+  {
+    "ID": 3809,
+    "itemTypeID": 3,
+    "fieldID": 44,
+    "req": "1",
+    "fildName": "otherField4",
+    "name": "Refrigerator"
+  },
+  {
+    "ID": 3810,
+    "itemTypeID": 3,
+    "fieldID": 4,
+    "req": "0",
+    "fildName": "PQSCode",
+    "name": "Refrigerator"
+  },
+  {
+    "ID": 3811,
+    "itemTypeID": 3,
+    "fieldID": 62,
+    "req": "0",
+    "fildName": "pqstype",
+    "name": "Refrigerator"
+  },
+  {
+    "ID": 3812,
+    "itemTypeID": 3,
+    "fieldID": 63,
+    "req": "0",
+    "fildName": "pqsmanufacturer",
+    "name": "Refrigerator"
+  },
+  {
+    "ID": 3813,
+    "itemTypeID": 3,
+    "fieldID": 64,
+    "req": "0",
+    "fildName": "pqsrefgas",
+    "name": "Refrigerator"
+  },
+  {
+    "ID": 3814,
+    "itemTypeID": 3,
+    "fieldID": 65,
+    "req": "0",
+    "fildName": "pqstempzone",
+    "name": "Refrigerator"
+  },
+  {
+    "ID": 3815,
+    "itemTypeID": 4,
+    "fieldID": 5,
+    "req": "1",
+    "fildName": "type",
+    "name": "Freezer"
+  },
+  {
+    "ID": 3816,
+    "itemTypeID": 4,
+    "fieldID": 61,
+    "req": "0",
+    "fildName": "manufacture",
+    "name": "Freezer"
+  },
+  {
+    "ID": 3817,
+    "itemTypeID": 4,
+    "fieldID": 46,
+    "req": "0",
+    "fildName": "model",
+    "name": "Freezer"
+  },
+  {
+    "ID": 3818,
+    "itemTypeID": 4,
+    "fieldID": 6,
+    "req": "0",
+    "fildName": "height",
+    "name": "Freezer"
+  },
+  {
+    "ID": 3819,
+    "itemTypeID": 4,
+    "fieldID": 7,
+    "req": "0",
+    "fildName": "width",
+    "name": "Freezer"
+  },
+  {
+    "ID": 3820,
+    "itemTypeID": 4,
+    "fieldID": 8,
+    "req": "0",
+    "fildName": "length",
+    "name": "Freezer"
+  },
+  {
+    "ID": 3821,
+    "itemTypeID": 4,
+    "fieldID": 18,
+    "req": "1",
+    "fildName": "haveAlarm",
+    "name": "Freezer"
+  },
+  {
+    "ID": 3822,
+    "itemTypeID": 4,
+    "fieldID": 30,
+    "req": "1",
+    "fildName": "inUse",
+    "name": "Freezer"
+  },
+  {
+    "ID": 3823,
+    "itemTypeID": 4,
+    "fieldID": 32,
+    "req": "1",
+    "fildName": "notUseCause",
+    "name": "Freezer"
+  },
+  {
+    "ID": 3824,
+    "itemTypeID": 4,
+    "fieldID": 27,
+    "req": "1",
+    "fildName": "installYear",
+    "name": "Freezer"
+  },
+  {
+    "ID": 3825,
+    "itemTypeID": 4,
+    "fieldID": 36,
+    "req": "1",
+    "fildName": "tempRange",
+    "name": "Freezer"
+  },
+  {
+    "ID": 3826,
+    "itemTypeID": 4,
+    "fieldID": 39,
+    "req": "1",
+    "fildName": "FreezerCapacity",
+    "name": "Freezer"
+  },
+  {
+    "ID": 3827,
+    "itemTypeID": 4,
+    "fieldID": 51,
+    "req": "0",
+    "fildName": "netVaccCapacity",
+    "name": "Freezer"
+  },
+  {
+    "ID": 3828,
+    "itemTypeID": 4,
+    "fieldID": 52,
+    "req": "0",
+    "fildName": "iceCapacity",
+    "name": "Freezer"
+  },
+  {
+    "ID": 3829,
+    "itemTypeID": 4,
+    "fieldID": 15,
+    "req": "1",
+    "fildName": "voltageOK",
+    "name": "Freezer"
+  },
+  {
+    "ID": 3830,
+    "itemTypeID": 4,
+    "fieldID": 41,
+    "req": "0",
+    "fildName": "otherField1",
+    "name": "Freezer"
+  },
+  {
+    "ID": 3831,
+    "itemTypeID": 4,
+    "fieldID": 4,
+    "req": "0",
+    "fildName": "PQSCode",
+    "name": "Freezer"
+  },
+  {
+    "ID": 3832,
+    "itemTypeID": 4,
+    "fieldID": 62,
+    "req": "0",
+    "fildName": "pqstype",
+    "name": "Freezer"
+  },
+  {
+    "ID": 3833,
+    "itemTypeID": 4,
+    "fieldID": 63,
+    "req": "0",
+    "fildName": "pqsmanufacturer",
+    "name": "Freezer"
+  },
+  {
+    "ID": 3834,
+    "itemTypeID": 4,
+    "fieldID": 64,
+    "req": "0",
+    "fildName": "pqsrefgas",
+    "name": "Freezer"
+  },
+  {
+    "ID": 3835,
+    "itemTypeID": 4,
+    "fieldID": 65,
+    "req": "0",
+    "fildName": "pqstempzone",
+    "name": "Freezer"
+  }
+]

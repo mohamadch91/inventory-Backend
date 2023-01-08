@@ -1,0 +1,702 @@
+[
+  {
+    "ID": 4,
+    "fieldName": "province",
+    "fildCultureKey": "Province",
+    "type": 1,
+    "controlType": null,
+    "enable": "1",
+    "req": "1",
+    "orderid": 2
+  },
+  {
+    "ID": 5,
+    "fieldName": "City",
+    "fildCultureKey": "City",
+    "type": 1,
+    "controlType": null,
+    "enable": "1",
+    "req": "1",
+    "orderid": 5
+  },
+  {
+    "ID": 6,
+    "fieldName": "Zone",
+    "fildCultureKey": "Zone",
+    "type": 1,
+    "controlType": null,
+    "enable": "0",
+    "req": "0",
+    "orderid": 4
+  },
+  {
+    "ID": 7,
+    "fieldName": "Address",
+    "fildCultureKey": "Address",
+    "type": 1,
+    "controlType": null,
+    "enable": "1",
+    "req": "1",
+    "orderid": 6
+  },
+  {
+    "ID": 8,
+    "fieldName": "postalCode",
+    "fildCultureKey": "PostalCode",
+    "type": 1,
+    "controlType": null,
+    "enable": "0",
+    "req": "0",
+    "orderid": 7
+  },
+  {
+    "ID": 9,
+    "fieldName": "havePhone",
+    "fildCultureKey": "havePhone",
+    "type": 1,
+    "controlType": null,
+    "enable": "1",
+    "req": "1",
+    "orderid": 10
+  },
+  {
+    "ID": 10,
+    "fieldName": "haveInternet",
+    "fildCultureKey": "haveInternet",
+    "type": 1,
+    "controlType": null,
+    "enable": "1",
+    "req": "1",
+    "orderid": 11
+  },
+  {
+    "ID": 11,
+    "fieldName": "email",
+    "fildCultureKey": "email",
+    "type": 1,
+    "controlType": null,
+    "enable": "1",
+    "req": "0",
+    "orderid": 8
+  },
+  {
+    "ID": 12,
+    "fieldName": "ownership",
+    "fildCultureKey": "Ownership",
+    "type": 1,
+    "controlType": null,
+    "enable": "1",
+    "req": "0",
+    "orderid": 12
+  },
+  {
+    "ID": 13,
+    "fieldName": "distanceKM",
+    "fildCultureKey": "distanceKM",
+    "type": 1,
+    "controlType": null,
+    "enable": "1",
+    "req": "1",
+    "orderid": 15
+  },
+  {
+    "ID": 14,
+    "fieldName": "distanceTime",
+    "fildCultureKey": "distanceTime",
+    "type": 1,
+    "controlType": null,
+    "enable": "0",
+    "req": "0",
+    "orderid": 16
+  },
+  {
+    "ID": 15,
+    "fieldName": "roadType",
+    "fildCultureKey": "roadType",
+    "type": 1,
+    "controlType": null,
+    "enable": "0",
+    "req": "0",
+    "orderid": 13
+  },
+  {
+    "ID": 16,
+    "fieldName": "climate",
+    "fildCultureKey": "Climate",
+    "type": 1,
+    "controlType": null,
+    "enable": "0",
+    "req": "0",
+    "orderid": 14
+  },
+  {
+    "ID": 19,
+    "fieldName": "receivingVacMode",
+    "fildCultureKey": "receivingVacMode",
+    "type": 1,
+    "controlType": null,
+    "enable": "1",
+    "req": "1",
+    "orderid": 17
+  },
+  {
+    "ID": 20,
+    "fieldName": "transportMode",
+    "fildCultureKey": "transportMode",
+    "type": 1,
+    "controlType": null,
+    "enable": "1",
+    "req": "1",
+    "orderid": 18
+  },
+  {
+    "ID": 22,
+    "fieldName": "numberOfStaff",
+    "fildCultureKey": "numberOfStaff",
+    "type": 1,
+    "controlType": null,
+    "enable": "0",
+    "req": "0",
+    "orderid": 20
+  },
+  {
+    "ID": 23,
+    "fieldName": "powerSource",
+    "fildCultureKey": "powerSource",
+    "type": 1,
+    "controlType": null,
+    "enable": "0",
+    "req": "0",
+    "orderid": 21
+  },
+  {
+    "ID": 24,
+    "fieldName": "Remarks",
+    "fildCultureKey": "Remarks",
+    "type": 1,
+    "controlType": null,
+    "enable": "1",
+    "req": "0",
+    "orderid": 24
+  },
+  {
+    "ID": 32,
+    "fieldName": "completerStaffPosition",
+    "fildCultureKey": "completerStaffPosition",
+    "type": 1,
+    "controlType": null,
+    "enable": "0",
+    "req": "0",
+    "orderid": 25
+  },
+  {
+    "ID": 33,
+    "fieldName": "completerStaffSign",
+    "fildCultureKey": "completerStaffSign",
+    "type": 1,
+    "controlType": null,
+    "enable": "0",
+    "req": "0",
+    "orderid": 26
+  },
+  {
+    "ID": 34,
+    "fieldName": "facilityBarcode",
+    "fildCultureKey": "facilityBarcode",
+    "type": 1,
+    "controlType": null,
+    "enable": "0",
+    "req": "0",
+    "orderid": 22
+  },
+  {
+    "ID": 36,
+    "fieldName": "district",
+    "fildCultureKey": "District",
+    "type": 1,
+    "controlType": null,
+    "enable": "0",
+    "req": "0",
+    "orderid": 3
+  },
+  {
+    "ID": 37,
+    "fieldName": "gps",
+    "fildCultureKey": "gps",
+    "type": 1,
+    "controlType": null,
+    "enable": "1",
+    "req": "0",
+    "orderid": 9
+  },
+  {
+    "ID": 38,
+    "fieldName": "other",
+    "fildCultureKey": "other",
+    "type": 1,
+    "controlType": null,
+    "enable": "1",
+    "req": "0",
+    "orderid": 23
+  },
+  {
+    "ID": 40,
+    "fieldName": "Coverage",
+    "fildCultureKey": "Coverage",
+    "type": 1,
+    "controlType": null,
+    "enable": "0",
+    "req": "0",
+    "orderid": 1
+  },
+  {
+    "ID": 41,
+    "fieldName": "functionstatus",
+    "fildCultureKey": "functionstatus",
+    "type": 1,
+    "controlType": null,
+    "enable": "1",
+    "req": "1",
+    "orderid": 24
+  },
+  {
+    "ID": 42,
+    "fieldName": "insertDate",
+    "fildCultureKey": "insertDate",
+    "type": 2,
+    "controlType": null,
+    "enable": "1",
+    "req": "1",
+    "orderid": 10
+  },
+  {
+    "ID": 43,
+    "fieldName": "FacilityCode",
+    "fildCultureKey": "FacilityCode",
+    "type": 2,
+    "controlType": null,
+    "enable": "1",
+    "req": "1",
+    "orderid": 1
+  },
+  {
+    "ID": 44,
+    "fieldName": "Level",
+    "fildCultureKey": "Level",
+    "type": 2,
+    "controlType": null,
+    "enable": "1",
+    "req": "1",
+    "orderid": 3
+  },
+  {
+    "ID": 45,
+    "fieldName": "facilityName",
+    "fildCultureKey": "facilityName",
+    "type": 2,
+    "controlType": null,
+    "enable": "1",
+    "req": "1",
+    "orderid": 2
+  },
+  {
+    "ID": 46,
+    "fieldName": "Facilitytype",
+    "fildCultureKey": "Facilitytype",
+    "type": 2,
+    "controlType": null,
+    "enable": "1",
+    "req": "1",
+    "orderid": 4
+  },
+  {
+    "ID": 49,
+    "fieldName": "NumberOfGeneralPop",
+    "fildCultureKey": "NumberOfGeneralPop",
+    "type": 2,
+    "controlType": null,
+    "enable": "1",
+    "req": "1",
+    "orderid": 5
+  },
+  {
+    "ID": 50,
+    "fieldName": "NumberOfUnderOne",
+    "fildCultureKey": "NumberOfUnderOne",
+    "type": 2,
+    "controlType": null,
+    "enable": "1",
+    "req": "1",
+    "orderid": 6
+  },
+  {
+    "ID": 51,
+    "fieldName": "FacilitySetupYear",
+    "fildCultureKey": "FacilitySetupYear",
+    "type": 1,
+    "controlType": null,
+    "enable": "0",
+    "req": "0",
+    "orderid": 1
+  },
+  {
+    "ID": 52,
+    "fieldName": "changeDate",
+    "fildCultureKey": "changeDate",
+    "type": 2,
+    "controlType": null,
+    "enable": "1",
+    "req": "1",
+    "orderid": 9
+  },
+  {
+    "ID": 53,
+    "fieldName": "completerStaffName",
+    "fildCultureKey": "completerStaffName",
+    "type": 2,
+    "controlType": null,
+    "enable": "1",
+    "req": "1",
+    "orderid": 11
+  },
+  {
+    "ID": 54,
+    "fieldName": "startWork",
+    "fildCultureKey": "facStart",
+    "type": 1,
+    "controlType": null,
+    "enable": "0",
+    "req": "0",
+    "orderid": 19
+  },
+  {
+    "ID": 55,
+    "fieldName": "NumberOfLowerLevel",
+    "fildCultureKey": "NumberOfLowerLevel",
+    "type": 2,
+    "controlType": null,
+    "enable": "1",
+    "req": "1",
+    "orderid": 7
+  },
+  {
+    "ID": 56,
+    "fieldName": "HaveImmService",
+    "fildCultureKey": "HaveImmService",
+    "type": 1,
+    "controlType": null,
+    "enable": "1",
+    "req": "1",
+    "orderid": 17
+  },
+  {
+    "ID": 57,
+    "fieldName": "TypeImmService",
+    "fildCultureKey": "TypeImmService",
+    "type": 1,
+    "controlType": null,
+    "enable": "1",
+    "req": "1",
+    "orderid": 17
+  },
+  {
+    "ID": 58,
+    "fieldName": "NumImmperWeek",
+    "fildCultureKey": "NumImmperWeek",
+    "type": 1,
+    "controlType": null,
+    "enable": "1",
+    "req": "0",
+    "orderid": 17
+  },
+  {
+    "ID": 59,
+    "fieldName": "NumProfStaff",
+    "fildCultureKey": "NumProfStaff",
+    "type": 1,
+    "controlType": null,
+    "enable": "0",
+    "req": "0",
+    "orderid": 20
+  },
+  {
+    "ID": 60,
+    "fieldName": "NumVaccStaff",
+    "fildCultureKey": "NumVaccStaff",
+    "type": 1,
+    "controlType": null,
+    "enable": "1",
+    "req": "0",
+    "orderid": 20
+  },
+  {
+    "ID": 61,
+    "fieldName": "NumDriverStaff",
+    "fildCultureKey": "NumDriverStaff",
+    "type": 1,
+    "controlType": null,
+    "enable": "0",
+    "req": "0",
+    "orderid": 20
+  },
+  {
+    "ID": 63,
+    "fieldName": "HaveGenerator",
+    "fildCultureKey": "HaveGenerator",
+    "type": 1,
+    "controlType": null,
+    "enable": "0",
+    "req": "0",
+    "orderid": 21
+  },
+  {
+    "ID": 64,
+    "fieldName": "Coverage2",
+    "fildCultureKey": "Coverage2",
+    "type": 1,
+    "controlType": null,
+    "enable": "0",
+    "req": "0",
+    "orderid": 1
+  },
+  {
+    "ID": 65,
+    "fieldName": "HaveGenerator",
+    "fildCultureKey": "HaveGenerator",
+    "type": 1,
+    "controlType": null,
+    "enable": "1",
+    "req": "0",
+    "orderid": 21
+  },
+  {
+    "ID": 66,
+    "fieldName": "HaveCovid",
+    "fildCultureKey": "HaveCovid",
+    "type": 1,
+    "controlType": null,
+    "enable": "1",
+    "req": "0",
+    "orderid": 18
+  },
+  {
+    "ID": 67,
+    "fieldName": "countVacc1",
+    "fildCultureKey": "countVacc1",
+    "type": 1,
+    "controlType": null,
+    "enable": "0",
+    "req": "0",
+    "orderid": 1
+  },
+  {
+    "ID": 68,
+    "fieldName": "countVacc2",
+    "fildCultureKey": "countVacc2",
+    "type": 1,
+    "controlType": null,
+    "enable": "0",
+    "req": "0",
+    "orderid": 1
+  },
+  {
+    "ID": 69,
+    "fieldName": "otherservice",
+    "fildCultureKey": "otherservice",
+    "type": 1,
+    "controlType": null,
+    "enable": "0",
+    "req": "0",
+    "orderid": 18
+  },
+  {
+    "ID": 70,
+    "fieldName": "SelectOtherServices",
+    "fildCultureKey": "SelectOtherServices",
+    "type": 1,
+    "controlType": null,
+    "enable": "0",
+    "req": "0",
+    "orderid": 17
+  },
+  {
+    "ID": 71,
+    "fieldName": "IsbuildingSuitable",
+    "fildCultureKey": "IsbuildingSuitable",
+    "type": 1,
+    "controlType": null,
+    "enable": "0",
+    "req": "0",
+    "orderid": 24
+  },
+  {
+    "ID": 72,
+    "fieldName": "buildingSuitableReason",
+    "fildCultureKey": "buildingSuitableReason",
+    "type": 1,
+    "controlType": null,
+    "enable": "0",
+    "req": "0",
+    "orderid": 25
+  },
+  {
+    "ID": 73,
+    "fieldName": "NumIcepack",
+    "fildCultureKey": "NumIcepack",
+    "type": 1,
+    "controlType": null,
+    "enable": "0",
+    "req": "0",
+    "orderid": 18
+  },
+  {
+    "ID": 74,
+    "fieldName": "other2",
+    "fildCultureKey": "other2",
+    "type": 1,
+    "controlType": null,
+    "enable": "0",
+    "req": "0",
+    "orderid": 33
+  },
+  {
+    "ID": 75,
+    "fieldName": "other3",
+    "fildCultureKey": "other3",
+    "type": 1,
+    "controlType": null,
+    "enable": "0",
+    "req": "0",
+    "orderid": 34
+  },
+  {
+    "ID": 76,
+    "fieldName": "other4",
+    "fildCultureKey": "other4",
+    "type": 1,
+    "controlType": null,
+    "enable": "0",
+    "req": "0",
+    "orderid": 35
+  },
+  {
+    "ID": 77,
+    "fieldName": "other5",
+    "fildCultureKey": "other5",
+    "type": 1,
+    "controlType": null,
+    "enable": "0",
+    "req": "0",
+    "orderid": 36
+  },
+  {
+    "ID": 78,
+    "fieldName": "other6",
+    "fildCultureKey": "other6",
+    "type": 1,
+    "controlType": null,
+    "enable": "0",
+    "req": "0",
+    "orderid": 37
+  },
+  {
+    "ID": 79,
+    "fieldName": "MaxSDI",
+    "fildCultureKey": "MaxSDI",
+    "type": 1,
+    "controlType": null,
+    "enable": "0",
+    "req": "0",
+    "orderid": 18
+  },
+  {
+    "ID": 80,
+    "fieldName": "FacMainPlan",
+    "fildCultureKey": "FacMainPlan",
+    "type": 1,
+    "controlType": null,
+    "enable": "0",
+    "req": "0",
+    "orderid": 23
+  },
+  {
+    "ID": 81,
+    "fieldName": "NumIsOpen",
+    "fildCultureKey": "NumIsOpen",
+    "type": 1,
+    "controlType": null,
+    "enable": "0",
+    "req": "0",
+    "orderid": 13
+  },
+  {
+    "ID": 82,
+    "fieldName": "workingHFrom",
+    "fildCultureKey": "workingHFrom",
+    "type": 1,
+    "controlType": null,
+    "enable": "0",
+    "req": "0",
+    "orderid": 13
+  },
+  {
+    "ID": 83,
+    "fieldName": "workingHTo",
+    "fildCultureKey": "workingHTo",
+    "type": 1,
+    "controlType": null,
+    "enable": "0",
+    "req": "0",
+    "orderid": 13
+  },
+  {
+    "ID": 84,
+    "fieldName": "other1",
+    "fildCultureKey": "other1",
+    "type": 1,
+    "controlType": null,
+    "enable": "0",
+    "req": "0",
+    "orderid": 32
+  },
+  {
+    "ID": 85,
+    "fieldName": "Coverage3",
+    "fildCultureKey": "Coverage3",
+    "type": 1,
+    "controlType": null,
+    "enable": "0",
+    "req": "0",
+    "orderid": 1
+  },
+  {
+    "ID": 86,
+    "fieldName": "countVacc3",
+    "fildCultureKey": "countVacc3",
+    "type": 1,
+    "controlType": null,
+    "enable": "0",
+    "req": "0",
+    "orderid": 1
+  },
+  {
+    "ID": 87,
+    "fieldName": "Coverage4",
+    "fildCultureKey": "Coverage4",
+    "type": 1,
+    "controlType": null,
+    "enable": "0",
+    "req": "0",
+    "orderid": 1
+  },
+  {
+    "ID": 88,
+    "fieldName": "countVacc4",
+    "fildCultureKey": "countVacc4",
+    "type": 1,
+    "controlType": null,
+    "enable": "0",
+    "req": "0",
+    "orderid": 1
+  }
+]

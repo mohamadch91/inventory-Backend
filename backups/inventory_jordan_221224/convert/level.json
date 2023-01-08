@@ -1,0 +1,266 @@
+[
+  {
+    "ID": 28,
+    "itemTypeID": 16,
+    "level": 1,
+    "name": "Computers"
+  },
+  {
+    "ID": 29,
+    "itemTypeID": 17,
+    "level": 1,
+    "name": "Printers"
+  },
+  {
+    "ID": 30,
+    "itemTypeID": 16,
+    "level": 2,
+    "name": "Computers"
+  },
+  {
+    "ID": 31,
+    "itemTypeID": 17,
+    "level": 2,
+    "name": "Printers"
+  },
+  {
+    "ID": 32,
+    "itemTypeID": 16,
+    "level": 3,
+    "name": "Computers"
+  },
+  {
+    "ID": 33,
+    "itemTypeID": 17,
+    "level": 3,
+    "name": "Printers"
+  },
+  {
+    "ID": 39,
+    "itemTypeID": 3,
+    "level": 1,
+    "name": "Refrigerator"
+  },
+  {
+    "ID": 40,
+    "itemTypeID": 4,
+    "level": 1,
+    "name": "Freezer"
+  },
+  {
+    "ID": 41,
+    "itemTypeID": 3,
+    "level": 2,
+    "name": "Refrigerator"
+  },
+  {
+    "ID": 42,
+    "itemTypeID": 4,
+    "level": 2,
+    "name": "Freezer"
+  },
+  {
+    "ID": 43,
+    "itemTypeID": 3,
+    "level": 3,
+    "name": "Refrigerator"
+  },
+  {
+    "ID": 44,
+    "itemTypeID": 4,
+    "level": 3,
+    "name": "Freezer"
+  },
+  {
+    "ID": 46,
+    "itemTypeID": 5,
+    "level": 1,
+    "name": "Cold box"
+  },
+  {
+    "ID": 47,
+    "itemTypeID": 5,
+    "level": 2,
+    "name": "Cold box"
+  },
+  {
+    "ID": 48,
+    "itemTypeID": 5,
+    "level": 3,
+    "name": "Cold box"
+  },
+  {
+    "ID": 49,
+    "itemTypeID": 5,
+    "level": 4,
+    "name": "Cold box"
+  },
+  {
+    "ID": 50,
+    "itemTypeID": 1,
+    "level": 1,
+    "name": "Cold Room"
+  },
+  {
+    "ID": 51,
+    "itemTypeID": 2,
+    "level": 1,
+    "name": "Freezer Room"
+  },
+  {
+    "ID": 52,
+    "itemTypeID": 6,
+    "level": 1,
+    "name": "Vaccine Carrier"
+  },
+  {
+    "ID": 53,
+    "itemTypeID": 1,
+    "level": 2,
+    "name": "Cold Room"
+  },
+  {
+    "ID": 55,
+    "itemTypeID": 6,
+    "level": 3,
+    "name": "Vaccine Carrier"
+  },
+  {
+    "ID": 56,
+    "itemTypeID": 19,
+    "level": 1,
+    "name": "Ice Bag"
+  },
+  {
+    "ID": 57,
+    "itemTypeID": 7,
+    "level": 1,
+    "name": "Stand-by generator"
+  },
+  {
+    "ID": 58,
+    "itemTypeID": 8,
+    "level": 1,
+    "name": "Refrigerated vehicles"
+  },
+  {
+    "ID": 59,
+    "itemTypeID": 6,
+    "level": 2,
+    "name": "Vaccine Carrier"
+  },
+  {
+    "ID": 60,
+    "itemTypeID": 19,
+    "level": 2,
+    "name": "Ice Bag"
+  },
+  {
+    "ID": 61,
+    "itemTypeID": 7,
+    "level": 2,
+    "name": "Stand-by generator"
+  },
+  {
+    "ID": 63,
+    "itemTypeID": 8,
+    "level": 2,
+    "name": "Refrigerated vehicles"
+  },
+  {
+    "ID": 64,
+    "itemTypeID": 1,
+    "level": 3,
+    "name": "Cold Room"
+  },
+  {
+    "ID": 65,
+    "itemTypeID": 19,
+    "level": 3,
+    "name": "Ice Bag"
+  },
+  {
+    "ID": 66,
+    "itemTypeID": 7,
+    "level": 3,
+    "name": "Stand-by generator"
+  },
+  {
+    "ID": 67,
+    "itemTypeID": 3,
+    "level": 4,
+    "name": "Refrigerator"
+  },
+  {
+    "ID": 68,
+    "itemTypeID": 4,
+    "level": 4,
+    "name": "Freezer"
+  },
+  {
+    "ID": 69,
+    "itemTypeID": 6,
+    "level": 4,
+    "name": "Vaccine Carrier"
+  },
+  {
+    "ID": 70,
+    "itemTypeID": 19,
+    "level": 4,
+    "name": "Ice Bag"
+  },
+  {
+    "ID": 71,
+    "itemTypeID": 7,
+    "level": 4,
+    "name": "Stand-by generator"
+  },
+  {
+    "ID": 72,
+    "itemTypeID": 20,
+    "level": 1,
+    "name": "Refrigerator/Freezer combined"
+  },
+  {
+    "ID": 73,
+    "itemTypeID": 20,
+    "level": 2,
+    "name": "Refrigerator/Freezer combined"
+  },
+  {
+    "ID": 74,
+    "itemTypeID": 20,
+    "level": 3,
+    "name": "Refrigerator/Freezer combined"
+  },
+  {
+    "ID": 75,
+    "itemTypeID": 20,
+    "level": 4,
+    "name": "Refrigerator/Freezer combined"
+  },
+  {
+    "ID": 76,
+    "itemTypeID": 15,
+    "level": 1,
+    "name": "Freezer and Ice-pack freezer"
+  },
+  {
+    "ID": 77,
+    "itemTypeID": 15,
+    "level": 2,
+    "name": "Freezer and Ice-pack freezer"
+  },
+  {
+    "ID": 78,
+    "itemTypeID": 15,
+    "level": 3,
+    "name": "Freezer and Ice-pack freezer"
+  },
+  {
+    "ID": 79,
+    "itemTypeID": 2,
+    "level": 2,
+    "name": "Freezer Room"
+  }
+]

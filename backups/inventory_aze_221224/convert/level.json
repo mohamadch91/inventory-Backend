@@ -1,0 +1,362 @@
+[
+  {
+    "ID": 28,
+    "itemTypeID": 16,
+    "level": 1,
+    "name": "Computer"
+  },
+  {
+    "ID": 29,
+    "itemTypeID": 17,
+    "level": 1,
+    "name": "Printer"
+  },
+  {
+    "ID": 30,
+    "itemTypeID": 16,
+    "level": 2,
+    "name": "Computer"
+  },
+  {
+    "ID": 31,
+    "itemTypeID": 17,
+    "level": 2,
+    "name": "Printer"
+  },
+  {
+    "ID": 32,
+    "itemTypeID": 16,
+    "level": 3,
+    "name": "Computer"
+  },
+  {
+    "ID": 33,
+    "itemTypeID": 17,
+    "level": 3,
+    "name": "Printer"
+  },
+  {
+    "ID": 39,
+    "itemTypeID": 3,
+    "level": 1,
+    "name": "Soyuducu (CFR)"
+  },
+  {
+    "ID": 40,
+    "itemTypeID": 4,
+    "level": 1,
+    "name": "Dondurucu(-20 C) (CFE)"
+  },
+  {
+    "ID": 41,
+    "itemTypeID": 3,
+    "level": 2,
+    "name": "Soyuducu (CFR)"
+  },
+  {
+    "ID": 43,
+    "itemTypeID": 3,
+    "level": 3,
+    "name": "Soyuducu (CFR)"
+  },
+  {
+    "ID": 44,
+    "itemTypeID": 4,
+    "level": 3,
+    "name": "Dondurucu(-20 C) (CFE)"
+  },
+  {
+    "ID": 46,
+    "itemTypeID": 5,
+    "level": 1,
+    "name": "Termo qutu (CCB)"
+  },
+  {
+    "ID": 47,
+    "itemTypeID": 5,
+    "level": 2,
+    "name": "Termo qutu (CCB)"
+  },
+  {
+    "ID": 48,
+    "itemTypeID": 5,
+    "level": 3,
+    "name": "Termo qutu (CCB)"
+  },
+  {
+    "ID": 49,
+    "itemTypeID": 5,
+    "level": 4,
+    "name": "Termo qutu (CCB)"
+  },
+  {
+    "ID": 50,
+    "itemTypeID": 1,
+    "level": 1,
+    "name": "Soyuq otaq (CCR)"
+  },
+  {
+    "ID": 51,
+    "itemTypeID": 2,
+    "level": 1,
+    "name": "Dondurucu otaq (-20 C) (CFR)"
+  },
+  {
+    "ID": 52,
+    "itemTypeID": 6,
+    "level": 1,
+    "name": "Termo çanta (CVR)"
+  },
+  {
+    "ID": 53,
+    "itemTypeID": 1,
+    "level": 2,
+    "name": "Soyuq otaq (CCR)"
+  },
+  {
+    "ID": 55,
+    "itemTypeID": 6,
+    "level": 3,
+    "name": "Termo çanta (CVR)"
+  },
+  {
+    "ID": 56,
+    "itemTypeID": 19,
+    "level": 1,
+    "name": "Buz paketi (CIP)"
+  },
+  {
+    "ID": 57,
+    "itemTypeID": 7,
+    "level": 1,
+    "name": "Avtomatik generator (AG)"
+  },
+  {
+    "ID": 58,
+    "itemTypeID": 8,
+    "level": 1,
+    "name": "Soyuduculu nəqliyyat vasitəsi"
+  },
+  {
+    "ID": 59,
+    "itemTypeID": 6,
+    "level": 2,
+    "name": "Termo çanta (CVR)"
+  },
+  {
+    "ID": 60,
+    "itemTypeID": 19,
+    "level": 2,
+    "name": "Buz paketi (CIP)"
+  },
+  {
+    "ID": 61,
+    "itemTypeID": 7,
+    "level": 2,
+    "name": "Avtomatik generator (AG)"
+  },
+  {
+    "ID": 65,
+    "itemTypeID": 19,
+    "level": 3,
+    "name": "Buz paketi (CIP)"
+  },
+  {
+    "ID": 66,
+    "itemTypeID": 7,
+    "level": 3,
+    "name": "Avtomatik generator (AG)"
+  },
+  {
+    "ID": 67,
+    "itemTypeID": 3,
+    "level": 4,
+    "name": "Soyuducu (CFR)"
+  },
+  {
+    "ID": 69,
+    "itemTypeID": 6,
+    "level": 4,
+    "name": "Termo çanta (CVR)"
+  },
+  {
+    "ID": 70,
+    "itemTypeID": 19,
+    "level": 4,
+    "name": "Buz paketi (CIP)"
+  },
+  {
+    "ID": 71,
+    "itemTypeID": 7,
+    "level": 4,
+    "name": "Avtomatik generator (AG)"
+  },
+  {
+    "ID": 72,
+    "itemTypeID": 20,
+    "level": 1,
+    "name": "Kompyuterləşdirilmış  sistem (TCS)"
+  },
+  {
+    "ID": 76,
+    "itemTypeID": 15,
+    "level": 1,
+    "name": "Buz paketləri üçün dondurucu (IPF)"
+  },
+  {
+    "ID": 78,
+    "itemTypeID": 15,
+    "level": 3,
+    "name": "Buz paketləri üçün dondurucu (IPF)"
+  },
+  {
+    "ID": 80,
+    "itemTypeID": 21,
+    "level": 1,
+    "name": "Quru ambar (mühit temperaturunda) (DSA)"
+  },
+  {
+    "ID": 81,
+    "itemTypeID": 9,
+    "level": 1,
+    "name": "Ultra aşağı dondurucu (-70 C) (ULT)"
+  },
+  {
+    "ID": 82,
+    "itemTypeID": 25,
+    "level": 1,
+    "name": "Kombinə edilmiş soyuducu/dondurucu (RFC)"
+  },
+  {
+    "ID": 83,
+    "itemTypeID": 26,
+    "level": 1,
+    "name": "Termometr (TMP)"
+  },
+  {
+    "ID": 84,
+    "itemTypeID": 27,
+    "level": 1,
+    "name": "Temperatur izləmə cihazi (TDL)"
+  },
+  {
+    "ID": 85,
+    "itemTypeID": 10,
+    "level": 1,
+    "name": "Gərginlik tənzimləyiciləri (VR)"
+  },
+  {
+    "ID": 86,
+    "itemTypeID": 11,
+    "level": 1,
+    "name": "Generator (MG)"
+  },
+  {
+    "ID": 88,
+    "itemTypeID": 26,
+    "level": 2,
+    "name": "Termometr (TMP)"
+  },
+  {
+    "ID": 89,
+    "itemTypeID": 27,
+    "level": 2,
+    "name": "Temperatur izləmə cihazi (TDL)"
+  },
+  {
+    "ID": 90,
+    "itemTypeID": 12,
+    "level": 2,
+    "name": "Nəqliyyat vasitəsi"
+  },
+  {
+    "ID": 91,
+    "itemTypeID": 21,
+    "level": 2,
+    "name": "Quru ambar (mühit temperaturunda) (DSA)"
+  },
+  {
+    "ID": 92,
+    "itemTypeID": 25,
+    "level": 3,
+    "name": "Kombinə edilmiş soyuducu/dondurucu (RFC)"
+  },
+  {
+    "ID": 93,
+    "itemTypeID": 26,
+    "level": 3,
+    "name": "Termometr (TMP)"
+  },
+  {
+    "ID": 94,
+    "itemTypeID": 27,
+    "level": 3,
+    "name": "Temperatur izləmə cihazi (TDL)"
+  },
+  {
+    "ID": 95,
+    "itemTypeID": 10,
+    "level": 3,
+    "name": "Gərginlik tənzimləyiciləri (VR)"
+  },
+  {
+    "ID": 96,
+    "itemTypeID": 11,
+    "level": 3,
+    "name": "Generator (MG)"
+  },
+  {
+    "ID": 97,
+    "itemTypeID": 12,
+    "level": 3,
+    "name": "Nəqliyyat vasitəsi"
+  },
+  {
+    "ID": 98,
+    "itemTypeID": 21,
+    "level": 3,
+    "name": "Quru ambar (mühit temperaturunda) (DSA)"
+  },
+  {
+    "ID": 99,
+    "itemTypeID": 25,
+    "level": 4,
+    "name": "Kombinə edilmiş soyuducu/dondurucu (RFC)"
+  },
+  {
+    "ID": 100,
+    "itemTypeID": 26,
+    "level": 4,
+    "name": "Termometr (TMP)"
+  },
+  {
+    "ID": 101,
+    "itemTypeID": 27,
+    "level": 4,
+    "name": "Temperatur izləmə cihazi (TDL)"
+  },
+  {
+    "ID": 102,
+    "itemTypeID": 10,
+    "level": 4,
+    "name": "Gərginlik tənzimləyiciləri (VR)"
+  },
+  {
+    "ID": 103,
+    "itemTypeID": 11,
+    "level": 4,
+    "name": "Generator (MG)"
+  },
+  {
+    "ID": 104,
+    "itemTypeID": 12,
+    "level": 4,
+    "name": "Nəqliyyat vasitəsi"
+  },
+  {
+    "ID": 105,
+    "itemTypeID": 21,
+    "level": 4,
+    "name": "Quru ambar (mühit temperaturunda) (DSA)"
+  }
+]

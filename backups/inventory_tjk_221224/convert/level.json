@@ -1,0 +1,428 @@
+[
+  {
+    "ID": 28,
+    "itemTypeID": 16,
+    "level": 1,
+    "name": "Computers"
+  },
+  {
+    "ID": 29,
+    "itemTypeID": 17,
+    "level": 1,
+    "name": "Printers"
+  },
+  {
+    "ID": 30,
+    "itemTypeID": 16,
+    "level": 2,
+    "name": "Computers"
+  },
+  {
+    "ID": 31,
+    "itemTypeID": 17,
+    "level": 2,
+    "name": "Printers"
+  },
+  {
+    "ID": 32,
+    "itemTypeID": 16,
+    "level": 3,
+    "name": "Computers"
+  },
+  {
+    "ID": 33,
+    "itemTypeID": 17,
+    "level": 3,
+    "name": "Printers"
+  },
+  {
+    "ID": 39,
+    "itemTypeID": 3,
+    "level": 1,
+    "name": "Холодильник +2+8 - Refrigerator +2+8"
+  },
+  {
+    "ID": 40,
+    "itemTypeID": 4,
+    "level": 1,
+    "name": "Морозильник -20 - Freezer"
+  },
+  {
+    "ID": 41,
+    "itemTypeID": 3,
+    "level": 2,
+    "name": "Холодильник +2+8 - Refrigerator +2+8"
+  },
+  {
+    "ID": 42,
+    "itemTypeID": 4,
+    "level": 2,
+    "name": "Морозильник -20 - Freezer"
+  },
+  {
+    "ID": 43,
+    "itemTypeID": 3,
+    "level": 3,
+    "name": "Холодильник +2+8 - Refrigerator +2+8"
+  },
+  {
+    "ID": 44,
+    "itemTypeID": 4,
+    "level": 3,
+    "name": "Морозильник -20 - Freezer"
+  },
+  {
+    "ID": 46,
+    "itemTypeID": 5,
+    "level": 1,
+    "name": "Холодная коробка - Cold box"
+  },
+  {
+    "ID": 47,
+    "itemTypeID": 5,
+    "level": 2,
+    "name": "Холодная коробка - Cold box"
+  },
+  {
+    "ID": 48,
+    "itemTypeID": 5,
+    "level": 3,
+    "name": "Холодная коробка - Cold box"
+  },
+  {
+    "ID": 49,
+    "itemTypeID": 5,
+    "level": 4,
+    "name": "Холодная коробка - Cold box"
+  },
+  {
+    "ID": 50,
+    "itemTypeID": 1,
+    "level": 1,
+    "name": "Холодная комната +2+8 - Cold Room"
+  },
+  {
+    "ID": 51,
+    "itemTypeID": 2,
+    "level": 1,
+    "name": "Морозильная камера -20 - Freezer Room"
+  },
+  {
+    "ID": 52,
+    "itemTypeID": 6,
+    "level": 1,
+    "name": "ТЕРМОСУМОК - Vaccine Carrier"
+  },
+  {
+    "ID": 53,
+    "itemTypeID": 1,
+    "level": 2,
+    "name": "Холодная комната +2+8 - Cold Room"
+  },
+  {
+    "ID": 55,
+    "itemTypeID": 6,
+    "level": 3,
+    "name": "ТЕРМОСУМОК - Vaccine Carrier"
+  },
+  {
+    "ID": 56,
+    "itemTypeID": 19,
+    "level": 1,
+    "name": "пузырь со льдом - Ice-pack"
+  },
+  {
+    "ID": 58,
+    "itemTypeID": 8,
+    "level": 1,
+    "name": "авторефрижератор - Refrigerated vehicles"
+  },
+  {
+    "ID": 59,
+    "itemTypeID": 6,
+    "level": 2,
+    "name": "ТЕРМОСУМОК - Vaccine Carrier"
+  },
+  {
+    "ID": 60,
+    "itemTypeID": 19,
+    "level": 2,
+    "name": "пузырь со льдом - Ice-pack"
+  },
+  {
+    "ID": 63,
+    "itemTypeID": 8,
+    "level": 2,
+    "name": "авторефрижератор - Refrigerated vehicles"
+  },
+  {
+    "ID": 65,
+    "itemTypeID": 19,
+    "level": 3,
+    "name": "пузырь со льдом - Ice-pack"
+  },
+  {
+    "ID": 67,
+    "itemTypeID": 3,
+    "level": 4,
+    "name": "Холодильник +2+8 - Refrigerator +2+8"
+  },
+  {
+    "ID": 69,
+    "itemTypeID": 6,
+    "level": 4,
+    "name": "ТЕРМОСУМОК - Vaccine Carrier"
+  },
+  {
+    "ID": 70,
+    "itemTypeID": 19,
+    "level": 4,
+    "name": "пузырь со льдом - Ice-pack"
+  },
+  {
+    "ID": 71,
+    "itemTypeID": 7,
+    "level": 4,
+    "name": "Stand-by generator"
+  },
+  {
+    "ID": 76,
+    "itemTypeID": 15,
+    "level": 1,
+    "name": "Freezer and Ice-pack freezer"
+  },
+  {
+    "ID": 77,
+    "itemTypeID": 15,
+    "level": 2,
+    "name": "Freezer and Ice-pack freezer"
+  },
+  {
+    "ID": 78,
+    "itemTypeID": 15,
+    "level": 3,
+    "name": "Freezer and Ice-pack freezer"
+  },
+  {
+    "ID": 79,
+    "itemTypeID": 2,
+    "level": 2,
+    "name": "Морозильная камера -20 - Freezer Room"
+  },
+  {
+    "ID": 81,
+    "itemTypeID": 21,
+    "level": 2,
+    "name": "Ambient Store"
+  },
+  {
+    "ID": 82,
+    "itemTypeID": 9,
+    "level": 1,
+    "name": "Сверхнизкая морозильная камера (-70 C) - Ultra freezer (-70 C)"
+  },
+  {
+    "ID": 83,
+    "itemTypeID": 25,
+    "level": 1,
+    "name": "Комбинированный холодильник/морозильник - Refrigerator/Freezer combined"
+  },
+  {
+    "ID": 84,
+    "itemTypeID": 9,
+    "level": 2,
+    "name": "Сверхнизкая морозильная камера (-70 C) - Ultra freezer (-70 C)"
+  },
+  {
+    "ID": 85,
+    "itemTypeID": 25,
+    "level": 2,
+    "name": "Комбинированный холодильник/морозильник - Refrigerator/Freezer combined"
+  },
+  {
+    "ID": 86,
+    "itemTypeID": 12,
+    "level": 1,
+    "name": "фургон / автомобиль - Vehicles"
+  },
+  {
+    "ID": 87,
+    "itemTypeID": 12,
+    "level": 2,
+    "name": "фургон / автомобиль - Vehicles"
+  },
+  {
+    "ID": 88,
+    "itemTypeID": 8,
+    "level": 3,
+    "name": "авторефрижератор - Refrigerated vehicles"
+  },
+  {
+    "ID": 89,
+    "itemTypeID": 12,
+    "level": 3,
+    "name": "фургон / автомобиль - Vehicles"
+  },
+  {
+    "ID": 90,
+    "itemTypeID": 8,
+    "level": 4,
+    "name": "авторефрижератор - Refrigerated vehicles"
+  },
+  {
+    "ID": 91,
+    "itemTypeID": 12,
+    "level": 4,
+    "name": "фургон / автомобиль - Vehicles"
+  },
+  {
+    "ID": 92,
+    "itemTypeID": 13,
+    "level": 4,
+    "name": "Мотоциклы - Motorcycles"
+  },
+  {
+    "ID": 93,
+    "itemTypeID": 11,
+    "level": 1,
+    "name": "Генераторы - Generators"
+  },
+  {
+    "ID": 94,
+    "itemTypeID": 11,
+    "level": 2,
+    "name": "Генераторы - Generators"
+  },
+  {
+    "ID": 95,
+    "itemTypeID": 11,
+    "level": 3,
+    "name": "Генераторы - Generators"
+  },
+  {
+    "ID": 96,
+    "itemTypeID": 22,
+    "level": 1,
+    "name": "Электронный термометр Electronic thermometer"
+  },
+  {
+    "ID": 97,
+    "itemTypeID": 22,
+    "level": 2,
+    "name": "Электронный термометр Electronic thermometer"
+  },
+  {
+    "ID": 98,
+    "itemTypeID": 22,
+    "level": 3,
+    "name": "Электронный термометр Electronic thermometer"
+  },
+  {
+    "ID": 99,
+    "itemTypeID": 22,
+    "level": 4,
+    "name": "Электронный термометр Electronic thermometer"
+  },
+  {
+    "ID": 100,
+    "itemTypeID": 10,
+    "level": 1,
+    "name": "Регуляторы напряжения - Voltage regulators"
+  },
+  {
+    "ID": 101,
+    "itemTypeID": 10,
+    "level": 2,
+    "name": "Регуляторы напряжения - Voltage regulators"
+  },
+  {
+    "ID": 102,
+    "itemTypeID": 10,
+    "level": 3,
+    "name": "Регуляторы напряжения - Voltage regulators"
+  },
+  {
+    "ID": 103,
+    "itemTypeID": 10,
+    "level": 4,
+    "name": "Регуляторы напряжения - Voltage regulators"
+  },
+  {
+    "ID": 104,
+    "itemTypeID": 11,
+    "level": 4,
+    "name": "Генераторы - Generators"
+  },
+  {
+    "ID": 105,
+    "itemTypeID": 26,
+    "level": 1,
+    "name": "Столбиковый термометр – Arrow thermometer"
+  },
+  {
+    "ID": 106,
+    "itemTypeID": 27,
+    "level": 1,
+    "name": "Столбиковый термометр- Column thermometer"
+  },
+  {
+    "ID": 107,
+    "itemTypeID": 28,
+    "level": 1,
+    "name": "30 дневное электронный усстройство -30 day electronic device"
+  },
+  {
+    "ID": 108,
+    "itemTypeID": 26,
+    "level": 4,
+    "name": "Столбиковый термометр – Arrow thermometer"
+  },
+  {
+    "ID": 109,
+    "itemTypeID": 27,
+    "level": 4,
+    "name": "Столбиковый термометр- Column thermometer"
+  },
+  {
+    "ID": 110,
+    "itemTypeID": 28,
+    "level": 4,
+    "name": "30 дневное электронный усстройство -30 day electronic device"
+  },
+  {
+    "ID": 111,
+    "itemTypeID": 26,
+    "level": 2,
+    "name": "Столбиковый термометр – Arrow thermometer"
+  },
+  {
+    "ID": 112,
+    "itemTypeID": 27,
+    "level": 2,
+    "name": "Столбиковый термометр- Column thermometer"
+  },
+  {
+    "ID": 113,
+    "itemTypeID": 28,
+    "level": 2,
+    "name": "30 дневное электронный усстройство -30 day electronic device"
+  },
+  {
+    "ID": 114,
+    "itemTypeID": 26,
+    "level": 3,
+    "name": "Столбиковый термометр – Arrow thermometer"
+  },
+  {
+    "ID": 115,
+    "itemTypeID": 27,
+    "level": 3,
+    "name": "Столбиковый термометр- Column thermometer"
+  },
+  {
+    "ID": 116,
+    "itemTypeID": 28,
+    "level": 3,
+    "name": "30 дневное электронный усстройство -30 day electronic device"
+  }
+]

@@ -1,0 +1,1578 @@
+[
+  {
+    "ID": 3135,
+    "itemTypeID": 7,
+    "fieldID": 61,
+    "req": "1",
+    "fildName": "manufacture",
+    "name": "Stand-by generator"
+  },
+  {
+    "ID": 3136,
+    "itemTypeID": 7,
+    "fieldID": 46,
+    "req": "0",
+    "fildName": "model",
+    "name": "Stand-by generator"
+  },
+  {
+    "ID": 3137,
+    "itemTypeID": 7,
+    "fieldID": 28,
+    "req": "0",
+    "fildName": "physicalCondition",
+    "name": "Stand-by generator"
+  },
+  {
+    "ID": 3138,
+    "itemTypeID": 7,
+    "fieldID": 30,
+    "req": "1",
+    "fildName": "inUse",
+    "name": "Stand-by generator"
+  },
+  {
+    "ID": 3139,
+    "itemTypeID": 7,
+    "fieldID": 32,
+    "req": "1",
+    "fildName": "notUseCause",
+    "name": "Stand-by generator"
+  },
+  {
+    "ID": 3140,
+    "itemTypeID": 7,
+    "fieldID": 19,
+    "req": "1",
+    "fildName": "voltage",
+    "name": "Stand-by generator"
+  },
+  {
+    "ID": 3141,
+    "itemTypeID": 7,
+    "fieldID": 20,
+    "req": "1",
+    "fildName": "phase",
+    "name": "Stand-by generator"
+  },
+  {
+    "ID": 3142,
+    "itemTypeID": 7,
+    "fieldID": 25,
+    "req": "0",
+    "fildName": "netGeneratedPower",
+    "name": "Stand-by generator"
+  },
+  {
+    "ID": 3143,
+    "itemTypeID": 7,
+    "fieldID": 26,
+    "req": "1",
+    "fildName": "haveFuelTank",
+    "name": "Stand-by generator"
+  },
+  {
+    "ID": 3144,
+    "itemTypeID": 7,
+    "fieldID": 38,
+    "req": "1",
+    "fildName": "energySourceID",
+    "name": "Stand-by generator"
+  },
+  {
+    "ID": 3145,
+    "itemTypeID": 7,
+    "fieldID": 55,
+    "req": "0",
+    "fildName": "powerConsum",
+    "name": "Stand-by generator"
+  },
+  {
+    "ID": 3146,
+    "itemTypeID": 7,
+    "fieldID": 40,
+    "req": "0",
+    "fildName": "powerGeneration",
+    "name": "Stand-by generator"
+  },
+  {
+    "ID": 3147,
+    "itemTypeID": 7,
+    "fieldID": 21,
+    "req": "0",
+    "fildName": "financialSourceID",
+    "name": "Stand-by generator"
+  },
+  {
+    "ID": 3148,
+    "itemTypeID": 7,
+    "fieldID": 41,
+    "req": "0",
+    "fildName": "otherField1",
+    "name": "Stand-by generator"
+  },
+  {
+    "ID": 4192,
+    "itemTypeID": 10,
+    "fieldID": 61,
+    "req": "0",
+    "fildName": "manufacture",
+    "name": "Регуляторы напряжения - Voltage regulators"
+  },
+  {
+    "ID": 4193,
+    "itemTypeID": 10,
+    "fieldID": 46,
+    "req": "0",
+    "fildName": "model",
+    "name": "Регуляторы напряжения - Voltage regulators"
+  },
+  {
+    "ID": 4194,
+    "itemTypeID": 10,
+    "fieldID": 58,
+    "req": "0",
+    "fildName": "workingConditionID",
+    "name": "Регуляторы напряжения - Voltage regulators"
+  },
+  {
+    "ID": 4215,
+    "itemTypeID": 2,
+    "fieldID": 61,
+    "req": "1",
+    "fildName": "manufacture",
+    "name": "Морозильная камера -20 - Freezer Room"
+  },
+  {
+    "ID": 4216,
+    "itemTypeID": 2,
+    "fieldID": 46,
+    "req": "0",
+    "fildName": "model",
+    "name": "Морозильная камера -20 - Freezer Room"
+  },
+  {
+    "ID": 4217,
+    "itemTypeID": 2,
+    "fieldID": 6,
+    "req": "1",
+    "fildName": "height",
+    "name": "Морозильная камера -20 - Freezer Room"
+  },
+  {
+    "ID": 4218,
+    "itemTypeID": 2,
+    "fieldID": 7,
+    "req": "1",
+    "fildName": "width",
+    "name": "Морозильная камера -20 - Freezer Room"
+  },
+  {
+    "ID": 4219,
+    "itemTypeID": 2,
+    "fieldID": 8,
+    "req": "1",
+    "fildName": "length",
+    "name": "Морозильная камера -20 - Freezer Room"
+  },
+  {
+    "ID": 4220,
+    "itemTypeID": 2,
+    "fieldID": 9,
+    "req": "1",
+    "fildName": "grossVolume",
+    "name": "Морозильная камера -20 - Freezer Room"
+  },
+  {
+    "ID": 4221,
+    "itemTypeID": 2,
+    "fieldID": 10,
+    "req": "0",
+    "fildName": "netVolume",
+    "name": "Морозильная камера -20 - Freezer Room"
+  },
+  {
+    "ID": 4222,
+    "itemTypeID": 2,
+    "fieldID": 30,
+    "req": "1",
+    "fildName": "inUse",
+    "name": "Морозильная камера -20 - Freezer Room"
+  },
+  {
+    "ID": 4223,
+    "itemTypeID": 2,
+    "fieldID": 32,
+    "req": "1",
+    "fildName": "notUseCause",
+    "name": "Морозильная камера -20 - Freezer Room"
+  },
+  {
+    "ID": 4224,
+    "itemTypeID": 2,
+    "fieldID": 27,
+    "req": "0",
+    "fildName": "installYear",
+    "name": "Морозильная камера -20 - Freezer Room"
+  },
+  {
+    "ID": 4225,
+    "itemTypeID": 2,
+    "fieldID": 36,
+    "req": "1",
+    "fildName": "tempRange",
+    "name": "Морозильная камера -20 - Freezer Room"
+  },
+  {
+    "ID": 4226,
+    "itemTypeID": 2,
+    "fieldID": 11,
+    "req": "0",
+    "fildName": "coolingUnitNumber",
+    "name": "Морозильная камера -20 - Freezer Room"
+  },
+  {
+    "ID": 4227,
+    "itemTypeID": 2,
+    "fieldID": 12,
+    "req": "0",
+    "fildName": "refrigeranGas",
+    "name": "Морозильная камера -20 - Freezer Room"
+  },
+  {
+    "ID": 4228,
+    "itemTypeID": 2,
+    "fieldID": 17,
+    "req": "1",
+    "fildName": "haveTempMonitor",
+    "name": "Морозильная камера -20 - Freezer Room"
+  },
+  {
+    "ID": 4229,
+    "itemTypeID": 2,
+    "fieldID": 24,
+    "req": "0",
+    "fildName": "haveThermometer",
+    "name": "Морозильная камера -20 - Freezer Room"
+  },
+  {
+    "ID": 4230,
+    "itemTypeID": 2,
+    "fieldID": 39,
+    "req": "1",
+    "fildName": "FreezerCapacity",
+    "name": "Морозильная камера -20 - Freezer Room"
+  },
+  {
+    "ID": 4231,
+    "itemTypeID": 2,
+    "fieldID": 20,
+    "req": "0",
+    "fildName": "phase",
+    "name": "Морозильная камера -20 - Freezer Room"
+  },
+  {
+    "ID": 4232,
+    "itemTypeID": 2,
+    "fieldID": 15,
+    "req": "0",
+    "fildName": "voltageOK",
+    "name": "Морозильная камера -20 - Freezer Room"
+  },
+  {
+    "ID": 4233,
+    "itemTypeID": 2,
+    "fieldID": 41,
+    "req": "0",
+    "fildName": "otherField1",
+    "name": "Морозильная камера -20 - Freezer Room"
+  },
+  {
+    "ID": 4234,
+    "itemTypeID": 3,
+    "fieldID": 5,
+    "req": "1",
+    "fildName": "type",
+    "name": "Холодильник +2+8 - Refrigerator +2+8"
+  },
+  {
+    "ID": 4235,
+    "itemTypeID": 3,
+    "fieldID": 61,
+    "req": "1",
+    "fildName": "manufacture",
+    "name": "Холодильник +2+8 - Refrigerator +2+8"
+  },
+  {
+    "ID": 4236,
+    "itemTypeID": 3,
+    "fieldID": 46,
+    "req": "0",
+    "fildName": "model",
+    "name": "Холодильник +2+8 - Refrigerator +2+8"
+  },
+  {
+    "ID": 4237,
+    "itemTypeID": 3,
+    "fieldID": 6,
+    "req": "1",
+    "fildName": "height",
+    "name": "Холодильник +2+8 - Refrigerator +2+8"
+  },
+  {
+    "ID": 4238,
+    "itemTypeID": 3,
+    "fieldID": 7,
+    "req": "1",
+    "fildName": "width",
+    "name": "Холодильник +2+8 - Refrigerator +2+8"
+  },
+  {
+    "ID": 4239,
+    "itemTypeID": 3,
+    "fieldID": 8,
+    "req": "1",
+    "fildName": "length",
+    "name": "Холодильник +2+8 - Refrigerator +2+8"
+  },
+  {
+    "ID": 4240,
+    "itemTypeID": 3,
+    "fieldID": 9,
+    "req": "1",
+    "fildName": "grossVolume",
+    "name": "Холодильник +2+8 - Refrigerator +2+8"
+  },
+  {
+    "ID": 4241,
+    "itemTypeID": 3,
+    "fieldID": 10,
+    "req": "0",
+    "fildName": "netVolume",
+    "name": "Холодильник +2+8 - Refrigerator +2+8"
+  },
+  {
+    "ID": 4242,
+    "itemTypeID": 3,
+    "fieldID": 58,
+    "req": "0",
+    "fildName": "workingConditionID",
+    "name": "Холодильник +2+8 - Refrigerator +2+8"
+  },
+  {
+    "ID": 4243,
+    "itemTypeID": 3,
+    "fieldID": 32,
+    "req": "1",
+    "fildName": "notUseCause",
+    "name": "Холодильник +2+8 - Refrigerator +2+8"
+  },
+  {
+    "ID": 4244,
+    "itemTypeID": 3,
+    "fieldID": 27,
+    "req": "0",
+    "fildName": "installYear",
+    "name": "Холодильник +2+8 - Refrigerator +2+8"
+  },
+  {
+    "ID": 4245,
+    "itemTypeID": 3,
+    "fieldID": 36,
+    "req": "1",
+    "fildName": "tempRange",
+    "name": "Холодильник +2+8 - Refrigerator +2+8"
+  },
+  {
+    "ID": 4246,
+    "itemTypeID": 3,
+    "fieldID": 12,
+    "req": "0",
+    "fildName": "refrigeranGas",
+    "name": "Холодильник +2+8 - Refrigerator +2+8"
+  },
+  {
+    "ID": 4247,
+    "itemTypeID": 3,
+    "fieldID": 23,
+    "req": "0",
+    "fildName": "haveFreezing",
+    "name": "Холодильник +2+8 - Refrigerator +2+8"
+  },
+  {
+    "ID": 4248,
+    "itemTypeID": 3,
+    "fieldID": 54,
+    "req": "0",
+    "fildName": "sepFreez",
+    "name": "Холодильник +2+8 - Refrigerator +2+8"
+  },
+  {
+    "ID": 4249,
+    "itemTypeID": 3,
+    "fieldID": 17,
+    "req": "0",
+    "fildName": "haveTempMonitor",
+    "name": "Холодильник +2+8 - Refrigerator +2+8"
+  },
+  {
+    "ID": 4250,
+    "itemTypeID": 3,
+    "fieldID": 24,
+    "req": "0",
+    "fildName": "haveThermometer",
+    "name": "Холодильник +2+8 - Refrigerator +2+8"
+  },
+  {
+    "ID": 4251,
+    "itemTypeID": 3,
+    "fieldID": 51,
+    "req": "1",
+    "fildName": "netVaccCapacity",
+    "name": "Холодильник +2+8 - Refrigerator +2+8"
+  },
+  {
+    "ID": 4252,
+    "itemTypeID": 3,
+    "fieldID": 52,
+    "req": "0",
+    "fildName": "iceCapacity",
+    "name": "Холодильник +2+8 - Refrigerator +2+8"
+  },
+  {
+    "ID": 4253,
+    "itemTypeID": 3,
+    "fieldID": 41,
+    "req": "0",
+    "fildName": "otherField1",
+    "name": "Холодильник +2+8 - Refrigerator +2+8"
+  },
+  {
+    "ID": 4254,
+    "itemTypeID": 3,
+    "fieldID": 4,
+    "req": "0",
+    "fildName": "PQSCode",
+    "name": "Холодильник +2+8 - Refrigerator +2+8"
+  },
+  {
+    "ID": 4255,
+    "itemTypeID": 3,
+    "fieldID": 62,
+    "req": "0",
+    "fildName": "pqstype",
+    "name": "Холодильник +2+8 - Refrigerator +2+8"
+  },
+  {
+    "ID": 4256,
+    "itemTypeID": 3,
+    "fieldID": 63,
+    "req": "0",
+    "fildName": "pqsmanufacturer",
+    "name": "Холодильник +2+8 - Refrigerator +2+8"
+  },
+  {
+    "ID": 4257,
+    "itemTypeID": 3,
+    "fieldID": 64,
+    "req": "0",
+    "fildName": "pqsrefgas",
+    "name": "Холодильник +2+8 - Refrigerator +2+8"
+  },
+  {
+    "ID": 4258,
+    "itemTypeID": 3,
+    "fieldID": 65,
+    "req": "0",
+    "fildName": "pqstempzone",
+    "name": "Холодильник +2+8 - Refrigerator +2+8"
+  },
+  {
+    "ID": 4259,
+    "itemTypeID": 4,
+    "fieldID": 5,
+    "req": "1",
+    "fildName": "type",
+    "name": "Морозильник -20 - Freezer"
+  },
+  {
+    "ID": 4260,
+    "itemTypeID": 4,
+    "fieldID": 61,
+    "req": "0",
+    "fildName": "manufacture",
+    "name": "Морозильник -20 - Freezer"
+  },
+  {
+    "ID": 4261,
+    "itemTypeID": 4,
+    "fieldID": 46,
+    "req": "0",
+    "fildName": "model",
+    "name": "Морозильник -20 - Freezer"
+  },
+  {
+    "ID": 4262,
+    "itemTypeID": 4,
+    "fieldID": 6,
+    "req": "1",
+    "fildName": "height",
+    "name": "Морозильник -20 - Freezer"
+  },
+  {
+    "ID": 4263,
+    "itemTypeID": 4,
+    "fieldID": 7,
+    "req": "1",
+    "fildName": "width",
+    "name": "Морозильник -20 - Freezer"
+  },
+  {
+    "ID": 4264,
+    "itemTypeID": 4,
+    "fieldID": 8,
+    "req": "1",
+    "fildName": "length",
+    "name": "Морозильник -20 - Freezer"
+  },
+  {
+    "ID": 4265,
+    "itemTypeID": 4,
+    "fieldID": 9,
+    "req": "1",
+    "fildName": "grossVolume",
+    "name": "Морозильник -20 - Freezer"
+  },
+  {
+    "ID": 4266,
+    "itemTypeID": 4,
+    "fieldID": 10,
+    "req": "0",
+    "fildName": "netVolume",
+    "name": "Морозильник -20 - Freezer"
+  },
+  {
+    "ID": 4267,
+    "itemTypeID": 4,
+    "fieldID": 58,
+    "req": "0",
+    "fildName": "workingConditionID",
+    "name": "Морозильник -20 - Freezer"
+  },
+  {
+    "ID": 4268,
+    "itemTypeID": 4,
+    "fieldID": 27,
+    "req": "0",
+    "fildName": "installYear",
+    "name": "Морозильник -20 - Freezer"
+  },
+  {
+    "ID": 4269,
+    "itemTypeID": 4,
+    "fieldID": 36,
+    "req": "1",
+    "fildName": "tempRange",
+    "name": "Морозильник -20 - Freezer"
+  },
+  {
+    "ID": 4270,
+    "itemTypeID": 4,
+    "fieldID": 12,
+    "req": "0",
+    "fildName": "refrigeranGas",
+    "name": "Морозильник -20 - Freezer"
+  },
+  {
+    "ID": 4271,
+    "itemTypeID": 4,
+    "fieldID": 17,
+    "req": "0",
+    "fildName": "haveTempMonitor",
+    "name": "Морозильник -20 - Freezer"
+  },
+  {
+    "ID": 4272,
+    "itemTypeID": 4,
+    "fieldID": 24,
+    "req": "0",
+    "fildName": "haveThermometer",
+    "name": "Морозильник -20 - Freezer"
+  },
+  {
+    "ID": 4273,
+    "itemTypeID": 4,
+    "fieldID": 39,
+    "req": "0",
+    "fildName": "FreezerCapacity",
+    "name": "Морозильник -20 - Freezer"
+  },
+  {
+    "ID": 4274,
+    "itemTypeID": 4,
+    "fieldID": 52,
+    "req": "0",
+    "fildName": "iceCapacity",
+    "name": "Морозильник -20 - Freezer"
+  },
+  {
+    "ID": 4275,
+    "itemTypeID": 4,
+    "fieldID": 41,
+    "req": "0",
+    "fildName": "otherField1",
+    "name": "Морозильник -20 - Freezer"
+  },
+  {
+    "ID": 4276,
+    "itemTypeID": 4,
+    "fieldID": 4,
+    "req": "0",
+    "fildName": "PQSCode",
+    "name": "Морозильник -20 - Freezer"
+  },
+  {
+    "ID": 4277,
+    "itemTypeID": 4,
+    "fieldID": 62,
+    "req": "0",
+    "fildName": "pqstype",
+    "name": "Морозильник -20 - Freezer"
+  },
+  {
+    "ID": 4278,
+    "itemTypeID": 4,
+    "fieldID": 63,
+    "req": "0",
+    "fildName": "pqsmanufacturer",
+    "name": "Морозильник -20 - Freezer"
+  },
+  {
+    "ID": 4279,
+    "itemTypeID": 4,
+    "fieldID": 64,
+    "req": "0",
+    "fildName": "pqsrefgas",
+    "name": "Морозильник -20 - Freezer"
+  },
+  {
+    "ID": 4280,
+    "itemTypeID": 4,
+    "fieldID": 65,
+    "req": "0",
+    "fildName": "pqstempzone",
+    "name": "Морозильник -20 - Freezer"
+  },
+  {
+    "ID": 4319,
+    "itemTypeID": 21,
+    "fieldID": 61,
+    "req": "0",
+    "fildName": "manufacture",
+    "name": "Ambient Store"
+  },
+  {
+    "ID": 4320,
+    "itemTypeID": 21,
+    "fieldID": 46,
+    "req": "0",
+    "fildName": "model",
+    "name": "Ambient Store"
+  },
+  {
+    "ID": 4321,
+    "itemTypeID": 21,
+    "fieldID": 6,
+    "req": "1",
+    "fildName": "height",
+    "name": "Ambient Store"
+  },
+  {
+    "ID": 4322,
+    "itemTypeID": 21,
+    "fieldID": 7,
+    "req": "1",
+    "fildName": "width",
+    "name": "Ambient Store"
+  },
+  {
+    "ID": 4323,
+    "itemTypeID": 21,
+    "fieldID": 8,
+    "req": "1",
+    "fildName": "length",
+    "name": "Ambient Store"
+  },
+  {
+    "ID": 4324,
+    "itemTypeID": 21,
+    "fieldID": 9,
+    "req": "0",
+    "fildName": "grossVolume",
+    "name": "Ambient Store"
+  },
+  {
+    "ID": 4325,
+    "itemTypeID": 21,
+    "fieldID": 10,
+    "req": "0",
+    "fildName": "netVolume",
+    "name": "Ambient Store"
+  },
+  {
+    "ID": 4326,
+    "itemTypeID": 21,
+    "fieldID": 58,
+    "req": "1",
+    "fildName": "workingConditionID",
+    "name": "Ambient Store"
+  },
+  {
+    "ID": 4327,
+    "itemTypeID": 21,
+    "fieldID": 27,
+    "req": "0",
+    "fildName": "installYear",
+    "name": "Ambient Store"
+  },
+  {
+    "ID": 4328,
+    "itemTypeID": 21,
+    "fieldID": 36,
+    "req": "1",
+    "fildName": "tempRange",
+    "name": "Ambient Store"
+  },
+  {
+    "ID": 4329,
+    "itemTypeID": 21,
+    "fieldID": 17,
+    "req": "0",
+    "fildName": "haveTempMonitor",
+    "name": "Ambient Store"
+  },
+  {
+    "ID": 4330,
+    "itemTypeID": 21,
+    "fieldID": 24,
+    "req": "0",
+    "fildName": "haveThermometer",
+    "name": "Ambient Store"
+  },
+  {
+    "ID": 4331,
+    "itemTypeID": 21,
+    "fieldID": 39,
+    "req": "1",
+    "fildName": "FreezerCapacity",
+    "name": "Ambient Store"
+  },
+  {
+    "ID": 4332,
+    "itemTypeID": 21,
+    "fieldID": 41,
+    "req": "0",
+    "fildName": "otherField1",
+    "name": "Ambient Store"
+  },
+  {
+    "ID": 4333,
+    "itemTypeID": 21,
+    "fieldID": 65,
+    "req": "0",
+    "fildName": "pqstempzone",
+    "name": "Ambient Store"
+  },
+  {
+    "ID": 4334,
+    "itemTypeID": 1,
+    "fieldID": 61,
+    "req": "0",
+    "fildName": "manufacture",
+    "name": "Холодная комната +2+8 - Cold Room"
+  },
+  {
+    "ID": 4335,
+    "itemTypeID": 1,
+    "fieldID": 46,
+    "req": "0",
+    "fildName": "model",
+    "name": "Холодная комната +2+8 - Cold Room"
+  },
+  {
+    "ID": 4336,
+    "itemTypeID": 1,
+    "fieldID": 6,
+    "req": "0",
+    "fildName": "height",
+    "name": "Холодная комната +2+8 - Cold Room"
+  },
+  {
+    "ID": 4337,
+    "itemTypeID": 1,
+    "fieldID": 7,
+    "req": "0",
+    "fildName": "width",
+    "name": "Холодная комната +2+8 - Cold Room"
+  },
+  {
+    "ID": 4338,
+    "itemTypeID": 1,
+    "fieldID": 8,
+    "req": "0",
+    "fildName": "length",
+    "name": "Холодная комната +2+8 - Cold Room"
+  },
+  {
+    "ID": 4339,
+    "itemTypeID": 1,
+    "fieldID": 9,
+    "req": "0",
+    "fildName": "grossVolume",
+    "name": "Холодная комната +2+8 - Cold Room"
+  },
+  {
+    "ID": 4340,
+    "itemTypeID": 1,
+    "fieldID": 10,
+    "req": "0",
+    "fildName": "netVolume",
+    "name": "Холодная комната +2+8 - Cold Room"
+  },
+  {
+    "ID": 4341,
+    "itemTypeID": 1,
+    "fieldID": 58,
+    "req": "0",
+    "fildName": "workingConditionID",
+    "name": "Холодная комната +2+8 - Cold Room"
+  },
+  {
+    "ID": 4342,
+    "itemTypeID": 1,
+    "fieldID": 27,
+    "req": "0",
+    "fildName": "installYear",
+    "name": "Холодная комната +2+8 - Cold Room"
+  },
+  {
+    "ID": 4343,
+    "itemTypeID": 1,
+    "fieldID": 36,
+    "req": "1",
+    "fildName": "tempRange",
+    "name": "Холодная комната +2+8 - Cold Room"
+  },
+  {
+    "ID": 4344,
+    "itemTypeID": 1,
+    "fieldID": 17,
+    "req": "0",
+    "fildName": "haveTempMonitor",
+    "name": "Холодная комната +2+8 - Cold Room"
+  },
+  {
+    "ID": 4345,
+    "itemTypeID": 1,
+    "fieldID": 24,
+    "req": "0",
+    "fildName": "haveThermometer",
+    "name": "Холодная комната +2+8 - Cold Room"
+  },
+  {
+    "ID": 4346,
+    "itemTypeID": 1,
+    "fieldID": 39,
+    "req": "1",
+    "fildName": "FreezerCapacity",
+    "name": "Холодная комната +2+8 - Cold Room"
+  },
+  {
+    "ID": 4347,
+    "itemTypeID": 1,
+    "fieldID": 20,
+    "req": "0",
+    "fildName": "phase",
+    "name": "Холодная комната +2+8 - Cold Room"
+  },
+  {
+    "ID": 4348,
+    "itemTypeID": 1,
+    "fieldID": 15,
+    "req": "0",
+    "fildName": "voltageOK",
+    "name": "Холодная комната +2+8 - Cold Room"
+  },
+  {
+    "ID": 4349,
+    "itemTypeID": 1,
+    "fieldID": 41,
+    "req": "0",
+    "fildName": "otherField1",
+    "name": "Холодная комната +2+8 - Cold Room"
+  },
+  {
+    "ID": 4374,
+    "itemTypeID": 9,
+    "fieldID": 61,
+    "req": "0",
+    "fildName": "manufacture",
+    "name": "Сверхнизкая морозильная камера (-70 C) - Ultra freezer (-70 C)"
+  },
+  {
+    "ID": 4375,
+    "itemTypeID": 9,
+    "fieldID": 46,
+    "req": "0",
+    "fildName": "model",
+    "name": "Сверхнизкая морозильная камера (-70 C) - Ultra freezer (-70 C)"
+  },
+  {
+    "ID": 4376,
+    "itemTypeID": 9,
+    "fieldID": 6,
+    "req": "1",
+    "fildName": "height",
+    "name": "Сверхнизкая морозильная камера (-70 C) - Ultra freezer (-70 C)"
+  },
+  {
+    "ID": 4377,
+    "itemTypeID": 9,
+    "fieldID": 7,
+    "req": "1",
+    "fildName": "width",
+    "name": "Сверхнизкая морозильная камера (-70 C) - Ultra freezer (-70 C)"
+  },
+  {
+    "ID": 4378,
+    "itemTypeID": 9,
+    "fieldID": 8,
+    "req": "1",
+    "fildName": "length",
+    "name": "Сверхнизкая морозильная камера (-70 C) - Ultra freezer (-70 C)"
+  },
+  {
+    "ID": 4379,
+    "itemTypeID": 9,
+    "fieldID": 9,
+    "req": "0",
+    "fildName": "grossVolume",
+    "name": "Сверхнизкая морозильная камера (-70 C) - Ultra freezer (-70 C)"
+  },
+  {
+    "ID": 4380,
+    "itemTypeID": 9,
+    "fieldID": 10,
+    "req": "0",
+    "fildName": "netVolume",
+    "name": "Сверхнизкая морозильная камера (-70 C) - Ultra freezer (-70 C)"
+  },
+  {
+    "ID": 4381,
+    "itemTypeID": 9,
+    "fieldID": 18,
+    "req": "0",
+    "fildName": "haveAlarm",
+    "name": "Сверхнизкая морозильная камера (-70 C) - Ultra freezer (-70 C)"
+  },
+  {
+    "ID": 4382,
+    "itemTypeID": 9,
+    "fieldID": 58,
+    "req": "1",
+    "fildName": "workingConditionID",
+    "name": "Сверхнизкая морозильная камера (-70 C) - Ultra freezer (-70 C)"
+  },
+  {
+    "ID": 4383,
+    "itemTypeID": 9,
+    "fieldID": 27,
+    "req": "0",
+    "fildName": "installYear",
+    "name": "Сверхнизкая морозильная камера (-70 C) - Ultra freezer (-70 C)"
+  },
+  {
+    "ID": 4384,
+    "itemTypeID": 9,
+    "fieldID": 36,
+    "req": "1",
+    "fildName": "tempRange",
+    "name": "Сверхнизкая морозильная камера (-70 C) - Ultra freezer (-70 C)"
+  },
+  {
+    "ID": 4385,
+    "itemTypeID": 9,
+    "fieldID": 17,
+    "req": "0",
+    "fildName": "haveTempMonitor",
+    "name": "Сверхнизкая морозильная камера (-70 C) - Ultra freezer (-70 C)"
+  },
+  {
+    "ID": 4386,
+    "itemTypeID": 9,
+    "fieldID": 24,
+    "req": "0",
+    "fildName": "haveThermometer",
+    "name": "Сверхнизкая морозильная камера (-70 C) - Ultra freezer (-70 C)"
+  },
+  {
+    "ID": 4387,
+    "itemTypeID": 9,
+    "fieldID": 39,
+    "req": "1",
+    "fildName": "FreezerCapacity",
+    "name": "Сверхнизкая морозильная камера (-70 C) - Ultra freezer (-70 C)"
+  },
+  {
+    "ID": 4388,
+    "itemTypeID": 9,
+    "fieldID": 41,
+    "req": "0",
+    "fildName": "otherField1",
+    "name": "Сверхнизкая морозильная камера (-70 C) - Ultra freezer (-70 C)"
+  },
+  {
+    "ID": 4408,
+    "itemTypeID": 25,
+    "fieldID": 5,
+    "req": "1",
+    "fildName": "type",
+    "name": "Комбинированный холодильник/морозильник - Refrigerator/Freezer combined"
+  },
+  {
+    "ID": 4409,
+    "itemTypeID": 25,
+    "fieldID": 61,
+    "req": "1",
+    "fildName": "manufacture",
+    "name": "Комбинированный холодильник/морозильник - Refrigerator/Freezer combined"
+  },
+  {
+    "ID": 4410,
+    "itemTypeID": 25,
+    "fieldID": 46,
+    "req": "0",
+    "fildName": "model",
+    "name": "Комбинированный холодильник/морозильник - Refrigerator/Freezer combined"
+  },
+  {
+    "ID": 4411,
+    "itemTypeID": 25,
+    "fieldID": 6,
+    "req": "1",
+    "fildName": "height",
+    "name": "Комбинированный холодильник/морозильник - Refrigerator/Freezer combined"
+  },
+  {
+    "ID": 4412,
+    "itemTypeID": 25,
+    "fieldID": 7,
+    "req": "1",
+    "fildName": "width",
+    "name": "Комбинированный холодильник/морозильник - Refrigerator/Freezer combined"
+  },
+  {
+    "ID": 4413,
+    "itemTypeID": 25,
+    "fieldID": 8,
+    "req": "1",
+    "fildName": "length",
+    "name": "Комбинированный холодильник/морозильник - Refrigerator/Freezer combined"
+  },
+  {
+    "ID": 4414,
+    "itemTypeID": 25,
+    "fieldID": 9,
+    "req": "1",
+    "fildName": "grossVolume",
+    "name": "Комбинированный холодильник/морозильник - Refrigerator/Freezer combined"
+  },
+  {
+    "ID": 4415,
+    "itemTypeID": 25,
+    "fieldID": 58,
+    "req": "0",
+    "fildName": "workingConditionID",
+    "name": "Комбинированный холодильник/морозильник - Refrigerator/Freezer combined"
+  },
+  {
+    "ID": 4416,
+    "itemTypeID": 25,
+    "fieldID": 27,
+    "req": "0",
+    "fildName": "installYear",
+    "name": "Комбинированный холодильник/морозильник - Refrigerator/Freezer combined"
+  },
+  {
+    "ID": 4417,
+    "itemTypeID": 25,
+    "fieldID": 36,
+    "req": "1",
+    "fildName": "tempRange",
+    "name": "Комбинированный холодильник/морозильник - Refrigerator/Freezer combined"
+  },
+  {
+    "ID": 4418,
+    "itemTypeID": 25,
+    "fieldID": 12,
+    "req": "0",
+    "fildName": "refrigeranGas",
+    "name": "Комбинированный холодильник/морозильник - Refrigerator/Freezer combined"
+  },
+  {
+    "ID": 4419,
+    "itemTypeID": 25,
+    "fieldID": 23,
+    "req": "1",
+    "fildName": "haveFreezing",
+    "name": "Комбинированный холодильник/морозильник - Refrigerator/Freezer combined"
+  },
+  {
+    "ID": 4420,
+    "itemTypeID": 25,
+    "fieldID": 54,
+    "req": "1",
+    "fildName": "sepFreez",
+    "name": "Комбинированный холодильник/морозильник - Refrigerator/Freezer combined"
+  },
+  {
+    "ID": 4421,
+    "itemTypeID": 25,
+    "fieldID": 17,
+    "req": "0",
+    "fildName": "haveTempMonitor",
+    "name": "Комбинированный холодильник/морозильник - Refrigerator/Freezer combined"
+  },
+  {
+    "ID": 4422,
+    "itemTypeID": 25,
+    "fieldID": 24,
+    "req": "0",
+    "fildName": "haveThermometer",
+    "name": "Комбинированный холодильник/морозильник - Refrigerator/Freezer combined"
+  },
+  {
+    "ID": 4423,
+    "itemTypeID": 25,
+    "fieldID": 39,
+    "req": "0",
+    "fildName": "FreezerCapacity",
+    "name": "Комбинированный холодильник/морозильник - Refrigerator/Freezer combined"
+  },
+  {
+    "ID": 4424,
+    "itemTypeID": 25,
+    "fieldID": 51,
+    "req": "1",
+    "fildName": "netVaccCapacity",
+    "name": "Комбинированный холодильник/морозильник - Refrigerator/Freezer combined"
+  },
+  {
+    "ID": 4425,
+    "itemTypeID": 25,
+    "fieldID": 52,
+    "req": "0",
+    "fildName": "iceCapacity",
+    "name": "Комбинированный холодильник/морозильник - Refrigerator/Freezer combined"
+  },
+  {
+    "ID": 4426,
+    "itemTypeID": 25,
+    "fieldID": 41,
+    "req": "0",
+    "fildName": "otherField1",
+    "name": "Комбинированный холодильник/морозильник - Refrigerator/Freezer combined"
+  },
+  {
+    "ID": 4427,
+    "itemTypeID": 8,
+    "fieldID": 61,
+    "req": "0",
+    "fildName": "manufacture",
+    "name": "авторефрижератор - Refrigerated vehicles"
+  },
+  {
+    "ID": 4428,
+    "itemTypeID": 8,
+    "fieldID": 46,
+    "req": "0",
+    "fildName": "model",
+    "name": "авторефрижератор - Refrigerated vehicles"
+  },
+  {
+    "ID": 4429,
+    "itemTypeID": 8,
+    "fieldID": 30,
+    "req": "1",
+    "fildName": "inUse",
+    "name": "авторефрижератор - Refrigerated vehicles"
+  },
+  {
+    "ID": 4430,
+    "itemTypeID": 8,
+    "fieldID": 32,
+    "req": "1",
+    "fildName": "notUseCause",
+    "name": "авторефрижератор - Refrigerated vehicles"
+  },
+  {
+    "ID": 4431,
+    "itemTypeID": 8,
+    "fieldID": 27,
+    "req": "0",
+    "fildName": "installYear",
+    "name": "авторефрижератор - Refrigerated vehicles"
+  },
+  {
+    "ID": 4432,
+    "itemTypeID": 8,
+    "fieldID": 42,
+    "req": "1",
+    "fildName": "otherField2",
+    "name": "авторефрижератор - Refrigerated vehicles"
+  },
+  {
+    "ID": 4433,
+    "itemTypeID": 12,
+    "fieldID": 61,
+    "req": "0",
+    "fildName": "manufacture",
+    "name": "фургон / автомобиль - Vehicles"
+  },
+  {
+    "ID": 4434,
+    "itemTypeID": 12,
+    "fieldID": 46,
+    "req": "0",
+    "fildName": "model",
+    "name": "фургон / автомобиль - Vehicles"
+  },
+  {
+    "ID": 4435,
+    "itemTypeID": 12,
+    "fieldID": 30,
+    "req": "1",
+    "fildName": "inUse",
+    "name": "фургон / автомобиль - Vehicles"
+  },
+  {
+    "ID": 4436,
+    "itemTypeID": 12,
+    "fieldID": 32,
+    "req": "1",
+    "fildName": "notUseCause",
+    "name": "фургон / автомобиль - Vehicles"
+  },
+  {
+    "ID": 4437,
+    "itemTypeID": 12,
+    "fieldID": 27,
+    "req": "0",
+    "fildName": "installYear",
+    "name": "фургон / автомобиль - Vehicles"
+  },
+  {
+    "ID": 4438,
+    "itemTypeID": 12,
+    "fieldID": 42,
+    "req": "1",
+    "fildName": "otherField2",
+    "name": "фургон / автомобиль - Vehicles"
+  },
+  {
+    "ID": 4439,
+    "itemTypeID": 13,
+    "fieldID": 61,
+    "req": "0",
+    "fildName": "manufacture",
+    "name": "Мотоциклы - Motorcycles"
+  },
+  {
+    "ID": 4440,
+    "itemTypeID": 13,
+    "fieldID": 46,
+    "req": "0",
+    "fildName": "model",
+    "name": "Мотоциклы - Motorcycles"
+  },
+  {
+    "ID": 4441,
+    "itemTypeID": 13,
+    "fieldID": 30,
+    "req": "1",
+    "fildName": "inUse",
+    "name": "Мотоциклы - Motorcycles"
+  },
+  {
+    "ID": 4442,
+    "itemTypeID": 13,
+    "fieldID": 32,
+    "req": "1",
+    "fildName": "notUseCause",
+    "name": "Мотоциклы - Motorcycles"
+  },
+  {
+    "ID": 4443,
+    "itemTypeID": 13,
+    "fieldID": 27,
+    "req": "0",
+    "fildName": "installYear",
+    "name": "Мотоциклы - Motorcycles"
+  },
+  {
+    "ID": 4444,
+    "itemTypeID": 13,
+    "fieldID": 42,
+    "req": "1",
+    "fildName": "otherField2",
+    "name": "Мотоциклы - Motorcycles"
+  },
+  {
+    "ID": 4445,
+    "itemTypeID": 11,
+    "fieldID": 61,
+    "req": "0",
+    "fildName": "manufacture",
+    "name": "Генераторы - Generators"
+  },
+  {
+    "ID": 4446,
+    "itemTypeID": 11,
+    "fieldID": 46,
+    "req": "0",
+    "fildName": "model",
+    "name": "Генераторы - Generators"
+  },
+  {
+    "ID": 4447,
+    "itemTypeID": 11,
+    "fieldID": 58,
+    "req": "0",
+    "fildName": "workingConditionID",
+    "name": "Генераторы - Generators"
+  },
+  {
+    "ID": 4448,
+    "itemTypeID": 11,
+    "fieldID": 27,
+    "req": "0",
+    "fildName": "installYear",
+    "name": "Генераторы - Generators"
+  },
+  {
+    "ID": 4449,
+    "itemTypeID": 11,
+    "fieldID": 20,
+    "req": "0",
+    "fildName": "phase",
+    "name": "Генераторы - Generators"
+  },
+  {
+    "ID": 4450,
+    "itemTypeID": 11,
+    "fieldID": 38,
+    "req": "0",
+    "fildName": "energySourceID",
+    "name": "Генераторы - Generators"
+  },
+  {
+    "ID": 4451,
+    "itemTypeID": 11,
+    "fieldID": 40,
+    "req": "0",
+    "fildName": "powerGeneration",
+    "name": "Генераторы - Generators"
+  },
+  {
+    "ID": 4452,
+    "itemTypeID": 11,
+    "fieldID": 21,
+    "req": "0",
+    "fildName": "financialSourceID",
+    "name": "Генераторы - Generators"
+  },
+  {
+    "ID": 4453,
+    "itemTypeID": 11,
+    "fieldID": 41,
+    "req": "0",
+    "fildName": "otherField1",
+    "name": "Генераторы - Generators"
+  },
+  {
+    "ID": 4478,
+    "itemTypeID": 6,
+    "fieldID": 46,
+    "req": "0",
+    "fildName": "model",
+    "name": "ТЕРМОСУМОК - Vaccine Carrier"
+  },
+  {
+    "ID": 4479,
+    "itemTypeID": 6,
+    "fieldID": 6,
+    "req": "1",
+    "fildName": "height",
+    "name": "ТЕРМОСУМОК - Vaccine Carrier"
+  },
+  {
+    "ID": 4480,
+    "itemTypeID": 6,
+    "fieldID": 7,
+    "req": "1",
+    "fildName": "width",
+    "name": "ТЕРМОСУМОК - Vaccine Carrier"
+  },
+  {
+    "ID": 4481,
+    "itemTypeID": 6,
+    "fieldID": 8,
+    "req": "1",
+    "fildName": "length",
+    "name": "ТЕРМОСУМОК - Vaccine Carrier"
+  },
+  {
+    "ID": 4482,
+    "itemTypeID": 6,
+    "fieldID": 30,
+    "req": "1",
+    "fildName": "inUse",
+    "name": "ТЕРМОСУМОК - Vaccine Carrier"
+  },
+  {
+    "ID": 4483,
+    "itemTypeID": 6,
+    "fieldID": 4,
+    "req": "0",
+    "fildName": "PQSCode",
+    "name": "ТЕРМОСУМОК - Vaccine Carrier"
+  },
+  {
+    "ID": 4484,
+    "itemTypeID": 6,
+    "fieldID": 62,
+    "req": "0",
+    "fildName": "pqstype",
+    "name": "ТЕРМОСУМОК - Vaccine Carrier"
+  },
+  {
+    "ID": 4485,
+    "itemTypeID": 6,
+    "fieldID": 63,
+    "req": "0",
+    "fildName": "pqsmanufacturer",
+    "name": "ТЕРМОСУМОК - Vaccine Carrier"
+  },
+  {
+    "ID": 4486,
+    "itemTypeID": 19,
+    "fieldID": 49,
+    "req": "0",
+    "fildName": "weight",
+    "name": "пузырь со льдом - Ice-pack"
+  },
+  {
+    "ID": 4487,
+    "itemTypeID": 19,
+    "fieldID": 43,
+    "req": "1",
+    "fildName": "otherField3",
+    "name": "пузырь со льдом - Ice-pack"
+  },
+  {
+    "ID": 4497,
+    "itemTypeID": 5,
+    "fieldID": 46,
+    "req": "0",
+    "fildName": "model",
+    "name": "Холодная коробка - Cold box"
+  },
+  {
+    "ID": 4498,
+    "itemTypeID": 5,
+    "fieldID": 6,
+    "req": "1",
+    "fildName": "height",
+    "name": "Холодная коробка - Cold box"
+  },
+  {
+    "ID": 4499,
+    "itemTypeID": 5,
+    "fieldID": 7,
+    "req": "1",
+    "fildName": "width",
+    "name": "Холодная коробка - Cold box"
+  },
+  {
+    "ID": 4500,
+    "itemTypeID": 5,
+    "fieldID": 8,
+    "req": "1",
+    "fildName": "length",
+    "name": "Холодная коробка - Cold box"
+  },
+  {
+    "ID": 4501,
+    "itemTypeID": 5,
+    "fieldID": 30,
+    "req": "1",
+    "fildName": "inUse",
+    "name": "Холодная коробка - Cold box"
+  },
+  {
+    "ID": 4502,
+    "itemTypeID": 5,
+    "fieldID": 4,
+    "req": "0",
+    "fildName": "PQSCode",
+    "name": "Холодная коробка - Cold box"
+  },
+  {
+    "ID": 4503,
+    "itemTypeID": 5,
+    "fieldID": 62,
+    "req": "0",
+    "fildName": "pqstype",
+    "name": "Холодная коробка - Cold box"
+  },
+  {
+    "ID": 4504,
+    "itemTypeID": 5,
+    "fieldID": 63,
+    "req": "0",
+    "fildName": "pqsmanufacturer",
+    "name": "Холодная коробка - Cold box"
+  },
+  {
+    "ID": 4505,
+    "itemTypeID": 22,
+    "fieldID": 61,
+    "req": "0",
+    "fildName": "manufacture",
+    "name": "Электронный термометр Electronic thermometer"
+  },
+  {
+    "ID": 4506,
+    "itemTypeID": 22,
+    "fieldID": 46,
+    "req": "0",
+    "fildName": "model",
+    "name": "Электронный термометр Electronic thermometer"
+  },
+  {
+    "ID": 4507,
+    "itemTypeID": 22,
+    "fieldID": 58,
+    "req": "1",
+    "fildName": "workingConditionID",
+    "name": "Электронный термометр Electronic thermometer"
+  },
+  {
+    "ID": 4508,
+    "itemTypeID": 22,
+    "fieldID": 27,
+    "req": "0",
+    "fildName": "installYear",
+    "name": "Электронный термометр Electronic thermometer"
+  }
+]

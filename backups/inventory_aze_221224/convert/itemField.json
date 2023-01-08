@@ -1,0 +1,1674 @@
+[
+  {
+    "ID": 4073,
+    "itemTypeID": 12,
+    "fieldID": 61,
+    "req": "1",
+    "fildName": "manufacture",
+    "name": "Nəqliyyat vasitəsi"
+  },
+  {
+    "ID": 4074,
+    "itemTypeID": 12,
+    "fieldID": 46,
+    "req": "0",
+    "fildName": "model",
+    "name": "Nəqliyyat vasitəsi"
+  },
+  {
+    "ID": 4075,
+    "itemTypeID": 12,
+    "fieldID": 30,
+    "req": "1",
+    "fildName": "inUse",
+    "name": "Nəqliyyat vasitəsi"
+  },
+  {
+    "ID": 4076,
+    "itemTypeID": 12,
+    "fieldID": 32,
+    "req": "0",
+    "fildName": "notUseCause",
+    "name": "Nəqliyyat vasitəsi"
+  },
+  {
+    "ID": 4077,
+    "itemTypeID": 12,
+    "fieldID": 27,
+    "req": "0",
+    "fildName": "installYear",
+    "name": "Nəqliyyat vasitəsi"
+  },
+  {
+    "ID": 4078,
+    "itemTypeID": 12,
+    "fieldID": 57,
+    "req": "0",
+    "fildName": "runningTime_Km",
+    "name": "Nəqliyyat vasitəsi"
+  },
+  {
+    "ID": 4079,
+    "itemTypeID": 12,
+    "fieldID": 42,
+    "req": "0",
+    "fildName": "otherField2",
+    "name": "Nəqliyyat vasitəsi"
+  },
+  {
+    "ID": 4080,
+    "itemTypeID": 15,
+    "fieldID": 61,
+    "req": "1",
+    "fildName": "manufacture",
+    "name": "Buz paketləri üçün dondurucu (IPF)"
+  },
+  {
+    "ID": 4081,
+    "itemTypeID": 15,
+    "fieldID": 46,
+    "req": "0",
+    "fildName": "model",
+    "name": "Buz paketləri üçün dondurucu (IPF)"
+  },
+  {
+    "ID": 4082,
+    "itemTypeID": 15,
+    "fieldID": 9,
+    "req": "1",
+    "fildName": "grossVolume",
+    "name": "Buz paketləri üçün dondurucu (IPF)"
+  },
+  {
+    "ID": 4083,
+    "itemTypeID": 15,
+    "fieldID": 30,
+    "req": "1",
+    "fildName": "inUse",
+    "name": "Buz paketləri üçün dondurucu (IPF)"
+  },
+  {
+    "ID": 4084,
+    "itemTypeID": 15,
+    "fieldID": 32,
+    "req": "0",
+    "fildName": "notUseCause",
+    "name": "Buz paketləri üçün dondurucu (IPF)"
+  },
+  {
+    "ID": 4085,
+    "itemTypeID": 15,
+    "fieldID": 27,
+    "req": "0",
+    "fildName": "installYear",
+    "name": "Buz paketləri üçün dondurucu (IPF)"
+  },
+  {
+    "ID": 4086,
+    "itemTypeID": 15,
+    "fieldID": 42,
+    "req": "0",
+    "fildName": "otherField2",
+    "name": "Buz paketləri üçün dondurucu (IPF)"
+  },
+  {
+    "ID": 4087,
+    "itemTypeID": 15,
+    "fieldID": 4,
+    "req": "0",
+    "fildName": "PQSCode",
+    "name": "Buz paketləri üçün dondurucu (IPF)"
+  },
+  {
+    "ID": 4088,
+    "itemTypeID": 15,
+    "fieldID": 62,
+    "req": "0",
+    "fildName": "pqstype",
+    "name": "Buz paketləri üçün dondurucu (IPF)"
+  },
+  {
+    "ID": 4089,
+    "itemTypeID": 15,
+    "fieldID": 63,
+    "req": "0",
+    "fildName": "pqsmanufacturer",
+    "name": "Buz paketləri üçün dondurucu (IPF)"
+  },
+  {
+    "ID": 4090,
+    "itemTypeID": 15,
+    "fieldID": 64,
+    "req": "0",
+    "fildName": "pqsrefgas",
+    "name": "Buz paketləri üçün dondurucu (IPF)"
+  },
+  {
+    "ID": 4091,
+    "itemTypeID": 15,
+    "fieldID": 65,
+    "req": "0",
+    "fildName": "pqstempzone",
+    "name": "Buz paketləri üçün dondurucu (IPF)"
+  },
+  {
+    "ID": 4100,
+    "itemTypeID": 21,
+    "fieldID": 42,
+    "req": "0",
+    "fildName": "otherField2",
+    "name": "Quru ambar (mühit temperaturunda) (DSA)"
+  },
+  {
+    "ID": 4101,
+    "itemTypeID": 21,
+    "fieldID": 68,
+    "req": "0",
+    "fildName": "DSHaveLight",
+    "name": "Quru ambar (mühit temperaturunda) (DSA)"
+  },
+  {
+    "ID": 4102,
+    "itemTypeID": 21,
+    "fieldID": 69,
+    "req": "0",
+    "fildName": "DSHaveHeat",
+    "name": "Quru ambar (mühit temperaturunda) (DSA)"
+  },
+  {
+    "ID": 4103,
+    "itemTypeID": 21,
+    "fieldID": 70,
+    "req": "0",
+    "fildName": "DSHaveAC",
+    "name": "Quru ambar (mühit temperaturunda) (DSA)"
+  },
+  {
+    "ID": 4104,
+    "itemTypeID": 21,
+    "fieldID": 71,
+    "req": "0",
+    "fildName": "DSProtSun",
+    "name": "Quru ambar (mühit temperaturunda) (DSA)"
+  },
+  {
+    "ID": 4105,
+    "itemTypeID": 21,
+    "fieldID": 72,
+    "req": "0",
+    "fildName": "DSHaveShelve",
+    "name": "Quru ambar (mühit temperaturunda) (DSA)"
+  },
+  {
+    "ID": 4106,
+    "itemTypeID": 21,
+    "fieldID": 73,
+    "req": "0",
+    "fildName": "DSIsClean",
+    "name": "Quru ambar (mühit temperaturunda) (DSA)"
+  },
+  {
+    "ID": 4107,
+    "itemTypeID": 21,
+    "fieldID": 74,
+    "req": "0",
+    "fildName": "DSProtMois",
+    "name": "Quru ambar (mühit temperaturunda) (DSA)"
+  },
+  {
+    "ID": 4108,
+    "itemTypeID": 21,
+    "fieldID": 75,
+    "req": "0",
+    "fildName": "DSArea",
+    "name": "Quru ambar (mühit temperaturunda) (DSA)"
+  },
+  {
+    "ID": 4109,
+    "itemTypeID": 21,
+    "fieldID": 76,
+    "req": "0",
+    "fildName": "DSHeight",
+    "name": "Quru ambar (mühit temperaturunda) (DSA)"
+  },
+  {
+    "ID": 4233,
+    "itemTypeID": 25,
+    "fieldID": 5,
+    "req": "0",
+    "fildName": "type",
+    "name": "Kombinə edilmiş soyuducu/dondurucu (RFC)"
+  },
+  {
+    "ID": 4234,
+    "itemTypeID": 25,
+    "fieldID": 61,
+    "req": "1",
+    "fildName": "manufacture",
+    "name": "Kombinə edilmiş soyuducu/dondurucu (RFC)"
+  },
+  {
+    "ID": 4235,
+    "itemTypeID": 25,
+    "fieldID": 46,
+    "req": "0",
+    "fildName": "model",
+    "name": "Kombinə edilmiş soyuducu/dondurucu (RFC)"
+  },
+  {
+    "ID": 4236,
+    "itemTypeID": 25,
+    "fieldID": 14,
+    "req": "0",
+    "fildName": "shelvesOK",
+    "name": "Kombinə edilmiş soyuducu/dondurucu (RFC)"
+  },
+  {
+    "ID": 4237,
+    "itemTypeID": 25,
+    "fieldID": 30,
+    "req": "1",
+    "fildName": "inUse",
+    "name": "Kombinə edilmiş soyuducu/dondurucu (RFC)"
+  },
+  {
+    "ID": 4238,
+    "itemTypeID": 25,
+    "fieldID": 32,
+    "req": "0",
+    "fildName": "notUseCause",
+    "name": "Kombinə edilmiş soyuducu/dondurucu (RFC)"
+  },
+  {
+    "ID": 4239,
+    "itemTypeID": 25,
+    "fieldID": 27,
+    "req": "0",
+    "fildName": "installYear",
+    "name": "Kombinə edilmiş soyuducu/dondurucu (RFC)"
+  },
+  {
+    "ID": 4240,
+    "itemTypeID": 25,
+    "fieldID": 36,
+    "req": "1",
+    "fildName": "tempRange",
+    "name": "Kombinə edilmiş soyuducu/dondurucu (RFC)"
+  },
+  {
+    "ID": 4241,
+    "itemTypeID": 25,
+    "fieldID": 12,
+    "req": "0",
+    "fildName": "refrigeranGas",
+    "name": "Kombinə edilmiş soyuducu/dondurucu (RFC)"
+  },
+  {
+    "ID": 4242,
+    "itemTypeID": 25,
+    "fieldID": 23,
+    "req": "0",
+    "fildName": "haveFreezing",
+    "name": "Kombinə edilmiş soyuducu/dondurucu (RFC)"
+  },
+  {
+    "ID": 4243,
+    "itemTypeID": 25,
+    "fieldID": 17,
+    "req": "0",
+    "fildName": "haveTempMonitor",
+    "name": "Kombinə edilmiş soyuducu/dondurucu (RFC)"
+  },
+  {
+    "ID": 4244,
+    "itemTypeID": 25,
+    "fieldID": 24,
+    "req": "0",
+    "fildName": "thermo",
+    "name": "Kombinə edilmiş soyuducu/dondurucu (RFC)"
+  },
+  {
+    "ID": 4245,
+    "itemTypeID": 25,
+    "fieldID": 39,
+    "req": "0",
+    "fildName": "FreezerCapacity",
+    "name": "Kombinə edilmiş soyuducu/dondurucu (RFC)"
+  },
+  {
+    "ID": 4246,
+    "itemTypeID": 25,
+    "fieldID": 51,
+    "req": "1",
+    "fildName": "netVaccCapacity",
+    "name": "Kombinə edilmiş soyuducu/dondurucu (RFC)"
+  },
+  {
+    "ID": 4247,
+    "itemTypeID": 25,
+    "fieldID": 52,
+    "req": "0",
+    "fildName": "iceCapacity",
+    "name": "Kombinə edilmiş soyuducu/dondurucu (RFC)"
+  },
+  {
+    "ID": 4248,
+    "itemTypeID": 25,
+    "fieldID": 15,
+    "req": "0",
+    "fildName": "voltageOK",
+    "name": "Kombinə edilmiş soyuducu/dondurucu (RFC)"
+  },
+  {
+    "ID": 4249,
+    "itemTypeID": 25,
+    "fieldID": 42,
+    "req": "0",
+    "fildName": "otherField2",
+    "name": "Kombinə edilmiş soyuducu/dondurucu (RFC)"
+  },
+  {
+    "ID": 4250,
+    "itemTypeID": 25,
+    "fieldID": 4,
+    "req": "0",
+    "fildName": "PQSCode",
+    "name": "Kombinə edilmiş soyuducu/dondurucu (RFC)"
+  },
+  {
+    "ID": 4251,
+    "itemTypeID": 25,
+    "fieldID": 62,
+    "req": "0",
+    "fildName": "pqstype",
+    "name": "Kombinə edilmiş soyuducu/dondurucu (RFC)"
+  },
+  {
+    "ID": 4252,
+    "itemTypeID": 25,
+    "fieldID": 63,
+    "req": "0",
+    "fildName": "pqsmanufacturer",
+    "name": "Kombinə edilmiş soyuducu/dondurucu (RFC)"
+  },
+  {
+    "ID": 4253,
+    "itemTypeID": 25,
+    "fieldID": 64,
+    "req": "0",
+    "fildName": "pqsrefgas",
+    "name": "Kombinə edilmiş soyuducu/dondurucu (RFC)"
+  },
+  {
+    "ID": 4254,
+    "itemTypeID": 25,
+    "fieldID": 65,
+    "req": "0",
+    "fildName": "pqstempzone",
+    "name": "Kombinə edilmiş soyuducu/dondurucu (RFC)"
+  },
+  {
+    "ID": 4260,
+    "itemTypeID": 27,
+    "fieldID": 46,
+    "req": "0",
+    "fildName": "model",
+    "name": "Temperatur izləmə cihazi (TDL)"
+  },
+  {
+    "ID": 4261,
+    "itemTypeID": 27,
+    "fieldID": 27,
+    "req": "0",
+    "fildName": "installYear",
+    "name": "Temperatur izləmə cihazi (TDL)"
+  },
+  {
+    "ID": 4262,
+    "itemTypeID": 27,
+    "fieldID": 36,
+    "req": "1",
+    "fildName": "tempRange",
+    "name": "Temperatur izləmə cihazi (TDL)"
+  },
+  {
+    "ID": 4278,
+    "itemTypeID": 20,
+    "fieldID": 46,
+    "req": "0",
+    "fildName": "model",
+    "name": "Kompyuterləşdirilmış  sistem (TCS)"
+  },
+  {
+    "ID": 4279,
+    "itemTypeID": 20,
+    "fieldID": 30,
+    "req": "1",
+    "fildName": "inUse",
+    "name": "Kompyuterləşdirilmış  sistem (TCS)"
+  },
+  {
+    "ID": 4280,
+    "itemTypeID": 20,
+    "fieldID": 27,
+    "req": "0",
+    "fildName": "installYear",
+    "name": "Kompyuterləşdirilmış  sistem (TCS)"
+  },
+  {
+    "ID": 4320,
+    "itemTypeID": 28,
+    "fieldID": 46,
+    "req": "0",
+    "fildName": "model",
+    "name": "Digər avtomobil"
+  },
+  {
+    "ID": 4321,
+    "itemTypeID": 28,
+    "fieldID": 9,
+    "req": "0",
+    "fildName": "grossVolume",
+    "name": "Digər avtomobil"
+  },
+  {
+    "ID": 4322,
+    "itemTypeID": 28,
+    "fieldID": 30,
+    "req": "1",
+    "fildName": "inUse",
+    "name": "Digər avtomobil"
+  },
+  {
+    "ID": 4323,
+    "itemTypeID": 28,
+    "fieldID": 27,
+    "req": "1",
+    "fildName": "installYear",
+    "name": "Digər avtomobil"
+  },
+  {
+    "ID": 4324,
+    "itemTypeID": 28,
+    "fieldID": 57,
+    "req": "0",
+    "fildName": "runningTime_Km",
+    "name": "Digər avtomobil"
+  },
+  {
+    "ID": 4417,
+    "itemTypeID": 10,
+    "fieldID": 46,
+    "req": "0",
+    "fildName": "model",
+    "name": "Gərginlik tənzimləyiciləri (VR)"
+  },
+  {
+    "ID": 4418,
+    "itemTypeID": 10,
+    "fieldID": 30,
+    "req": "1",
+    "fildName": "inUse",
+    "name": "Gərginlik tənzimləyiciləri (VR)"
+  },
+  {
+    "ID": 4419,
+    "itemTypeID": 10,
+    "fieldID": 27,
+    "req": "0",
+    "fildName": "installYear",
+    "name": "Gərginlik tənzimləyiciləri (VR)"
+  },
+  {
+    "ID": 4420,
+    "itemTypeID": 10,
+    "fieldID": 19,
+    "req": "0",
+    "fildName": "voltage",
+    "name": "Gərginlik tənzimləyiciləri (VR)"
+  },
+  {
+    "ID": 4421,
+    "itemTypeID": 5,
+    "fieldID": 46,
+    "req": "0",
+    "fildName": "model",
+    "name": "Termo qutu (CCB)"
+  },
+  {
+    "ID": 4422,
+    "itemTypeID": 5,
+    "fieldID": 6,
+    "req": "0",
+    "fildName": "height",
+    "name": "Termo qutu (CCB)"
+  },
+  {
+    "ID": 4423,
+    "itemTypeID": 5,
+    "fieldID": 7,
+    "req": "0",
+    "fildName": "width",
+    "name": "Termo qutu (CCB)"
+  },
+  {
+    "ID": 4424,
+    "itemTypeID": 5,
+    "fieldID": 8,
+    "req": "0",
+    "fildName": "length",
+    "name": "Termo qutu (CCB)"
+  },
+  {
+    "ID": 4425,
+    "itemTypeID": 5,
+    "fieldID": 9,
+    "req": "1",
+    "fildName": "grossVolume",
+    "name": "Termo qutu (CCB)"
+  },
+  {
+    "ID": 4426,
+    "itemTypeID": 5,
+    "fieldID": 28,
+    "req": "0",
+    "fildName": "physicalCondition",
+    "name": "Termo qutu (CCB)"
+  },
+  {
+    "ID": 4427,
+    "itemTypeID": 5,
+    "fieldID": 51,
+    "req": "1",
+    "fildName": "netVaccCapacity",
+    "name": "Termo qutu (CCB)"
+  },
+  {
+    "ID": 4428,
+    "itemTypeID": 5,
+    "fieldID": 67,
+    "req": "0",
+    "fildName": "NumberCoolantPacks",
+    "name": "Termo qutu (CCB)"
+  },
+  {
+    "ID": 4429,
+    "itemTypeID": 5,
+    "fieldID": 4,
+    "req": "0",
+    "fildName": "PQSCode",
+    "name": "Termo qutu (CCB)"
+  },
+  {
+    "ID": 4430,
+    "itemTypeID": 5,
+    "fieldID": 62,
+    "req": "0",
+    "fildName": "pqstype",
+    "name": "Termo qutu (CCB)"
+  },
+  {
+    "ID": 4431,
+    "itemTypeID": 5,
+    "fieldID": 63,
+    "req": "0",
+    "fildName": "pqsmanufacturer",
+    "name": "Termo qutu (CCB)"
+  },
+  {
+    "ID": 4432,
+    "itemTypeID": 6,
+    "fieldID": 46,
+    "req": "0",
+    "fildName": "model",
+    "name": "Termo çanta (CVR)"
+  },
+  {
+    "ID": 4433,
+    "itemTypeID": 6,
+    "fieldID": 6,
+    "req": "0",
+    "fildName": "height",
+    "name": "Termo çanta (CVR)"
+  },
+  {
+    "ID": 4434,
+    "itemTypeID": 6,
+    "fieldID": 7,
+    "req": "0",
+    "fildName": "width",
+    "name": "Termo çanta (CVR)"
+  },
+  {
+    "ID": 4435,
+    "itemTypeID": 6,
+    "fieldID": 8,
+    "req": "0",
+    "fildName": "length",
+    "name": "Termo çanta (CVR)"
+  },
+  {
+    "ID": 4436,
+    "itemTypeID": 6,
+    "fieldID": 9,
+    "req": "1",
+    "fildName": "grossVolume",
+    "name": "Termo çanta (CVR)"
+  },
+  {
+    "ID": 4437,
+    "itemTypeID": 6,
+    "fieldID": 30,
+    "req": "1",
+    "fildName": "inUse",
+    "name": "Termo çanta (CVR)"
+  },
+  {
+    "ID": 4438,
+    "itemTypeID": 6,
+    "fieldID": 32,
+    "req": "1",
+    "fildName": "notUseCause",
+    "name": "Termo çanta (CVR)"
+  },
+  {
+    "ID": 4439,
+    "itemTypeID": 6,
+    "fieldID": 51,
+    "req": "1",
+    "fildName": "netVaccCapacity",
+    "name": "Termo çanta (CVR)"
+  },
+  {
+    "ID": 4440,
+    "itemTypeID": 6,
+    "fieldID": 67,
+    "req": "0",
+    "fildName": "NumberCoolantPacks",
+    "name": "Termo çanta (CVR)"
+  },
+  {
+    "ID": 4441,
+    "itemTypeID": 6,
+    "fieldID": 42,
+    "req": "0",
+    "fildName": "otherField2",
+    "name": "Termo çanta (CVR)"
+  },
+  {
+    "ID": 4442,
+    "itemTypeID": 6,
+    "fieldID": 4,
+    "req": "0",
+    "fildName": "PQSCode",
+    "name": "Termo çanta (CVR)"
+  },
+  {
+    "ID": 4443,
+    "itemTypeID": 6,
+    "fieldID": 62,
+    "req": "0",
+    "fildName": "pqstype",
+    "name": "Termo çanta (CVR)"
+  },
+  {
+    "ID": 4444,
+    "itemTypeID": 6,
+    "fieldID": 63,
+    "req": "0",
+    "fildName": "pqsmanufacturer",
+    "name": "Termo çanta (CVR)"
+  },
+  {
+    "ID": 4603,
+    "itemTypeID": 2,
+    "fieldID": 6,
+    "req": "1",
+    "fildName": "height",
+    "name": "Dondurucu otaq (-20 C) (CFR)"
+  },
+  {
+    "ID": 4604,
+    "itemTypeID": 2,
+    "fieldID": 7,
+    "req": "1",
+    "fildName": "width",
+    "name": "Dondurucu otaq (-20 C) (CFR)"
+  },
+  {
+    "ID": 4605,
+    "itemTypeID": 2,
+    "fieldID": 8,
+    "req": "1",
+    "fildName": "length",
+    "name": "Dondurucu otaq (-20 C) (CFR)"
+  },
+  {
+    "ID": 4606,
+    "itemTypeID": 2,
+    "fieldID": 9,
+    "req": "1",
+    "fildName": "grossVolume",
+    "name": "Dondurucu otaq (-20 C) (CFR)"
+  },
+  {
+    "ID": 4607,
+    "itemTypeID": 2,
+    "fieldID": 18,
+    "req": "1",
+    "fildName": "haveAlarm",
+    "name": "Dondurucu otaq (-20 C) (CFR)"
+  },
+  {
+    "ID": 4608,
+    "itemTypeID": 2,
+    "fieldID": 14,
+    "req": "0",
+    "fildName": "shelvesOK",
+    "name": "Dondurucu otaq (-20 C) (CFR)"
+  },
+  {
+    "ID": 4609,
+    "itemTypeID": 2,
+    "fieldID": 30,
+    "req": "1",
+    "fildName": "inUse",
+    "name": "Dondurucu otaq (-20 C) (CFR)"
+  },
+  {
+    "ID": 4610,
+    "itemTypeID": 2,
+    "fieldID": 32,
+    "req": "1",
+    "fildName": "notUseCause",
+    "name": "Dondurucu otaq (-20 C) (CFR)"
+  },
+  {
+    "ID": 4611,
+    "itemTypeID": 2,
+    "fieldID": 27,
+    "req": "0",
+    "fildName": "installYear",
+    "name": "Dondurucu otaq (-20 C) (CFR)"
+  },
+  {
+    "ID": 4612,
+    "itemTypeID": 2,
+    "fieldID": 36,
+    "req": "1",
+    "fildName": "tempRange",
+    "name": "Dondurucu otaq (-20 C) (CFR)"
+  },
+  {
+    "ID": 4613,
+    "itemTypeID": 2,
+    "fieldID": 11,
+    "req": "1",
+    "fildName": "coolingUnitNumber",
+    "name": "Dondurucu otaq (-20 C) (CFR)"
+  },
+  {
+    "ID": 4614,
+    "itemTypeID": 2,
+    "fieldID": 12,
+    "req": "0",
+    "fildName": "refrigeranGas",
+    "name": "Dondurucu otaq (-20 C) (CFR)"
+  },
+  {
+    "ID": 4615,
+    "itemTypeID": 2,
+    "fieldID": 17,
+    "req": "1",
+    "fildName": "haveTempMonitor",
+    "name": "Dondurucu otaq (-20 C) (CFR)"
+  },
+  {
+    "ID": 4616,
+    "itemTypeID": 2,
+    "fieldID": 24,
+    "req": "1",
+    "fildName": "thermo",
+    "name": "Dondurucu otaq (-20 C) (CFR)"
+  },
+  {
+    "ID": 4617,
+    "itemTypeID": 2,
+    "fieldID": 39,
+    "req": "1",
+    "fildName": "FreezerCapacity",
+    "name": "Dondurucu otaq (-20 C) (CFR)"
+  },
+  {
+    "ID": 4618,
+    "itemTypeID": 2,
+    "fieldID": 15,
+    "req": "0",
+    "fildName": "voltageOK",
+    "name": "Dondurucu otaq (-20 C) (CFR)"
+  },
+  {
+    "ID": 4619,
+    "itemTypeID": 2,
+    "fieldID": 4,
+    "req": "0",
+    "fildName": "PQSCode",
+    "name": "Dondurucu otaq (-20 C) (CFR)"
+  },
+  {
+    "ID": 4620,
+    "itemTypeID": 2,
+    "fieldID": 62,
+    "req": "0",
+    "fildName": "pqstype",
+    "name": "Dondurucu otaq (-20 C) (CFR)"
+  },
+  {
+    "ID": 4621,
+    "itemTypeID": 2,
+    "fieldID": 63,
+    "req": "0",
+    "fildName": "pqsmanufacturer",
+    "name": "Dondurucu otaq (-20 C) (CFR)"
+  },
+  {
+    "ID": 4622,
+    "itemTypeID": 2,
+    "fieldID": 64,
+    "req": "0",
+    "fildName": "pqsrefgas",
+    "name": "Dondurucu otaq (-20 C) (CFR)"
+  },
+  {
+    "ID": 4623,
+    "itemTypeID": 2,
+    "fieldID": 65,
+    "req": "0",
+    "fildName": "pqstempzone",
+    "name": "Dondurucu otaq (-20 C) (CFR)"
+  },
+  {
+    "ID": 4822,
+    "itemTypeID": 4,
+    "fieldID": 5,
+    "req": "1",
+    "fildName": "type",
+    "name": "Dondurucu(-20 C) (CFE)"
+  },
+  {
+    "ID": 4823,
+    "itemTypeID": 4,
+    "fieldID": 61,
+    "req": "1",
+    "fildName": "manufacture",
+    "name": "Dondurucu(-20 C) (CFE)"
+  },
+  {
+    "ID": 4824,
+    "itemTypeID": 4,
+    "fieldID": 46,
+    "req": "0",
+    "fildName": "model",
+    "name": "Dondurucu(-20 C) (CFE)"
+  },
+  {
+    "ID": 4825,
+    "itemTypeID": 4,
+    "fieldID": 30,
+    "req": "1",
+    "fildName": "inUse",
+    "name": "Dondurucu(-20 C) (CFE)"
+  },
+  {
+    "ID": 4826,
+    "itemTypeID": 4,
+    "fieldID": 32,
+    "req": "1",
+    "fildName": "notUseCause",
+    "name": "Dondurucu(-20 C) (CFE)"
+  },
+  {
+    "ID": 4827,
+    "itemTypeID": 4,
+    "fieldID": 27,
+    "req": "1",
+    "fildName": "installYear",
+    "name": "Dondurucu(-20 C) (CFE)"
+  },
+  {
+    "ID": 4828,
+    "itemTypeID": 4,
+    "fieldID": 36,
+    "req": "1",
+    "fildName": "tempRange",
+    "name": "Dondurucu(-20 C) (CFE)"
+  },
+  {
+    "ID": 4829,
+    "itemTypeID": 4,
+    "fieldID": 12,
+    "req": "0",
+    "fildName": "refrigeranGas",
+    "name": "Dondurucu(-20 C) (CFE)"
+  },
+  {
+    "ID": 4830,
+    "itemTypeID": 4,
+    "fieldID": 17,
+    "req": "1",
+    "fildName": "haveTempMonitor",
+    "name": "Dondurucu(-20 C) (CFE)"
+  },
+  {
+    "ID": 4831,
+    "itemTypeID": 4,
+    "fieldID": 24,
+    "req": "0",
+    "fildName": "thermo",
+    "name": "Dondurucu(-20 C) (CFE)"
+  },
+  {
+    "ID": 4832,
+    "itemTypeID": 4,
+    "fieldID": 39,
+    "req": "1",
+    "fildName": "FreezerCapacity",
+    "name": "Dondurucu(-20 C) (CFE)"
+  },
+  {
+    "ID": 4833,
+    "itemTypeID": 4,
+    "fieldID": 67,
+    "req": "0",
+    "fildName": "NumberCoolantPacks",
+    "name": "Dondurucu(-20 C) (CFE)"
+  },
+  {
+    "ID": 4834,
+    "itemTypeID": 4,
+    "fieldID": 15,
+    "req": "1",
+    "fildName": "voltageOK",
+    "name": "Dondurucu(-20 C) (CFE)"
+  },
+  {
+    "ID": 4835,
+    "itemTypeID": 4,
+    "fieldID": 4,
+    "req": "0",
+    "fildName": "PQSCode",
+    "name": "Dondurucu(-20 C) (CFE)"
+  },
+  {
+    "ID": 4836,
+    "itemTypeID": 4,
+    "fieldID": 62,
+    "req": "0",
+    "fildName": "pqstype",
+    "name": "Dondurucu(-20 C) (CFE)"
+  },
+  {
+    "ID": 4837,
+    "itemTypeID": 4,
+    "fieldID": 63,
+    "req": "0",
+    "fildName": "pqsmanufacturer",
+    "name": "Dondurucu(-20 C) (CFE)"
+  },
+  {
+    "ID": 4838,
+    "itemTypeID": 4,
+    "fieldID": 64,
+    "req": "0",
+    "fildName": "pqsrefgas",
+    "name": "Dondurucu(-20 C) (CFE)"
+  },
+  {
+    "ID": 4839,
+    "itemTypeID": 4,
+    "fieldID": 65,
+    "req": "0",
+    "fildName": "pqstempzone",
+    "name": "Dondurucu(-20 C) (CFE)"
+  },
+  {
+    "ID": 4851,
+    "itemTypeID": 9,
+    "fieldID": 61,
+    "req": "1",
+    "fildName": "manufacture",
+    "name": "Ultra aşağı dondurucu (-70 C) (ULT)"
+  },
+  {
+    "ID": 4852,
+    "itemTypeID": 9,
+    "fieldID": 46,
+    "req": "0",
+    "fildName": "model",
+    "name": "Ultra aşağı dondurucu (-70 C) (ULT)"
+  },
+  {
+    "ID": 4853,
+    "itemTypeID": 9,
+    "fieldID": 18,
+    "req": "0",
+    "fildName": "haveAlarm",
+    "name": "Ultra aşağı dondurucu (-70 C) (ULT)"
+  },
+  {
+    "ID": 4854,
+    "itemTypeID": 9,
+    "fieldID": 14,
+    "req": "0",
+    "fildName": "shelvesOK",
+    "name": "Ultra aşağı dondurucu (-70 C) (ULT)"
+  },
+  {
+    "ID": 4855,
+    "itemTypeID": 9,
+    "fieldID": 30,
+    "req": "1",
+    "fildName": "inUse",
+    "name": "Ultra aşağı dondurucu (-70 C) (ULT)"
+  },
+  {
+    "ID": 4856,
+    "itemTypeID": 9,
+    "fieldID": 32,
+    "req": "0",
+    "fildName": "notUseCause",
+    "name": "Ultra aşağı dondurucu (-70 C) (ULT)"
+  },
+  {
+    "ID": 4857,
+    "itemTypeID": 9,
+    "fieldID": 27,
+    "req": "0",
+    "fildName": "installYear",
+    "name": "Ultra aşağı dondurucu (-70 C) (ULT)"
+  },
+  {
+    "ID": 4858,
+    "itemTypeID": 9,
+    "fieldID": 36,
+    "req": "1",
+    "fildName": "tempRange",
+    "name": "Ultra aşağı dondurucu (-70 C) (ULT)"
+  },
+  {
+    "ID": 4859,
+    "itemTypeID": 9,
+    "fieldID": 12,
+    "req": "0",
+    "fildName": "refrigeranGas",
+    "name": "Ultra aşağı dondurucu (-70 C) (ULT)"
+  },
+  {
+    "ID": 4860,
+    "itemTypeID": 9,
+    "fieldID": 24,
+    "req": "0",
+    "fildName": "thermo",
+    "name": "Ultra aşağı dondurucu (-70 C) (ULT)"
+  },
+  {
+    "ID": 4861,
+    "itemTypeID": 9,
+    "fieldID": 51,
+    "req": "1",
+    "fildName": "netVaccCapacity",
+    "name": "Ultra aşağı dondurucu (-70 C) (ULT)"
+  },
+  {
+    "ID": 4862,
+    "itemTypeID": 9,
+    "fieldID": 15,
+    "req": "0",
+    "fildName": "voltageOK",
+    "name": "Ultra aşağı dondurucu (-70 C) (ULT)"
+  },
+  {
+    "ID": 4863,
+    "itemTypeID": 8,
+    "fieldID": 61,
+    "req": "0",
+    "fildName": "manufacture",
+    "name": "Soyuduculu nəqliyyat vasitəsi"
+  },
+  {
+    "ID": 4864,
+    "itemTypeID": 8,
+    "fieldID": 46,
+    "req": "0",
+    "fildName": "model",
+    "name": "Soyuduculu nəqliyyat vasitəsi"
+  },
+  {
+    "ID": 4865,
+    "itemTypeID": 8,
+    "fieldID": 6,
+    "req": "1",
+    "fildName": "height",
+    "name": "Soyuduculu nəqliyyat vasitəsi"
+  },
+  {
+    "ID": 4866,
+    "itemTypeID": 8,
+    "fieldID": 7,
+    "req": "1",
+    "fildName": "width",
+    "name": "Soyuduculu nəqliyyat vasitəsi"
+  },
+  {
+    "ID": 4867,
+    "itemTypeID": 8,
+    "fieldID": 8,
+    "req": "1",
+    "fildName": "length",
+    "name": "Soyuduculu nəqliyyat vasitəsi"
+  },
+  {
+    "ID": 4868,
+    "itemTypeID": 8,
+    "fieldID": 30,
+    "req": "1",
+    "fildName": "inUse",
+    "name": "Soyuduculu nəqliyyat vasitəsi"
+  },
+  {
+    "ID": 4869,
+    "itemTypeID": 8,
+    "fieldID": 27,
+    "req": "0",
+    "fildName": "installYear",
+    "name": "Soyuduculu nəqliyyat vasitəsi"
+  },
+  {
+    "ID": 4870,
+    "itemTypeID": 8,
+    "fieldID": 57,
+    "req": "0",
+    "fildName": "runningTime_Km",
+    "name": "Soyuduculu nəqliyyat vasitəsi"
+  },
+  {
+    "ID": 4871,
+    "itemTypeID": 8,
+    "fieldID": 36,
+    "req": "1",
+    "fildName": "tempRange",
+    "name": "Soyuduculu nəqliyyat vasitəsi"
+  },
+  {
+    "ID": 4872,
+    "itemTypeID": 8,
+    "fieldID": 12,
+    "req": "0",
+    "fildName": "refrigeranGas",
+    "name": "Soyuduculu nəqliyyat vasitəsi"
+  },
+  {
+    "ID": 4873,
+    "itemTypeID": 8,
+    "fieldID": 24,
+    "req": "0",
+    "fildName": "thermo",
+    "name": "Soyuduculu nəqliyyat vasitəsi"
+  },
+  {
+    "ID": 4874,
+    "itemTypeID": 8,
+    "fieldID": 51,
+    "req": "1",
+    "fildName": "netVaccCapacity",
+    "name": "Soyuduculu nəqliyyat vasitəsi"
+  },
+  {
+    "ID": 4875,
+    "itemTypeID": 3,
+    "fieldID": 5,
+    "req": "1",
+    "fildName": "type",
+    "name": "Soyuducu (CFR)"
+  },
+  {
+    "ID": 4876,
+    "itemTypeID": 3,
+    "fieldID": 61,
+    "req": "1",
+    "fildName": "manufacture",
+    "name": "Soyuducu (CFR)"
+  },
+  {
+    "ID": 4877,
+    "itemTypeID": 3,
+    "fieldID": 46,
+    "req": "0",
+    "fildName": "model",
+    "name": "Soyuducu (CFR)"
+  },
+  {
+    "ID": 4878,
+    "itemTypeID": 3,
+    "fieldID": 30,
+    "req": "1",
+    "fildName": "inUse",
+    "name": "Soyuducu (CFR)"
+  },
+  {
+    "ID": 4879,
+    "itemTypeID": 3,
+    "fieldID": 32,
+    "req": "0",
+    "fildName": "notUseCause",
+    "name": "Soyuducu (CFR)"
+  },
+  {
+    "ID": 4880,
+    "itemTypeID": 3,
+    "fieldID": 27,
+    "req": "1",
+    "fildName": "installYear",
+    "name": "Soyuducu (CFR)"
+  },
+  {
+    "ID": 4881,
+    "itemTypeID": 3,
+    "fieldID": 36,
+    "req": "1",
+    "fildName": "tempRange",
+    "name": "Soyuducu (CFR)"
+  },
+  {
+    "ID": 4882,
+    "itemTypeID": 3,
+    "fieldID": 12,
+    "req": "0",
+    "fildName": "refrigeranGas",
+    "name": "Soyuducu (CFR)"
+  },
+  {
+    "ID": 4883,
+    "itemTypeID": 3,
+    "fieldID": 23,
+    "req": "1",
+    "fildName": "haveFreezing",
+    "name": "Soyuducu (CFR)"
+  },
+  {
+    "ID": 4884,
+    "itemTypeID": 3,
+    "fieldID": 54,
+    "req": "0",
+    "fildName": "sepFreez",
+    "name": "Soyuducu (CFR)"
+  },
+  {
+    "ID": 4885,
+    "itemTypeID": 3,
+    "fieldID": 17,
+    "req": "1",
+    "fildName": "haveTempMonitor",
+    "name": "Soyuducu (CFR)"
+  },
+  {
+    "ID": 4886,
+    "itemTypeID": 3,
+    "fieldID": 24,
+    "req": "0",
+    "fildName": "thermo",
+    "name": "Soyuducu (CFR)"
+  },
+  {
+    "ID": 4887,
+    "itemTypeID": 3,
+    "fieldID": 51,
+    "req": "1",
+    "fildName": "netVaccCapacity",
+    "name": "Soyuducu (CFR)"
+  },
+  {
+    "ID": 4888,
+    "itemTypeID": 3,
+    "fieldID": 15,
+    "req": "1",
+    "fildName": "voltageOK",
+    "name": "Soyuducu (CFR)"
+  },
+  {
+    "ID": 4889,
+    "itemTypeID": 3,
+    "fieldID": 4,
+    "req": "0",
+    "fildName": "PQSCode",
+    "name": "Soyuducu (CFR)"
+  },
+  {
+    "ID": 4890,
+    "itemTypeID": 3,
+    "fieldID": 62,
+    "req": "0",
+    "fildName": "pqstype",
+    "name": "Soyuducu (CFR)"
+  },
+  {
+    "ID": 4891,
+    "itemTypeID": 3,
+    "fieldID": 63,
+    "req": "0",
+    "fildName": "pqsmanufacturer",
+    "name": "Soyuducu (CFR)"
+  },
+  {
+    "ID": 4892,
+    "itemTypeID": 3,
+    "fieldID": 64,
+    "req": "0",
+    "fildName": "pqsrefgas",
+    "name": "Soyuducu (CFR)"
+  },
+  {
+    "ID": 4893,
+    "itemTypeID": 3,
+    "fieldID": 65,
+    "req": "0",
+    "fildName": "pqstempzone",
+    "name": "Soyuducu (CFR)"
+  },
+  {
+    "ID": 4899,
+    "itemTypeID": 7,
+    "fieldID": 46,
+    "req": "0",
+    "fildName": "model",
+    "name": "Avtomatik generator (AG)"
+  },
+  {
+    "ID": 4900,
+    "itemTypeID": 7,
+    "fieldID": 30,
+    "req": "1",
+    "fildName": "inUse",
+    "name": "Avtomatik generator (AG)"
+  },
+  {
+    "ID": 4901,
+    "itemTypeID": 7,
+    "fieldID": 27,
+    "req": "0",
+    "fildName": "installYear",
+    "name": "Avtomatik generator (AG)"
+  },
+  {
+    "ID": 4902,
+    "itemTypeID": 7,
+    "fieldID": 38,
+    "req": "0",
+    "fildName": "energySourceID",
+    "name": "Avtomatik generator (AG)"
+  },
+  {
+    "ID": 4903,
+    "itemTypeID": 7,
+    "fieldID": 40,
+    "req": "0",
+    "fildName": "powerGeneration",
+    "name": "Avtomatik generator (AG)"
+  },
+  {
+    "ID": 4910,
+    "itemTypeID": 11,
+    "fieldID": 46,
+    "req": "1",
+    "fildName": "model",
+    "name": "Generator (MG)"
+  },
+  {
+    "ID": 4911,
+    "itemTypeID": 11,
+    "fieldID": 30,
+    "req": "1",
+    "fildName": "inUse",
+    "name": "Generator (MG)"
+  },
+  {
+    "ID": 4912,
+    "itemTypeID": 11,
+    "fieldID": 27,
+    "req": "0",
+    "fildName": "installYear",
+    "name": "Generator (MG)"
+  },
+  {
+    "ID": 4913,
+    "itemTypeID": 11,
+    "fieldID": 38,
+    "req": "0",
+    "fildName": "energySourceID",
+    "name": "Generator (MG)"
+  },
+  {
+    "ID": 4914,
+    "itemTypeID": 11,
+    "fieldID": 55,
+    "req": "0",
+    "fildName": "powerConsum",
+    "name": "Generator (MG)"
+  },
+  {
+    "ID": 4915,
+    "itemTypeID": 11,
+    "fieldID": 40,
+    "req": "0",
+    "fildName": "powerGeneration",
+    "name": "Generator (MG)"
+  },
+  {
+    "ID": 4916,
+    "itemTypeID": 26,
+    "fieldID": 46,
+    "req": "0",
+    "fildName": "model",
+    "name": "Termometr (TMP)"
+  },
+  {
+    "ID": 4917,
+    "itemTypeID": 26,
+    "fieldID": 27,
+    "req": "0",
+    "fildName": "installYear",
+    "name": "Termometr (TMP)"
+  },
+  {
+    "ID": 4921,
+    "itemTypeID": 19,
+    "fieldID": 66,
+    "req": "0",
+    "fildName": "CoolantPackNominalCapacity",
+    "name": "Buz paketi (CIP)"
+  },
+  {
+    "ID": 4922,
+    "itemTypeID": 19,
+    "fieldID": 45,
+    "req": "0",
+    "fildName": "otherField5",
+    "name": "Buz paketi (CIP)"
+  },
+  {
+    "ID": 4946,
+    "itemTypeID": 1,
+    "fieldID": 46,
+    "req": "0",
+    "fildName": "model",
+    "name": "Soyuq otaq (CCR)"
+  },
+  {
+    "ID": 4947,
+    "itemTypeID": 1,
+    "fieldID": 6,
+    "req": "1",
+    "fildName": "height",
+    "name": "Soyuq otaq (CCR)"
+  },
+  {
+    "ID": 4948,
+    "itemTypeID": 1,
+    "fieldID": 7,
+    "req": "1",
+    "fildName": "width",
+    "name": "Soyuq otaq (CCR)"
+  },
+  {
+    "ID": 4949,
+    "itemTypeID": 1,
+    "fieldID": 8,
+    "req": "1",
+    "fildName": "length",
+    "name": "Soyuq otaq (CCR)"
+  },
+  {
+    "ID": 4950,
+    "itemTypeID": 1,
+    "fieldID": 9,
+    "req": "1",
+    "fildName": "grossVolume",
+    "name": "Soyuq otaq (CCR)"
+  },
+  {
+    "ID": 4951,
+    "itemTypeID": 1,
+    "fieldID": 18,
+    "req": "1",
+    "fildName": "haveAlarm",
+    "name": "Soyuq otaq (CCR)"
+  },
+  {
+    "ID": 4952,
+    "itemTypeID": 1,
+    "fieldID": 14,
+    "req": "0",
+    "fildName": "shelvesOK",
+    "name": "Soyuq otaq (CCR)"
+  },
+  {
+    "ID": 4953,
+    "itemTypeID": 1,
+    "fieldID": 30,
+    "req": "1",
+    "fildName": "inUse",
+    "name": "Soyuq otaq (CCR)"
+  },
+  {
+    "ID": 4954,
+    "itemTypeID": 1,
+    "fieldID": 32,
+    "req": "0",
+    "fildName": "notUseCause",
+    "name": "Soyuq otaq (CCR)"
+  },
+  {
+    "ID": 4955,
+    "itemTypeID": 1,
+    "fieldID": 27,
+    "req": "1",
+    "fildName": "installYear",
+    "name": "Soyuq otaq (CCR)"
+  },
+  {
+    "ID": 4956,
+    "itemTypeID": 1,
+    "fieldID": 36,
+    "req": "1",
+    "fildName": "tempRange",
+    "name": "Soyuq otaq (CCR)"
+  },
+  {
+    "ID": 4957,
+    "itemTypeID": 1,
+    "fieldID": 11,
+    "req": "1",
+    "fildName": "coolingUnitNumber",
+    "name": "Soyuq otaq (CCR)"
+  },
+  {
+    "ID": 4958,
+    "itemTypeID": 1,
+    "fieldID": 12,
+    "req": "0",
+    "fildName": "refrigeranGas",
+    "name": "Soyuq otaq (CCR)"
+  },
+  {
+    "ID": 4959,
+    "itemTypeID": 1,
+    "fieldID": 17,
+    "req": "1",
+    "fildName": "haveTempMonitor",
+    "name": "Soyuq otaq (CCR)"
+  },
+  {
+    "ID": 4960,
+    "itemTypeID": 1,
+    "fieldID": 24,
+    "req": "0",
+    "fildName": "thermo",
+    "name": "Soyuq otaq (CCR)"
+  },
+  {
+    "ID": 4961,
+    "itemTypeID": 1,
+    "fieldID": 51,
+    "req": "1",
+    "fildName": "netVaccCapacity",
+    "name": "Soyuq otaq (CCR)"
+  },
+  {
+    "ID": 4962,
+    "itemTypeID": 1,
+    "fieldID": 15,
+    "req": "1",
+    "fildName": "voltageOK",
+    "name": "Soyuq otaq (CCR)"
+  },
+  {
+    "ID": 4963,
+    "itemTypeID": 1,
+    "fieldID": 4,
+    "req": "0",
+    "fildName": "PQSCode",
+    "name": "Soyuq otaq (CCR)"
+  },
+  {
+    "ID": 4964,
+    "itemTypeID": 1,
+    "fieldID": 62,
+    "req": "0",
+    "fildName": "pqstype",
+    "name": "Soyuq otaq (CCR)"
+  },
+  {
+    "ID": 4965,
+    "itemTypeID": 1,
+    "fieldID": 63,
+    "req": "0",
+    "fildName": "pqsmanufacturer",
+    "name": "Soyuq otaq (CCR)"
+  },
+  {
+    "ID": 4966,
+    "itemTypeID": 1,
+    "fieldID": 64,
+    "req": "0",
+    "fildName": "pqsrefgas",
+    "name": "Soyuq otaq (CCR)"
+  },
+  {
+    "ID": 4967,
+    "itemTypeID": 1,
+    "fieldID": 65,
+    "req": "0",
+    "fildName": "pqstempzone",
+    "name": "Soyuq otaq (CCR)"
+  }
+]

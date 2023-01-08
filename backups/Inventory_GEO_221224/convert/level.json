@@ -1,0 +1,296 @@
+[
+  {
+    "ID": 1,
+    "itemTypeID": 1,
+    "level": 1,
+    "name": "ოთახი მაცივარი (cold room)"
+  },
+  {
+    "ID": 2,
+    "itemTypeID": 2,
+    "level": 1,
+    "name": "საყინულე ოთახი"
+  },
+  {
+    "ID": 3,
+    "itemTypeID": 3,
+    "level": 1,
+    "name": "მაცივარი (Ref.)"
+  },
+  {
+    "ID": 4,
+    "itemTypeID": 4,
+    "level": 1,
+    "name": "საყინულე (-20 Freezer)"
+  },
+  {
+    "ID": 5,
+    "itemTypeID": 5,
+    "level": 1,
+    "name": "ცივი ყუთი (cold box)"
+  },
+  {
+    "ID": 6,
+    "itemTypeID": 3,
+    "level": 4,
+    "name": "მაცივარი (Ref.)"
+  },
+  {
+    "ID": 7,
+    "itemTypeID": 5,
+    "level": 4,
+    "name": "ცივი ყუთი (cold box)"
+  },
+  {
+    "ID": 8,
+    "itemTypeID": 21,
+    "level": 1,
+    "name": "ტემპერატურის მონიტორი (Data Logger)"
+  },
+  {
+    "ID": 9,
+    "itemTypeID": 23,
+    "level": 1,
+    "name": "ყინულის ელემენტი (ice pack)"
+  },
+  {
+    "ID": 10,
+    "itemTypeID": 1,
+    "level": 2,
+    "name": "ოთახი მაცივარი (cold room)"
+  },
+  {
+    "ID": 11,
+    "itemTypeID": 3,
+    "level": 2,
+    "name": "მაცივარი (Ref.)"
+  },
+  {
+    "ID": 12,
+    "itemTypeID": 4,
+    "level": 2,
+    "name": "საყინულე (-20 Freezer)"
+  },
+  {
+    "ID": 13,
+    "itemTypeID": 5,
+    "level": 2,
+    "name": "ცივი ყუთი (cold box)"
+  },
+  {
+    "ID": 14,
+    "itemTypeID": 21,
+    "level": 2,
+    "name": "ტემპერატურის მონიტორი (Data Logger)"
+  },
+  {
+    "ID": 15,
+    "itemTypeID": 23,
+    "level": 2,
+    "name": "ყინულის ელემენტი (ice pack)"
+  },
+  {
+    "ID": 16,
+    "itemTypeID": 3,
+    "level": 3,
+    "name": "მაცივარი (Ref.)"
+  },
+  {
+    "ID": 17,
+    "itemTypeID": 4,
+    "level": 3,
+    "name": "საყინულე (-20 Freezer)"
+  },
+  {
+    "ID": 18,
+    "itemTypeID": 5,
+    "level": 3,
+    "name": "ცივი ყუთი (cold box)"
+  },
+  {
+    "ID": 19,
+    "itemTypeID": 23,
+    "level": 3,
+    "name": "ყინულის ელემენტი (ice pack)"
+  },
+  {
+    "ID": 21,
+    "itemTypeID": 9,
+    "level": 1,
+    "name": "საყინულე (-80 freezer ULT)"
+  },
+  {
+    "ID": 22,
+    "itemTypeID": 19,
+    "level": 1,
+    "name": "თერმომეტრი (Thermometer)"
+  },
+  {
+    "ID": 23,
+    "itemTypeID": 9,
+    "level": 2,
+    "name": "საყინულე (-80 freezer ULT)"
+  },
+  {
+    "ID": 24,
+    "itemTypeID": 19,
+    "level": 2,
+    "name": "თერმომეტრი (Thermometer)"
+  },
+  {
+    "ID": 25,
+    "itemTypeID": 9,
+    "level": 3,
+    "name": "საყინულე (-80 freezer ULT)"
+  },
+  {
+    "ID": 26,
+    "itemTypeID": 19,
+    "level": 3,
+    "name": "თერმომეტრი (Thermometer)"
+  },
+  {
+    "ID": 27,
+    "itemTypeID": 21,
+    "level": 4,
+    "name": "ტემპერატურის მონიტორი (Data Logger)"
+  },
+  {
+    "ID": 28,
+    "itemTypeID": 19,
+    "level": 4,
+    "name": "თერმომეტრი (Thermometer)"
+  },
+  {
+    "ID": 30,
+    "itemTypeID": 10,
+    "level": 1,
+    "name": "ელ. სტაბილიზატორი (El. stabilizer)"
+  },
+  {
+    "ID": 31,
+    "itemTypeID": 11,
+    "level": 1,
+    "name": "ელ. გენერატორი (El. Generator)"
+  },
+  {
+    "ID": 32,
+    "itemTypeID": 10,
+    "level": 2,
+    "name": "ელ. სტაბილიზატორი (El. stabilizer)"
+  },
+  {
+    "ID": 33,
+    "itemTypeID": 11,
+    "level": 2,
+    "name": "ელ. გენერატორი (El. Generator)"
+  },
+  {
+    "ID": 34,
+    "itemTypeID": 7,
+    "level": 3,
+    "name": "უწყვეტი კვების ბლოკი (UPS)"
+  },
+  {
+    "ID": 35,
+    "itemTypeID": 10,
+    "level": 3,
+    "name": "ელ. სტაბილიზატორი (El. stabilizer)"
+  },
+  {
+    "ID": 36,
+    "itemTypeID": 11,
+    "level": 3,
+    "name": "ელ. გენერატორი (El. Generator)"
+  },
+  {
+    "ID": 37,
+    "itemTypeID": 7,
+    "level": 4,
+    "name": "უწყვეტი კვების ბლოკი (UPS)"
+  },
+  {
+    "ID": 38,
+    "itemTypeID": 10,
+    "level": 4,
+    "name": "ელ. სტაბილიზატორი (El. stabilizer)"
+  },
+  {
+    "ID": 39,
+    "itemTypeID": 11,
+    "level": 4,
+    "name": "ელ. გენერატორი (El. Generator)"
+  },
+  {
+    "ID": 42,
+    "itemTypeID": 8,
+    "level": 2,
+    "name": "ვაქცინმზიდი (Vaccine carrier Truck)"
+  },
+  {
+    "ID": 44,
+    "itemTypeID": 8,
+    "level": 1,
+    "name": "ვაქცინმზიდი (Vaccine carrier Truck)"
+  },
+  {
+    "ID": 45,
+    "itemTypeID": 12,
+    "level": 1,
+    "name": "ავტომობილი (Automobile)"
+  },
+  {
+    "ID": 46,
+    "itemTypeID": 20,
+    "level": 1,
+    "name": "მშრალი საწყობი (Dry storage)"
+  },
+  {
+    "ID": 47,
+    "itemTypeID": 20,
+    "level": 2,
+    "name": "მშრალი საწყობი (Dry storage)"
+  },
+  {
+    "ID": 48,
+    "itemTypeID": 20,
+    "level": 3,
+    "name": "მშრალი საწყობი (Dry storage)"
+  },
+  {
+    "ID": 50,
+    "itemTypeID": 21,
+    "level": 3,
+    "name": "ტემპერატურის მონიტორი (Data Logger)"
+  },
+  {
+    "ID": 52,
+    "itemTypeID": 7,
+    "level": 2,
+    "name": "უწყვეტი კვების ბლოკი (UPS)"
+  },
+  {
+    "ID": 53,
+    "itemTypeID": 24,
+    "level": 1,
+    "name": "კომბინირებული მაც/საყ (Comb. Ref/Fre)"
+  },
+  {
+    "ID": 54,
+    "itemTypeID": 24,
+    "level": 2,
+    "name": "კომბინირებული მაც/საყ (Comb. Ref/Fre)"
+  },
+  {
+    "ID": 55,
+    "itemTypeID": 24,
+    "level": 3,
+    "name": "კომბინირებული მაც/საყ (Comb. Ref/Fre)"
+  },
+  {
+    "ID": 57,
+    "itemTypeID": 4,
+    "level": 4,
+    "name": "საყინულე (-20 Freezer)"
+  }
+]
