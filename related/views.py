@@ -412,8 +412,15 @@ class dbView(APIView):
             fieldname=i['fieldName'].strip().lower()
             field=relatedFacility.objects.filter(state=fieldname)
             if(field.count()==0):
-                print(i['fieldName'])
-                print(" not found")
+                if i['fieldNmae'].strip() in converted_facility:
+                    new_field=relatedFacility.objects.filter(state=converted_facility[i['fieldNmae'].strip()])[0]
+                    f_count+=1
+                    new_field.active=i['enable']
+                    new_field.required=i['req']
+                    new_field.save()
+                else:
+                    print(i['fieldName'])
+                    print(" not found")
             else:
                 f_count+=1
                 field=field[0]
@@ -494,6 +501,16 @@ class dbView(APIView):
          "repairHistory":"RepairAndMaintenanceHistory"
         }
         f=open("./related/itemFields.json","r")
+        data=json.load(f)
+        for i in data:
+            continue
+        
+        
+        ans={
+            "fac":f_count,
+            "item":i_count
+        }
+        return Response(ans,status=status.HTTP_200_OK)
          
         
                 
