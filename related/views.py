@@ -505,7 +505,45 @@ class dbView(APIView):
         f=open("./related/itemFields.json","r")
         data=json.load(f)
         for i in data:
-            continue
+            req=i['req']
+            fieldName=i['fildName']
+            item_type=i['name']
+            founded_item_type=ItemType.objects.filter(title=item_type.strip())
+            if(founded_item_type.count()==0):
+                print("item typr not found")
+            else:
+                field=Field.objects.filter(state=fieldName.strip())
+                if(field.count()==0):
+                    if(fieldName.strip() in  converted_item):
+                        field=Field.objects.filter(state=converted_item[fieldName.strip()])
+                        data={
+                            "itemtype":founded_item_type,
+                            "field":field[0].id,
+                            "required":req                            
+                        }
+                        ser=relatedItemTypeSerilizer(data=data)
+                        if ser.is_valid():
+                            ser.save()
+                            i_count+=1
+                        else:
+                            print(ser.errors)
+                    else:
+                        print("not found")
+                else:
+                    field=field[0]
+                    data={
+                            "itemtype":founded_item_type,
+                            "field":field.id,
+                            "required":req                            
+                        }
+                    ser=relatedItemTypeSerilizer(data=data)
+                    if ser.is_valid():
+                            ser.save()
+                            i_count+=1
+                    else:
+                            print(ser.errors)
+                    
+            
         
         
         ans={
