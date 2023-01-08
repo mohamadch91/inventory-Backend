@@ -493,7 +493,8 @@ class dbView(APIView):
          "TypeParam5":"Type5",
          "repairHistory":"RepairAndMaintenanceHistory"
         }
-        
+        f=open("./related/itemFields.json","r")
+         
         
                 
             
