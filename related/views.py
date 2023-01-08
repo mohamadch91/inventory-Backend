@@ -363,3 +363,8 @@ class paramView(APIView):
             return Response(ans,status=status.HTTP_200_OK)                        
                         
 
+
+class dbView(APIView):
+    
+    def get(self,request):
+        pass
