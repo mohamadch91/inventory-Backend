@@ -370,4 +370,12 @@ class dbView(APIView):
         f=open("./related/facilityFiels.json","r")
         data=json.load(f)
         for i in data:
-            pass
+            field=relatedFacility.objects.filter(name=i['fieldName'].strip())
+            if(field.count()==0):
+                print(i['fieldName'])
+            else:
+                field=field[0]
+                field.active=i['enable']
+                field.required=i['req']
+                
+            
