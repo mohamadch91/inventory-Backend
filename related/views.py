@@ -28,6 +28,7 @@ from rest_framework import status
 from items.models import ItemType
 from django.shortcuts import get_object_or_404
 import copy
+import pandas as pd
 
 # Create your views here.
 class relatedfacilityView(APIView):
@@ -555,3 +556,22 @@ class dbView(APIView):
         
                 
             
+class Excelconvert(APIView):
+    def get(self,request):
+        facility=relatedFacility.objects.all()
+        fac_ser=relatedfacilitySerilizer(facility,many=True)
+        df_1=pd.DataFrame(fac_ser.data)
+        df_1.to_excel('./related/facility.xlsx')
+
+        level=relatedItemType.objects.all()
+        ser=relatedItemTypeSerilizer(level,many=True)
+        new_ser=copy.deepcopy(ser.data)
+        for i in new_ser:
+            item_type=get_object_or_404(ItemType,id=i['itemtype'])
+            i['item_type']=item_type.title
+            del i['itemtype']
+            field=get_object_or_404(Field,id=i['field'])
+            i['field']=field.name
+        df=pd.DataFrame(new_ser)
+        df.to_excel('./related/item.xlsx')
+        return Response ("DONE")

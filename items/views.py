@@ -29,6 +29,7 @@ from rest_framework.response import Response
 from rest_framework import status
 from django.shortcuts import get_object_or_404
 import copy
+import pandas as pd
 
 class itemclassView(APIView):
     permission_classes = (IsAuthenticated,)
@@ -262,7 +263,7 @@ class manhelper(APIView):
 
 class itemdb(APIView):
     def get(self,request):
-        f=open('./items/level.json',"r")
+        f=open('./items/levels.json',"r")
         data=json.load(f)
         for i in data:
             item_type=i['name']
@@ -285,3 +286,15 @@ class itemdb(APIView):
                     print(ser.errors)
         return Response("done")
         
+class Excelconvert(APIView):
+    def get(self,request):
+        level=Itemtypelevel.objects.all()
+        ser=itemtypelevelSerializer(level,many=True)
+        new_ser=copy.deepcopy(ser.data)
+        for i in new_ser:
+            item_type=get_object_or_404(ItemType,id=i['itemtypeid'])
+            i['item_type']=item_type.title
+            del i['itemtypeid']
+        df=pd.DataFrame(new_ser)
+        df.to_excel('./items/level.xlsx')
+        return Response ("DONE")

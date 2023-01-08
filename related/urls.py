@@ -8,6 +8,8 @@ urlpatterns = [
     path('related-item-type', relatedItemTypeView.as_view(), name='related item type view'),
     path('params/', paramView.as_view(), name='params view'),
     path('db/', dbView.as_view(), name='db view'),
+    path('excel/', Excelconvert.as_view(), name='db view'),
+    
     
     
 ]
