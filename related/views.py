@@ -364,18 +364,64 @@ class paramView(APIView):
                         
 
 
-class dbView(APIView):
-    
+class dbView(APIView):   
     def get(self,request):
+        converted_names={
+            "havePhone":"land_phone",
+            "distanceKM":"distancefromparent",
+            "distanceTime":"timetoparent",
+            "receivingVacMode":"recieve_mode",
+            "transportMode":"transport_mode",
+            "numberOfStaff":"total_staff",
+            "Remarks":"remark",
+            "completerStaffSign":"completerstaffsign",
+            "gps":"gpsCordinate",
+            "other":"other1",
+            "functionstatus":"is_functioning",
+            "FacilitySetupYear":"year",
+            "startWork":"working_from",
+            "HaveImmService":"haveimmservice",
+            "NumProfStaff":"prof_staff",
+            "NumVaccStaff":"vac_num",
+            "NumDriverStaff":"drivers",
+            "HaveGenerator":"havegen",
+            "Coverage2":"coverageX2",
+            "HaveCovid":"havecovid19service",
+            "countVacc1":"individualsX1",
+            "otherservice":"other_services",
+            "SelectOtherServices":"other_service",
+            "IsbuildingSuitable":"is_suitable",
+            "buildingSuitableReason":"is_suitable_reason",
+            "NumIcepack":"number_icepack",
+            "NumIsOpen" :"days_open",
+            "workingHFrom":"working_from",
+            "workingHTo":"working_to",
+            "Coverage3":"coverageX3",
+            "countVacc3":"individualsX3",
+            "Coverage4":"coverageX4",
+            "countVacc4":"individualsX4",     
+            "countVacc2":"individualsX2",       
+            
+            
+            
+        }
         f=open("./related/facilityFiels.json","r")
         data=json.load(f)
+        f_count=0
         for i in data:
-            field=relatedFacility.objects.filter(name=i['fieldName'].strip())
+            fieldname=i['fieldName'].strip().lower()
+            field=relatedFacility.objects.filter(state=fieldname)
             if(field.count()==0):
                 print(i['fieldName'])
+                print(" not found")
             else:
+                f_count+=1
                 field=field[0]
                 field.active=i['enable']
                 field.required=i['req']
+                field.save()
+        i_count=0
+        
+        
                 
             
