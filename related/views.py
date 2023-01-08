@@ -36,6 +36,7 @@ class relatedfacilityView(APIView):
         query_set=relatedFacility.objects.all()
         serializer = relatedfacilitySerilizer(query_set, many=True)
         new_data=copy.deepcopy(serializer.data)
+        new_data=sorted(new_data, key=lambda k: k['id'])
         country=CountryConfig.objects.all()[0]
         if(country.poptarget is not None):
             if(country.poptarget == 'General population'):
@@ -386,6 +387,7 @@ class dbView(APIView):
             "NumDriverStaff":"drivers",
             "HaveGenerator":"havegen",
             "Coverage2":"coverageX2",
+            "Coverage":"coverageX1",
             "HaveCovid":"havecovid19service",
             "countVacc1":"individualsX1",
             "otherservice":"other_services",
@@ -405,15 +407,15 @@ class dbView(APIView):
             
             
         }
-        f=open("./related/facilityFiels.json","r")
+        f=open("./related/facilityField.json","r")
         data=json.load(f)
         f_count=0
         for i in data:
             fieldname=i['fieldName'].strip().lower()
             field=relatedFacility.objects.filter(state=fieldname)
             if(field.count()==0):
-                if i['fieldNmae'].strip() in converted_facility:
-                    new_field=relatedFacility.objects.filter(state=converted_facility[i['fieldNmae'].strip()])[0]
+                if i['fieldName'].strip() in converted_facility:
+                    new_field=relatedFacility.objects.filter(state=converted_facility[i['fieldName'].strip()])[0]
                     f_count+=1
                     new_field.active=i['enable']
                     new_field.required=i['req']
