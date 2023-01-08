@@ -11,6 +11,7 @@ urlpatterns = [
     path('manufacturer', manufacturerView.as_view(), name='Manufacturer'),
     path('class-helper',manhelper.as_view(),name="helper"),
     path('db',itemdb.as_view(),name="helper")
+    
 
     
 ]

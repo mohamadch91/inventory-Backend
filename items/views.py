@@ -261,14 +261,27 @@ class manhelper(APIView):
         return Response(ser.data)
 
 class itemdb(APIView):
-    def post(self,request):
-        new_data=copy.deepcopy(request.data)
-        for i in new_data:
-            item=get_object_or_404(ItemType,id=i["id"])
-            i["code"]=item.code
-            i["itemclass"]=item.itemclass.id
-            ser=itemtypeSerializer(item,data=i)
-            if ser.is_valid():
-                ser.save()
+    def get(self,request):
+        f=open('./items/level.json',"r")
+        data=json.load(f)
+        for i in data:
+            item_type=i['name']
+            founded_item_type=ItemType.objects.filter(title=item_type.strip())
+            if(founded_item_type.count()==0):
+                print("not found")
+                print(item_type)
             else:
-                pass
+                founded_item_type=founded_item_type[0]
+                data={
+                    "itemtypeid":founded_item_type.id,
+                    "active":True,
+                    "level":i['level']
+                    
+                }
+                ser=itemtypelevelSerializer(data=data)
+                if ser.is_valid():
+                    ser.save()
+                else:
+                    print(ser.errors)
+        return Response("done")
+        
