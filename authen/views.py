@@ -99,7 +99,6 @@ class UrlCheckView(APIView):
 
 class userdb(APIView):
     def get(self,request):
-        print(User.objects.all()[0].pk)
         f=open("./authen/Results.json","r")
         data=json.load(f)
         for i in data:

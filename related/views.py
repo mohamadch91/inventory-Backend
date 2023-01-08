@@ -367,4 +367,7 @@ class paramView(APIView):
 class dbView(APIView):
     
     def get(self,request):
-        pass
+        f=open("./related/facilityFiels.json","r")
+        data=json.load(f)
+        for i in data:
+            pass
