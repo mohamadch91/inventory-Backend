@@ -435,7 +435,7 @@ class dbView(APIView):
         "type":"TypeP",
         "height":"Height",
         "width":"Width",
-        "Length":"Length",
+        "length":"Length",
         "grossVolume":"GrossVolume",
         "netVolume":"NetShippingVolume",
         "coolingUnitNumber":"NumberOfCoolingUnits",
@@ -464,7 +464,7 @@ class dbView(APIView):
         "wVSSMCode":"wVSSMCode",
         "tempRange" : "WorkingTemperatureRange",
         "uniceffCatalogNumber":"UNICEFFCatalogNumber",
-        "energySourceID":"EnergySource",
+        "energySourceID":"EnergySource_generator",
         "FreezerCapacity":"FreezerNetCapacity",
         "otherField1":"OtherFieldsItem1",
         "otherField4":"OtherFieldsItemParameter4",
@@ -479,7 +479,7 @@ class dbView(APIView):
         "iceCapacity":"IceMakingCapacity",
         "coolWaterCapacity":"CoolWaterProductionCapacity",
         "powerConsum":"PowerOrFuelConsumption",
-        "runningTime_Hour":"RunningTime",
+        "runningTime_H":"RunningTime",
         "runningTime_Km": "RunningTimeKm",
         "workingConditionID":"WorkingConditions",
         "originalCost":"OriginalCost",
@@ -490,8 +490,8 @@ class dbView(APIView):
         "DSHaveLight":"DoesTheDryStoreHaveAdequateLighting",
         "DSHaveHeat" : "DoesTheDryStoreHaveHeating",
         "DSHaveAC" : "DoesTheDryStoreHaveAirConditioning",
-        "DSProtSunlight" : "IsTheDryStorageAreaProtectedFromDirectSunlight",
-         "DSHaveShelves" : "DoesItHaveAdequateShelves",  
+        "DSProtSun" : "IsTheDryStorageAreaProtectedFromDirectSunlight",
+         "DSHaveShelve" : "DoesItHaveAdequateShelves",  
          "DSIsClean":"IsTheDryStorageAreaClean",
          "DSArea":"IsTheDryStorageArea",
          'DSHeight':"AccessibleHeight",
@@ -505,13 +505,24 @@ class dbView(APIView):
         }
         f=open("./related/itemFields.json","r")
         data=json.load(f)
+        dic={
+            "Suction Pump":"Suction pump",
+            "Ice-Lined Refrigerator":"Ice-lined refrigerator ILR",
+            "Remote Temperature Monitoring Device":"Remote temperature monitoring device",
+            "30 day data logger":"30-Day data logger"    
+        
+        }
+        
         for i in data:
             req=i['req']
             fieldName=i['fildName']
             item_type=i['name']
+            if(item_type in dic):
+                item_type=dic[item_type]
             founded_item_type=ItemType.objects.filter(title=item_type.strip())
             if(founded_item_type.count()==0):
-                print("item typr not found")
+                print("item type not found")
+                print(item_type)
             else:
                 field=Field.objects.filter(state=fieldName.strip())
                 if(field.count()==0):
@@ -530,6 +541,7 @@ class dbView(APIView):
                             print(ser.errors)
                     else:
                         print("not found")
+                        print(fieldName)
                 else:
                     field=field[0]
                     data={
