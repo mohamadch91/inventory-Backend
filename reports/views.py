@@ -1098,7 +1098,9 @@ class gapItemReportView(APIView):
             if(code is not None):
                 facility=facility.filter(code__icontains=code)
             if(option=="2"):
+                print(items.count())
                 items=items.exclude(PQSPISCode=None)
+                print(items.count())
             if(option=="3"):
                 if(year_from is not None):
                     items=items.filter(YearInstalled__gte=year_from)
