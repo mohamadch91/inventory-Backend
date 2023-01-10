@@ -263,25 +263,25 @@ class manhelper(APIView):
 
 class itemdb(APIView):
     def get(self,request):
-        item_type=ItemType.objects.all()
-        for i in item_type:
-            if(i.id > 31):
-                i.delete()
-        return Response("ok")
+        # item_type=ItemType.objects.all()
+        # for i in item_type:
+        #     if(i.id > 31):
+        #         i.delete()
+        # return Response("ok")
         f=open('./items/levels.json',"r")
         data=json.load(f)
         dic={
-            "Suction Pump":"Suction pump",
-            "Ice-Lined Refrigerator":"Ice-lined refrigerator ILR",
+            # "Suction Pump":"Suction pump",
+            # "Ice-Lined Refrigerator":"Ice-lined refrigerator ILR",
             "Remote Temperature Monitoring Device":"Remote temperature monitoring device",
-            "30 day data logger":"30-Day data logger"    
-            ""
+            # "30 day data logger":"30-Day data logger"    
+            # ""
         
         }
         for i in data:
             item_type=i['name']
-            if(item_type in dic):
-                item_type=dic[item_type]
+            # if(item_type in dic):
+            #     item_type=dic[item_type]
             founded_item_type=ItemType.objects.filter(title=item_type.strip())
             if(founded_item_type.count()==0):
                 print("not found")

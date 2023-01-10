@@ -590,12 +590,12 @@ class itemdb(APIView):
                             dic['WorkingConditions']=ser.data["id"]
                 
                 if  'EnergySource' in dic   and ((dic['EnergySource']!=None) or dic['EnergySource']!=""):
-                    if(dic['EnergySource']==-1):
-                        dic['EnergySource']="EG"
-                    elif dic['EnergySource']==154:
-                        dic['EnergySource']="დიზელი"
-                    elif dic['EnergySource']==155:
-                        dic['EnergySource']="ბენზინი"
+                    # if(dic['EnergySource']==-1):
+                    #     dic['EnergySource']="EG"
+                    # elif dic['EnergySource']==154:
+                    #     dic['EnergySource']="დიზელი"
+                    # elif dic['EnergySource']==155:
+                    #     dic['EnergySource']="ბენზინი"
                     new_ownership=itemParamDescription.objects.filter(name__icontains=dic['EnergySource'].strip())
                     if(new_ownership.count()>0):
                         dic['EnergySource']=new_ownership[0].id
