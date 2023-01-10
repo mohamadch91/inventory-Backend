@@ -263,6 +263,11 @@ class manhelper(APIView):
 
 class itemdb(APIView):
     def get(self,request):
+        item_type=ItemType.objects.all()
+        for i in item_type:
+            if(i.id > 31):
+                i.delete()
+        return Response("ok")
         f=open('./items/levels.json',"r")
         data=json.load(f)
         dic={
@@ -270,6 +275,7 @@ class itemdb(APIView):
             "Ice-Lined Refrigerator":"Ice-lined refrigerator ILR",
             "Remote Temperature Monitoring Device":"Remote temperature monitoring device",
             "30 day data logger":"30-Day data logger"    
+            ""
         
         }
         for i in data:

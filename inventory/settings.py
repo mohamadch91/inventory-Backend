@@ -144,26 +144,26 @@ DATA_UPLOAD_MAX_NUMBER_FIELDS = 10240
 
 runserver.default_port= (8000)
 runserver.default_addr = ("0.0.0.0")
-DATABASES = {
-  'default': {
-     'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'invgap_db1',
-        'USER': 'postgres',
-        'PASSWORD': 'fdhdkj@33443',
-        'HOST': 'localhost',
-        'PORT': '',
-}
-}
 # DATABASES = {
 #   'default': {
 #      'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'inventory',
+#         'NAME': 'invgap_db1',
 #         'USER': 'postgres',
-#         'PASSWORD': 'mohamad',
+#         'PASSWORD': 'fdhdkj@33443',
 #         'HOST': 'localhost',
 #         'PORT': '',
 # }
 # }
+DATABASES = {
+  'default': {
+     'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'inventory',
+        'USER': 'postgres',
+        'PASSWORD': 'mohamad',
+        'HOST': 'localhost',
+        'PORT': '',
+}
+}
 
 # DATABASES = {
 #     'default': {

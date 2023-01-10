@@ -448,8 +448,8 @@ class itemdb(APIView):
                 "EnergySource_generator":excel_data_df['energysource'][i],
                 "Manufacturer":excel_data_df['Manufacturer'][i],
                 "TypeP":excel_data_df['type'][i],
-                "Type2":excel_data_df['type2'][i],
-                "Type3":excel_data_df['type3'][i],
+                "Type1":excel_data_df['type2'][i],
+                "Type2":excel_data_df['type3'][i],
                 "Model":excel_data_df['model'][i],
                 "NetVaccineStorageCapacity":excel_data_df['netVaccCapacity'][i],
                 "FreezerNetCapacity":excel_data_df['capacity'][i],
@@ -504,7 +504,7 @@ class itemdb(APIView):
 
                 dic_copy=dic.copy()
                 for i in dic.keys():
-                    if(dic[i] == "###"):
+                    if(dic[i] == "###" or dic[i]=="-1"):
                         del dic_copy[i]
                 dic=dic_copy
                 # print(dic)
