@@ -504,7 +504,7 @@ class itemdb(APIView):
 
                 dic_copy=dic.copy()
                 for i in dic.keys():
-                    if(dic[i] == "###" or dic[i]=="-1"):
+                    if(dic[i] == "###" or dic[i]=="-1" or dic[i]==-1):
                         del dic_copy[i]
                 dic=dic_copy
                 # print(dic)
@@ -782,8 +782,8 @@ class itemdb(APIView):
                 if 'CoolantPackNominalCapacity' in dic   and ((dic['CoolantPackNominalCapacity']!=None) or dic['CoolantPackNominalCapacity']!=""):
                     dic['CoolantPackNominalCapacity']=str(dic['CoolantPackNominalCapacity']).replace(",",".")
                     dic["CoolantPackNominalCapacity"]=(float(dic["CoolantPackNominalCapacity"]))
-                         
-                dic['YearInstalled']=str(dic['YearInstalled'])
+                if('YearInstalled' in dic and dic['YearInstalled']!=None):      
+                    dic['YearInstalled']=str(dic['YearInstalled'])
 
                 if 'NotInUseSince' in dic and type(dic['NotInUseSince'])==str:
                     del dic['NotInUseSince']
