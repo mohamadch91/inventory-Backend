@@ -667,21 +667,21 @@ class itemdb(APIView):
                         if(ser.is_valid()):
                             ser.save()
                             dic['Type2']=ser.data["id"]
-                if 'Type3' in dic   and ((dic['Type3']!=None) or dic['Type3']!=""):
-                    types=itemParamDescription.objects.filter(name__icontains=dic['Type3'].strip())
+                if 'Type1' in dic   and ((dic['Type1']!=None) or dic['Type1']!=""):
+                    types=itemParamDescription.objects.filter(name__icontains=dic['Type1'].strip())
                     if(types.count()>0):
-                        dic['Type3']=types[0].id
+                        dic['Type1']=types[0].id
                     else:
                         temp_param={
-                            "name":dic['Type3'],
-                            "paramid":5,
+                            "name":dic['Type1'],
+                            "paramid":3,
                             "enabled":True,
                             "order":1
                         }
                         ser=itemParamDescriptionSerilizer(data=temp_param)
                         if(ser.is_valid()):
                             ser.save()
-                            dic['Type3']=ser.data["id"]
+                            dic['Type1']=ser.data["id"]
                 if 'ReasonsForNotFunctioning' in dic   and ((dic['ReasonsForNotFunctioning']!=None) or dic['ReasonsForNotFunctioning']!=""):
                     types=itemParamDescription.objects.filter(name__icontains=dic['ReasonsForNotFunctioning'].strip())
                     if(types.count()>0):
